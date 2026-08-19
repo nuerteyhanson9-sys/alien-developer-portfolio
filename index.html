@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -81,6 +81,18 @@ body {
     overflow-x: hidden;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    animation: pageLoad 0.6s ease;
+}
+
+@keyframes pageLoad {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 a {
@@ -114,7 +126,12 @@ h1, h2, h3, h4, h5, h6 {
     font-weight: 700;
     line-height: 1.2;
     color: var(--text-bright);
+    letter-spacing: -0.02em;
 }
+
+h1 { letter-spacing: -0.03em; }
+h2 { letter-spacing: -0.02em; }
+h3 { letter-spacing: -0.01em; }
 
 /* --- Scrollbar --- */
 ::-webkit-scrollbar {
@@ -126,18 +143,30 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 ::-webkit-scrollbar-thumb {
-    background: var(--accent-primary);
+    background: linear-gradient(180deg, var(--accent-primary), var(--accent-secondary));
     border-radius: var(--radius-full);
+    border: 2px solid var(--bg-primary);
 }
 
 ::-webkit-scrollbar-thumb:hover {
-    background: var(--accent-secondary);
+    background: linear-gradient(180deg, var(--accent-secondary), #8b5cf6);
+}
+
+/* Firefox */
+* {
+    scrollbar-width: thin;
+    scrollbar-color: var(--accent-primary) var(--bg-primary);
 }
 
 /* --- Selection --- */
 ::selection {
     background: rgba(14, 165, 233, 0.3);
     color: var(--text-bright);
+}
+
+/* --- Smooth focus transitions --- */
+input, textarea, select, button {
+    transition: all var(--transition-base);
 }
 
 /* --- Container --- */
@@ -289,7 +318,7 @@ h1, h2, h3, h4, h5, h6 {
     width: 100%;
     height: 2px;
     background: var(--text-primary);
-    transition: transform var(--transition-base), top var(--transition-base);
+    transition: transform 0.4s cubic-bezier(0.68, -0.6, 0.32, 1.6), top 0.3s ease, opacity 0.3s ease;
 }
 
 .hamburger::before {
@@ -893,7 +922,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .about-brief-grid {
     display: grid;
-    grid-template-columns: repeat(5, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     gap: 20px;
 }
 
@@ -1609,6 +1638,101 @@ h1, h2, h3, h4, h5, h6 {
     background: rgba(14, 165, 233, 0.4);
 }
 
+/* --- Themed Project Previews --- */
+.project-preview {
+    width: 100%;
+    min-height: 220px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.project-preview svg {
+    width: 100%;
+    height: 220px;
+    transition: transform 0.5s ease;
+}
+
+.project-card:hover .project-preview svg {
+    transform: scale(1.05);
+}
+
+.project-preview .glow-blob {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(60px);
+    opacity: 0.25;
+    pointer-events: none;
+}
+
+/* Wedding - romantic glow */
+.preview-wedding .glow-blob { background: #f472b6; width: 120px; height: 120px; top: 10%; left: 20%; }
+.preview-wedding .glow-blob:nth-child(2) { background: #c084fc; width: 100px; height: 100px; bottom: 10%; right: 15%; }
+
+/* Chow Heaven Flyers - warm glow */
+.preview-chow-flyers .glow-blob { background: #f97316; width: 140px; height: 140px; top: 5%; right: 10%; }
+.preview-chow-flyers .glow-blob:nth-child(2) { background: #ef4444; width: 100px; height: 100px; bottom: 15%; left: 20%; }
+
+/* Chow Heaven Website - warm restaurant glow */
+.preview-chow-website .glow-blob { background: #f59e0b; width: 130px; height: 130px; top: 10%; left: 15%; }
+.preview-chow-website .glow-blob:nth-child(2) { background: #dc2626; width: 90px; height: 90px; bottom: 10%; right: 20%; }
+
+/* Vaseline - soft pink glow */
+.preview-vaseline .glow-blob { background: #ec4899; width: 130px; height: 130px; top: 8%; left: 20%; }
+.preview-vaseline .glow-blob:nth-child(2) { background: #f472b6; width: 100px; height: 100px; bottom: 12%; right: 15%; }
+
+/* ShopWave - electric glow */
+.preview-shopwave .glow-blob { background: #06b6d4; width: 140px; height: 140px; top: 5%; right: 10%; }
+.preview-shopwave .glow-blob:nth-child(2) { background: #8b5cf6; width: 100px; height: 100px; bottom: 10%; left: 15%; }
+
+/* Sparkle animation */
+@keyframes floatSparkle {
+    0%, 100% { transform: translateY(0) scale(1); opacity: 0.6; }
+    50% { transform: translateY(-8px) scale(1.2); opacity: 1; }
+}
+
+.preview-sparkle {
+    animation: floatSparkle 2s ease-in-out infinite;
+}
+
+.preview-sparkle:nth-child(2) { animation-delay: 0.5s; }
+.preview-sparkle:nth-child(3) { animation-delay: 1s; }
+.preview-sparkle:nth-child(4) { animation-delay: 1.5s; }
+
+/* Steam animation */
+@keyframes steamRise {
+    0% { transform: translateY(0) scaleX(1); opacity: 0.5; }
+    50% { transform: translateY(-10px) scaleX(1.2); opacity: 0.3; }
+    100% { transform: translateY(-20px) scaleX(0.8); opacity: 0; }
+}
+
+.preview-steam {
+    animation: steamRise 2s ease-in-out infinite;
+}
+
+.preview-steam:nth-child(2) { animation-delay: 0.6s; }
+.preview-steam:nth-child(3) { animation-delay: 1.2s; }
+
+/* Pulse ring */
+@keyframes pulseRing {
+    0% { transform: scale(0.95); opacity: 0.6; }
+    50% { transform: scale(1.05); opacity: 1; }
+    100% { transform: scale(0.95); opacity: 0.6; }
+}
+
+.preview-pulse {
+    animation: pulseRing 3s ease-in-out infinite;
+}
+
+/* Wave animation */
+@keyframes waveMotion {
+    0% { d: path("M0,60 Q60,40 120,60 T240,60"); }
+    50% { d: path("M0,60 Q60,80 120,60 T240,60"); }
+    100% { d: path("M0,60 Q60,40 120,60 T240,60"); }
+}
+
 /* --- Project Info --- */
 .project-info {
     padding: 24px;
@@ -2158,6 +2282,25 @@ a.contact-link:hover {
         transform: translateX(0);
     }
 
+    .nav-menu .nav-link {
+        opacity: 0;
+        transform: translateY(20px);
+        animation: navLinkFade 0.4s ease forwards;
+    }
+
+    .nav-menu .nav-link:nth-child(1) { animation-delay: 0.1s; }
+    .nav-menu .nav-link:nth-child(2) { animation-delay: 0.15s; }
+    .nav-menu .nav-link:nth-child(3) { animation-delay: 0.2s; }
+    .nav-menu .nav-link:nth-child(4) { animation-delay: 0.25s; }
+    .nav-menu .nav-link:nth-child(5) { animation-delay: 0.3s; }
+
+    @keyframes navLinkFade {
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
     .nav-link {
         font-size: 1.2rem;
         padding: 14px 32px;
@@ -2240,11 +2383,14 @@ a.contact-link:hover {
     /* Portfolio Mobile */
     .portfolio-filters {
         gap: 6px;
+        flex-wrap: wrap;
+        justify-content: center;
     }
 
     .filter-btn {
         font-size: 0.8rem;
-        padding: 6px 14px;
+        padding: 8px 16px;
+        min-height: 36px;
     }
 
     .portfolio-grid {
@@ -2253,6 +2399,23 @@ a.contact-link:hover {
 
     .project-mockup {
         max-width: 240px;
+    }
+
+    .project-gallery img {
+        width: 150px;
+        height: 120px;
+    }
+
+    .project-info {
+        padding: 20px;
+    }
+
+    .project-title {
+        font-size: 1.1rem;
+    }
+
+    .project-description {
+        font-size: 0.85rem;
     }
 
     /* Contact Mobile */
@@ -2307,6 +2470,14 @@ a.contact-link:hover {
         font-size: 2rem;
     }
 
+    .hero-tagline {
+        font-size: 1rem;
+    }
+
+    .hero-description {
+        font-size: 0.95rem;
+    }
+
     .hero-buttons {
         flex-direction: column;
         width: 100%;
@@ -2315,6 +2486,8 @@ a.contact-link:hover {
     .hero-buttons .btn {
         width: 100%;
         justify-content: center;
+        padding: 14px 24px;
+        min-height: 48px;
     }
 
     .hero-stats {
@@ -2324,6 +2497,10 @@ a.contact-link:hover {
 
     .stat-divider {
         height: 30px;
+    }
+
+    .stat-number {
+        font-size: 1.3rem;
     }
 
     .alien-scene {
@@ -2339,12 +2516,419 @@ a.contact-link:hover {
     }
 
     .project-info {
+        padding: 18px;
+    }
+
+    .project-tech {
+        gap: 4px;
+    }
+
+    .project-tech span {
+        font-size: 0.68rem;
+        padding: 3px 8px;
+    }
+
+    .contact-form-wrapper {
         padding: 20px;
+    }
+
+    .btn-submit {
+        width: 100%;
+        justify-content: center;
+        min-height: 48px;
+    }
+
+    .footer-links {
+        gap: 12px;
     }
 
     .footer-links a {
         font-size: 0.8rem;
+        padding: 8px 4px;
+        min-height: 40px;
+        display: inline-flex;
+        align-items: center;
     }
+
+    .about-brief-grid {
+        gap: 12px;
+    }
+
+    .about-brief-card {
+        padding: 16px;
+    }
+
+    .skill-row {
+        padding: 20px;
+    }
+
+    .skill-tags {
+        gap: 4px;
+    }
+
+    .tag {
+        font-size: 0.68rem;
+        padding: 3px 8px;
+    }
+}
+
+/* ============================================
+   UI/UX POLISH & REFINEMENTS
+   ============================================ */
+
+/* --- Scroll Progress Bar --- */
+.scroll-progress {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 0%;
+    height: 3px;
+    background: linear-gradient(90deg, var(--accent-primary), var(--accent-secondary), #8b5cf6);
+    z-index: 10001;
+    transition: width 0.1s linear;
+    box-shadow: 0 0 10px var(--accent-primary);
+}
+
+/* --- Enhanced Button Interactions --- */
+.btn {
+    position: relative;
+    overflow: hidden;
+}
+
+.btn::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(255,255,255,0.2), transparent);
+    opacity: 0;
+    transition: opacity var(--transition-fast);
+}
+
+.btn:hover::after {
+    opacity: 1;
+}
+
+.btn:active {
+    transform: translateY(0) scale(0.98);
+}
+
+.btn-primary:active {
+    box-shadow: 0 2px 10px rgba(14, 165, 233, 0.4);
+}
+
+/* --- Enhanced Card Hover (subtle tilt) --- */
+.project-card {
+    transition: all var(--transition-smooth);
+    transform-style: preserve-3d;
+    perspective: 1000px;
+}
+
+.project-card:hover {
+    border-color: var(--border-hover);
+    box-shadow: var(--shadow-glow), 0 20px 60px rgba(0, 0, 0, 0.3);
+    transform: translateY(-6px) rotateX(2deg);
+}
+
+/* --- Enhanced Skill Row Hover --- */
+.skill-row {
+    transition: all var(--transition-smooth);
+}
+
+.skill-row:hover {
+    border-color: var(--border-hover);
+    box-shadow: var(--shadow-glow);
+    transform: translateX(4px);
+}
+
+.skill-row:hover .skill-row-icon {
+    background: rgba(14, 165, 233, 0.2);
+    box-shadow: 0 0 20px rgba(14, 165, 233, 0.3);
+}
+
+.skill-row-icon {
+    transition: all var(--transition-base);
+}
+
+/* --- Enhanced Tag Hover --- */
+.tag {
+    transition: all var(--transition-fast);
+}
+
+.tag:hover {
+    background: rgba(14, 165, 233, 0.2);
+    border-color: var(--accent-primary);
+    color: var(--accent-primary);
+    transform: translateY(-1px);
+}
+
+/* --- Enhanced Filter Button --- */
+.filter-btn {
+    transition: all var(--transition-base);
+    position: relative;
+}
+
+.filter-btn::before {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background: var(--accent-primary);
+    transition: all var(--transition-base);
+    transform: translateX(-50%);
+    border-radius: var(--radius-full);
+}
+
+.filter-btn:hover::before,
+.filter-btn.active::before {
+    width: 80%;
+}
+
+.filter-btn:hover {
+    color: var(--accent-primary);
+}
+
+/* --- Enhanced Contact Card --- */
+.contact-card {
+    transition: all var(--transition-smooth);
+}
+
+.contact-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-glow), 0 12px 40px rgba(0, 0, 0, 0.3);
+}
+
+.contact-card:hover .contact-card-icon {
+    background: rgba(14, 165, 233, 0.25);
+    box-shadow: 0 0 15px rgba(14, 165, 233, 0.3);
+}
+
+.contact-card-icon {
+    transition: all var(--transition-base);
+}
+
+/* --- Enhanced Social Link --- */
+.social-link {
+    transition: all var(--transition-base);
+}
+
+.social-link:hover {
+    transform: translateY(-3px) scale(1.1);
+    box-shadow: 0 4px 15px rgba(14, 165, 233, 0.3);
+}
+
+.social-link:active {
+    transform: translateY(0) scale(0.95);
+}
+
+/* --- Enhanced Form Focus --- */
+.form-group input,
+.form-group textarea {
+    transition: all var(--transition-base);
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    transform: translateY(-1px);
+    box-shadow: 0 0 0 3px rgba(14, 165, 233, 0.15), 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* --- Form Error Shake --- */
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    20% { transform: translateX(-4px); }
+    40% { transform: translateX(4px); }
+    60% { transform: translateX(-3px); }
+    80% { transform: translateX(3px); }
+}
+
+.form-group input.error,
+.form-group textarea.error {
+    border-color: #ef4444;
+    animation: shake 0.4s ease;
+    box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.15);
+}
+
+/* --- Enhanced Footer --- */
+.footer {
+    transition: all var(--transition-base);
+}
+
+.footer-links a {
+    position: relative;
+}
+
+.footer-links a::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background: var(--accent-primary);
+    transition: width var(--transition-base);
+}
+
+.footer-links a:hover::after {
+    width: 100%;
+}
+
+/* --- Page Transition Overlay --- */
+.page-transition {
+    position: fixed;
+    inset: 0;
+    background: var(--bg-primary);
+    z-index: 9998;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+}
+
+.page-transition.active {
+    opacity: 1;
+    pointer-events: all;
+}
+
+/* --- Smooth Section Reveal --- */
+@keyframes sectionReveal {
+    from {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* --- About Brief Card Enhanced --- */
+.about-brief-card {
+    transition: all var(--transition-smooth);
+}
+
+.about-brief-card:hover {
+    transform: translateY(-6px);
+    border-color: var(--border-hover);
+    box-shadow: var(--shadow-glow), 0 12px 40px rgba(0, 0, 0, 0.3);
+}
+
+.about-brief-card:hover .about-brief-icon {
+    background: rgba(14, 165, 233, 0.2);
+    box-shadow: 0 0 20px rgba(14, 165, 233, 0.3);
+    transform: scale(1.1);
+}
+
+.about-brief-icon {
+    transition: all var(--transition-base);
+}
+
+/* --- Phone CTA Enhanced --- */
+.phone-cta {
+    transition: all var(--transition-smooth);
+}
+
+.phone-cta:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-glow), 0 12px 40px rgba(0, 0, 0, 0.3);
+}
+
+/* --- Nav Link Enhanced Underline --- */
+.nav-link {
+    position: relative;
+    overflow: hidden;
+}
+
+.nav-link::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background: var(--accent-primary);
+    transition: all var(--transition-base);
+    transform: translateX(-50%);
+    border-radius: var(--radius-full);
+}
+
+.nav-link:hover::before,
+.nav-link.active::before {
+    width: 60%;
+}
+
+/* --- Section Tag Enhanced --- */
+.section-tag {
+    transition: all var(--transition-base);
+}
+
+/* --- Lightbox Enhanced --- */
+.lightbox-overlay {
+    transition: opacity 0.3s ease, backdrop-filter 0.3s ease;
+}
+
+.lightbox-content img,
+.lightbox-content video {
+    transition: transform 0.3s ease;
+}
+
+.lightbox-content img:hover,
+.lightbox-content video:hover {
+    transform: scale(1.02);
+}
+
+/* --- Loading Skeleton --- */
+@keyframes shimmer {
+    0% { background-position: -200% 0; }
+    100% { background-position: 200% 0; }
+}
+
+.skeleton {
+    background: linear-gradient(90deg, rgba(14,165,233,0.05) 25%, rgba(14,165,233,0.1) 50%, rgba(14,165,233,0.05) 75%);
+    background-size: 200% 100%;
+    animation: shimmer 1.5s infinite;
+    border-radius: var(--radius-sm);
+}
+
+/* --- Tooltip Base --- */
+[data-tooltip] {
+    position: relative;
+}
+
+[data-tooltip]::after {
+    content: attr(data-tooltip);
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-4px);
+    padding: 6px 12px;
+    background: rgba(10, 14, 26, 0.95);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-sm);
+    font-size: 0.75rem;
+    color: var(--text-primary);
+    white-space: nowrap;
+    opacity: 0;
+    pointer-events: none;
+    transition: all var(--transition-fast);
+    z-index: 100;
+}
+
+[data-tooltip]:hover::after {
+    opacity: 1;
+    transform: translateX(-50%) translateY(-8px);
+}
+
+/* --- Focus Visible (Accessibility) --- */
+:focus-visible {
+    outline: 2px solid var(--accent-primary);
+    outline-offset: 2px;
+}
+
+button:focus-visible,
+a:focus-visible {
+    outline: 2px solid var(--accent-primary);
+    outline-offset: 2px;
 }
 
 /* ============================================
@@ -2412,12 +2996,186 @@ a.contact-link:hover {
     }
 }
 
+/* --- Image Gallery Mockup --- */
+.project-gallery {
+    display: flex;
+    gap: 8px;
+    padding: 12px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+}
+
+.project-gallery::-webkit-scrollbar {
+    height: 4px;
+}
+
+.project-gallery::-webkit-scrollbar-thumb {
+    background: var(--accent-primary);
+    border-radius: var(--radius-full);
+}
+
+.project-gallery img {
+    flex-shrink: 0;
+    width: 200px;
+    height: 160px;
+    object-fit: cover;
+    border-radius: var(--radius-sm);
+    border: 1px solid var(--border-color);
+    scroll-snap-align: center;
+    transition: transform var(--transition-base), border-color var(--transition-base);
+    cursor: pointer;
+}
+
+.project-gallery img:hover {
+    transform: scale(1.05);
+    border-color: var(--accent-primary);
+}
+
+/* --- Video Mockup --- */
+.project-video {
+    width: 100%;
+    border-radius: var(--radius-md);
+    border: 1px solid var(--border-color);
+    display: block;
+}
+
+/* --- Lightbox Modal Gallery --- */
+.lightbox-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    background: rgba(0, 0, 0, 0.92);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.lightbox-overlay.active {
+    display: flex;
+    opacity: 1;
+}
+
+.lightbox-content {
+    position: relative;
+    max-width: 90vw;
+    max-height: 90vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.lightbox-content img {
+    max-width: 90vw;
+    max-height: 85vh;
+    object-fit: contain;
+    border-radius: var(--radius-md);
+    border: 1px solid var(--border-color);
+    box-shadow: 0 8px 40px rgba(0, 0, 0, 0.6);
+    user-select: none;
+}
+
+.lightbox-close {
+    position: fixed;
+    top: 20px;
+    right: 24px;
+    width: 44px;
+    height: 44px;
+    border: 1px solid rgba(255,255,255,0.2);
+    border-radius: 50%;
+    background: rgba(10, 14, 26, 0.7);
+    color: #fff;
+    font-size: 1.4rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+    z-index: 10001;
+}
+
+.lightbox-close:hover {
+    background: var(--accent-primary);
+    border-color: var(--accent-primary);
+    transform: rotate(90deg);
+}
+
+.lightbox-nav {
+    position: fixed;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 48px;
+    height: 48px;
+    border: 1px solid rgba(255,255,255,0.2);
+    border-radius: 50%;
+    background: rgba(10, 14, 26, 0.7);
+    color: #fff;
+    font-size: 1.2rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+    z-index: 10001;
+}
+
+.lightbox-nav:hover {
+    background: var(--accent-primary);
+    border-color: var(--accent-primary);
+}
+
+.lightbox-prev {
+    left: 20px;
+}
+
+.lightbox-next {
+    right: 20px;
+}
+
+.lightbox-counter {
+    position: fixed;
+    bottom: 24px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: rgba(255,255,255,0.7);
+    font-family: var(--font-mono);
+    font-size: 0.85rem;
+    z-index: 10001;
+}
+
+/* --- Scroll Animations --- */
+.about-brief-card,
+.contact-card,
+.contact-form-wrapper,
+.contact-info,
+.hero-content,
+.hero-visual {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+.about-brief-card.visible,
+.contact-card.visible,
+.contact-form-wrapper.visible,
+.contact-info.visible,
+.hero-content.visible,
+.hero-visual.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
     </style>
 </head>
 <body>
+    <div class="scroll-progress" id="scroll-progress"></div>
+    <div class="page-transition" id="page-transition"></div>
     <nav class="navbar" id="navbar">
         <div class="nav-container">
-            <a class="nav-logo" data-page="home" style="cursor:pointer">
+            <a class="nav-logo" href="#" data-page="home" style="cursor:pointer">
                 <span class="logo-bracket">&lt;</span>Alien<span class="logo-highlight">Dev</span><span class="logo-bracket">/&gt;</span>
             </a>
             <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation">
@@ -2458,15 +3216,15 @@ a.contact-link:hover {
                             into elegant, functional solutions.
                         </p>
                         <div class="hero-buttons">
-                            <a class="btn btn-primary" data-page="projects" style="cursor:pointer">
+                            <a class="btn btn-primary" href="#" data-page="projects" style="cursor:pointer">
                                 <span>View My Work</span>
                                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg>
                             </a>
-                            <a class="btn btn-outline" data-page="contact" style="cursor:pointer">Get In Touch</a>
+                            <a class="btn btn-outline" href="#" data-page="contact" style="cursor:pointer">Get In Touch</a>
                         </div>
                         <div class="hero-stats">
                             <div class="stat">
-                                <span class="stat-number" data-target="6">0</span>
+                                <span class="stat-number" data-target="7">0</span>
                                 <span class="stat-label">Core Skills</span>
                             </div>
                             <div class="stat-divider"></div>
@@ -2559,6 +3317,20 @@ a.contact-link:hover {
                         <h3>User Generated Content</h3>
                         <p>Building community-driven content strategies that boost engagement and brand reach.</p>
                     </div>
+                    <div class="about-brief-card">
+                        <div class="about-brief-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"></rect><line x1="12" y1="18" x2="12.01" y2="18"></line></svg>
+                        </div>
+                        <h3>Mobile App Development</h3>
+                        <p>Cross-platform mobile apps with native-like performance and seamless UX.</p>
+                    </div>
+                    <div class="about-brief-card">
+                        <div class="about-brief-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><ellipse cx="12" cy="5" rx="9" ry="3"></ellipse><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"></path><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"></path></svg>
+                        </div>
+                        <h3>Databases</h3>
+                        <p>Designing and managing relational & NoSQL databases for scalable applications.</p>
+                    </div>
                 </div>
             </div>
         </section>
@@ -2566,14 +3338,14 @@ a.contact-link:hover {
         <footer class="footer">
             <div class="container">
                 <div class="footer-content">
-                    <a class="footer-logo" data-page="home" style="cursor:pointer">
+                    <a class="footer-logo" href="#" data-page="home" style="cursor:pointer">
                         <span class="logo-bracket">&lt;</span>Alien<span class="logo-highlight">Dev</span><span class="logo-bracket">/&gt;</span>
                     </a>
                     <div class="footer-links">
-                        <a data-page="home" style="cursor:pointer">Home</a>
-                        <a data-page="skills" style="cursor:pointer">Skills</a>
-                        <a data-page="projects" style="cursor:pointer">Projects</a>
-                        <a data-page="contact" style="cursor:pointer">Contact</a>
+                        <a data-page="home" href="#" style="cursor:pointer">Home</a>
+                        <a data-page="skills" href="#" style="cursor:pointer">Skills</a>
+                        <a data-page="projects" href="#" style="cursor:pointer">Projects</a>
+                        <a data-page="contact" href="#" style="cursor:pointer">Contact</a>
                     </div>
                     <div class="footer-social">
                         <a href="https://github.com/nuerteyhanson9-sys" target="_blank" rel="noopener noreferrer" aria-label="GitHub" class="social-link">
@@ -2582,8 +3354,8 @@ a.contact-link:hover {
                         <a href="https://www.linkedin.com/in/hanson-nuertey-633b053b6" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" class="social-link">
                             <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
                         </a>
-                        <a href="#" aria-label="Twitter / X" class="social-link">
-                            <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+                        <a href="https://wa.me/233509120845" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp" class="social-link">
+                            <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
                         </a>
                     </div>
                 </div>
@@ -2780,42 +3552,66 @@ a.contact-link:hover {
                             </div>
                         </div>
                     </div>
+
+                    <div class="skill-row" data-skill="mobile">
+                        <div class="skill-row-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                                <rect x="5" y="2" width="14" height="20" rx="2" ry="2"></rect>
+                                <line x1="12" y1="18" x2="12.01" y2="18"></line>
+                            </svg>
+                        </div>
+                        <div class="skill-row-content">
+                            <div class="skill-row-header">
+                                <h2>Mobile App Development</h2>
+                                <span class="skill-level-badge advanced">Advanced</span>
+                            </div>
+                            <p>Building cross-platform mobile applications with native-like performance and smooth user experiences. Skilled in responsive UI, offline-first architecture, and app store deployment for both iOS and Android.</p>
+                            <div class="skill-tags">
+                                <span class="tag">Flutter</span>
+                                <span class="tag">Dart</span>
+                                <span class="tag">React Native</span>
+                                <span class="tag">Firebase</span>
+                                <span class="tag">REST APIs</span>
+                                <span class="tag">App Store / Play Store</span>
+                            </div>
+                            <div class="skill-level-bar">
+                                <div class="level-fill" data-level="86"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="skill-row" data-skill="database">
+                        <div class="skill-row-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                                <ellipse cx="12" cy="5" rx="9" ry="3"></ellipse>
+                                <path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"></path>
+                                <path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"></path>
+                            </svg>
+                        </div>
+                        <div class="skill-row-content">
+                            <div class="skill-row-header">
+                                <h2>Databases</h2>
+                                <span class="skill-level-badge advanced">Advanced</span>
+                            </div>
+                            <p>Designing and managing relational and NoSQL databases for scalable, high-performance applications. Skilled in schema design, query optimization, data modeling, and cloud database services for real-time and enterprise-level systems.</p>
+                            <div class="skill-tags">
+                                <span class="tag">MySQL</span>
+                                <span class="tag">PostgreSQL</span>
+                                <span class="tag">MongoDB</span>
+                                <span class="tag">Firebase</span>
+                                <span class="tag">SQLite</span>
+                                <span class="tag">Supabase</span>
+                            </div>
+                            <div class="skill-level-bar">
+                                <div class="level-fill" data-level="84"></div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
-
-        <footer class="footer">
-            <div class="container">
-                <div class="footer-content">
-                    <a class="footer-logo" data-page="home" style="cursor:pointer">
-                        <span class="logo-bracket">&lt;</span>Alien<span class="logo-highlight">Dev</span><span class="logo-bracket">/&gt;</span>
-                    </a>
-                    <div class="footer-links">
-                        <a data-page="home" style="cursor:pointer">Home</a>
-                        <a data-page="skills" style="cursor:pointer">Skills</a>
-                        <a data-page="projects" style="cursor:pointer">Projects</a>
-                        <a data-page="contact" style="cursor:pointer">Contact</a>
-                    </div>
-                    <div class="footer-social">
-                        <a href="https://github.com/nuerteyhanson9-sys" target="_blank" rel="noopener noreferrer" aria-label="GitHub" class="social-link">
-                            <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
-                        </a>
-                        <a href="https://www.linkedin.com/in/hanson-nuertey-633b053b6" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" class="social-link">
-                            <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
-                        </a>
-                        <a href="#" aria-label="Twitter / X" class="social-link">
-                            <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
-                        </a>
-                    </div>
-                </div>
-                <div class="footer-bottom">
-                    <p>&copy; 2026 Alien Developer. All rights reserved.</p>
-                </div>
-            </div>
-        </footer>
     </section>
 
-    <!-- ========== PAGE: PROJECTS ========== -->
     <section class="page-section" id="page-projects" style="display:none">
         <section class="page-hero">
             <div class="hero-bg">
@@ -2826,7 +3622,7 @@ a.contact-link:hover {
             <div class="container">
                 <span class="section-tag">My Work</span>
                 <h1 class="page-hero-title">Featured Projects</h1>
-                <p class="page-hero-desc">A selection of projects showcasing skills across all five disciplines.</p>
+                <p class="page-hero-desc">A selection of projects showcasing skills across all seven disciplines.</p>
             </div>
         </section>
 
@@ -2834,29 +3630,58 @@ a.contact-link:hover {
             <div class="container">
                 <div class="portfolio-filters">
                     <button class="filter-btn active" data-filter="all">All</button>
-                    <button class="filter-btn" data-filter="programming">Programming</button>
                     <button class="filter-btn" data-filter="prompt">AI / Prompt</button>
                     <button class="filter-btn" data-filter="web">Web Dev</button>
                     <button class="filter-btn" data-filter="design">Design</button>
+                    <button class="filter-btn" data-filter="mobile">Mobile</button>
                     <button class="filter-btn" data-filter="data">Data</button>
+                    <button class="filter-btn" data-filter="database">Database</button>
                 </div>
                 <div class="portfolio-grid">
                     <div class="project-card" data-category="web">
                         <div class="project-image">
-                            <div class="project-mockup">
-                                <div class="mockup-bar"><span></span><span></span><span></span></div>
-                                <div class="mockup-content">
-                                    <div class="mockup-nav-bar"></div>
-                                    <div class="mockup-hero-section">
-                                        <div class="mockup-line" style="width:60%"></div>
-                                        <div class="mockup-line short" style="width:45%"></div>
-                                        <div class="mockup-btn-placeholder"></div>
-                                    </div>
-                                    <div class="mockup-grid-inner">
-                                        <div class="mockup-card-sm"></div>
-                                        <div class="mockup-card-sm"></div>
-                                    </div>
-                                </div>
+                            <div class="project-preview preview-wedding">
+                                <div class="glow-blob"></div>
+                                <div class="glow-blob"></div>
+                                <svg viewBox="0 0 240 220" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <!-- Sparkles -->
+                                    <circle class="preview-sparkle" cx="30" cy="40" r="2" fill="#f472b6" opacity="0.8"/>
+                                    <circle class="preview-sparkle" cx="210" cy="35" r="2.5" fill="#c084fc" opacity="0.7"/>
+                                    <circle class="preview-sparkle" cx="50" cy="180" r="1.8" fill="#f9a8d4" opacity="0.6"/>
+                                    <circle class="preview-sparkle" cx="195" cy="175" r="2" fill="#a78bfa" opacity="0.7"/>
+                                    <!-- Rings -->
+                                    <circle cx="100" cy="105" r="28" stroke="url(#weddingGrad1)" stroke-width="3" fill="none" class="preview-pulse"/>
+                                    <circle cx="140" cy="105" r="28" stroke="url(#weddingGrad2)" stroke-width="3" fill="none" class="preview-pulse"/>
+                                    <!-- Diamond on ring -->
+                                    <polygon points="120,72 128,82 120,92 112,82" fill="url(#weddingGrad1)" opacity="0.9"/>
+                                    <polygon points="120,72 124,77 120,82 116,77" fill="white" opacity="0.4"/>
+                                    <!-- Flowers left -->
+                                    <circle cx="45" cy="120" r="10" fill="#f472b6" opacity="0.3"/>
+                                    <circle cx="38" cy="112" r="8" fill="#ec4899" opacity="0.25"/>
+                                    <circle cx="52" cy="115" r="7" fill="#f9a8d4" opacity="0.3"/>
+                                    <path d="M40,130 Q45,140 50,130" stroke="#22c55e" stroke-width="1.5" fill="none" opacity="0.4"/>
+                                    <path d="M35,135 Q42,148 48,133" stroke="#22c55e" stroke-width="1" fill="none" opacity="0.3"/>
+                                    <!-- Flowers right -->
+                                    <circle cx="195" cy="118" r="10" fill="#c084fc" opacity="0.3"/>
+                                    <circle cx="202" cy="110" r="8" fill="#a78bfa" opacity="0.25"/>
+                                    <circle cx="188" cy="113" r="7" fill="#ddd6fe" opacity="0.3"/>
+                                    <path d="M190,128 Q195,138 200,128" stroke="#22c55e" stroke-width="1.5" fill="none" opacity="0.4"/>
+                                    <!-- Hearts -->
+                                    <path d="M115,55 C115,52 118,50 120,52 C122,50 125,52 125,55 C125,58 120,62 120,62 C120,62 115,58 115,55Z" fill="#f472b6" opacity="0.5"/>
+                                    <!-- Text lines -->
+                                    <rect x="80" y="155" width="80" height="4" rx="2" fill="url(#weddingGrad1)" opacity="0.3"/>
+                                    <rect x="95" y="165" width="50" height="3" rx="1.5" fill="url(#weddingGrad2)" opacity="0.2"/>
+                                    <defs>
+                                        <linearGradient id="weddingGrad1" x1="0%" y1="0%" x2="100%" y2="100%">
+                                            <stop offset="0%" stop-color="#f472b6"/>
+                                            <stop offset="100%" stop-color="#c084fc"/>
+                                        </linearGradient>
+                                        <linearGradient id="weddingGrad2" x1="0%" y1="0%" x2="100%" y2="100%">
+                                            <stop offset="0%" stop-color="#c084fc"/>
+                                            <stop offset="100%" stop-color="#a78bfa"/>
+                                        </linearGradient>
+                                    </defs>
+                                </svg>
                             </div>
                         </div>
                         <div class="project-info">
@@ -2866,7 +3691,7 @@ a.contact-link:hover {
                             <div class="project-tech">
                                 <span>HTML</span><span>CSS</span><span>JavaScript</span>
                             </div>
-                            <a href="#" class="project-link">
+                            <a href="wedding-invitation/index.html" class="project-link" target="_blank">
                                 View Project
                                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg>
                             </a>
@@ -2875,29 +3700,59 @@ a.contact-link:hover {
 
                     <div class="project-card" data-category="design">
                         <div class="project-image">
-                            <div class="project-mockup">
-                                <div class="mockup-bar"><span></span><span></span><span></span></div>
-                                <div class="mockup-content mockup-design">
-                                    <div class="design-element circle"></div>
-                                    <div class="design-element square"></div>
-                                    <div class="design-element triangle"></div>
-                                    <div class="design-colors">
-                                        <span style="background:#f59e0b"></span>
-                                        <span style="background:#ef4444"></span>
-                                        <span style="background:#10b981"></span>
-                                        <span style="background:#8b5cf6"></span>
-                                    </div>
-                                    <div class="design-typography">
-                                        <div class="mockup-line" style="width:60%"></div>
-                                        <div class="mockup-line short" style="width:40%"></div>
-                                    </div>
-                                </div>
+                            <div class="project-preview preview-chow-flyers">
+                                <div class="glow-blob"></div>
+                                <div class="glow-blob"></div>
+                                <svg viewBox="0 0 240 220" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <!-- Plate -->
+                                    <ellipse cx="120" cy="130" rx="70" ry="20" fill="url(#foodGrad1)" opacity="0.15"/>
+                                    <ellipse cx="120" cy="125" rx="65" ry="45" stroke="url(#foodGrad1)" stroke-width="2" fill="none" opacity="0.4"/>
+                                    <ellipse cx="120" cy="125" rx="55" ry="38" stroke="url(#foodGrad2)" stroke-width="1" fill="none" opacity="0.25"/>
+                                    <!-- Food items -->
+                                    <rect x="95" y="100" width="50" height="35" rx="6" fill="url(#foodGrad2)" opacity="0.3"/>
+                                    <rect x="100" y="105" width="40" height="8" rx="4" fill="#f97316" opacity="0.4"/>
+                                    <rect x="100" y="116" width="40" height="6" rx="3" fill="#ef4444" opacity="0.3"/>
+                                    <rect x="100" y="125" width="40" height="6" rx="3" fill="#22c55e" opacity="0.3"/>
+                                    <!-- Steam -->
+                                    <path class="preview-steam" d="M105,88 Q108,78 105,68" stroke="white" stroke-width="1.5" fill="none" opacity="0.3"/>
+                                    <path class="preview-steam" d="M120,85 Q123,75 120,65" stroke="white" stroke-width="1.5" fill="none" opacity="0.25"/>
+                                    <path class="preview-steam" d="M135,88 Q138,78 135,68" stroke="white" stroke-width="1.5" fill="none" opacity="0.3"/>
+                                    <!-- Utensils -->
+                                    <line x1="55" y1="90" x2="55" y2="160" stroke="url(#foodGrad1)" stroke-width="2" stroke-linecap="round" opacity="0.4"/>
+                                    <line x1="185" y1="90" x2="185" y2="160" stroke="url(#foodGrad1)" stroke-width="2" stroke-linecap="round" opacity="0.4"/>
+                                    <path d="M52,90 Q55,82 58,90" stroke="url(#foodGrad1)" stroke-width="1.5" fill="none" opacity="0.3"/>
+                                    <!-- Fork tines -->
+                                    <line x1="50" y1="88" x2="50" y2="95" stroke="url(#foodGrad1)" stroke-width="1" opacity="0.3"/>
+                                    <line x1="55" y1="86" x2="55" y2="95" stroke="url(#foodGrad1)" stroke-width="1" opacity="0.3"/>
+                                    <line x1="60" y1="88" x2="60" y2="95" stroke="url(#foodGrad1)" stroke-width="1" opacity="0.3"/>
+                                    <!-- Decorative dots -->
+                                    <circle cx="40" cy="50" r="2" fill="#f97316" opacity="0.5"/>
+                                    <circle cx="200" cy="45" r="2.5" fill="#ef4444" opacity="0.4"/>
+                                    <circle cx="35" cy="180" r="1.5" fill="#f59e0b" opacity="0.4"/>
+                                    <circle cx="205" cy="185" r="2" fill="#f97316" opacity="0.5"/>
+                                    <!-- Sparkles -->
+                                    <circle class="preview-sparkle" cx="60" cy="40" r="2" fill="#fbbf24" opacity="0.6"/>
+                                    <circle class="preview-sparkle" cx="180" cy="35" r="2" fill="#f97316" opacity="0.5"/>
+                                    <!-- Text lines -->
+                                    <rect x="80" y="175" width="80" height="4" rx="2" fill="url(#foodGrad1)" opacity="0.25"/>
+                                    <rect x="95" y="183" width="50" height="3" rx="1.5" fill="url(#foodGrad2)" opacity="0.2"/>
+                                    <defs>
+                                        <linearGradient id="foodGrad1" x1="0%" y1="0%" x2="100%" y2="100%">
+                                            <stop offset="0%" stop-color="#f97316"/>
+                                            <stop offset="100%" stop-color="#ef4444"/>
+                                        </linearGradient>
+                                        <linearGradient id="foodGrad2" x1="0%" y1="0%" x2="100%" y2="100%">
+                                            <stop offset="0%" stop-color="#fbbf24"/>
+                                            <stop offset="100%" stop-color="#f97316"/>
+                                        </linearGradient>
+                                    </defs>
+                                </svg>
                             </div>
                         </div>
                         <div class="project-info">
                             <span class="project-category">Graphic Design</span>
                             <h3 class="project-title">Chow Heaven</h3>
-                            <p class="project-description">Designed a vibrant flyer for "Chow Heaven" â€” a creative concept project showcasing food branding and promotional design skills.</p>
+                            <p class="project-description">Designed vibrant flyers for "Chow Heaven" � a creative concept project showcasing food branding and promotional design skills.</p>
                             <div class="project-tech">
                                 <span>Photoshop</span><span>Ideogram</span>
                             </div>
@@ -2910,21 +3765,58 @@ a.contact-link:hover {
 
                     <div class="project-card" data-category="web">
                         <div class="project-image">
-                            <div class="project-mockup">
-                                <div class="mockup-bar"><span></span><span></span><span></span></div>
-                                <div class="mockup-content">
-                                    <div class="mockup-nav-bar"></div>
-                                    <div class="mockup-hero-section">
-                                        <div class="mockup-line" style="width:55%"></div>
-                                        <div class="mockup-line short" style="width:40%"></div>
-                                        <div class="mockup-btn-placeholder"></div>
-                                    </div>
-                                    <div class="mockup-grid-inner">
-                                        <div class="mockup-card-sm"></div>
-                                        <div class="mockup-card-sm"></div>
-                                        <div class="mockup-card-sm"></div>
-                                    </div>
-                                </div>
+                            <div class="project-preview preview-chow-website">
+                                <div class="glow-blob"></div>
+                                <div class="glow-blob"></div>
+                                <svg viewBox="0 0 240 220" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <!-- Browser window -->
+                                    <rect x="30" y="30" width="180" height="150" rx="8" fill="#0d1525" stroke="url(#webGrad1)" stroke-width="1.5" opacity="0.9"/>
+                                    <!-- Browser bar -->
+                                    <rect x="30" y="30" width="180" height="24" rx="8" fill="rgba(15,22,41,0.9)"/>
+                                    <rect x="30" y="46" width="180" height="1" fill="url(#webGrad1)" opacity="0.2"/>
+                                    <circle cx="44" cy="42" r="4" fill="#ef4444" opacity="0.6"/>
+                                    <circle cx="56" cy="42" r="4" fill="#f59e0b" opacity="0.6"/>
+                                    <circle cx="68" cy="42" r="4" fill="#22c55e" opacity="0.6"/>
+                                    <!-- URL bar -->
+                                    <rect x="82" y="37" width="100" height="10" rx="5" fill="rgba(14,165,233,0.1)" stroke="rgba(14,165,233,0.15)" stroke-width="0.5"/>
+                                    <!-- Hero section with food -->
+                                    <rect x="42" y="62" width="156" height="60" rx="4" fill="url(#webGrad2)" opacity="0.15"/>
+                                    <!-- Plate icon in hero -->
+                                    <ellipse cx="120" cy="85" rx="22" ry="14" stroke="url(#webGrad1)" stroke-width="1.5" fill="none" opacity="0.5"/>
+                                    <ellipse cx="120" cy="83" rx="16" ry="10" fill="url(#webGrad1)" opacity="0.15"/>
+                                    <!-- Steam from hero plate -->
+                                    <path class="preview-steam" d="M112,68 Q115,60 112,52" stroke="white" stroke-width="1" fill="none" opacity="0.3"/>
+                                    <path class="preview-steam" d="M120,66 Q123,58 120,50" stroke="white" stroke-width="1" fill="none" opacity="0.25"/>
+                                    <path class="preview-steam" d="M128,68 Q131,60 128,52" stroke="white" stroke-width="1" fill="none" opacity="0.3"/>
+                                    <!-- Menu items -->
+                                    <rect x="42" y="132" width="48" height="30" rx="4" fill="rgba(249,115,22,0.15)" stroke="rgba(249,115,22,0.2)" stroke-width="0.5"/>
+                                    <rect x="96" y="132" width="48" height="30" rx="4" fill="rgba(239,68,68,0.15)" stroke="rgba(239,68,68,0.2)" stroke-width="0.5"/>
+                                    <rect x="150" y="132" width="48" height="30" rx="4" fill="rgba(34,197,94,0.15)" stroke="rgba(34,197,94,0.2)" stroke-width="0.5"/>
+                                    <!-- Small food icons in menu cards -->
+                                    <circle cx="66" cy="144" r="6" fill="#f97316" opacity="0.3"/>
+                                    <circle cx="120" cy="144" r="6" fill="#ef4444" opacity="0.3"/>
+                                    <circle cx="174" cy="144" r="6" fill="#22c55e" opacity="0.3"/>
+                                    <!-- Text lines in menu cards -->
+                                    <rect x="54" y="153" width="24" height="2" rx="1" fill="url(#webGrad1)" opacity="0.3"/>
+                                    <rect x="108" y="153" width="24" height="2" rx="1" fill="url(#webGrad1)" opacity="0.3"/>
+                                    <rect x="162" y="153" width="24" height="2" rx="1" fill="url(#webGrad1)" opacity="0.3"/>
+                                    <!-- Sparkles -->
+                                    <circle class="preview-sparkle" cx="38" cy="25" r="2" fill="#fbbf24" opacity="0.6"/>
+                                    <circle class="preview-sparkle" cx="202" cy="22" r="2" fill="#f97316" opacity="0.5"/>
+                                    <!-- Floating elements -->
+                                    <circle cx="15" cy="80" r="3" fill="#f59e0b" opacity="0.2"/>
+                                    <circle cx="225" cy="100" r="3" fill="#ef4444" opacity="0.2"/>
+                                    <defs>
+                                        <linearGradient id="webGrad1" x1="0%" y1="0%" x2="100%" y2="100%">
+                                            <stop offset="0%" stop-color="#f59e0b"/>
+                                            <stop offset="100%" stop-color="#dc2626"/>
+                                        </linearGradient>
+                                        <linearGradient id="webGrad2" x1="0%" y1="0%" x2="100%" y2="100%">
+                                            <stop offset="0%" stop-color="#f97316"/>
+                                            <stop offset="100%" stop-color="#ef4444"/>
+                                        </linearGradient>
+                                    </defs>
+                                </svg>
                             </div>
                         </div>
                         <div class="project-info">
@@ -2934,7 +3826,7 @@ a.contact-link:hover {
                             <div class="project-tech">
                                 <span>HTML</span><span>CSS</span><span>JavaScript</span><span>Antigravity</span>
                             </div>
-                            <a href="#" class="project-link">
+                            <a href="assets/chow-heaven-website/index.html" target="_blank" class="project-link">
                                 View Project
                                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg>
                             </a>
@@ -2943,25 +3835,55 @@ a.contact-link:hover {
 
                     <div class="project-card" data-category="prompt">
                         <div class="project-image">
-                            <div class="project-mockup">
-                                <div class="mockup-bar"><span></span><span></span><span></span></div>
-                                <div class="mockup-content mockup-ai">
-                                    <div class="ai-conversation">
-                                        <div class="ai-msg prompt-msg">
-                                            <div class="ai-msg-label">Prompt</div>
-                                            <div class="ai-msg-text">"Create engaging UGC content for Vaseline GH skincare campaign..."</div>
-                                        </div>
-                                        <div class="ai-msg response-msg">
-                                            <div class="ai-msg-label">Response</div>
-                                            <div class="ai-msg-blocks">
-                                                <div class="ai-block"></div>
-                                                <div class="ai-block"></div>
-                                                <div class="ai-block short"></div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="ai-sparkle">&#10024;</div>
-                                </div>
+                            <div class="project-preview preview-vaseline">
+                                <div class="glow-blob"></div>
+                                <div class="glow-blob"></div>
+                                <svg viewBox="0 0 240 220" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <!-- Sparkles -->
+                                    <circle class="preview-sparkle" cx="40" cy="35" r="2" fill="#f472b6" opacity="0.7"/>
+                                    <circle class="preview-sparkle" cx="200" cy="30" r="2.5" fill="#ec4899" opacity="0.6"/>
+                                    <circle class="preview-sparkle" cx="55" cy="185" r="1.8" fill="#f9a8d4" opacity="0.5"/>
+                                    <circle class="preview-sparkle" cx="185" cy="190" r="2" fill="#c084fc" opacity="0.6"/>
+                                    <!-- Skincare bottle -->
+                                    <rect x="95" y="55" width="50" height="110" rx="10" fill="url(#beautyGrad1)" opacity="0.3" stroke="url(#beautyGrad2)" stroke-width="1.5"/>
+                                    <!-- Bottle cap -->
+                                    <rect x="105" y="42" width="30" height="18" rx="4" fill="url(#beautyGrad2)" opacity="0.4"/>
+                                    <!-- Bottle label area -->
+                                    <rect x="102" y="80" width="36" height="50" rx="4" fill="white" opacity="0.08"/>
+                                    <!-- Label text lines -->
+                                    <rect x="108" y="90" width="24" height="3" rx="1.5" fill="url(#beautyGrad2)" opacity="0.5"/>
+                                    <rect x="112" y="97" width="16" height="2" rx="1" fill="url(#beautyGrad1)" opacity="0.3"/>
+                                    <!-- Label heart -->
+                                    <path d="M117,108 C117,106 119,105 120,106.5 C121,105 123,106 123,108 C123,110 120,112 120,112 C120,112 117,110 117,108Z" fill="url(#beautyGrad2)" opacity="0.6"/>
+                                    <!-- Drops -->
+                                    <ellipse cx="120" cy="170" rx="8" ry="5" fill="url(#beautyGrad1)" opacity="0.2"/>
+                                    <!-- Floating product elements -->
+                                    <circle cx="55" cy="90" r="15" stroke="url(#beautyGrad2)" stroke-width="1" fill="none" opacity="0.2"/>
+                                    <circle cx="55" cy="90" r="8" fill="url(#beautyGrad1)" opacity="0.1"/>
+                                    <circle cx="185" cy="85" r="12" stroke="url(#beautyGrad1)" stroke-width="1" fill="none" opacity="0.2"/>
+                                    <circle cx="185" cy="85" r="6" fill="url(#beautyGrad2)" opacity="0.1"/>
+                                    <!-- Water/oil drops around -->
+                                    <ellipse cx="70" cy="140" rx="4" ry="6" fill="#ec4899" opacity="0.15" transform="rotate(-15 70 140)"/>
+                                    <ellipse cx="170" cy="135" rx="4" ry="6" fill="#c084fc" opacity="0.15" transform="rotate(15 170 135)"/>
+                                    <ellipse cx="45" cy="160" rx="3" ry="5" fill="#f472b6" opacity="0.12"/>
+                                    <ellipse cx="195" cy="155" rx="3" ry="5" fill="#a78bfa" opacity="0.12"/>
+                                    <!-- Shine lines -->
+                                    <line x1="100" y1="65" x2="95" y2="58" stroke="white" stroke-width="1" opacity="0.3" stroke-linecap="round"/>
+                                    <line x1="105" y1="62" x2="102" y2="55" stroke="white" stroke-width="0.8" opacity="0.2" stroke-linecap="round"/>
+                                    <!-- Text lines -->
+                                    <rect x="80" y="195" width="80" height="4" rx="2" fill="url(#beautyGrad2)" opacity="0.2"/>
+                                    <rect x="95" y="203" width="50" height="3" rx="1.5" fill="url(#beautyGrad1)" opacity="0.15"/>
+                                    <defs>
+                                        <linearGradient id="beautyGrad1" x1="0%" y1="0%" x2="100%" y2="100%">
+                                            <stop offset="0%" stop-color="#ec4899"/>
+                                            <stop offset="100%" stop-color="#c084fc"/>
+                                        </linearGradient>
+                                        <linearGradient id="beautyGrad2" x1="0%" y1="0%" x2="100%" y2="100%">
+                                            <stop offset="0%" stop-color="#f472b6"/>
+                                            <stop offset="100%" stop-color="#a78bfa"/>
+                                        </linearGradient>
+                                    </defs>
+                                </svg>
                             </div>
                         </div>
                         <div class="project-info">
@@ -2978,63 +3900,78 @@ a.contact-link:hover {
                         </div>
                     </div>
 
-                    <div class="project-card" data-category="programming">
-                        <div class="project-image">
-                            <div class="project-mockup">
-                                <div class="mockup-bar"><span></span><span></span><span></span></div>
-                                <div class="mockup-content mockup-code">
-                                    <div class="code-line"><span class="kw">async def</span> <span class="fn">process</span>(stream):</div>
-                                    <div class="code-line indent"><span class="kw">async for</span> chunk <span class="kw">in</span> stream:</div>
-                                    <div class="code-line indent-2">data = <span class="fn">transform</span>(chunk)</div>
-                                    <div class="code-line indent-2"><span class="kw">yield</span> data</div>
-                                    <div class="code-line"></div>
-                                    <div class="code-line"><span class="cm"># Pipeline initialized</span></div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="project-info">
-                            <span class="project-category">Programming</span>
-                            <h3 class="project-title">Data Processing Pipeline</h3>
-                            <p class="project-description">High-performance Python pipeline for ETL processes featuring async parallel processing, comprehensive error handling, and real-time logging.</p>
-                            <div class="project-tech">
-                                <span>Python</span><span>AsyncIO</span><span>Docker</span><span>AWS</span>
-                            </div>
-                            <a href="#" class="project-link">
-                                View Project
-                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg>
-                            </a>
-                        </div>
-                    </div>
 
-                    <div class="project-card" data-category="web">
+
+                    <div class="project-card" data-category="mobile">
                         <div class="project-image">
-                            <div class="project-mockup">
-                                <div class="mockup-bar"><span></span><span></span><span></span></div>
-                                <div class="mockup-content mockup-mobile">
-                                    <div class="mobile-frame">
-                                        <div class="mobile-status-bar"></div>
-                                        <div class="mobile-cards">
-                                            <div class="mobile-card"></div>
-                                            <div class="mobile-card"></div>
-                                            <div class="mobile-card"></div>
-                                        </div>
-                                        <div class="mobile-bottom-nav">
-                                            <span></span><span></span><span></span><span></span>
-                                        </div>
-                                    </div>
-                                </div>
+                            <div class="project-preview preview-shopwave">
+                                <div class="glow-blob"></div>
+                                <div class="glow-blob"></div>
+                                <svg viewBox="0 0 240 220" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <!-- Phone frame -->
+                                    <rect x="75" y="25" width="90" height="165" rx="14" fill="#0d1525" stroke="url(#shopGrad1)" stroke-width="2" opacity="0.9"/>
+                                    <!-- Phone notch -->
+                                    <rect x="105" y="28" width="30" height="8" rx="4" fill="rgba(14,165,233,0.15)"/>
+                                    <!-- Screen content -->
+                                    <!-- Header -->
+                                    <rect x="82" y="42" width="76" height="18" rx="3" fill="url(#shopGrad1)" opacity="0.15"/>
+                                    <circle cx="94" cy="51" r="5" fill="url(#shopGrad1)" opacity="0.3"/>
+                                    <rect x="104" y="48" width="30" height="3" rx="1.5" fill="url(#shopGrad1)" opacity="0.25"/>
+                                    <!-- Product cards -->
+                                    <rect x="82" y="66" width="35" height="42" rx="4" fill="rgba(6,182,212,0.1)" stroke="url(#shopGrad1)" stroke-width="0.5" opacity="0.6"/>
+                                    <rect x="87" y="71" width="25" height="18" rx="3" fill="url(#shopGrad1)" opacity="0.15"/>
+                                    <rect x="87" y="93" width="20" height="2" rx="1" fill="url(#shopGrad1)" opacity="0.3"/>
+                                    <rect x="87" y="98" width="12" height="2" rx="1" fill="url(#shopGrad2)" opacity="0.25"/>
+                                    <rect x="118" y="66" width="35" height="42" rx="4" fill="rgba(139,92,246,0.1)" stroke="url(#shopGrad2)" stroke-width="0.5" opacity="0.6"/>
+                                    <rect x="123" y="71" width="25" height="18" rx="3" fill="url(#shopGrad2)" opacity="0.15"/>
+                                    <rect x="123" y="93" width="20" height="2" rx="1" fill="url(#shopGrad2)" opacity="0.3"/>
+                                    <rect x="123" y="98" width="12" height="2" rx="1" fill="url(#shopGrad1)" opacity="0.25"/>
+                                    <!-- Bottom nav -->
+                                    <rect x="82" y="165" width="76" height="18" rx="3" fill="rgba(14,165,233,0.08)"/>
+                                    <circle cx="96" cy="174" r="4" fill="url(#shopGrad1)" opacity="0.35"/>
+                                    <circle cx="112" cy="174" r="4" fill="url(#shopGrad1)" opacity="0.2"/>
+                                    <circle cx="128" cy="174" r="4" fill="url(#shopGrad1)" opacity="0.2"/>
+                                    <circle cx="144" cy="174" r="4" fill="url(#shopGrad1)" opacity="0.2"/>
+                                    <!-- Floating cart -->
+                                    <g transform="translate(180,50)" class="preview-pulse">
+                                        <circle cx="20" cy="20" r="22" fill="url(#shopGrad1)" opacity="0.15" stroke="url(#shopGrad1)" stroke-width="1"/>
+                                        <path d="M12,16 L16,16 L20,26 L30,26 L32,18 L18,18" stroke="url(#shopGrad1)" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round" opacity="0.7"/>
+                                        <circle cx="22" cy="30" r="2" fill="url(#shopGrad1)" opacity="0.5"/>
+                                        <circle cx="28" cy="30" r="2" fill="url(#shopGrad1)" opacity="0.5"/>
+                                    </g>
+                                    <!-- Floating wave effect -->
+                                    <path d="M15,150 Q40,140 65,150 T115,150" stroke="url(#shopGrad1)" stroke-width="1" fill="none" opacity="0.2"/>
+                                    <path d="M15,155 Q40,145 65,155 T115,155" stroke="url(#shopGrad2)" stroke-width="0.8" fill="none" opacity="0.15"/>
+                                    <!-- Sparkles -->
+                                    <circle class="preview-sparkle" cx="35" cy="40" r="2" fill="#06b6d4" opacity="0.6"/>
+                                    <circle class="preview-sparkle" cx="210" cy="180" r="2" fill="#8b5cf6" opacity="0.5"/>
+                                    <circle class="preview-sparkle" cx="30" cy="170" r="1.5" fill="#0ea5e9" opacity="0.4"/>
+                                    <!-- Currency symbols -->
+                                    <text x="185" y="105" font-size="10" fill="url(#shopGrad1)" opacity="0.3" font-family="sans-serif">$</text>
+                                    <text x="25" y="80" font-size="8" fill="url(#shopGrad2)" opacity="0.2" font-family="sans-serif">&#8364;</text>
+                                    <defs>
+                                        <linearGradient id="shopGrad1" x1="0%" y1="0%" x2="100%" y2="100%">
+                                            <stop offset="0%" stop-color="#06b6d4"/>
+                                            <stop offset="100%" stop-color="#0ea5e9"/>
+                                        </linearGradient>
+                                        <linearGradient id="shopGrad2" x1="0%" y1="0%" x2="100%" y2="100%">
+                                            <stop offset="0%" stop-color="#8b5cf6"/>
+                                            <stop offset="100%" stop-color="#a78bfa"/>
+                                        </linearGradient>
+                                    </defs>
+                                </svg>
                             </div>
                         </div>
                         <div class="project-info">
-                            <span class="project-category">Web Development</span>
-                            <h3 class="project-title">Task Management App</h3>
-                            <p class="project-description">A responsive PWA with drag-and-drop Kanban boards, real-time sync, team collaboration, and progress analytics.</p>
+                            <span class="project-category">Mobile App Development</span>
+                            <h3 class="project-title">ShopWave</h3>
+                            <p class="project-description">A modern cross-platform e-commerce app built with Flutter featuring product browsing, cart management, checkout, favorites, search, and local SQLite persistence.</p>
                             <div class="project-tech">
-                                <span>Vue.js</span><span>Firebase</span><span>Tailwind</span><span>PWA</span>
+                                <span>Flutter</span><span>Dart</span><span>SQFlite</span><span>Material Design</span>
                             </div>
-                            <a href="#" class="project-link">
-                                View Project
-                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg>
+                            <a href="assets/shopwave.apk" class="project-link" download>
+                                Download APK
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
                             </a>
                         </div>
                     </div>
@@ -3045,14 +3982,14 @@ a.contact-link:hover {
         <footer class="footer">
             <div class="container">
                 <div class="footer-content">
-                    <a class="footer-logo" data-page="home" style="cursor:pointer">
+                    <a class="footer-logo" href="#" data-page="home" style="cursor:pointer">
                         <span class="logo-bracket">&lt;</span>Alien<span class="logo-highlight">Dev</span><span class="logo-bracket">/&gt;</span>
                     </a>
                     <div class="footer-links">
-                        <a data-page="home" style="cursor:pointer">Home</a>
-                        <a data-page="skills" style="cursor:pointer">Skills</a>
-                        <a data-page="projects" style="cursor:pointer">Projects</a>
-                        <a data-page="contact" style="cursor:pointer">Contact</a>
+                        <a data-page="home" href="#" style="cursor:pointer">Home</a>
+                        <a data-page="skills" href="#" style="cursor:pointer">Skills</a>
+                        <a data-page="projects" href="#" style="cursor:pointer">Projects</a>
+                        <a data-page="contact" href="#" style="cursor:pointer">Contact</a>
                     </div>
                     <div class="footer-social">
                         <a href="https://github.com/nuerteyhanson9-sys" target="_blank" rel="noopener noreferrer" aria-label="GitHub" class="social-link">
@@ -3061,8 +3998,8 @@ a.contact-link:hover {
                         <a href="https://www.linkedin.com/in/hanson-nuertey-633b053b6" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" class="social-link">
                             <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
                         </a>
-                        <a href="#" aria-label="Twitter / X" class="social-link">
-                            <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+                        <a href="https://wa.me/233509120845" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp" class="social-link">
+                            <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
                         </a>
                     </div>
                 </div>
@@ -3091,7 +4028,7 @@ a.contact-link:hover {
         <section class="contact-page">
             <div class="container">
                 <div class="contact-featured">
-                    <a href="tel:+20509120845" class="phone-cta">
+                    <a href="tel:+233509120845" class="phone-cta">
                         <div class="phone-cta-icon">
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
                                 <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"></path>
@@ -3143,7 +4080,7 @@ a.contact-link:hover {
                     </div>
                     <div class="contact-form-wrapper">
                         <h2 class="contact-form-title">Send a Message</h2>
-                        <form class="contact-form" id="contact-form">
+                        <form class="contact-form" id="contact-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
                             <div class="form-row">
                                 <div class="form-group">
                                     <label for="name">Your Name</label>
@@ -3176,14 +4113,14 @@ a.contact-link:hover {
         <footer class="footer">
             <div class="container">
                 <div class="footer-content">
-                    <a class="footer-logo" data-page="home" style="cursor:pointer">
+                    <a class="footer-logo" href="#" data-page="home" style="cursor:pointer">
                         <span class="logo-bracket">&lt;</span>Alien<span class="logo-highlight">Dev</span><span class="logo-bracket">/&gt;</span>
                     </a>
                     <div class="footer-links">
-                        <a data-page="home" style="cursor:pointer">Home</a>
-                        <a data-page="skills" style="cursor:pointer">Skills</a>
-                        <a data-page="projects" style="cursor:pointer">Projects</a>
-                        <a data-page="contact" style="cursor:pointer">Contact</a>
+                        <a data-page="home" href="#" style="cursor:pointer">Home</a>
+                        <a data-page="skills" href="#" style="cursor:pointer">Skills</a>
+                        <a data-page="projects" href="#" style="cursor:pointer">Projects</a>
+                        <a data-page="contact" href="#" style="cursor:pointer">Contact</a>
                     </div>
                     <div class="footer-social">
                         <a href="https://github.com/nuerteyhanson9-sys" target="_blank" rel="noopener noreferrer" aria-label="GitHub" class="social-link">
@@ -3192,8 +4129,8 @@ a.contact-link:hover {
                         <a href="https://www.linkedin.com/in/hanson-nuertey-633b053b6" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" class="social-link">
                             <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
                         </a>
-                        <a href="#" aria-label="Twitter / X" class="social-link">
-                            <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+                        <a href="https://wa.me/233509120845" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp" class="social-link">
+                            <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
                         </a>
                     </div>
                 </div>
@@ -3210,13 +4147,13 @@ document.addEventListener("DOMContentLoaded", () => {
   initNavbar();
   initStarField();
   initScrollAnimations();
+  initScrollProgress();
   initSPA();
   navigateTo("home");
 });
 
-// â”€â”€ SPA Navigation â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// ── SPA Navigation ────────────────────────────────────────────────────────────
 let currentPage = "home";
-let typingTimeout = null;
 
 function initSPA() {
   document.querySelectorAll("[data-page]").forEach((el) => {
@@ -3231,46 +4168,58 @@ function initSPA() {
 function navigateTo(page) {
   if (currentPage === page) { window.scrollTo(0, 0); return; }
 
-  document.querySelectorAll(".page-section").forEach((s) => {
-    s.style.display = "none";
-  });
+  var transition = document.getElementById("page-transition");
+  if (transition) transition.classList.add("active");
 
-  const target = document.getElementById("page-" + page);
-  if (target) target.style.display = "";
+  setTimeout(function() {
+    document.querySelectorAll(".page-section").forEach(function(s) {
+      s.style.display = "none";
+    });
 
-  document.querySelectorAll(".nav-link").forEach((l) => {
-    l.classList.remove("active");
-    if (l.getAttribute("data-page") === page) l.classList.add("active");
-  });
+    var target = document.getElementById("page-" + page);
+    if (target) target.style.display = "";
 
-  const navMenu = document.getElementById("nav-menu");
-  const navToggle = document.getElementById("nav-toggle");
-  if (navMenu) navMenu.classList.remove("open");
-  if (navToggle) navToggle.classList.remove("open");
+    document.querySelectorAll(".nav-link").forEach(function(l) {
+      l.classList.remove("active");
+      if (l.getAttribute("data-page") === page) l.classList.add("active");
+    });
 
-  window.scrollTo(0, 0);
-  currentPage = page;
+    var navMenu = document.getElementById("nav-menu");
+    var navToggle = document.getElementById("nav-toggle");
+    if (navMenu) navMenu.classList.remove("active");
+    if (navToggle) navToggle.classList.remove("active");
 
-  if (page === "home") {
-    initHomeFeatures();
-  } else if (page === "skills") {
-    initSkillBars();
-    initSkillRowAnimations();
-  } else if (page === "projects") {
-    initPortfolioFilter();
-    initProjectCardAnimations();
-  } else if (page === "contact") {
-    initContactForm();
-  }
+    window.scrollTo(0, 0);
+    currentPage = page;
 
-  initScrollAnimations();
-  initStarField();
+    if (page === "home") {
+      initHomeFeatures();
+    } else if (page === "skills") {
+      initSkillBars();
+      initSkillRowAnimations();
+    } else if (page === "projects") {
+      initPortfolioFilter();
+      initProjectCardAnimations();
+      
+    } else if (page === "contact") {
+      initContactForm();
+    }
+
+    initScrollAnimations();
+    initStarField();
+
+    if (transition) {
+      setTimeout(function() {
+        transition.classList.remove("active");
+      }, 100);
+    }
+  }, 250);
 }
 
 function initHomeFeatures() {
   const typedEl = document.getElementById("typed-output");
   if (typedEl) {
-    if (typingTimeout) clearTimeout(typingTimeout);
+    if (typingInstance) clearTimeout(typingInstance);
     initTypingAnimation();
   }
   initCounterAnimation();
@@ -3278,12 +4227,12 @@ function initHomeFeatures() {
   initAlienParticles();
 }
 
-// â”€â”€ Smooth Page Load â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// ── Smooth Page Load ─────────────────────────────────────────────────────────
 function initPageLoad() {
   document.body.classList.add("loaded");
 }
 
-// â”€â”€ Navigation â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// ── Navigation ───────────────────────────────────────────────────────────────
 function initNavbar() {
   const navToggle = document.getElementById("nav-toggle");
   const navMenu = document.getElementById("nav-menu");
@@ -3291,7 +4240,7 @@ function initNavbar() {
 
   if (navToggle && navMenu) {
     navToggle.addEventListener("click", () => {
-      navMenu.classList.toggle("open");
+      navMenu.classList.toggle("active");
       navToggle.classList.toggle("active");
     });
   }
@@ -3309,7 +4258,19 @@ function initNavbar() {
   }
 }
 
-// â”€â”€ Star Field â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// ── Star Field ───────────────────────────────────────────────────────────────
+// --- Scroll Progress Bar ---
+function initScrollProgress() {
+  var progressBar = document.getElementById("scroll-progress");
+  if (!progressBar) return;
+
+  window.addEventListener("scroll", function() {
+    var scrollTop = window.scrollY;
+    var docHeight = document.documentElement.scrollHeight - window.innerHeight;
+    var scrollPercent = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+    progressBar.style.width = scrollPercent + "%";
+  }, { passive: true });
+}
 function initStarField() {
   const containers = document.querySelectorAll(".stars");
   if (!containers.length) return;
@@ -3333,7 +4294,7 @@ function initStarField() {
   });
 }
 
-// â”€â”€ Typing Animation â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// ── Typing Animation ─────────────────────────────────────────────────────────
 let typingInstance = null;
 
 function initTypingAnimation() {
@@ -3342,13 +4303,14 @@ function initTypingAnimation() {
 
   if (typingInstance) { clearTimeout(typingInstance); }
 
-  const phrases = [
+    const phrases = [
     "Programming",
     "Prompt Engineering",
     "Web Development",
     "Graphic Design",
     "Data Analysis",
     "User Generated Content",
+    "Mobile App Development",
   ];
 
   let phraseIndex = 0;
@@ -3387,7 +4349,7 @@ function initTypingAnimation() {
   tick();
 }
 
-// â”€â”€ Counter Animation â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// ── Counter Animation ────────────────────────────────────────────────────────
 function initCounterAnimation() {
   const counters = document.querySelectorAll(".stat-number[data-target]");
   if (!counters.length) return;
@@ -3430,7 +4392,7 @@ function animateCounter(el) {
   requestAnimationFrame(update);
 }
 
-// â”€â”€ Skill Level Bars â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// ── Skill Level Bars ─────────────────────────────────────────────────────────
 function initSkillBars() {
   const bars = document.querySelectorAll(".level-fill[data-level]");
   if (!bars.length) return;
@@ -3483,7 +4445,7 @@ function initSkillRowAnimations() {
   rows.forEach((row) => observer.observe(row));
 }
 
-// â”€â”€ Scroll-Triggered Fade-In Animations â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// ── Scroll-Triggered Fade-In Animations ──────────────────────────────────────
 function initScrollAnimations() {
   const targets = document.querySelectorAll(
     ".skill-row, .project-card, .about-brief-card, .contact-card, .contact-form-wrapper, .contact-info, .hero-content, .hero-visual"
@@ -3505,9 +4467,7 @@ function initScrollAnimations() {
   targets.forEach((el) => observer.observe(el));
 }
 
-// â”€â”€ Portfolio Filter â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
-let filterInitialized = false;
-
+// --- Portfolio Filter --------------------------------------
 function initPortfolioFilter() {
   const filterBtns = document.querySelectorAll("#page-projects .filter-btn");
   const cards = document.querySelectorAll("#page-projects .project-card");
@@ -3574,7 +4534,7 @@ function initProjectCardAnimations() {
   cards.forEach((card) => observer.observe(card));
 }
 
-// â”€â”€ Contact Form â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// Contact Form �"��"��"��"��"��"��"��"��"��"��"��"��"��"��"��"��"��"��"��"��"��"��"��"��"��"��"��"��"��"��"��"��"��"��"��"��"��"��"��"��"��"��"��"��"��"��"��"��"��"��"��"��"��"��"��"��"��"��"��"��"��"�
 function initContactForm() {
   const form = document.getElementById("contact-form");
   const statusEl = document.getElementById("form-status");
@@ -3583,7 +4543,7 @@ function initContactForm() {
   const newForm = form.cloneNode(true);
   form.parentNode.replaceChild(newForm, form);
 
-  newForm.addEventListener("submit", (e) => {
+  newForm.addEventListener("submit", async (e) => {
     e.preventDefault();
 
     const name = newForm.querySelector("#name");
@@ -3611,19 +4571,39 @@ function initContactForm() {
     }
 
     if (!valid) {
-      showFormStatus(statusEl, "Please fill in all required fields correctly.", "error");
+      showFormStatus(document.getElementById("form-status"), "Please fill in all required fields correctly.", "error");
       return;
     }
 
     const submitBtn = newForm.querySelector(".btn-submit");
-    if (submitBtn) submitBtn.disabled = true;
+    if (submitBtn) {
+      submitBtn.disabled = true;
+      submitBtn.querySelector("span").textContent = "Sending...";
+    }
 
-    setTimeout(() => {
-      const currentStatusEl = document.getElementById("form-status");
-      showFormStatus(currentStatusEl, "Message sent successfully! I'll get back to you soon.", "success");
-      newForm.reset();
-      if (submitBtn) submitBtn.disabled = false;
-    }, 1200);
+    try {
+      const formData = new FormData(newForm);
+      const response = await fetch(newForm.action, {
+        method: "POST",
+        body: formData,
+        headers: { Accept: "application/json" }
+      });
+
+      if (response.ok) {
+        showFormStatus(document.getElementById("form-status"), "Message sent successfully! I'll get back to you soon.", "success");
+        newForm.reset();
+      } else {
+        const data = await response.json();
+        showFormStatus(document.getElementById("form-status"), data.errors ? data.errors.map(e => e.message).join(", ") : "Something went wrong. Please try again.", "error");
+      }
+    } catch (err) {
+      showFormStatus(document.getElementById("form-status"), "Network error. Please check your connection and try again.", "error");
+    }
+
+    if (submitBtn) {
+      submitBtn.disabled = false;
+      submitBtn.querySelector("span").textContent = "Send Message";
+    }
   });
 }
 
@@ -3638,7 +4618,7 @@ function showFormStatus(el, message, type) {
   }, 5000);
 }
 
-// â”€â”€ Alien Parallax Mouse Tracking â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// ── Alien Parallax Mouse Tracking ────────────────────────────────────────────
 function initAlienParallax() {
   const scene = document.getElementById("alien-scene");
   const body = document.getElementById("alien-body");
@@ -3676,7 +4656,7 @@ function initAlienParallax() {
   };
 }
 
-// â”€â”€ Alien Particles â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// ── Alien Particles ──────────────────────────────────────────────────────────
 function initAlienParticles() {
   const container = document.getElementById("alien-particles");
   if (!container) return;
@@ -3698,6 +4678,127 @@ function initAlienParticles() {
     container.appendChild(particle);
   }
 }
+    </script>
+
+    <!-- Lightbox Modal Gallery -->
+    <div class="lightbox-overlay" id="flyer-lightbox">
+        <button class="lightbox-close" id="lightbox-close" aria-label="Close">&times;</button>
+        <button class="lightbox-nav lightbox-prev" id="lightbox-prev" aria-label="Previous">&#8249;</button>
+        <div class="lightbox-content">
+            <img id="lightbox-img" src="" alt="Flyer">
+        </div>
+        <button class="lightbox-nav lightbox-next" id="lightbox-next" aria-label="Next">&#8250;</button>
+        <div class="lightbox-counter" id="lightbox-counter"></div>
+    </div>
+
+    <script>
+    (function() {
+        const flyerImages = [
+            "assets/chow-heaven-flyer-1.png",
+            "assets/chow-heaven-flyer-2.png",
+            "assets/chow-heaven-flyer-3.png"
+        ];
+        let currentIndex = 0;
+
+        const overlay = document.getElementById("flyer-lightbox");
+        const img = document.getElementById("lightbox-img");
+        const counter = document.getElementById("lightbox-counter");
+        const closeBtn = document.getElementById("lightbox-close");
+        const prevBtn = document.getElementById("lightbox-prev");
+        const nextBtn = document.getElementById("lightbox-next");
+
+        function showImage(index) {
+            currentIndex = index;
+            img.src = flyerImages[currentIndex];
+            counter.textContent = (currentIndex + 1) + " / " + flyerImages.length;
+        }
+
+        function openLightbox() {
+            showImage(0);
+            overlay.classList.add("active");
+            document.body.style.overflow = "hidden";
+        }
+
+        function closeLightbox() {
+            overlay.classList.remove("active");
+            document.body.style.overflow = "";
+        }
+
+        document.querySelectorAll(".project-card[data-category='design'] .project-link").forEach(function(link) {
+            link.addEventListener("click", function(e) {
+                e.preventDefault();
+                openLightbox();
+            });
+        });
+
+        closeBtn.addEventListener("click", closeLightbox);
+        overlay.addEventListener("click", function(e) {
+            if (e.target === overlay) closeLightbox();
+        });
+
+        prevBtn.addEventListener("click", function() {
+            showImage((currentIndex - 1 + flyerImages.length) % flyerImages.length);
+        });
+
+        nextBtn.addEventListener("click", function() {
+            showImage((currentIndex + 1) % flyerImages.length);
+        });
+
+        document.addEventListener("keydown", function(e) {
+            if (!overlay.classList.contains("active")) return;
+            if (e.key === "Escape") closeLightbox();
+            if (e.key === "ArrowLeft") prevBtn.click();
+            if (e.key === "ArrowRight") nextBtn.click();
+        });
+    })();
+    </script>
+
+    <!-- Video Lightbox Modal -->
+    <div class="lightbox-overlay" id="video-lightbox">
+        <button class="lightbox-close" id="video-lightbox-close" aria-label="Close">&times;</button>
+        <div class="lightbox-content">
+            <video id="video-lightbox-player" controls preload="metadata" style="max-width:90vw;max-height:85vh;border-radius:var(--radius-md);border:1px solid var(--border-color);box-shadow:0 8px 40px rgba(0,0,0,0.6);">
+                <source src="assets/vaseline-ugc.mp4" type="video/mp4">
+            </video>
+        </div>
+    </div>
+
+    <script>
+    (function() {
+        var overlay = document.getElementById("video-lightbox");
+        var video = document.getElementById("video-lightbox-player");
+        var closeBtn = document.getElementById("video-lightbox-close");
+
+        function openVideoLightbox() {
+            overlay.classList.add("active");
+            document.body.style.overflow = "hidden";
+            video.currentTime = 0;
+            video.play().catch(function() {});
+        }
+
+        function closeVideoLightbox() {
+            video.pause();
+            overlay.classList.remove("active");
+            document.body.style.overflow = "";
+        }
+
+        document.querySelectorAll(".project-card[data-category='prompt'] .project-link").forEach(function(link) {
+            link.addEventListener("click", function(e) {
+                e.preventDefault();
+                openVideoLightbox();
+            });
+        });
+
+        closeBtn.addEventListener("click", closeVideoLightbox);
+        overlay.addEventListener("click", function(e) {
+            if (e.target === overlay) closeVideoLightbox();
+        });
+
+        document.addEventListener("keydown", function(e) {
+            if (!overlay.classList.contains("active")) return;
+            if (e.key === "Escape") closeVideoLightbox();
+        });
+    })();
     </script>
 </body>
 </html>

@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta
+        name="description"
+        content="You are warmly invited to celebrate the wedding of Alex and Sophia."
+    >
+
+    <title>Alex & Sophia | Wedding Invitation</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Montserrat:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet"
+    >
+
+    <link
+        rel="icon"
+        href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%231a1817'/%3E%3Ctext x='16' y='22' font-family='Georgia,serif' font-size='17' fill='%23c5a059' text-anchor='middle'%3EA%26S%3C/text%3E%3C/svg%3E"
+    >
+
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+    <header class="header" id="header">
+        <nav class="navbar container">
+            <a href="#home" class="logo">A <span>&</span> S</a>
+
+            <button class="menu-toggle" id="menuToggle" aria-label="Open navigation menu" aria-expanded="false">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#details">Details</a></li>
+                <li><a href="#story">Our Story</a></li>
+                <li><a href="#schedule">Schedule</a></li>
+                <li><a href="#gallery">Gallery</a></li>
+                <li><a href="#rsvp">RSVP</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="nav-overlay" id="navOverlay"></div>
+
+    <main>
+
+        <section class="hero" id="home">
+            <div class="hero-overlay"></div>
+            <div class="hero-content">
+                <div class="hero-badge">
+                    <span class="ornament-line"></span>
+                    <p class="eyebrow">Together with their families</p>
+                    <span class="ornament-line"></span>
+                </div>
+                
+                <h1 class="hero-title">
+                    <span class="name-groom">Alex</span>
+                    <span class="ampersand">&</span>
+                    <span class="name-bride">Sophia</span>
+                </h1>
+                
+                <p class="hero-subtitle">Invite you to celebrate their wedding</p>
+
+                <div class="hero-date-card">
+                    <div class="hero-date">
+                        <span class="date-day">Saturday</span>
+                        <strong class="date-num">24</strong>
+                        <span class="date-month-year">October 2026</span>
+                    </div>
+                </div>
+
+                <p class="hero-location">
+                    <svg class="icon-pin" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                        <circle cx="12" cy="10" r="3"></circle>
+                    </svg>
+                    The Garden Estate · Accra, Ghana
+                </p>
+
+                <div class="hero-actions">
+                    <a href="#rsvp" class="btn btn-primary btn-glow">RSVP Now</a>
+                    <a href="#details" class="btn btn-outline-light">Event Details</a>
+                </div>
+            </div>
+
+            <a href="#details" class="scroll-indicator" aria-label="Scroll to details">
+                <span>Scroll</span>
+                <div class="mouse-icon">
+                    <div class="wheel"></div>
+                </div>
+            </a>
+        </section>
+
+        <section class="countdown-section">
+            <div class="container">
+                <p class="section-label">Counting down to forever</p>
+                <div class="countdown">
+                    <div class="countdown-item">
+                        <div class="countdown-box">
+                            <span id="days">00</span>
+                        </div>
+                        <small>Days</small>
+                    </div>
+                    <div class="countdown-divider">:</div>
+                    <div class="countdown-item">
+                        <div class="countdown-box">
+                            <span id="hours">00</span>
+                        </div>
+                        <small>Hours</small>
+                    </div>
+                    <div class="countdown-divider">:</div>
+                    <div class="countdown-item">
+                        <div class="countdown-box">
+                            <span id="minutes">00</span>
+                        </div>
+                        <small>Minutes</small>
+                    </div>
+                    <div class="countdown-divider">:</div>
+                    <div class="countdown-item">
+                        <div class="countdown-box">
+                            <span id="seconds">00</span>
+                        </div>
+                        <small>Seconds</small>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section details-section" id="details">
+            <div class="container">
+                <div class="section-heading">
+                    <p class="section-label">The Celebration</p>
+                    <h2>Join Us on Our Special Day</h2>
+                    <div class="gold-flourish"><span>✦</span></div>
+                    <p>We would be honored to have you with us as we celebrate the beginning of our forever.</p>
+                </div>
+
+                <div class="details-grid">
+
+                    <article class="detail-card">
+                        <div class="detail-icon">
+                            <svg viewBox="0 0 24 24" width="32" height="32" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <circle cx="9" cy="12" r="6"/>
+                                <circle cx="15" cy="12" r="6"/>
+                            </svg>
+                        </div>
+                        <h3>Wedding Ceremony</h3>
+                        <p class="detail-date">Saturday, October 24, 2026</p>
+                        <p class="detail-time">2:00 PM</p>
+                        <p class="detail-venue">St. Mary's Chapel<br>Accra, Ghana</p>
+                        <a href="https://maps.google.com" target="_blank" rel="noopener" class="text-link">
+                            View Location <span>→</span>
+                        </a>
+                    </article>
+
+                    <article class="detail-card featured-card">
+                        <div class="badge-featured">Main Event</div>
+                        <div class="detail-icon">
+                            <svg viewBox="0 0 24 24" width="32" height="32" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <path d="M8 22h8M12 15v7M16 3l1 7c.2 1.3-.3 2.6-1.3 3.4A5 5 0 0 1 12 15a5 5 0 0 1-3.7-1.6C7.3 12.6 6.8 11.3 7 10l1-7h8z"/>
+                            </svg>
+                        </div>
+                        <h3>Wedding Reception</h3>
+                        <p class="detail-date">Saturday, October 24, 2026</p>
+                        <p class="detail-time">5:00 PM</p>
+                        <p class="detail-venue">The Garden Estate<br>Accra, Ghana</p>
+                        <a href="https://maps.google.com" target="_blank" rel="noopener" class="text-link">
+                            View Location <span>→</span>
+                        </a>
+                    </article>
+
+                    <article class="detail-card">
+                        <div class="detail-icon">
+                            <svg viewBox="0 0 24 24" width="32" height="32" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <path d="M12 2L9 9H2l6 4.5L5.5 21 12 16.5 18.5 21 16 13.5 22 9h-7z"/>
+                            </svg>
+                        </div>
+                        <h3>Dress Code</h3>
+                        <p class="detail-date">Formal Attire</p>
+                        <p><strong>Ladies:</strong> Elegant dresses</p>
+                        <p><strong>Gentlemen:</strong> Suits or traditional formal wear</p>
+                    </article>
+
+                </div>
+            </div>
+        </section>
+
+        <section class="section story-section" id="story">
+            <div class="container story-grid">
+                <div class="story-image-wrapper">
+                    <div class="story-image-frame">
+                        <img src="assets/images/couple-1.jpg" alt="Alex and Sophia together" loading="lazy">
+                    </div>
+                    <div class="story-image-accent"></div>
+                </div>
+
+                <div class="story-content">
+                    <p class="section-label">Our Story</p>
+                    <h2>It All Started With a Hello</h2>
+                    <div class="gold-line"></div>
+                    <p>
+                        Sometimes the most beautiful stories begin with the simplest moments. We met, became friends,
+                        and slowly discovered that we had found something truly special in one another.
+                    </p>
+                    <p>
+                        Through countless conversations, adventures, laughter, and unforgettable memories, our love
+                        continued to grow.
+                    </p>
+                    <p>
+                        Now, we are excited to begin our next chapter together and would love for you to be part of it.
+                    </p>
+                    <div class="signature">Alex & Sophia</div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section timeline-section" id="schedule">
+            <div class="container">
+                <div class="section-heading">
+                    <p class="section-label">The Day</p>
+                    <h2>Wedding Day Schedule</h2>
+                    <div class="gold-flourish"><span>✦</span></div>
+                </div>
+
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-time">1:30 PM</div>
+                        <div class="timeline-node"></div>
+                        <div class="timeline-content">
+                            <h3>Guest Arrival</h3>
+                            <p>Please arrive early and take your seats before the ceremony begins.</p>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-time">2:00 PM</div>
+                        <div class="timeline-node"></div>
+                        <div class="timeline-content">
+                            <h3>Wedding Ceremony</h3>
+                            <p>Join us as we exchange our vows and officially begin our journey as a married couple.</p>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-time">3:30 PM</div>
+                        <div class="timeline-node"></div>
+                        <div class="timeline-content">
+                            <h3>Photos & Refreshments</h3>
+                            <p>Enjoy drinks, light refreshments, and photographs with the newlyweds.</p>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-time">5:00 PM</div>
+                        <div class="timeline-node"></div>
+                        <div class="timeline-content">
+                            <h3>Reception</h3>
+                            <p>Dinner, dancing, speeches, laughter, and a celebration of love.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section seating-section">
+            <div class="container seating-grid">
+                <div class="seating-text">
+                    <p class="section-label">Guest Information</p>
+                    <h2>Your Seat Awaits</h2>
+                    <p>
+                        Seating arrangements will be available at the reception entrance. Please check the seating chart
+                        when you arrive.
+                    </p>
+                    <p>
+                        If you have any accessibility requirements or special seating requests, please let us know
+                        through the RSVP form.
+                    </p>
+                </div>
+
+                <div class="seating-card">
+                    <div class="table-number">
+                        <svg viewBox="0 0 24 24" width="40" height="40" fill="currentColor">
+                            <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+                        </svg>
+                    </div>
+                    <h3>Seating Information</h3>
+                    <p>Table assignments will be announced on the day of the celebration.</p>
+                    <p class="seating-subtext">We look forward to celebrating with you!</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="section gallery-section" id="gallery">
+            <div class="container">
+                <div class="section-heading">
+                    <p class="section-label">Memories</p>
+                    <h2>A Few Moments of Us</h2>
+                    <div class="gold-flourish"><span>✦</span></div>
+                </div>
+
+                <div class="gallery-grid">
+                    <button class="gallery-item gallery-large" data-image="assets/images/gallery-1.jpg" data-caption="Alex & Sophia's Special Celebration Venue" aria-label="View wedding photo 1">
+                        <img src="assets/images/gallery-1.jpg" alt="Alex and Sophia" loading="lazy">
+                        <div class="gallery-hover-overlay">
+                            <span class="zoom-icon">🔍</span>
+                            <span class="gallery-caption">Wedding Venue</span>
+                        </div>
+                    </button>
+
+                    <button class="gallery-item" data-image="assets/images/gallery-2.jpg" data-caption="Romantic Stroll in the Garden" aria-label="View wedding photo 2">
+                        <img src="assets/images/gallery-2.jpg" alt="Wedding memory 2" loading="lazy">
+                        <div class="gallery-hover-overlay">
+                            <span class="zoom-icon">🔍</span>
+                            <span class="gallery-caption">Garden Stroll</span>
+                        </div>
+                    </button>
+
+                    <button class="gallery-item" data-image="assets/images/gallery-3.jpg" data-caption="Wedding Rings & Floral Details" aria-label="View wedding photo 3">
+                        <img src="assets/images/gallery-3.jpg" alt="Wedding memory 3" loading="lazy">
+                        <div class="gallery-hover-overlay">
+                            <span class="zoom-icon">🔍</span>
+                            <span class="gallery-caption">Rings & Details</span>
+                        </div>
+                    </button>
+
+                    <button class="gallery-item" data-image="assets/images/gallery-4.jpg" data-caption="Our First Dance Together" aria-label="View wedding photo 4">
+                        <img src="assets/images/gallery-4.jpg" alt="Wedding memory 4" loading="lazy">
+                        <div class="gallery-hover-overlay">
+                            <span class="zoom-icon">🔍</span>
+                            <span class="gallery-caption">First Dance</span>
+                        </div>
+                    </button>
+
+                    <button class="gallery-item" data-image="assets/images/gallery-5.jpg" data-caption="Reception Decor & Flowers" aria-label="View wedding photo 5">
+                        <img src="assets/images/gallery-5.jpg" alt="Wedding memory 5" loading="lazy">
+                        <div class="gallery-hover-overlay">
+                            <span class="zoom-icon">🔍</span>
+                            <span class="gallery-caption">Reception Flowers</span>
+                        </div>
+                    </button>
+
+                    <button class="gallery-item" data-image="assets/images/gallery-6.jpg" data-caption="Sweet Moments & Celebrations" aria-label="View wedding photo 6">
+                        <img src="assets/images/gallery-6.jpg" alt="Wedding memory 6" loading="lazy">
+                        <div class="gallery-hover-overlay">
+                            <span class="zoom-icon">🔍</span>
+                            <span class="gallery-caption">Celebration</span>
+                        </div>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <section class="section rsvp-section" id="rsvp">
+            <div class="container rsvp-container">
+                <div class="section-heading">
+                    <p class="section-label">Kindly Respond</p>
+                    <h2>Will You Join Us?</h2>
+                    <p>Please let us know if you will be celebrating with us by <strong>September 1, 2026</strong>.</p>
+                </div>
+
+                <form class="rsvp-form" id="rsvpForm" novalidate>
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label for="name">Full Name *</label>
+                            <input type="text" id="name" name="name" placeholder="e.g. John Doe" required>
+                            <small class="error-message" id="nameError"></small>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="email">Email Address *</label>
+                            <input type="email" id="email" name="email" placeholder="alexandsophia@yahoo.com" required>
+                            <small class="error-message" id="emailError"></small>
+                        </div>
+                    </div>
+
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label for="attendance">Will you attend? *</label>
+                            <select id="attendance" name="attendance" required>
+                                <option value="">Select an option</option>
+                                <option value="yes">Joyfully accepts</option>
+                                <option value="no">Regretfully declines</option>
+                            </select>
+                            <small class="error-message" id="attendanceError"></small>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="guests">Number of Guests</label>
+                            <select id="guests" name="guests">
+                                <option value="1">1 Guest</option>
+                                <option value="2">2 Guests</option>
+                                <option value="3">3 Guests</option>
+                                <option value="4">4 Guests</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="dietary">Dietary Requirements</label>
+                        <input type="text" id="dietary" name="dietary" placeholder="Vegetarian, allergies, or special requests...">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="message">Message for the Couple</label>
+                        <textarea id="message" name="message" rows="4" placeholder="Leave us a warm message or wish..."></textarea>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary btn-block">Send RSVP</button>
+
+                    <div class="success-message" id="successMessage" role="alert">
+                        <div class="success-icon">✓</div>
+                        <div>
+                            <strong>Thank you so much!</strong>
+                            <p>Your RSVP has been received and saved. We can't wait to see you!</p>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </section>
+
+        <section class="section contact-section" id="contact">
+            <div class="container">
+                <div class="section-heading">
+                    <p class="section-label">Questions?</p>
+                    <h2>We'd Love to Hear From You</h2>
+                    <p>
+                        If you have any questions about the wedding, travel, accommodation, or the celebration,
+                        please feel free to contact us anytime.
+                    </p>
+                </div>
+
+                <div class="contact-grid">
+                    <a href="mailto:alexandsophia@yahoo.com" class="contact-card">
+                        <div class="contact-icon">
+                            <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <rect x="2" y="4" width="20" height="16" rx="2"/>
+                                <path d="M22 6l-10 7L2 6"/>
+                            </svg>
+                        </div>
+                        <h3>Email Us</h3>
+                        <p>alexandsophia@yahoo.com</p>
+                    </a>
+
+                    <a href="tel:0509120845" class="contact-card">
+                        <div class="contact-icon">
+                            <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+                            </svg>
+                        </div>
+                        <h3>Call Us</h3>
+                        <p>0509120845</p>
+                    </a>
+
+                    <div class="contact-card">
+                        <div class="contact-icon">
+                            <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+                                <circle cx="12" cy="7" r="4"/>
+                            </svg>
+                        </div>
+                        <h3>Wedding Coordinator</h3>
+                        <p>Emma Johnson</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-logo">A <span>&</span> S</div>
+            <p class="footer-quote">With love, Alex & Sophia</p>
+            <div class="footer-divider"></div>
+            <p class="copyright">© 2026 Alex & Sophia. Made with love.</p>
+        </div>
+    </footer>
+
+    <div class="lightbox" id="lightbox" aria-hidden="true">
+        <button class="lightbox-close" id="lightboxClose" aria-label="Close image">×</button>
+        <button class="lightbox-nav lightbox-prev" id="lightboxPrev" aria-label="Previous photo">‹</button>
+        <div class="lightbox-content">
+            <img id="lightboxImage" src="" alt="Enlarged wedding photo">
+            <div class="lightbox-caption" id="lightboxCaption"></div>
+        </div>
+        <button class="lightbox-nav lightbox-next" id="lightboxNext" aria-label="Next photo">›</button>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
+
