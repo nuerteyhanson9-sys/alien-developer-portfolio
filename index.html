@@ -3206,8 +3206,7 @@ a:focus-visible {
 .hero-content,
 .hero-visual,
 .testimonial-card,
-.github-stat-card,
-.blog-card {
+.github-stat-card {
     opacity: 0;
     transform: translateY(30px);
     transition: opacity 0.6s ease, transform 0.6s ease;
@@ -3219,8 +3218,7 @@ a:focus-visible {
 .hero-content.visible,
 .hero-visual.visible,
 .testimonial-card.visible,
-.github-stat-card.visible,
-.blog-card.visible {
+.github-stat-card.visible {
     opacity: 1;
     transform: translateY(0);
 }
@@ -3462,44 +3460,6 @@ body { transition: background-color 0.4s ease, color 0.4s ease; }
 .github-stat-label { font-size: 0.82rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 1px; margin-top: 4px; }
 .github-stat-card .stat-icon { font-size: 1.5rem; margin-bottom: 8px; }
 
-/* --- Blog Page --- */
-.blog-page {
-    padding: 40px 0 100px;
-    position: relative;
-    z-index: 1;
-}
-.blog-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 28px;
-    margin-top: 40px;
-}
-.blog-card {
-    background: var(--bg-card);
-    border: 1px solid var(--border-color);
-    border-radius: var(--radius-lg);
-    overflow: hidden;
-    backdrop-filter: blur(10px);
-    transition: all var(--transition-smooth);
-    cursor: pointer;
-}
-.blog-card:hover { border-color: var(--border-hover); box-shadow: var(--shadow-glow); transform: translateY(-4px); }
-.blog-card-image {
-    height: 180px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-    overflow: hidden;
-}
-.blog-card-image svg { width: 100%; height: 100%; }
-.blog-card-content { padding: 24px; display: flex; flex-direction: column; gap: 10px; }
-.blog-card-date { font-size: 0.75rem; color: var(--text-muted); font-family: var(--font-mono); text-transform: uppercase; letter-spacing: 0.5px; }
-.blog-card-title { font-size: 1.15rem; font-weight: 700; color: var(--text-bright); }
-.blog-card-excerpt { font-size: 0.9rem; color: var(--text-secondary); line-height: 1.6; }
-.blog-card-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 4px; }
-.blog-card-tags span { font-size: 0.7rem; font-weight: 500; padding: 3px 10px; background: rgba(14, 165, 233, 0.08); border: 1px solid rgba(14, 165, 233, 0.15); border-radius: var(--radius-full); color: var(--text-secondary); font-family: var(--font-mono); }
-
 /* --- Resume/CV Page --- */
 .resume-page { padding: 40px 0 100px; position: relative; z-index: 1; }
 .resume-wrapper { background: var(--bg-card); border: 1px solid var(--border-color); border-radius: var(--radius-lg); padding: 48px; max-width: 800px; margin: 0 auto; backdrop-filter: blur(10px); }
@@ -3535,7 +3495,6 @@ body { transition: background-color 0.4s ease, color 0.4s ease; }
 @media (max-width: 768px) {
     .nav-actions { display: none; }
     .testimonials-grid { grid-template-columns: 1fr; max-width: 480px; margin: 40px auto 0; }
-    .blog-grid { grid-template-columns: 1fr; max-width: 500px; margin: 40px auto 0; }
     .github-stats-grid { grid-template-columns: repeat(2, 1fr); }
     .resume-wrapper { padding: 24px; }
     .back-to-top { right: 24px; bottom: 24px; }
@@ -3563,7 +3522,6 @@ body { transition: background-color 0.4s ease, color 0.4s ease; }
                 <li><a class="nav-link active" data-page="home">Home</a></li>
                 <li><a class="nav-link" data-page="skills">Skills</a></li>
                 <li><a class="nav-link" data-page="projects">Projects</a></li>
-                <li><a class="nav-link" data-page="blog">Blog</a></li>
                 <li><a class="nav-link" data-page="contact">Contact</a></li>
             </ul>
             <div class="nav-actions">
@@ -4473,72 +4431,6 @@ body { transition: background-color 0.4s ease, color 0.4s ease; }
         </footer>
     </section>
 
-    <!-- ========== PAGE: BLOG ========== -->
-    <section class="page-section" id="page-blog" style="display:none">
-        <section class="page-hero">
-            <div class="hero-bg">
-                <div class="stars" id="stars-blog"></div>
-                <div class="glow glow-1"></div>
-                <div class="glow glow-2"></div>
-            </div>
-            <div class="container">
-                <span class="section-tag" data-i18n="blog_tag">Thoughts</span>
-                <h1 class="page-hero-title" data-i18n="blog_title">Blog & Articles</h1>
-                <p class="page-hero-desc" data-i18n="blog_desc">Insights on technology, development workflows, and creative processes.</p>
-            </div>
-        </section>
-        <section class="blog-page">
-            <div class="container">
-                <div class="blog-grid">
-                    <div class="blog-card">
-                        <div class="blog-card-image">
-                            <svg viewBox="0 0 400 180" fill="none"><rect width="400" height="180" fill="url(#blogBg1)"/><text x="200" y="95" text-anchor="middle" fill="white" font-size="40" opacity="0.3">🤖</text><text x="200" y="120" text-anchor="middle" fill="white" font-size="12" opacity="0.5" font-family="monospace">PROMPT ENGINEERING</text><defs><linearGradient id="blogBg1" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#0ea5e9"/><stop offset="100%" stop-color="#8b5cf6"/></linearGradient></defs></svg>
-                        </div>
-                        <div class="blog-card-content">
-                            <span class="blog-card-date">Aug 12, 2026</span>
-                            <h3 class="blog-card-title">The Art of Prompt Engineering: Tips for Better AI Outputs</h3>
-                            <p class="blog-card-excerpt">Learn how to craft precise prompts that unlock the full potential of language models for coding, writing, and analysis.</p>
-                            <div class="blog-card-tags"><span>AI</span><span>Prompt Engineering</span><span>LLMs</span></div>
-                        </div>
-                    </div>
-                    <div class="blog-card">
-                        <div class="blog-card-image">
-                            <svg viewBox="0 0 400 180" fill="none"><rect width="400" height="180" fill="url(#blogBg2)"/><text x="200" y="95" text-anchor="middle" fill="white" font-size="40" opacity="0.3">📱</text><text x="200" y="120" text-anchor="middle" fill="white" font-size="12" opacity="0.5" font-family="monospace">FLUTTER DEV</text><defs><linearGradient id="blogBg2" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#06b6d4"/><stop offset="100%" stop-color="#22c55e"/></linearGradient></defs></svg>
-                        </div>
-                        <div class="blog-card-content">
-                            <span class="blog-card-date">Jul 28, 2026</span>
-                            <h3 class="blog-card-title">Building Cross-Platform Apps with Flutter: A Practical Guide</h3>
-                            <p class="blog-card-excerpt">From setup to deployment, here's how to build beautiful, performant mobile apps using Flutter and Dart.</p>
-                            <div class="blog-card-tags"><span>Flutter</span><span>Dart</span><span>Mobile</span></div>
-                        </div>
-                    </div>
-                    <div class="blog-card">
-                        <div class="blog-card-image">
-                            <svg viewBox="0 0 400 180" fill="none"><rect width="400" height="180" fill="url(#blogBg3)"/><text x="200" y="95" text-anchor="middle" fill="white" font-size="40" opacity="0.3">🎨</text><text x="200" y="120" text-anchor="middle" fill="white" font-size="12" opacity="0.5" font-family="monospace">DESIGN SYSTEMS</text><defs><linearGradient id="blogBg3" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#f472b6"/><stop offset="100%" stop-color="#c084fc"/></linearGradient></defs></svg>
-                        </div>
-                        <div class="blog-card-content">
-                            <span class="blog-card-date">Jul 10, 2026</span>
-                            <h3 class="blog-card-title">Designing for Impact: Visual Branding for Small Businesses</h3>
-                            <p class="blog-card-excerpt">How thoughtful graphic design and consistent branding can transform a local business's market presence.</p>
-                            <div class="blog-card-tags"><span>Design</span><span>Branding</span><span>Photoshop</span></div>
-                        </div>
-                    </div>
-                    <div class="blog-card">
-                        <div class="blog-card-image">
-                            <svg viewBox="0 0 400 180" fill="none"><rect width="400" height="180" fill="url(#blogBg4)"/><text x="200" y="95" text-anchor="middle" fill="white" font-size="40" opacity="0.3">📊</text><text x="200" y="120" text-anchor="middle" fill="white" font-size="12" opacity="0.5" font-family="monospace">DATA ANALYTICS</text><defs><linearGradient id="blogBg4" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#f97316"/><stop offset="100%" stop-color="#ef4444"/></linearGradient></defs></svg>
-                        </div>
-                        <div class="blog-card-content">
-                            <span class="blog-card-date">Jun 22, 2026</span>
-                            <h3 class="blog-card-title">From Data to Decisions: My Python Analytics Workflow</h3>
-                            <p class="blog-card-excerpt">A walkthrough of my go-to tools and techniques for turning raw datasets into actionable business insights.</p>
-                            <div class="blog-card-tags"><span>Python</span><span>Data Analysis</span><span>Pandas</span></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </section>
-
     <!-- ========== PAGE: RESUME ========== -->
     <section class="page-section" id="page-resume" style="display:none">
         <section class="resume-page">
@@ -4781,7 +4673,7 @@ function navigateTo(page) {
       initProjectCardAnimations();
     } else if (page === "contact") {
       initContactForm();
-    } else if (page === "blog" || page === "resume") {
+    } else if (page === "resume") {
       initScrollAnimations();
     }
 
@@ -5045,7 +4937,7 @@ function initSkillRowAnimations() {
 // ── Scroll-Triggered Fade-In Animations ──────────────────────────────────────
 function initScrollAnimations() {
   const targets = document.querySelectorAll(
-    ".skill-row, .project-card, .about-brief-card, .contact-card, .contact-form-wrapper, .contact-info, .hero-content, .hero-visual, .testimonial-card, .github-stat-card, .blog-card"
+    ".skill-row, .project-card, .about-brief-card, .contact-card, .contact-form-wrapper, .contact-info, .hero-content, .hero-visual, .testimonial-card, .github-stat-card"
   );
   if (!targets.length) return;
 
@@ -5281,39 +5173,46 @@ function initSoundToggle() {
 
 // ── Language Toggle (i18n) ─────────────────────────────────────────────────
 const i18n = {
-  en: {
-    github_title: "GitHub Profile",
-    gh_repos: "Repositories", gh_stars: "Total Stars", gh_commits: "Commits", gh_contrib: "Contributions",
-    testimonials_tag: "Testimonials", testimonials_title: "What People Say",
-    test1_text: '"Alien Developer delivered our wedding invitation site ahead of schedule. The design was stunning and guests loved the interactive experience. Highly recommend!"',
-    test2_text: '"The Chow Heaven flyers were vibrant and eye-catching. Great understanding of branding and food marketing. Would definitely work together again."',
-    test3_text: '"The ShopWave app exceeded our expectations. Smooth UI, fast performance, and well-structured code. A true multidisciplinary talent."',
-    blog_tag: "Thoughts", blog_title: "Blog & Articles", blog_desc: "Insights on technology, development workflows, and creative processes.",
-    resume_summary: "Professional Summary", resume_skills: "Technical Skills", resume_projects: "Featured Projects", resume_edu: "Education", resume_print: "Print / Save as PDF"
-  },
-  tw: {
-    github_title: "GitHub Nkratoɔ",
-    gh_repos: "Abantumi", gh_stars: "Nsoromma Nyinaa", gh_commits: "Nkyerɛmu", gh_contrib: "Ahoɔfefoɔ",
-    testimonials_tag: "Amanneɛ", testimonials_title: "Nneɛma a Wɔnhwɛ",
-    test1_text: '"Alien Developer yɛɛ yɛn abɛn ahooden mu asɛm no kan. Adwuma no yɛ papaapa na abɔntenfoɔ no anya awiee. Yɛfrɛ wo sɛ yɛrekɔ so!"',
-    test2_text: '"Chow Heaven nkwaseɛbubuuwɔ no yɛ fɛfɛeewɔ na wɔnhwɛ nwanwa. Nimdeɛ pa ara wɔ branding ne aduan aguade mu. Yɛbɛboa wo bio."',
-    test3_text: '"ShopWave app no atwerɛ yɛn ahia mu bebree. UI yɛ papaapa, ɔhaw ase, ne kwan a ɛwɔ hɔ yɛ papa. Onipa a ɔnim bebree."',
-    blog_tag: "Nsɛm", blog_title: "Blog ne Nkratoɔ", blog_desc: "Nsɛm a ɛfa mfonini ne adwuma dwumadie mu.",
-    resume_summary: "Nokwaredi Mu Nsɛm", resume_skills: "Mfonini Nimdeɛ", resume_projects: "Adwuma Titire", resume_edu: "Adesua", resume_print: "Twa / Kyerɛ PDF"
-  }
+  en: { lang: "English", resume_summary: "Professional Summary", resume_skills: "Technical Skills", resume_projects: "Featured Projects", resume_edu: "Education", resume_print: "Print / Save as PDF", github_title: "GitHub Profile", gh_repos: "Repositories", gh_stars: "Total Stars", gh_commits: "Commits", gh_contrib: "Contributions", testimonials_tag: "Testimonials", testimonials_title: "What People Say", test1_text: "\"Alien Developer delivered our wedding invitation site ahead of schedule. The design was stunning and guests loved the interactive experience. Highly recommend!\"", test2_text: "\"The Chow Heaven flyers were vibrant and eye-catching. Great understanding of branding and food marketing. Would definitely work together again.\"", test3_text: "\"The ShopWave app exceeded our expectations. Smooth UI, fast performance, and well-structured code. A true multidisciplinary talent.\"" },
+  es: { lang: "Español", resume_summary: "Resumen Profesional", resume_skills: "Habilidades Técnicas", resume_projects: "Proyectos Destacados", resume_edu: "Educación", resume_print: "Imprimir / Guardar como PDF", github_title: "Perfil de GitHub", gh_repos: "Repositorios", gh_stars: "Estrellas Totales", gh_commits: "Commits", gh_contrib: "Contribuciones", testimonials_tag: "Testimonios", testimonials_title: "Lo Que Dice La Gente", test1_text: "\"Alien Developer entregó nuestro sitio de invitación de boda antes de lo previsto. El diseño fue impresionante y a los invitados les encantó. ¡Muy recomendado!\"", test2_text: "\"Los volantes de Chow Heaven fueron vibrantes y llamativos. Gran comprensión del branding y marketing gastronómico. Definitivamente trabajaríamos juntos de nuevo.\"", test3_text: "\"La aplicación ShopWave superó nuestras expectativas. Interfaz fluida, rendimiento excelente y código bien estructurado. Un verdadero talento multidisciplinario.\"" },
+  fr: { lang: "Français", resume_summary: "Résumé Professionnel", resume_skills: "Compétences Techniques", resume_projects: "Projets Phares", resume_edu: "Éducation", resume_print: "Imprimer / Sauvegarder en PDF", github_title: "Profil GitHub", gh_repos: "Dépôts", gh_stars: "Étoiles Totales", gh_commits: "Commits", gh_contrib: "Contributions", testimonials_tag: "Témoignages", testimonials_title: "Ce Que Les Gens Disent", test1_text: "\"Alien Developer a livré notre site d'invitation de mariage en avance. Le design était superbe et les invités ont adoré l'expérience interactive. Hautement recommandé !\"", test2_text: "\"Les flyers Chow Heaven étaient vibrants et accrocheurs. Excellente compréhension du branding et du marketing alimentaire. On collaborera certainement à nouveau.\"", test3_text: "\"L'application ShopWave a dépassé nos attentes. Interface fluide, performances excellentes et code bien structuré. Un véritable talent multidisciplinaire.\"" },
+  de: { lang: "Deutsch", resume_summary: "Berufliche Zusammenfassung", resume_skills: "Technische Fähigkeiten", resume_projects: "Hervorgehobene Projekte", resume_edu: "Bildung", resume_print: "Drucken / Als PDF speichern", github_title: "GitHub-Profil", gh_repos: "Repositories", gh_stars: "Gesamtsterne", gh_commits: "Commits", gh_contrib: "Beiträge", testimonials_tag: "Referenzen", testimonials_title: "Was Andere Sagen", test1_text: "\"Alien Developer hat unsere Hochzeits-Einladungswebsite vorzeitig geliefert. Das Design war atemberaubend und die Gäste liebten die interaktive Erfahrung. Sehr empfehlenswert!\"", test2_text: "\"Die Chow Heaven Flyer waren lebendig und auffällig. Großes Verständnis für Branding und Lebensmittelmarketing. Wir würden definitiv wieder zusammenarbeiten.\"", test3_text: "\"Die ShopWave-App hat unsere Erwartungen übertroffen. Flüssige Benutzeroberfläche, hohe Leistung und gut strukturierter Code. Ein wahrer multidisziplinärer Talent.\"" },
+  pt: { lang: "Português", resume_summary: "Resumo Profissional", resume_skills: "Habilidades Técnicas", resume_projects: "Projetos em Destaque", resume_edu: "Formação", resume_print: "Imprimir / Salvar como PDF", github_title: "Perfil no GitHub", gh_repos: "Repositórios", gh_stars: "Estrelas Totais", gh_commits: "Commits", gh_contrib: "Contribuições", testimonials_tag: "Depoimentos", testimonials_title: "O Que As Pessoas Dizem", test1_text: "\"A Alien Developer entregou nosso site de convite de casamento antes do prazo. O design ficou incrível e os convidados adoraram a experiência interativa. Altamente recomendado!\"", test2_text: "\"Os flyers da Chow Heaven foram vibrantes e chamativos. Ótima compreensão de branding e marketing gastronômico. Definitivamente trabalharemos juntos novamente.\"", test3_text: "\"O app ShopWave superou nossas expectativas. Interface suave, desempenho excelente e código bem estruturado. Um verdadeiro talento multidisciplinar.\"" },
+  it: { lang: "Italiano", resume_summary: "Riepilogo Professionale", resume_skills: "Competenze Tecniche", resume_projects: "Progetti in Evidenza", resume_edu: "Formazione", resume_print: "Stampa / Salva come PDF", github_title: "Profilo GitHub", gh_repos: "Repository", gh_stars: "Stelle Totali", gh_commits: "Commit", gh_contrib: "Contribuzioni", testimonials_tag: "Testimonianze", testimonials_title: "Cosa Dicono Le Persone", test1_text: "\"Alien Developer ha consegnato il nostro sito di inviti di matrimonio in anticipo. Il design era stupendo e gli ospiti hanno adorato l'esperienza interativa. Consigliatissimo!\"", test2_text: "\"I volantino di Chow Heaven erano vivaci e accattivanti. Ottima comprensione del branding e del marketing alimentare. Collaboreremo sicuramente di nuovo.\"", test3_text: "\"L'app ShopWave ha superato le nostre aspettative. Interfaccia fluida, prestazioni eccellenti e codice ben strutturato. Un vero talento multidisciplinare.\"" },
+  nl: { lang: "Nederlands", resume_summary: "Professionele Samenvatting", resume_skills: "Technische Vaardigheden", resume_projects: "Uitgelichte Projecten", resume_edu: "Opleiding", resume_print: "Afdrukken / Opslaan als PDF", github_title: "GitHub-profiel", gh_repos: "Repository's", gh_stars: "Totaal Sterren", gh_commits: "Commits", gh_contrib: "Bijdragen", testimonials_tag: "Testimonials", testimonials_title: "Wat Mensen Zeggen", test1_text: "\"Alien Developer leverde onze trouwkaartsite voor de deadline op. Het ontwerp was schitterend en de gasten vonden de interactieve ervaring geweldig. Zeer aanbevolen!\"", test2_text: "\"De Chow Heaven-flyers waren levendig en opvallend. Uitstekend begrip van branding en foodmarketing. We werken zeker weer samen.\"", test3_text: "\"De ShopWave-app overtrof onze verwachtingen. Soepele UI, uitstekende prestaties en goed gestructureerde code. Een waar multidisciplinair talent.\"" },
+  ru: { lang: "Русский", resume_summary: "Профессиональное Резюме", resume_skills: "Технические Навыки", resume_projects: "Избранные Проекты", resume_edu: "Образование", resume_print: "Печать / Сохранить как PDF", github_title: "Профиль GitHub", gh_repos: "Репозитории", gh_stars: "Всего Звёзд", gh_commits: "Коммиты", gh_contrib: "Вклад", testimonials_tag: "Отзывы", testimonials_title: "Что Говорят Люди", test1_text: "\"Alien Developer доставил наш сайт свадебных приглашений раньше срока. Дизайн был потрясающим, и гости оценили интерактивный опыт. Настоятельно рекомендую!\"", test2_text: "\"Флаеры Chow Heaven были яркими и привлекательными. Отличное понимание брендинга и маркетинга еды. Обязательно будем работать вместе снова.\"", test3_text: "\"Приложение ShopWave превзошло наши ожидания. Плавный интерфейс, отличная производительность и хорошо структурированный код. Настоящий мультидисциплинарный талант.\"" },
+  ar: { lang: "العربية", resume_summary: "الملخص المهني", resume_skills: "المهارات التقنية", resume_projects: "المشاريع المميزة", resume_edu: "التعليم", resume_print: "طباعة / حفظ كـ PDF", github_title: "ملف GitHub", gh_repos: "المستودعات", gh_stars: "إجمالي النجوم", gh_commits: "الالتزامات", gh_contrib: "المساهمات", testimonials_tag: "الشهادات", testimonials_title: "ماذا يقول الناس", test1_text: "\" delivering our wedding invitation site ahead of schedule. The design was stunning and guests loved the interactive experience. Highly recommend!\"", test2_text: "\"The Chow Heaven flyers were vibrant and eye-catching. Great understanding of branding and food marketing. Would definitely work together again.\"", test3_text: "\"The ShopWave app exceeded our expectations. Smooth UI, fast performance, and well-structured code. A true multidisciplinary talent.\"" },
+  zh: { lang: "中文", resume_summary: "专业摘要", resume_skills: "技术技能", resume_projects: "精选项目", resume_edu: "教育背景", resume_print: "打印 / 保存为PDF", github_title: "GitHub 主页", gh_repos: "仓库", gh_stars: "总星数", gh_commits: "提交", gh_contrib: "贡献", testimonials_tag: "客户评价", testimonials_title: "大家怎么说", test1_text: "\"Alien Developer 提前交付了我们的婚礼邀请网站。设计令人惊叹，宾客们喜欢互动体验。强烈推荐！\"", test2_text: "\"Chow Heaven 的传单色彩鲜艳、引人注目。对品牌和食品营销有很好的理解。一定会再次合作。\"", test3_text: "\"ShopWave 应用超出了我们的期望。界面流畅、性能出色、代码结构良好。真正的多学科人才。\"" },
+  ja: { lang: "日本語", resume_summary: "職務概要", resume_skills: "技術スキル", resume_projects: "主なプロジェクト", resume_edu: "学歴", resume_print: "印刷 / PDFとして保存", github_title: "GitHubプロフィール", gh_repos: "リポジトリ", gh_stars: "スター合計", gh_commits: "コミット", gh_contrib: "コントリビューション", testimonials_tag: "お客様の声", testimonials_title: "お客様の声", test1_text: "\"Alien Developerは結婚式招待サイトを期日前に納品しました。デザインは素晴らしく、ゲストはインタラクティブな体験を楽しみました。強くお勧めします！\"", test2_text: "\"Chow Heavenのチラシは鮮やかで目を引きます。ブランディングとフードマーケティングへの理解が深い。 Definitelyまた一緒に働きたいです。\"", test3_text: "\"ShopWaveアプリは期待を上回りました。スムーズなUI、高いパフォーマンス、構造化されたコード。真の多分野の才能です。\"" },
+  ko: { lang: "한국어", resume_summary: "경력 요약", resume_skills: "기술 스킬", resume_projects: "주요 프로젝트", resume_edu: "학력", resume_print: "인쇄 / PDF로 저장", github_title: "GitHub 프로필", gh_repos: "저장소", gh_stars: "총 스타", gh_commits: "커밋", gh_contrib: "기여", testimonials_tag: "고객 후기", testimonials_title: "사람들의 평가", test1_text: "\"Alien Developer가 결혼식 초대 사이트를 일정보다 먼저 납품했습니다. 디자인이 놀라웠고 하객들이 인터랙티브한 경험을 좋아했습니다. 강력 추천합니다!\"", test2_text: "\"Chow Heaven 전단지는 생동감 있고 눈에 띄었습니다. 브랜딩과 음식 마케팅에 대한 이해도가 높았습니다. 꼭 다시 함께 일하고 싶습니다.\"", test3_text: "\"ShopWave 앱이 기대를 초과했습니다. 부드러운 UI, 뛰어난 성능, 잘 구성된 코드. 진정한 멀티디시플리너리 재능입니다.\"" },
+  hi: { lang: "हिन्दी", resume_summary: "पेशेवर सारांश", resume_skills: "तकनीकी कौशल", resume_projects: "प्रमुख परियोजनाएँ", resume_edu: "शिक्षा", resume_print: "प्रिंट / PDF के रूप में सहेजें", github_title: "GitHub प्रोफ़ाइल", gh_repos: "रिपॉज़िटरी", gh_stars: "कुल सितारे", gh_commits: "कमिट्स", gh_contrib: "योगदान", testimonials_tag: "प्रशंसापत्र", testimonials_title: "लोग क्या कहते हैं", test1_text: "\"Alien Developer ने हमारी शादी के निमंत्रण साइट को समय से पहले डिलीवर किया। डिज़ाइन शानदार था और मेहमानों को इंटरैक्टिव अनुभव बहुत पसंद आया। अत्यधिक अनुशंसित!\"", test2_text: "\"Chow Heaven के फ़्लायर जीवंत और आकर्षक थे। ब्रांडिंग और फूड मार्केटिंग की बहुत अच्छी समझ। निश्चित रूप से फिर से काम करेंगे।\"", test3_text: "\"ShopWave ऐप ने हमारी अपेक्षाओं को पार कर दिया। सुचारू UI, तेज़ प्रदर्शन, और अच्छी तरह से संरचित कोड। सच्चा बहु-विषयक प्रतिभा।\"" },
+  sw: { lang: "Kiswahili", resume_summary: "Muhtasari wa Kitaalamu", resume_skills: "Ujuzi wa Kiufundi", resume_projects: "Miradi Muhimu", resume_edu: "Elimu", resume_print: "Chapisha / Hifadhi kama PDF", github_title: "Wasifu wa GitHub", gh_repos: "Hifadhi", gh_stars: "Nyota Jumla", gh_commits: "Michango", gh_contrib: "Mchango", testimonials_tag: "Ushahidi", testimonials_title: "Watu Wanasema Nini", test1_text: "\"Alien Developer ilitoa tovuti ya mialiko ya ndoa kabla ya muda. Muundo ulikuwa wa ajabu na wageni walipenda uzoefu wa mwingiliano. Inapendekezwa sana!\"", test2_text: "\"Karata za Chow Heaven zilikuwa na rangi na zilivutia macho. Uelewa mkubwa wa ujenzi wa chapa na uuzaji wa chakula. Kwa hakika tutaanza kazi pamoja tena.\"", test3_text: "\"Programu ya ShopWave ilizidi matarajio yetu. UI laini, utendaji wa haraka, na msimbo ulioratibiwa vizuri. Talanta ya kweli ya multidisciplinary.\"" },
+  ha: { lang: "Hausa", resume_summary: "Taƙaitaccen Aiki", resume_skills: "Ilimin Fasaha", resume_projects: "Ayyuka Muhimmai", resume_edu: "Ilimi", resume_print: "Buga / Ajiye azaman PDF", github_title: "Bayanan GitHub", gh_repos: "Adana", gh_stars: "Stress Gabaɗaya", gh_commits: "Ayyuka", gh_contrib: "Gudanarwa", testimonials_tag: "Shawarwari", testimonials_title: "Abin Da Mutane Ke Cewa", test1_text: "\"Alien Developer ta bayar da gidan dogon aure kafin lokaci. Zane-zanen ya ban mamaki kuma masu shigar da bayanai sunjoyi mata. Ana ba da shawarar sosai!\"", test2_text: "\"Takardu na Chow Heaven sun yi haske kuma sun ji daɗi. Fahimta mai girma game da branding da tallace-tallacen abinci. Zamu sake aiki paki tare.\"", test3_text: "\"App  na ShopWave ya wuce tsammaninmu. UI mai sanyi, aiki mai sauri, da code mai tsari. Gwama na gaske na multidisciplinary.\"" },
+  yo: { lang: "Yorùbá", resume_summary: "Akópò Iṣẹ́", resume_skills: "Ọgbọ́n Iṣẹ́", resume_projects: "Iṣẹ́ Pàtàkì", resume_edu: "Ẹ̀kọ́", resume_print: "Tẹ́ / Fi sẹ́lẹ̀ sí PDF", github_title: "GitHub Profile", gh_repos: "Ibi Ìfi", gh_stars: "Ìràwọ̀ Kọ̀ọ̀kan", gh_commits: "Ìṣètò", gh_contrib: "Ìrántí", testimonials_tag: "Ìdájọ́", testimonials_title: "Ẹ̀yin Tí Àwọn Ẹ̀rọ̀ Ọ̀rọ̀", test1_text: "\"Alien Developer pèsè orílẹ̀-èdè ìbánisọ̀rọ̀ ẹbí wa nígbà tí ó kò tíì dé. Àwòrán dára púpọ̀ àti àwọn ènìyàn ní ìfẹ́ra fún rẹ̀. A gbà á múlẹ̀ púpọ̀!\"", test2_text: "\"Àwọn fláyà ti Chow Heaven jùn ṣe àti àwọn ènìyàn ní ìdí lé e. Ìmọ̀ tó dára nípa branding àti ìjà àṣà. A ó ṣiṣẹ́ pọ̀ mọ́ sí i.\"", test3_text: "\"App ShopWave kò gbà á ga àkíyèsí wa. UI tó nínú àti code tó dára. Òun ni ìmọ̀ tó pọ̀." },
+  zu: { lang: "isiZulu", resume_summary: "Isifinyezo Sobuchwepheshe", resume_skills: "Amakhono Obuchwepheshe", resume_projects: "Imisebenzi Ebalulekile", resume_edu: "Imfundo", resume_print: "Shicilela / Gcina njenge-PDF", github_title: "Iphrofayili ye-GitHub", gh_repos: "Amakhosizana", gh_stars: "Izinhlansi Eziphelele", gh_commits: "Izigcini", gh_contrib: "Isandulelo", testimonials_tag: "Izibonelelo", testimonials_title: "Abantu Bathini", test1_text: "\"Alien Developer inikeze iwebhusayithi yethu yokubiza isigubhu sishise ngaphambi kwesikhathi. Uhlelo luhle kakhulu futhi ababeki bethanda. Siyayincomisa kakhulu!\"", test2_text: "\"Amapheshana e-Chow Heaven abe nokukhanya futhi ajabulise amehlo. Ukuqonda okuhle nge branding nokuthengisa ukudla. Siyohlanganisa futhi.\"", test3_text: "\"I-app ye-ShopWave idlule okulindelekile. I-UI eshesha, ukusebenza okuhle, nekhodi ehlelekile. Ingqondo yokuvumelana.\"" },
+  am: { lang: "አማርኛ", resume_summary: "የሙያ ማጠቃለያ", resume_skills: "ቴክኒካል ችሎታዎች", resume_projects: "ምርጥ ፕሮጀክቶች", resume_edu: "ትምህርት", resume_print: "አትርግ / በ PDF ላይ አስቀምጥ", github_title: "GitHub መግለጫ", gh_repos: "መጠखት", gh_stars: "ጠቅላላ ኮከብ", gh_commits: "ኮሚቶች", gh_contrib: "አስተዋይ", testimonials_tag: "ማስተውያ", testimonials_title: "ሰዎች ምን ይላሉ", test1_text: "\"Alien Developer የጋብቻ ጋlicting ድር ጣቢያችን ከጊዜ በፊት አድርገዋል። ዲዛይኑ አስደናቂ ነበር እና እንግዶች የተግባር ተሞክሮውን ጠመጡ። በጣም እንመክራለን!\"", test2_text: "\"የ Chow Heaven ፎլ鏖ዎች ቀለማትም ነበሩ እና ዓይን ይዘኑ ነበር። በብራንዲንግ እና በምግብ ግብር መረዳት ግንባር። በእርግጥ እንደገና እንሠራለን።\"", test3_text: "\"ShopWave መተግበሪያ የጠበቃችንን ቀላል አደረገ። ለስለስ ቴክኒክ ፍጥነት እና በደንብ የተዋ𝗟ě code። እውነተኛ multidisciplinary ችሎታ።\"" },
+  th: { lang: "ไทย", resume_summary: "สรุปวิชาชีพ", resume_skills: "ทักษะทางเทคนิค", resume_projects: "โครงการเด่น", resume_edu: "การศึกษา", resume_print: "พิมพ์ / บันทึกเป็น PDF", github_title: "โปรไฟล์ GitHub", gh_repos: "คลังเก็บ", gh_stars: "ดาวทั้งหมด", gh_commits: "คอมมิต", gh_contrib: "การมีส่วนร่วม", testimonials_tag: "คำรับรอง", testimonials_title: "ผู้คนพูดว่าอย่างไร", test1_text: "\"Alien Developer ส่งเว็บไซต์เชิญงานแต่งงานของเราก่อนกำหนด การออกแบบยอดเยี่ยมและแขกชอบประสบการณ์แบบอินเทอร์แอคทีฟ ขอแนะนำอย่างยิ่ง!\"", test2_text: "\"ใบปลิว Chow Heaven มีสีสันสดใสและดึงดูดสายตา เข้าใจ branding และการตลาดอาหารเป็นอย่างดี จะทำงานร่วมกันอีกครั้งแน่นอน\"", test3_text: "\"แอป ShopWave เกินความคาดหวังของเรา UI ลื่นไหล ประสิทธิภาพสูง และโค้ดมีโครงสร้างดี ความสามารถหลากหลายที่แท้จริง\"" },
+  vi: { lang: "Tiếng Việt", resume_summary: "Tóm Tắt Chuyên Môn", resume_skills: "Kỹ Năng Kỹ Thuật", resume_projects: "Dự Án Nổi Bật", resume_edu: "Học Vấn", resume_print: "In / Lưu dưới dạng PDF", github_title: "Hồ Sơ GitHub", gh_repos: "Kho Lưu Trữ", gh_stars: "Tổng Sao", gh_commits: "Cam Kết", gh_contrib: "Đóng Góp", testimonials_tag: "Đánh Giá", testimonials_title: "Mọi Người Nói Gì", test1_text: "\"Alien Developer đã giao trang web cưới của chúng tôi trước hạn. Thiết kế tuyệt đẹp và khách mời thích trải nghiệm tương tác. Rất recommend!\"", test2_text: "\"Các tờ rơi Chow Heaven sặc sỡ và bắt mắt. Hiểu biết tuyệt vời về branding và tiếp thị thực phẩm. Chắc chắn sẽ hợp tác lại.\"", test3_text: "\"Ứng dụng ShopWave vượt quá mong đợi của chúng tôi. Giao diện mượt mà, hiệu suất cao và mã nguồn có cấu trúc tốt. Một tài năng đa ngành thực sự.\"" },
+  tr: { lang: "Türkçe", resume_summary: "Profesyonel Özet", resume_skills: "Teknik Beceriler", resume_projects: "Öne Çıkan Projeler", resume_edu: "Eğitim", resume_print: "Yazdır / PDF olarak kaydet", github_title: "GitHub Profili", gh_repos: "Depolar", gh_stars: "Toplam Yıldız", gh_commits: "İşlemler", gh_contrib: "Katkılar", testimonials_tag: "Referanslar", testimonials_title: "İnsanlar Ne Diyor", test1_text: "\"Alien Developer düğün daveti sitemizi zamanından önce teslim etti. Tasarım muhteşemdi ve misafirler interaktif deneyimi sevdi. Kesinlikle tavsiye ederim!\"", test2_text: "\"Chow Heaven el ilanları canlı ve göz alıcıydı. Markalaşma ve gıda pazarlama konusunda harika bir anlayış. Kesinlikle tekrar çalışacağız.\"", test3_text: "\"ShopWave uygulaması beklentilerimizi aştı. Pürüzsüz arayüz, yüksek performans ve iyi yapılandırılmış kod. Gerçek bir multidisipliner yetenek.\"" },
+  pl: { lang: "Polski", resume_summary: "Podsumowanie Zawodowe", resume_skills: "Umiejętności Techniczne", resume_projects: "Wybrane Projekty", resume_edu: "Wykształcenie", resume_print: "Drukuj / Zapisz jako PDF", github_title: "Profil GitHub", gh_repos: "Repozytoria", gh_stars: "Łączna Liczba Gwiazdek", gh_commits: "Commity", gh_contrib: "Wkłady", testimonials_tag: "Opinie", testimonials_title: "Co Ludzie Mówią", test1_text: "\"Alien Developer dostarczył naszą stronę zaproszeń ślubnych przed terminem. Projekt był oszałamiający, a goście uwielbiali interaktywne doświadczenie. Gorąco polecam!\"", test2_text: "\"Ulotki Chow Heaven były żywe i przyciągające wzrok. Świetne zrozumienie brandingu i marketingu spożywczego. Z pewnością będziemy współpracować ponownie.\"", test3_text: "\"Aplikacja ShopWave przekroczyła nasze oczekiwania. Płynny interfejs, wysoka wydajność i dobrze uporządkowany kod. Prawdziwy talent multidyscyplinarny.\"" },
+  sv: { lang: "Svenska", resume_summary: "Yrkesmässig Sammanfattning", resume_skills: "Tekniska Färdigheter", resume_projects: "Utvalda Projekt", resume_edu: "Utbildning", resume_print: "Skriv ut / Spara som PDF", github_title: "GitHub-profil", gh_repos: "Förråd", gh_stars: "Totala Stjärnor", gh_commits: "Commits", gh_contrib: "Bidrag", testimonials_tag: "Omdömen", testimonials_title: "Vad Folk Säger", test1_text: "\"Alien Developer levererade vår bröllopsinbjudningswebbplats före tid. Designen var strålande och gästerna älskade den interaktiva upplevelsen. Rekommenderas starkt!\"", test2_text: "\"Chow Heaven flygbladen var livfulla och iögonfallande. Stor förståelse för varumärkesbyggande och livsmedelsmarknadsföring. Vi kommer definitivt att arbeta tillsammans igen.\"", test3_text: "\"ShopWave-appen överträffade våra förväntningar. Smidig användargränssnitt, hög prestanda och välstrukturerad kod. En sann multidisciplinär talang.\"" },
+  de: { lang: "Deutsch", resume_summary: "Berufliche Zusammenfassung", resume_skills: "Technische Fähigkeiten", resume_projects: "Hervorgehobene Projekte", resume_edu: "Bildung", resume_print: "Drucken / Als PDF speichern", github_title: "GitHub-Profil", gh_repos: "Repositories", gh_stars: "Gesamtsterne", gh_commits: "Commits", gh_contrib: "Beiträge", testimonials_tag: "Referenzen", testimonials_title: "Was Andere Sagen", test1_text: "\"Alien Developer hat unsere Hochzeits-Einladungswebsite vorzeitig geliefert. Das Design war atemberaubend und die Gäste liebten die interaktive Erfahrung. Sehr empfehlenswert!\"", test2_text: "\"Die Chow Heaven Flyer waren lebendig und auffällig. Großes Verständnis für Branding und Lebensmittelmarketing. Wir würden definitiv wieder zusammenarbeiten.\"", test3_text: "\"Die ShopWave-App hat unsere Erwartungen übertroffen. Flüssige Benutzeroberfläche, hohe Leistung und gut strukturierter Code. Ein wahrer multidisziplinärer Talent.\"" }
 };
 let currentLang = "en";
+const langKeys = Object.keys(i18n);
 function initLangToggle() {
   const toggle = document.getElementById("lang-toggle");
   if (!toggle) return;
+  toggle.textContent = "EN";
   toggle.addEventListener("click", () => {
-    currentLang = currentLang === "en" ? "tw" : "en";
+    const idx = langKeys.indexOf(currentLang);
+    currentLang = langKeys[(idx + 1) % langKeys.length];
     toggle.textContent = currentLang.toUpperCase();
     document.querySelectorAll("[data-i18n]").forEach((el) => {
       const key = el.getAttribute("data-i18n");
       if (i18n[currentLang][key]) el.textContent = i18n[currentLang][key];
     });
-    showToast(currentLang === "en" ? "Language: English" : "Kasa: Twi");
+    showToast("Language: " + i18n[currentLang].lang);
   });
 }
 
