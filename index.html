@@ -7,6 +7,9 @@
     <meta name="keywords" content="alien developer, full stack, web developer, graphic designer, data analyst, prompt engineer, Ghana developer, portfolio">
     <meta name="author" content="Alien Developer">
     <meta name="theme-color" content="#111827">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
     <title>Alien Developer | Portfolio</title>
 
     <!-- Open Graph -->
@@ -2671,6 +2674,30 @@ a:focus-visible {
     user-select: none;
 }
 
+/* --- Video Loading Spinner --- */
+.video-loading {
+    position: absolute;
+    inset: 0;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    pointer-events: none;
+    z-index: 2;
+}
+
+.video-loading .spinner {
+    width: 48px;
+    height: 48px;
+    border: 4px solid rgba(255, 255, 255, 0.2);
+    border-top-color: var(--accent-primary);
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
 .lightbox-close {
     position: fixed;
     top: 20px;
@@ -3018,7 +3045,8 @@ body { transition: background-color 0.4s ease, color 0.4s ease; }
 .testimonial-stars { color: #fbbf24; font-size: 0.9rem; letter-spacing: 2px; }
 .testimonial-text { font-size: 0.95rem; color: var(--text-secondary); line-height: 1.7; font-style: italic; }
 .testimonial-author { display: flex; align-items: center; gap: 12px; }
-.testimonial-avatar { width: 40px; height: 40px; border-radius: 50%; background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary)); display: flex; align-items: center; justify-content: center; color: #fff; font-weight: 700; font-size: 0.85rem; flex-shrink: 0; }
+.testimonial-avatar { width: 44px; height: 44px; border-radius: 50%; background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary)); display: flex; align-items: center; justify-content: center; color: #fff; font-weight: 700; font-size: 0.85rem; flex-shrink: 0; overflow: hidden; border: 2px solid rgba(14, 165, 233, 0.4); }
+.testimonial-avatar img { width: 100%; height: 100%; object-fit: cover; display: block; }
 .testimonial-info { display: flex; flex-direction: column; gap: 1px; }
 .testimonial-name { font-size: 0.9rem; font-weight: 600; color: var(--text-bright); }
 .testimonial-role { font-size: 0.78rem; color: var(--text-muted); }
@@ -3299,9 +3327,9 @@ body { transition: background-color 0.4s ease, color 0.4s ease; }
                         <div class="testimonial-stars">★★★★★</div>
                         <p class="testimonial-text" data-i18n="test1_text">"Alien Developer delivered our wedding invitation site ahead of schedule. The design was stunning and guests loved the interactive experience. Highly recommend!"</p>
                         <div class="testimonial-author">
-                            <div class="testimonial-avatar">KA</div>
+                            <div class="testimonial-avatar"><img src="assets/testimonial-alex-sophia.jpg" alt="Alex & Sophia" loading="lazy" width="44" height="44"></div>
                             <div class="testimonial-info">
-                                <span class="testimonial-name">Kofi & Ama</span>
+                                <span class="testimonial-name">Alex & Sophia</span>
                                 <span class="testimonial-role">Wedding Clients</span>
                             </div>
                         </div>
@@ -3310,7 +3338,7 @@ body { transition: background-color 0.4s ease, color 0.4s ease; }
                         <div class="testimonial-stars">★★★★★</div>
                         <p class="testimonial-text" data-i18n="test2_text">"The Chow Heaven flyers were vibrant and eye-catching. Great understanding of branding and food marketing. Would definitely work together again."</p>
                         <div class="testimonial-author">
-                            <div class="testimonial-avatar">MK</div>
+                            <div class="testimonial-avatar"><img src="assets/testimonial-michelle.jpg" alt="Michelle K." loading="lazy" width="44" height="44"></div>
                             <div class="testimonial-info">
                                 <span class="testimonial-name">Michelle K.</span>
                                 <span class="testimonial-role">Restaurant Owner</span>
@@ -3321,7 +3349,7 @@ body { transition: background-color 0.4s ease, color 0.4s ease; }
                         <div class="testimonial-stars">★★★★★</div>
                         <p class="testimonial-text" data-i18n="test3_text">"The ShopWave app exceeded our expectations. Smooth UI, fast performance, and well-structured code. A true multidisciplinary talent."</p>
                         <div class="testimonial-author">
-                            <div class="testimonial-avatar">TN</div>
+                            <div class="testimonial-avatar"><img src="assets/testimonial-teddy.jpg" alt="Teddy N." loading="lazy" width="44" height="44"></div>
                             <div class="testimonial-info">
                                 <span class="testimonial-name">Teddy N.</span>
                                 <span class="testimonial-role">Project Collaborator</span>
@@ -4255,6 +4283,7 @@ function navigateTo(page) {
     } else if (page === "projects") {
       initPortfolioFilter();
       initProjectCardAnimations();
+      preloadProjectMedia();
     } else if (page === "contact") {
       initContactForm();
     }
@@ -4610,6 +4639,24 @@ function initPortfolioFilter() {
       });
     });
   });
+}
+
+function preloadProjectMedia() {
+  const media = [
+    "assets/chow-heaven-flyer-1-opt.jpg",
+    "assets/chow-heaven-flyer-2-opt.jpg",
+    "assets/chow-heaven-flyer-3-opt.jpg"
+  ];
+  setTimeout(function() {
+    media.forEach(function(src) {
+      if (document.querySelector('link[rel="prefetch"][href="' + src + '"]')) return;
+      const link = document.createElement("link");
+      link.rel = "prefetch";
+      link.as = "image";
+      link.href = src;
+      document.head.appendChild(link);
+    });
+  }, 1500);
 }
 
 function initProjectCardAnimations() {
@@ -5043,8 +5090,9 @@ function initAlienParticles() {
     <!-- Video Lightbox Modal -->
     <div class="lightbox-overlay" id="video-lightbox">
         <button class="lightbox-close" id="video-lightbox-close" aria-label="Close">&times;</button>
+        <div class="video-loading" id="video-loading"><div class="spinner"></div></div>
         <div class="lightbox-content">
-            <video id="video-lightbox-player" controls preload="none" playsinline style="max-width:90vw;max-height:85vh;border-radius:var(--radius-md);border:1px solid var(--border-color);box-shadow:0 8px 40px rgba(0,0,0,0.6);">
+            <video id="video-lightbox-player" controls preload="none" playsinline poster="assets/vaseline-ugc-poster.jpg" style="max-width:90vw;max-height:85vh;border-radius:var(--radius-md);border:1px solid var(--border-color);box-shadow:0 8px 40px rgba(0,0,0,0.6);">
                 <source src="" type="video/mp4">
             </video>
         </div>
@@ -5055,13 +5103,19 @@ function initAlienParticles() {
         var overlay = document.getElementById("video-lightbox");
         var video = document.getElementById("video-lightbox-player");
         var closeBtn = document.getElementById("video-lightbox-close");
-        var VIDEO_SRC = "assets/vaseline-ugc.mp4";
+        var loadingEl = document.getElementById("video-loading");
+        var VIDEO_SRC = "assets/vaseline-ugc-opt.mp4";
         var videoLoaded = false;
+
+        function setLoading(on) {
+            if (loadingEl) loadingEl.style.display = on ? "flex" : "none";
+        }
 
         function openVideoLightbox() {
             overlay.classList.add("active");
             document.body.style.overflow = "hidden";
             if (!videoLoaded) {
+                setLoading(true);
                 video.querySelector("source").src = VIDEO_SRC;
                 video.load();
                 videoLoaded = true;
@@ -5075,6 +5129,11 @@ function initAlienParticles() {
             overlay.classList.remove("active");
             document.body.style.overflow = "";
         }
+
+        video.addEventListener("canplay", function() { setLoading(false); });
+        video.addEventListener("waiting", function() { setLoading(true); });
+        video.addEventListener("playing", function() { setLoading(false); });
+        video.addEventListener("error", function() { setLoading(false); });
 
         document.querySelectorAll(".project-card[data-category='prompt'] .project-link").forEach(function(link) {
             link.addEventListener("click", function(e) {
