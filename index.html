@@ -52,7 +52,8 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+    <noscript><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet"></noscript>
     <style>
 /* ============================================
    ALIEN DEVELOPER - PORTFOLIO STYLESHEET
@@ -2111,16 +2112,6 @@ a.contact-link:hover {
     .github-stat-card {
         backdrop-filter: none !important;
         -webkit-backdrop-filter: none !important;
-    }
-
-    /* Skip rendering/paint of below-the-fold content until scrolled near */
-    .skill-row,
-    .project-card,
-    .testimonial-card,
-    .github-stat-card,
-    .about-brief-card {
-        content-visibility: auto;
-        contain-intrinsic-size: auto 320px;
     }
 }
 
@@ -4216,17 +4207,22 @@ body { transition: background-color 0.4s ease, color 0.4s ease; }
 
     <script>
 document.addEventListener("DOMContentLoaded", () => {
-  initPageLoad();
-  initNavbar();
-  initStarField();
-  initScrollAnimations();
-  initScrollProgress();
-  initSPA();
-  initThemeToggle();
-  initBackToTop();
-  initLangToggle();
-  initHomeFeatures();
-  navigateTo("home");
+  const inits = [
+    initPageLoad,
+    initNavbar,
+    initStarField,
+    initScrollAnimations,
+    initScrollProgress,
+    initSPA,
+    initThemeToggle,
+    initBackToTop,
+    initLangToggle,
+    initHomeFeatures
+  ];
+  inits.forEach(function(fn) {
+    try { fn(); } catch (err) { console.error(fn.name + " failed:", err); }
+  });
+  try { navigateTo("home"); } catch (err) { console.error("navigateTo failed:", err); }
 });
 
 // ── SPA Navigation ────────────────────────────────────────────────────────────
@@ -4256,45 +4252,49 @@ function navigateTo(page) {
   if (transition) transition.classList.add("active");
 
   setTimeout(function() {
-    document.querySelectorAll(".page-section").forEach(function(s) {
-      s.style.display = "none";
-    });
+    try {
+      document.querySelectorAll(".page-section").forEach(function(s) {
+        s.style.display = "none";
+      });
 
-    var target = document.getElementById("page-" + page);
-    if (target) target.style.display = "";
+      var target = document.getElementById("page-" + page);
+      if (target) target.style.display = "";
 
-    document.querySelectorAll(".nav-link").forEach(function(l) {
-      l.classList.remove("active");
-      if (l.getAttribute("data-page") === page) l.classList.add("active");
-    });
+      document.querySelectorAll(".nav-link").forEach(function(l) {
+        l.classList.remove("active");
+        if (l.getAttribute("data-page") === page) l.classList.add("active");
+      });
 
-    var navMenu = document.getElementById("nav-menu");
-    var navToggle = document.getElementById("nav-toggle");
-    if (navMenu) navMenu.classList.remove("active");
-    if (navToggle) navToggle.classList.remove("active");
+      var navMenu = document.getElementById("nav-menu");
+      var navToggle = document.getElementById("nav-toggle");
+      if (navMenu) navMenu.classList.remove("active");
+      if (navToggle) navToggle.classList.remove("active");
 
-    window.scrollTo(0, 0);
-    currentPage = page;
-    if (page === "home") {
-      initHomeFeatures();
-    } else if (page === "skills") {
-      initSkillBars();
-      initSkillRowAnimations();
-    } else if (page === "projects") {
-      initPortfolioFilter();
-      initProjectCardAnimations();
-      preloadProjectMedia();
-    } else if (page === "contact") {
-      initContactForm();
-    }
+      window.scrollTo(0, 0);
+      currentPage = page;
+      if (page === "home") {
+        initHomeFeatures();
+      } else if (page === "skills") {
+        initSkillBars();
+        initSkillRowAnimations();
+      } else if (page === "projects") {
+        initPortfolioFilter();
+        initProjectCardAnimations();
+        preloadProjectMedia();
+      } else if (page === "contact") {
+        initContactForm();
+      }
 
-    initScrollAnimations();
-    initStarField();
-
-    if (transition) {
-      setTimeout(function() {
-        transition.classList.remove("active");
-      }, 100);
+      initScrollAnimations();
+      initStarField();
+    } catch (err) {
+      console.error("navigateTo(" + page + ") failed:", err);
+    } finally {
+      if (transition) {
+        setTimeout(function() {
+          transition.classList.remove("active");
+        }, 100);
+      }
     }
   }, 250);
 }
@@ -4793,18 +4793,26 @@ function showToast(message, type) {
   setTimeout(() => { toast.classList.add("removing"); setTimeout(() => toast.remove(), 300); }, 4000);
 }
 
+// ── Safe Storage (private mode throws on access) ────────────────────────────
+function safeGet(key) {
+  try { return localStorage.getItem(key); } catch (e) { return null; }
+}
+function safeSet(key, value) {
+  try { localStorage.setItem(key, value); } catch (e) {}
+}
+
 // ── Theme Toggle ────────────────────────────────────────────────────────────
 function initThemeToggle() {
   const toggle = document.getElementById("theme-toggle");
   if (!toggle) return;
-  const saved = localStorage.getItem("theme");
+  const saved = safeGet("theme");
   if (saved) document.documentElement.setAttribute("data-theme", saved);
 
   toggle.addEventListener("click", () => {
     const current = document.documentElement.getAttribute("data-theme");
     const next = current === "light" ? "dark" : "light";
     document.documentElement.setAttribute("data-theme", next);
-    localStorage.setItem("theme", next);
+    safeSet("theme", next);
     showToast(next === "light" ? "Light mode enabled" : "Dark mode enabled");
   });
 }
@@ -4881,12 +4889,12 @@ function initLangToggle() {
   const langCurrent = document.getElementById("lang-current");
   if (!toggle || !dropdown || !langCurrent) return;
   langCurrent.textContent = currentLang.toUpperCase();
-  const savedLang = localStorage.getItem("lang");
+  const savedLang = safeGet("lang");
   if (savedLang && i18n[savedLang]) currentLang = savedLang;
   function applyLang(lang) {
     currentLang = lang;
     langCurrent.textContent = currentLang.toUpperCase();
-    localStorage.setItem("lang", currentLang);
+    safeSet("lang", currentLang);
     document.querySelectorAll("[data-i18n]").forEach((el) => {
       const key = el.getAttribute("data-i18n");
       if (i18n[currentLang][key]) el.textContent = i18n[currentLang][key];
