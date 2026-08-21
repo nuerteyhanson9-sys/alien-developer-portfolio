@@ -47,17 +47,9 @@
     }
     </script>
 
-    <!-- Google Analytics (placeholder - replace G-XXXXXXXXXX with real ID) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-XXXXXXXXXX');
-    </script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
     <style>
 /* ============================================
    ALIEN DEVELOPER - PORTFOLIO STYLESHEET
@@ -203,7 +195,7 @@ h3 { letter-spacing: -0.01em; }
 }
 
 /* Firefox */
-* {
+html {
     scrollbar-width: thin;
     scrollbar-color: var(--accent-primary) var(--bg-primary);
 }
@@ -273,7 +265,7 @@ input, textarea, select, button {
 }
 
 .nav-logo:hover {
-    color: var(--text-bright);
+    color: var(--accent-primary);
 }
 
 .logo-bracket {
@@ -1101,7 +1093,7 @@ input, textarea, select, button {
     border-radius: var(--radius-lg);
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
-    transition: all var(--transition-smooth);
+    transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
     opacity: 0;
     transform: translateY(30px);
 }
@@ -1250,7 +1242,7 @@ input, textarea, select, button {
     color: var(--text-secondary);
     background: var(--bg-card);
     border: 1px solid var(--border-color);
-    transition: all var(--transition-base);
+    transition: background-color 0.2s ease, color 0.2s ease, transform 0.2s ease;
     font-family: var(--font-body);
 }
 
@@ -1280,9 +1272,7 @@ input, textarea, select, button {
     border: 1px solid var(--border-color);
     border-radius: var(--radius-lg);
     overflow: hidden;
-    transition: all var(--transition-smooth);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
     opacity: 0;
     transform: translateY(30px);
 }
@@ -1314,380 +1304,6 @@ input, textarea, select, button {
     min-height: 200px;
 }
 
-/* --- Browser Mockup --- */
-.project-mockup {
-    width: 100%;
-    max-width: 280px;
-    background: #0d1525;
-    border-radius: var(--radius-md);
-    border: 1px solid rgba(14, 165, 233, 0.15);
-    overflow: hidden;
-    box-shadow: var(--shadow-md);
-}
-
-.mockup-bar {
-    display: flex;
-    align-items: center;
-    gap: 6px;
-    padding: 8px 12px;
-    background: rgba(15, 22, 41, 0.8);
-    border-bottom: 1px solid rgba(14, 165, 233, 0.1);
-}
-
-.mockup-bar span {
-    width: 8px;
-    height: 8px;
-    border-radius: 50%;
-}
-
-.mockup-bar span:nth-child(1) {
-    background: #ef4444;
-}
-
-.mockup-bar span:nth-child(2) {
-    background: #f59e0b;
-}
-
-.mockup-bar span:nth-child(3) {
-    background: #22c55e;
-}
-
-.mockup-content {
-    padding: 12px;
-    min-height: 140px;
-}
-
-/* --- Web Mockup --- */
-.mockup-nav-bar {
-    width: 100%;
-    height: 8px;
-    background: rgba(14, 165, 233, 0.15);
-    border-radius: var(--radius-sm);
-    margin-bottom: 12px;
-}
-
-.mockup-hero-section {
-    margin-bottom: 12px;
-    display: flex;
-    flex-direction: column;
-    gap: 6px;
-}
-
-.mockup-line {
-    height: 6px;
-    background: rgba(14, 165, 233, 0.2);
-    border-radius: var(--radius-sm);
-}
-
-.mockup-line.short {
-    height: 6px;
-}
-
-.mockup-btn-placeholder {
-    width: 60px;
-    height: 14px;
-    background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
-    border-radius: var(--radius-sm);
-    margin-top: 4px;
-}
-
-.mockup-grid-inner {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 8px;
-}
-
-.mockup-card-sm {
-    height: 36px;
-    background: rgba(14, 165, 233, 0.1);
-    border: 1px solid rgba(14, 165, 233, 0.15);
-    border-radius: var(--radius-sm);
-}
-
-/* --- Dashboard Mockup --- */
-.mockup-dashboard {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-}
-
-.mockup-chart {
-    display: flex;
-    align-items: flex-end;
-    gap: 6px;
-    height: 80px;
-    padding: 8px 0;
-}
-
-.mockup-chart .bar {
-    flex: 1;
-    background: linear-gradient(180deg, var(--accent-primary), var(--accent-secondary));
-    border-radius: 3px 3px 0 0;
-    min-width: 12px;
-    transition: height 0.8s ease;
-}
-
-.mockup-metrics {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-}
-
-.metric {
-    display: flex;
-    flex-direction: column;
-    gap: 3px;
-}
-
-.metric-label {
-    font-size: 0.6rem;
-    color: var(--text-muted);
-    font-family: var(--font-mono);
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-}
-
-.metric-bar {
-    width: 100%;
-    height: 4px;
-    background: rgba(14, 165, 233, 0.1);
-    border-radius: var(--radius-full);
-    overflow: hidden;
-}
-
-.metric-bar > div {
-    height: 100%;
-    background: linear-gradient(90deg, var(--accent-primary), var(--accent-secondary));
-    border-radius: var(--radius-full);
-}
-
-/* --- Design Mockup --- */
-.mockup-design {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 12px;
-    padding: 16px;
-}
-
-.design-element {
-    transition: transform var(--transition-base);
-}
-
-.design-element.circle {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
-    box-shadow: 0 0 15px rgba(14, 165, 233, 0.3);
-}
-
-.design-element.square {
-    width: 30px;
-    height: 30px;
-    background: rgba(139, 92, 246, 0.6);
-    border: 2px solid rgba(139, 92, 246, 0.4);
-    border-radius: var(--radius-sm);
-    transform: rotate(15deg);
-}
-
-.design-element.triangle {
-    width: 0;
-    height: 0;
-    border-left: 18px solid transparent;
-    border-right: 18px solid transparent;
-    border-bottom: 32px solid rgba(245, 158, 11, 0.6);
-}
-
-.design-colors {
-    display: flex;
-    gap: 6px;
-}
-
-.design-colors span {
-    width: 18px;
-    height: 18px;
-    border-radius: 50%;
-    border: 2px solid rgba(255, 255, 255, 0.1);
-}
-
-.design-typography {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    gap: 6px;
-}
-
-/* --- AI Conversation Mockup --- */
-.mockup-ai {
-    position: relative;
-}
-
-.ai-conversation {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-}
-
-.ai-msg {
-    padding: 8px 10px;
-    border-radius: var(--radius-sm);
-    font-size: 0.65rem;
-}
-
-.prompt-msg {
-    background: rgba(14, 165, 233, 0.1);
-    border: 1px solid rgba(14, 165, 233, 0.2);
-    border-radius: var(--radius-sm) var(--radius-sm) var(--radius-sm) 0;
-}
-
-.response-msg {
-    background: rgba(139, 92, 246, 0.08);
-    border: 1px solid rgba(139, 92, 246, 0.15);
-    border-radius: var(--radius-sm) var(--radius-sm) 0 var(--radius-sm);
-    margin-left: 16px;
-}
-
-.ai-msg-label {
-    font-family: var(--font-mono);
-    font-size: 0.55rem;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-    color: var(--accent-primary);
-    margin-bottom: 4px;
-}
-
-.response-msg .ai-msg-label {
-    color: #8b5cf6;
-}
-
-.ai-msg-text {
-    color: var(--text-secondary);
-    font-size: 0.6rem;
-    line-height: 1.4;
-    font-style: italic;
-}
-
-.ai-msg-blocks {
-    display: flex;
-    flex-direction: column;
-    gap: 5px;
-}
-
-.ai-block {
-    height: 6px;
-    background: rgba(139, 92, 246, 0.15);
-    border-radius: var(--radius-sm);
-}
-
-.ai-block.short {
-    width: 60%;
-}
-
-.ai-sparkle {
-    position: absolute;
-    top: 8px;
-    right: 12px;
-    font-size: 1rem;
-    animation: sparkleRotate 4s linear infinite;
-}
-
-@keyframes sparkleRotate {
-    0% { transform: rotate(0deg) scale(1); }
-    25% { transform: rotate(90deg) scale(1.2); }
-    50% { transform: rotate(180deg) scale(1); }
-    75% { transform: rotate(270deg) scale(1.2); }
-    100% { transform: rotate(360deg) scale(1); }
-}
-
-/* --- Code Mockup --- */
-.mockup-code {
-    padding: 14px;
-    font-family: var(--font-mono);
-    font-size: 0.6rem;
-    line-height: 1.7;
-    color: var(--text-secondary);
-}
-
-.code-line {
-    white-space: nowrap;
-}
-
-.code-line.indent {
-    padding-left: 20px;
-}
-
-.code-line.indent-2 {
-    padding-left: 40px;
-}
-
-.kw {
-    color: #c084fc;
-}
-
-.fn {
-    color: var(--accent-primary);
-}
-
-.cm {
-    color: var(--text-muted);
-    font-style: italic;
-}
-
-/* --- Mobile App Mockup --- */
-.mockup-mobile {
-    display: flex;
-    justify-content: center;
-    padding: 12px;
-}
-
-.mobile-frame {
-    width: 100px;
-    background: #0d1525;
-    border-radius: 12px;
-    border: 2px solid rgba(14, 165, 233, 0.2);
-    overflow: hidden;
-    box-shadow: var(--shadow-md);
-}
-
-.mobile-status-bar {
-    height: 12px;
-    background: rgba(14, 165, 233, 0.1);
-}
-
-.mobile-cards {
-    display: flex;
-    flex-direction: column;
-    gap: 6px;
-    padding: 8px;
-}
-
-.mobile-card {
-    height: 18px;
-    background: rgba(14, 165, 233, 0.12);
-    border: 1px solid rgba(14, 165, 233, 0.15);
-    border-radius: 4px;
-}
-
-.mobile-bottom-nav {
-    display: flex;
-    justify-content: space-around;
-    padding: 6px 8px;
-    border-top: 1px solid rgba(14, 165, 233, 0.1);
-}
-
-.mobile-bottom-nav span {
-    width: 10px;
-    height: 10px;
-    border-radius: 3px;
-    background: rgba(14, 165, 233, 0.15);
-}
-
-.mobile-bottom-nav span:first-child {
-    background: rgba(14, 165, 233, 0.4);
-}
-
 /* --- Themed Project Previews --- */
 .project-preview {
     width: 100%;
@@ -1715,6 +1331,7 @@ input, textarea, select, button {
     filter: blur(60px);
     opacity: 0.25;
     pointer-events: none;
+    will-change: transform;
 }
 
 /* Wedding - romantic glow */
@@ -1774,13 +1391,6 @@ input, textarea, select, button {
 
 .preview-pulse {
     animation: pulseRing 3s ease-in-out infinite;
-}
-
-/* Wave animation */
-@keyframes waveMotion {
-    0% { d: path("M0,60 Q60,40 120,60 T240,60"); }
-    50% { d: path("M0,60 Q60,80 120,60 T240,60"); }
-    100% { d: path("M0,60 Q60,40 120,60 T240,60"); }
 }
 
 /* --- Project Info --- */
@@ -2213,39 +1823,6 @@ a.contact-link:hover {
     }
 }
 
-@keyframes slideInLeft {
-    from {
-        opacity: 0;
-        transform: translateX(-40px);
-    }
-    to {
-        opacity: 1;
-        transform: translateX(0);
-    }
-}
-
-@keyframes slideInRight {
-    from {
-        opacity: 0;
-        transform: translateX(40px);
-    }
-    to {
-        opacity: 1;
-        transform: translateX(0);
-    }
-}
-
-@keyframes scaleIn {
-    from {
-        opacity: 0;
-        transform: scale(0.9);
-    }
-    to {
-        opacity: 1;
-        transform: scale(1);
-    }
-}
-
 /* ============================================
    RESPONSIVE DESIGN - Tablet (max-width: 1024px)
    ============================================ */
@@ -2448,15 +2025,6 @@ a.contact-link:hover {
         gap: 20px;
     }
 
-    .project-mockup {
-        max-width: 240px;
-    }
-
-    .project-gallery img {
-        width: 150px;
-        height: 120px;
-    }
-
     .project-info {
         padding: 20px;
     }
@@ -2506,6 +2074,50 @@ a.contact-link:hover {
 
     .footer-social {
         justify-content: center;
+    }
+
+    /* Mobile Performance: disable heavy effects */
+    .project-preview .glow-blob {
+        filter: none;
+        opacity: 0.15;
+    }
+    .preview-sparkle,
+    .preview-steam,
+    .preview-pulse {
+        animation: none !important;
+    }
+    .project-card .project-preview svg {
+        transition: none;
+    }
+
+    /* Blur(120px) orbs are very expensive on mobile GPUs */
+    .hero-bg .glow {
+        filter: blur(60px);
+        animation: none;
+    }
+
+    /* Backdrop-filter causes scroll jank on low-end devices */
+    .nav-menu,
+    .navbar.scrolled,
+    .lightbox-overlay,
+    .toast,
+    .phone-cta-card,
+    .contact-form-wrapper,
+    .about-brief-card,
+    .testimonial-card,
+    .github-stat-card {
+        backdrop-filter: none !important;
+        -webkit-backdrop-filter: none !important;
+    }
+
+    /* Skip rendering/paint of below-the-fold content until scrolled near */
+    .skill-row,
+    .project-card,
+    .testimonial-card,
+    .github-stat-card,
+    .about-brief-card {
+        content-visibility: auto;
+        contain-intrinsic-size: auto 320px;
     }
 }
 
@@ -2667,22 +2279,21 @@ a.contact-link:hover {
     box-shadow: 0 2px 10px rgba(14, 165, 233, 0.4);
 }
 
-/* --- Enhanced Card Hover (subtle tilt) --- */
+/* --- Enhanced Card Hover --- */
 .project-card {
-    transition: all var(--transition-smooth);
-    transform-style: preserve-3d;
-    perspective: 1000px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+    will-change: transform;
 }
 
 .project-card:hover {
     border-color: var(--border-hover);
-    box-shadow: var(--shadow-glow), 0 20px 60px rgba(0, 0, 0, 0.3);
-    transform: translateY(-6px) rotateX(2deg);
+    box-shadow: var(--shadow-glow);
+    transform: translateY(-4px);
 }
 
 /* --- Enhanced Skill Row Hover --- */
 .skill-row {
-    transition: all var(--transition-smooth);
+    transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 .skill-row:hover {
@@ -2742,7 +2353,7 @@ a.contact-link:hover {
 
 /* --- Enhanced Contact Card --- */
 .contact-card {
-    transition: all var(--transition-smooth);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .contact-card:hover {
@@ -2761,7 +2372,7 @@ a.contact-link:hover {
 
 /* --- Enhanced Social Link --- */
 .social-link {
-    transition: all var(--transition-base);
+    transition: transform 0.2s ease, color 0.2s ease;
 }
 
 .social-link:hover {
@@ -2841,18 +2452,6 @@ a.contact-link:hover {
     pointer-events: all;
 }
 
-/* --- Smooth Section Reveal --- */
-@keyframes sectionReveal {
-    from {
-        opacity: 0;
-        transform: translateY(40px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
 /* --- About Brief Card Enhanced --- */
 .about-brief-card {
     transition: all var(--transition-smooth);
@@ -2928,19 +2527,6 @@ a.contact-link:hover {
     transform: scale(1.02);
 }
 
-/* --- Loading Skeleton --- */
-@keyframes shimmer {
-    0% { background-position: -200% 0; }
-    100% { background-position: 200% 0; }
-}
-
-.skeleton {
-    background: linear-gradient(90deg, rgba(14,165,233,0.05) 25%, rgba(14,165,233,0.1) 50%, rgba(14,165,233,0.05) 75%);
-    background-size: 200% 100%;
-    animation: shimmer 1.5s infinite;
-    border-radius: var(--radius-sm);
-}
-
 /* --- Tooltip Base --- */
 [data-tooltip] {
     position: relative;
@@ -2997,20 +2583,6 @@ a:focus-visible {
     border: 0;
 }
 
-.text-center {
-    text-align: center;
-}
-
-.mt-1 { margin-top: 8px; }
-.mt-2 { margin-top: 16px; }
-.mt-3 { margin-top: 24px; }
-.mt-4 { margin-top: 32px; }
-
-.mb-1 { margin-bottom: 8px; }
-.mb-2 { margin-bottom: 16px; }
-.mb-3 { margin-bottom: 24px; }
-.mb-4 { margin-bottom: 32px; }
-
 /* --- Reduced Motion --- */
 @media (prefers-reduced-motion: reduce) {
     *,
@@ -3033,62 +2605,31 @@ a:focus-visible {
     .footer-social,
     .alien-scene,
     .hero-buttons,
-    .portfolio-filters {
+    .portfolio-filters,
+    .footer,
+    .back-to-top,
+    .whatsapp-float,
+    .nav-actions,
+    .resume-actions,
+    .scroll-progress {
         display: none !important;
     }
 
     body {
-        background: #fff;
-        color: #000;
+        background: #fff !important;
+        color: #000 !important;
     }
 
     .footer {
         border-top: 1px solid #ccc;
     }
-}
 
-/* --- Image Gallery Mockup --- */
-.project-gallery {
-    display: flex;
-    gap: 8px;
-    padding: 12px;
-    overflow-x: auto;
-    scroll-snap-type: x mandatory;
-    -webkit-overflow-scrolling: touch;
-}
-
-.project-gallery::-webkit-scrollbar {
-    height: 4px;
-}
-
-.project-gallery::-webkit-scrollbar-thumb {
-    background: var(--accent-primary);
-    border-radius: var(--radius-full);
-}
-
-.project-gallery img {
-    flex-shrink: 0;
-    width: 200px;
-    height: 160px;
-    object-fit: cover;
-    border-radius: var(--radius-sm);
-    border: 1px solid var(--border-color);
-    scroll-snap-align: center;
-    transition: transform var(--transition-base), border-color var(--transition-base);
-    cursor: pointer;
-}
-
-.project-gallery img:hover {
-    transform: scale(1.05);
-    border-color: var(--accent-primary);
-}
-
-/* --- Video Mockup --- */
-.project-video {
-    width: 100%;
-    border-radius: var(--radius-md);
-    border: 1px solid var(--border-color);
-    display: block;
+    .resume-wrapper { border: none; box-shadow: none; padding: 0; }
+    .resume-header h1 { -webkit-text-fill-color: #000; background: none; }
+    .resume-section h2 { color: #000; border-color: #ccc; }
+    .resume-item h3 { color: #000; }
+    .resume-item .resume-meta { color: #333; }
+    .resume-item p, .testimonial-text { color: #333; }
 }
 
 /* --- Lightbox Modal Gallery --- */
@@ -3269,7 +2810,7 @@ body { transition: background-color 0.4s ease, color 0.4s ease; }
 .nav-social-link:hover { color: var(--accent-primary); background: rgba(14, 165, 233, 0.08); }
 .nav-social-link.whatsapp-link:hover { color: #25d366; }
 
-.theme-toggle, .lang-toggle {
+.theme-toggle {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -3285,10 +2826,83 @@ body { transition: background-color 0.4s ease, color 0.4s ease; }
     font-weight: 700;
     transition: all var(--transition-fast);
 }
-.theme-toggle:hover, .lang-toggle:hover { color: var(--accent-primary); border-color: var(--accent-primary); }
+.theme-toggle:hover { color: var(--accent-primary); border-color: var(--accent-primary); }
 .sun-icon { display: none; }
 [data-theme="light"] .sun-icon { display: block; }
 [data-theme="light"] .moon-icon { display: none; }
+
+/* --- Floating Language Selector --- */
+.lang-selector {
+    position: fixed;
+    bottom: 170px;
+    right: 24px;
+    z-index: 900;
+}
+.lang-selector-btn {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    color: var(--text-secondary);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    box-shadow: var(--shadow-md);
+    transition: all var(--transition-base);
+    gap: 1px;
+}
+.lang-selector-btn:hover { color: var(--accent-primary); border-color: var(--accent-primary); transform: scale(1.08); }
+.lang-current { font-size: 0.55rem; font-weight: 700; font-family: var(--font-mono); line-height: 1; }
+.lang-dropdown {
+    position: absolute;
+    bottom: 56px;
+    right: 0;
+    width: 220px;
+    max-height: 480px;
+    overflow-y: auto;
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    box-shadow: var(--shadow-lg);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(8px) scale(0.96);
+    transition: all 0.25s ease;
+}
+.lang-dropdown.open { opacity: 1; visibility: visible; transform: translateY(0) scale(1); }
+.lang-option {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 16px;
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    cursor: pointer;
+    transition: all var(--transition-fast);
+    border: none;
+    background: none;
+    width: 100%;
+    text-align: left;
+    font-family: var(--font-body);
+}
+.lang-option:hover { background: rgba(14, 165, 233, 0.08); color: var(--text-bright); }
+.lang-option.active { color: var(--accent-primary); background: rgba(14, 165, 233, 0.1); font-weight: 600; }
+.lang-option-code { font-family: var(--font-mono); font-size: 0.7rem; color: var(--text-muted); min-width: 22px; }
+.lang-search { width: 100%; padding: 8px 12px; border: none; border-bottom: 1px solid var(--border-color); background: transparent; color: var(--text-primary); font-size: 0.8rem; font-family: var(--font-body); outline: none; position: sticky; top: 0; }
+.lang-search::placeholder { color: var(--text-muted); }
+[dir="rtl"] .lang-option { text-align: right; }
+.lang-dropdown::-webkit-scrollbar { width: 4px; }
+.lang-dropdown::-webkit-scrollbar-thumb { background: var(--accent-primary); border-radius: 4px; }
+
+/* --- Contact Link Sub --- */
+.contact-link-sub { font-size: 0.82rem; color: var(--text-muted); display: block; margin-top: 2px; }
 
 /* --- Back to Top --- */
 .back-to-top {
@@ -3371,36 +2985,11 @@ body { transition: background-color 0.4s ease, color 0.4s ease; }
 }
 .whatsapp-float:hover { transform: scale(1.1); box-shadow: 0 8px 30px rgba(37, 211, 102, 0.6); color: #fff; }
 @keyframes whatsappPulse {
-    0%, 100% { box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4); }
-    50% { box-shadow: 0 4px 30px rgba(37, 211, 102, 0.6), 0 0 0 10px rgba(37, 211, 102, 0.1); }
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.08); }
 }
 
-/* --- Sound Toggle --- */
-.sound-toggle {
-    position: fixed;
-    bottom: 100px;
-    right: 24px;
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    background: var(--bg-card);
-    border: 1px solid var(--border-color);
-    color: var(--text-secondary);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    z-index: 900;
-    transition: all var(--transition-base);
-    backdrop-filter: blur(10px);
-}
-.sound-toggle:hover { color: var(--accent-primary); border-color: var(--accent-primary); }
-.sound-toggle.active { color: var(--accent-primary); border-color: var(--accent-primary); background: rgba(14, 165, 233, 0.1); }
-.sound-off-icon { display: none; }
-.sound-toggle.active .sound-on-icon { display: block; }
-.sound-toggle.active .sound-off-icon { display: none; }
-.sound-toggle:not(.active) .sound-on-icon { display: none; }
-.sound-toggle:not(.active) .sound-off-icon { display: block; }
+
 
 /* --- Testimonials Section --- */
 .testimonials-section {
@@ -3476,17 +3065,6 @@ body { transition: background-color 0.4s ease, color 0.4s ease; }
 .resume-skill-tag { padding: 6px 14px; background: rgba(14, 165, 233, 0.08); border: 1px solid rgba(14, 165, 233, 0.15); border-radius: var(--radius-full); font-size: 0.82rem; font-family: var(--font-mono); color: var(--text-secondary); }
 .resume-actions { text-align: center; margin-top: 32px; }
 
-@media print {
-    .navbar, .hero-bg, .footer, .back-to-top, .whatsapp-float, .sound-toggle, .nav-actions, .resume-actions, .scroll-progress { display: none !important; }
-    body { background: #fff !important; color: #000 !important; }
-    .resume-wrapper { border: none; box-shadow: none; padding: 0; }
-    .resume-header h1 { -webkit-text-fill-color: #000; background: none; }
-    .resume-section h2 { color: #000; border-color: #ccc; }
-    .resume-item h3 { color: #000; }
-    .resume-item .resume-meta { color: #333; }
-    .resume-item p, .testimonial-text { color: #333; }
-}
-
 @media (max-width: 1024px) {
     .testimonials-grid { grid-template-columns: repeat(2, 1fr); }
     .github-stats-grid { grid-template-columns: repeat(2, 1fr); }
@@ -3498,7 +3076,6 @@ body { transition: background-color 0.4s ease, color 0.4s ease; }
     .github-stats-grid { grid-template-columns: repeat(2, 1fr); }
     .resume-wrapper { padding: 24px; }
     .back-to-top { right: 24px; bottom: 24px; }
-    .sound-toggle { bottom: 140px; }
 }
 
 @media (max-width: 480px) {
@@ -3519,17 +3096,16 @@ body { transition: background-color 0.4s ease, color 0.4s ease; }
                 <span class="hamburger"></span>
             </button>
             <ul class="nav-menu" id="nav-menu">
-                <li><a class="nav-link active" data-page="home">Home</a></li>
-                <li><a class="nav-link" data-page="skills">Skills</a></li>
-                <li><a class="nav-link" data-page="projects">Projects</a></li>
-                <li><a class="nav-link" data-page="contact">Contact</a></li>
+                <li><a class="nav-link active" data-page="home" data-i18n="nav_home">Home</a></li>
+                <li><a class="nav-link" data-page="skills" data-i18n="nav_skills">Skills</a></li>
+                <li><a class="nav-link" data-page="projects" data-i18n="nav_projects">Projects</a></li>
+                <li><a class="nav-link" data-page="contact" data-i18n="nav_contact">Contact</a></li>
             </ul>
             <div class="nav-actions">
                 <a href="https://github.com/nuerteyhanson9-sys" target="_blank" rel="noopener noreferrer" aria-label="GitHub" class="nav-social-link"><svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg></a>
                 <a href="https://www.linkedin.com/in/hanson-nuertey-633b053b6" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" class="nav-social-link"><svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a>
                 <a href="https://wa.me/233509120845" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp" class="nav-social-link whatsapp-link"><svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></a>
                 <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme"><svg class="sun-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg><svg class="moon-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg></button>
-                <button class="lang-toggle" id="lang-toggle" aria-label="Toggle language">EN</button>
             </div>
         </div>
     </nav>
@@ -3546,14 +3122,14 @@ body { transition: background-color 0.4s ease, color 0.4s ease; }
             <div class="container">
                 <div class="hero-grid">
                     <div class="hero-content">
-                        <p class="hero-greeting">Greetings, Earthling</p>
+                        <p class="hero-greeting" data-i18n="hero_greeting">Greetings, Earthling</p>
                         <h1 class="hero-name">
-                            <span class="name-text">Alien Developer</span>
+                            <span class="name-text" data-i18n="hero_name">Alien Developer</span>
                         </h1>
                         <p class="hero-tagline">
                             <span class="typed-wrapper"><span class="typed" id="typed-output"></span><span class="cursor">|</span></span>
                         </p>
-                        <p class="hero-description">
+                        <p class="hero-description" data-i18n="hero_desc">
                             A multidisciplinary technologist from beyond the stars, specializing in
                             programming, prompt engineering, web development, graphic design,
                             data analysis, and user generated content. I transform complex problems
@@ -3561,25 +3137,25 @@ body { transition: background-color 0.4s ease, color 0.4s ease; }
                         </p>
                         <div class="hero-buttons">
                             <a class="btn btn-primary" href="#" data-page="projects" style="cursor:pointer">
-                                <span>View My Work</span>
+                                <span data-i18n="hero_btn_work">View My Work</span>
                                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg>
                             </a>
-                            <a class="btn btn-outline" href="#" data-page="contact" style="cursor:pointer">Get In Touch</a>
+                            <a class="btn btn-outline" href="#" data-page="contact" style="cursor:pointer" data-i18n="hero_btn_touch">Get In Touch</a>
                         </div>
                         <div class="hero-stats">
                             <div class="stat">
                                 <span class="stat-number" data-target="7">0</span>
-                                <span class="stat-label">Core Skills</span>
+                                <span class="stat-label" data-i18n="stat_skills">Core Skills</span>
                             </div>
                             <div class="stat-divider"></div>
                             <div class="stat">
                                 <span class="stat-number" data-target="15">0</span><span class="stat-suffix">+</span>
-                                <span class="stat-label">Projects</span>
+                                <span class="stat-label" data-i18n="stat_projects">Projects</span>
                             </div>
                             <div class="stat-divider"></div>
                             <div class="stat">
                                 <span class="stat-number" data-target="100">0</span><span class="stat-suffix">%</span>
-                                <span class="stat-label">Commitment</span>
+                                <span class="stat-label" data-i18n="stat_commitment">Commitment</span>
                             </div>
                         </div>
                     </div>
@@ -3623,57 +3199,57 @@ body { transition: background-color 0.4s ease, color 0.4s ease; }
                         <div class="about-brief-icon">
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>
                         </div>
-                        <h3>Programming</h3>
-                        <p>Building robust applications with clean, maintainable code across multiple languages.</p>
+                        <h3 data-i18n="about_programming">Programming</h3>
+                        <p data-i18n="about_programming_desc">Building robust applications with clean, maintainable code across multiple languages.</p>
                     </div>
                     <div class="about-brief-card">
                         <div class="about-brief-icon">
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="3"></circle><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"></path></svg>
                         </div>
-                        <h3>Prompt Engineering</h3>
-                        <p>Crafting precise AI prompts and building intelligent automation workflows.</p>
+                        <h3 data-i18n="about_prompt">Prompt Engineering</h3>
+                        <p data-i18n="about_prompt_desc">Crafting precise AI prompts and building intelligent automation workflows.</p>
                     </div>
                     <div class="about-brief-card">
                         <div class="about-brief-icon">
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
                         </div>
-                        <h3>Web Development</h3>
-                        <p>Full-stack development creating performant, accessible web experiences.</p>
+                        <h3 data-i18n="about_web">Web Development</h3>
+                        <p data-i18n="about_web_desc">Full-stack development creating performant, accessible web experiences.</p>
                     </div>
                     <div class="about-brief-card">
                         <div class="about-brief-icon">
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 19l7-7 3 3-7 7-3-3z"></path><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"></path><path d="M2 2l7.586 7.586"></path><circle cx="11" cy="11" r="2"></circle></svg>
                         </div>
-                        <h3>Graphic Design</h3>
-                        <p>Creating impactful visual identities and pixel-perfect UI/UX designs.</p>
+                        <h3 data-i18n="about_design">Graphic Design</h3>
+                        <p data-i18n="about_design_desc">Creating impactful visual identities and pixel-perfect UI/UX designs.</p>
                     </div>
                     <div class="about-brief-card">
                         <div class="about-brief-icon">
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><line x1="18" y1="20" x2="18" y2="10"></line><line x1="12" y1="20" x2="12" y2="4"></line><line x1="6" y1="20" x2="6" y2="14"></line><line x1="2" y1="20" x2="22" y2="20"></line></svg>
                         </div>
-                        <h3>Data Analysis</h3>
-                        <p>Transforming raw data into actionable insights through visualization and modeling.</p>
+                        <h3 data-i18n="about_data">Data Analysis</h3>
+                        <p data-i18n="about_data_desc">Transforming raw data into actionable insights through visualization and modeling.</p>
                     </div>
                     <div class="about-brief-card">
                         <div class="about-brief-icon">
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
                         </div>
-                        <h3>User Generated Content</h3>
-                        <p>Building community-driven content strategies that boost engagement and brand reach.</p>
+                        <h3 data-i18n="about_ugc">User Generated Content</h3>
+                        <p data-i18n="about_ugc_desc">Building community-driven content strategies that boost engagement and brand reach.</p>
                     </div>
                     <div class="about-brief-card">
                         <div class="about-brief-icon">
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"></rect><line x1="12" y1="18" x2="12.01" y2="18"></line></svg>
                         </div>
-                        <h3>Mobile App Development</h3>
-                        <p>Cross-platform mobile apps with native-like performance and seamless UX.</p>
+                        <h3 data-i18n="about_mobile">Mobile App Development</h3>
+                        <p data-i18n="about_mobile_desc">Cross-platform mobile apps with native-like performance and seamless UX.</p>
                     </div>
                     <div class="about-brief-card">
                         <div class="about-brief-icon">
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><ellipse cx="12" cy="5" rx="9" ry="3"></ellipse><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"></path><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"></path></svg>
                         </div>
-                        <h3>Databases</h3>
-                        <p>Designing and managing relational & NoSQL databases for scalable applications.</p>
+                        <h3 data-i18n="about_databases">Databases</h3>
+                        <p data-i18n="about_databases_desc">Designing and managing relational & NoSQL databases for scalable applications.</p>
                     </div>
                 </div>
             </div>
@@ -3689,12 +3265,12 @@ body { transition: background-color 0.4s ease, color 0.4s ease; }
                 <div class="github-stats-grid">
                     <div class="github-stat-card">
                         <div class="stat-icon">📁</div>
-                        <div class="github-stat-number" data-target="12">0</div>
+                        <div class="github-stat-number" data-target="12" data-stat="repos">0</div>
                         <div class="github-stat-label" data-i18n="gh_repos">Repositories</div>
                     </div>
                     <div class="github-stat-card">
                         <div class="stat-icon">⭐</div>
-                        <div class="github-stat-number" data-target="28">0</div>
+                        <div class="github-stat-number" data-target="28" data-stat="stars">0</div>
                         <div class="github-stat-label" data-i18n="gh_stars">Total Stars</div>
                     </div>
                     <div class="github-stat-card">
@@ -3763,10 +3339,10 @@ body { transition: background-color 0.4s ease, color 0.4s ease; }
                         <span class="logo-bracket">&lt;</span>Alien<span class="logo-highlight">Dev</span><span class="logo-bracket">/&gt;</span>
                     </a>
                     <div class="footer-links">
-                        <a data-page="home" href="#" style="cursor:pointer">Home</a>
-                        <a data-page="skills" href="#" style="cursor:pointer">Skills</a>
-                        <a data-page="projects" href="#" style="cursor:pointer">Projects</a>
-                        <a data-page="contact" href="#" style="cursor:pointer">Contact</a>
+                        <a data-page="home" href="#" style="cursor:pointer" data-i18n="nav_home">Home</a>
+                        <a data-page="skills" href="#" style="cursor:pointer" data-i18n="nav_skills">Skills</a>
+                        <a data-page="projects" href="#" style="cursor:pointer" data-i18n="nav_projects">Projects</a>
+                        <a data-page="contact" href="#" style="cursor:pointer" data-i18n="nav_contact">Contact</a>
                     </div>
                     <div class="footer-social">
                         <a href="https://github.com/nuerteyhanson9-sys" target="_blank" rel="noopener noreferrer" aria-label="GitHub" class="social-link">
@@ -3781,7 +3357,7 @@ body { transition: background-color 0.4s ease, color 0.4s ease; }
                     </div>
                 </div>
                 <div class="footer-bottom">
-                    <p>&copy; 2026 Alien Developer. All rights reserved. Transmission from Sector 7G.</p>
+                    <p data-i18n="footer_copyright">&copy; 2026 Alien Developer. All rights reserved. Transmission from Sector 7G.</p>
                 </div>
             </div>
         </footer>
@@ -3796,9 +3372,9 @@ body { transition: background-color 0.4s ease, color 0.4s ease; }
                 <div class="glow glow-2"></div>
             </div>
             <div class="container">
-                <span class="section-tag">What I Do</span>
-                <h1 class="page-hero-title">Core Competencies</h1>
-                <p class="page-hero-desc">Six pillars of expertise that drive every project from concept to completion across the digital universe.</p>
+                <span class="section-tag" data-i18n="skills_tag">What I Do</span>
+                <h1 class="page-hero-title" data-i18n="skills_title">Core Competencies</h1>
+                <p class="page-hero-desc" data-i18n="skills_desc">Six pillars of expertise that drive every project from concept to completion across the digital universe.</p>
             </div>
         </section>
 
@@ -3814,10 +3390,10 @@ body { transition: background-color 0.4s ease, color 0.4s ease; }
                         </div>
                         <div class="skill-row-content">
                             <div class="skill-row-header">
-                                <h2>Programming</h2>
-                                <span class="skill-level-badge expert">Expert</span>
+                                <h2 data-i18n="skill_programming">Programming</h2>
+                                <span class="skill-level-badge expert" data-i18n="badge_expert">Expert</span>
                             </div>
-                            <p>Proficient in multiple languages including Python, JavaScript, TypeScript, and C++. Building robust applications, algorithms, and automation tools with clean, maintainable code. Experience with object-oriented design, functional programming, and system architecture.</p>
+                            <p data-i18n="skill_programming_desc">Proficient in multiple languages including Python, JavaScript, TypeScript, and C++. Building robust applications, algorithms, and automation tools with clean, maintainable code. Experience with object-oriented design, functional programming, and system architecture.</p>
                             <div class="skill-tags">
                                 <span class="tag">Python</span>
                                 <span class="tag">JavaScript</span>
@@ -3841,10 +3417,10 @@ body { transition: background-color 0.4s ease, color 0.4s ease; }
                         </div>
                         <div class="skill-row-content">
                             <div class="skill-row-header">
-                                <h2>Prompt Engineering</h2>
-                                <span class="skill-level-badge advanced">Advanced</span>
+                                <h2 data-i18n="skill_prompt">Prompt Engineering</h2>
+                                <span class="skill-level-badge advanced" data-i18n="badge_advanced">Advanced</span>
                             </div>
-                            <p>Crafting precise, effective prompts for AI models to generate accurate, contextually relevant outputs. Specializing in LLM optimization, chain-of-thought reasoning, few-shot learning, and building RAG pipelines for intelligent automation.</p>
+                            <p data-i18n="skill_prompt_desc">Crafting precise, effective prompts for AI models to generate accurate, contextually relevant outputs. Specializing in LLM optimization, chain-of-thought reasoning, few-shot learning, and building RAG pipelines for intelligent automation.</p>
                             <div class="skill-tags">
                                 <span class="tag">LLMs</span>
                                 <span class="tag">GPT-4</span>
@@ -3869,10 +3445,10 @@ body { transition: background-color 0.4s ease, color 0.4s ease; }
                         </div>
                         <div class="skill-row-content">
                             <div class="skill-row-header">
-                                <h2>Web Development</h2>
-                                <span class="skill-level-badge expert">Expert</span>
+                                <h2 data-i18n="skill_web">Web Development</h2>
+                                <span class="skill-level-badge expert" data-i18n="badge_expert">Expert</span>
                             </div>
-                            <p>Full-stack development from responsive frontends to scalable backends. Creating performant, accessible, and visually compelling web experiences with modern frameworks and best practices.</p>
+                            <p data-i18n="skill_web_desc">Full-stack development from responsive frontends to scalable backends. Creating performant, accessible, and visually compelling web experiences with modern frameworks and best practices.</p>
                             <div class="skill-tags">
                                 <span class="tag">HTML5 / CSS3</span>
                                 <span class="tag">React</span>
@@ -3898,10 +3474,10 @@ body { transition: background-color 0.4s ease, color 0.4s ease; }
                         </div>
                         <div class="skill-row-content">
                             <div class="skill-row-header">
-                                <h2>Graphic Design</h2>
-                                <span class="skill-level-badge advanced">Advanced</span>
+                                <h2 data-i18n="skill_design">Graphic Design</h2>
+                                <span class="skill-level-badge advanced" data-i18n="badge_advanced">Advanced</span>
                             </div>
-                            <p>Creating impactful visual identities, UI/UX designs, and marketing assets. From brand concepts to polished deliverables with pixel-perfect precision and a keen eye for detail.</p>
+                            <p data-i18n="skill_design_desc">Creating impactful visual identities, UI/UX designs, and marketing assets. From brand concepts to polished deliverables with pixel-perfect precision and a keen eye for detail.</p>
                             <div class="skill-tags">
                                 <span class="tag">Figma</span>
                                 <span class="tag">Photoshop</span>
@@ -3927,10 +3503,10 @@ body { transition: background-color 0.4s ease, color 0.4s ease; }
                         </div>
                         <div class="skill-row-content">
                             <div class="skill-row-header">
-                                <h2>Data Analysis</h2>
-                                <span class="skill-level-badge advanced">Advanced</span>
+                                <h2 data-i18n="skill_data">Data Analysis</h2>
+                                <span class="skill-level-badge advanced" data-i18n="badge_advanced">Advanced</span>
                             </div>
-                            <p>Transforming raw data into actionable insights through statistical analysis, visualization, and predictive modeling. Driving business decisions with evidence-based recommendations.</p>
+                            <p data-i18n="skill_data_desc">Transforming raw data into actionable insights through statistical analysis, visualization, and predictive modeling. Driving business decisions with evidence-based recommendations.</p>
                             <div class="skill-tags">
                                 <span class="tag">Python</span>
                                 <span class="tag">Pandas / NumPy</span>
@@ -3956,10 +3532,10 @@ body { transition: background-color 0.4s ease, color 0.4s ease; }
                         </div>
                         <div class="skill-row-content">
                             <div class="skill-row-header">
-                                <h2>User Generated Content</h2>
-                                <span class="skill-level-badge advanced">Advanced</span>
+                                <h2 data-i18n="skill_ugc">User Generated Content</h2>
+                                <span class="skill-level-badge advanced" data-i18n="badge_advanced">Advanced</span>
                             </div>
-                            <p>Creating and curating user-generated content strategies that build community, drive engagement, and amplify brand reach. Skilled in content moderation, campaign design, and leveraging authentic voices across platforms.</p>
+                            <p data-i18n="skill_ugc_desc">Creating and curating user-generated content strategies that build community, drive engagement, and amplify brand reach. Skilled in content moderation, campaign design, and leveraging authentic voices across platforms.</p>
                             <div class="skill-tags">
                                 <span class="tag">Content Strategy</span>
                                 <span class="tag">Community Management</span>
@@ -3983,10 +3559,10 @@ body { transition: background-color 0.4s ease, color 0.4s ease; }
                         </div>
                         <div class="skill-row-content">
                             <div class="skill-row-header">
-                                <h2>Mobile App Development</h2>
-                                <span class="skill-level-badge advanced">Advanced</span>
+                                <h2 data-i18n="skill_mobile">Mobile App Development</h2>
+                                <span class="skill-level-badge advanced" data-i18n="badge_advanced">Advanced</span>
                             </div>
-                            <p>Building cross-platform mobile applications with native-like performance and smooth user experiences. Skilled in responsive UI, offline-first architecture, and app store deployment for both iOS and Android.</p>
+                            <p data-i18n="skill_mobile_desc">Building cross-platform mobile applications with native-like performance and smooth user experiences. Skilled in responsive UI, offline-first architecture, and app store deployment for both iOS and Android.</p>
                             <div class="skill-tags">
                                 <span class="tag">Flutter</span>
                                 <span class="tag">Dart</span>
@@ -4011,10 +3587,10 @@ body { transition: background-color 0.4s ease, color 0.4s ease; }
                         </div>
                         <div class="skill-row-content">
                             <div class="skill-row-header">
-                                <h2>Databases</h2>
-                                <span class="skill-level-badge advanced">Advanced</span>
+                                <h2 data-i18n="skill_databases">Databases</h2>
+                                <span class="skill-level-badge advanced" data-i18n="badge_advanced">Advanced</span>
                             </div>
-                            <p>Designing and managing relational and NoSQL databases for scalable, high-performance applications. Skilled in schema design, query optimization, data modeling, and cloud database services for real-time and enterprise-level systems.</p>
+                            <p data-i18n="skill_databases_desc">Designing and managing relational and NoSQL databases for scalable, high-performance applications. Skilled in schema design, query optimization, data modeling, and cloud database services for real-time and enterprise-level systems.</p>
                             <div class="skill-tags">
                                 <span class="tag">MySQL</span>
                                 <span class="tag">PostgreSQL</span>
@@ -4041,22 +3617,22 @@ body { transition: background-color 0.4s ease, color 0.4s ease; }
                 <div class="glow glow-2"></div>
             </div>
             <div class="container">
-                <span class="section-tag">My Work</span>
-                <h1 class="page-hero-title">Featured Projects</h1>
-                <p class="page-hero-desc">A selection of projects showcasing skills across all seven disciplines.</p>
+                <span class="section-tag" data-i18n="projects_tag">My Work</span>
+                <h1 class="page-hero-title" data-i18n="projects_title">Featured Projects</h1>
+                <p class="page-hero-desc" data-i18n="projects_desc">A selection of projects showcasing skills across all seven disciplines.</p>
             </div>
         </section>
 
         <section class="portfolio-page">
             <div class="container">
                 <div class="portfolio-filters">
-                    <button class="filter-btn active" data-filter="all">All</button>
-                    <button class="filter-btn" data-filter="prompt">AI / Prompt</button>
-                    <button class="filter-btn" data-filter="web">Web Dev</button>
-                    <button class="filter-btn" data-filter="design">Design</button>
-                    <button class="filter-btn" data-filter="mobile">Mobile</button>
-                    <button class="filter-btn" data-filter="data">Data</button>
-                    <button class="filter-btn" data-filter="database">Database</button>
+                    <button class="filter-btn active" data-filter="all" data-i18n="filter_all">All</button>
+                    <button class="filter-btn" data-filter="prompt" data-i18n="filter_prompt">AI / Prompt</button>
+                    <button class="filter-btn" data-filter="web" data-i18n="filter_web">Web Dev</button>
+                    <button class="filter-btn" data-filter="design" data-i18n="filter_design">Design</button>
+                    <button class="filter-btn" data-filter="mobile" data-i18n="filter_mobile">Mobile</button>
+                    <button class="filter-btn" data-filter="data" data-i18n="filter_data">Data</button>
+                    <button class="filter-btn" data-filter="database" data-i18n="filter_database">Database</button>
                 </div>
                 <div class="portfolio-grid">
                     <div class="project-card" data-category="web">
@@ -4106,14 +3682,14 @@ body { transition: background-color 0.4s ease, color 0.4s ease; }
                             </div>
                         </div>
                         <div class="project-info">
-                            <span class="project-category">Web Development</span>
-                            <h3 class="project-title">Wedding Invitation</h3>
-                            <p class="project-description">A beautifully crafted wedding invitation website with elegant design, responsive layout, and interactive elements for guests.</p>
+                            <span class="project-category" data-i18n="proj_wedding_cat">Web Development</span>
+                            <h3 class="project-title" data-i18n="proj_wedding_title">Wedding Invitation</h3>
+                            <p class="project-description" data-i18n="proj_wedding_desc">A beautifully crafted wedding invitation website with elegant design, responsive layout, and interactive elements for guests.</p>
                             <div class="project-tech">
                                 <span>HTML</span><span>CSS</span><span>JavaScript</span>
                             </div>
                             <a href="wedding-invitation/index.html" class="project-link" target="_blank">
-                                View Project
+                                <span data-i18n="view_project">View Project</span>
                                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg>
                             </a>
                         </div>
@@ -4171,14 +3747,14 @@ body { transition: background-color 0.4s ease, color 0.4s ease; }
                             </div>
                         </div>
                         <div class="project-info">
-                            <span class="project-category">Graphic Design</span>
-                            <h3 class="project-title">Chow Heaven</h3>
-                            <p class="project-description">Designed vibrant flyers for "Chow Heaven" � a creative concept project showcasing food branding and promotional design skills.</p>
+                            <span class="project-category" data-i18n="proj_flyers_cat">Graphic Design</span>
+                            <h3 class="project-title" data-i18n="proj_flyers_title">Chow Heaven</h3>
+                            <p class="project-description" data-i18n="proj_flyers_desc">Designed vibrant flyers for "Chow Heaven" — a creative concept project showcasing food branding and promotional design skills.</p>
                             <div class="project-tech">
                                 <span>Photoshop</span><span>Ideogram</span>
                             </div>
                             <a href="#" class="project-link">
-                                View Project
+                                <span data-i18n="view_project">View Project</span>
                                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg>
                             </a>
                         </div>
@@ -4241,14 +3817,14 @@ body { transition: background-color 0.4s ease, color 0.4s ease; }
                             </div>
                         </div>
                         <div class="project-info">
-                            <span class="project-category">Web Development</span>
-                            <h3 class="project-title">Chow Heaven Website</h3>
-                            <p class="project-description">Built a full website for "Chow Heaven" restaurant concept, featuring a responsive layout, menu showcase, and engaging visual design.</p>
+                            <span class="project-category" data-i18n="proj_chow_cat">Web Development</span>
+                            <h3 class="project-title" data-i18n="proj_chow_title">Chow Heaven Website</h3>
+                            <p class="project-description" data-i18n="proj_chow_desc">Built a full website for "Chow Heaven" restaurant concept, featuring a responsive layout, menu showcase, and engaging visual design.</p>
                             <div class="project-tech">
                                 <span>HTML</span><span>CSS</span><span>JavaScript</span><span>Antigravity</span>
                             </div>
                             <a href="assets/chow-heaven-website/index.html" target="_blank" class="project-link">
-                                View Project
+                                <span data-i18n="view_project">View Project</span>
                                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg>
                             </a>
                         </div>
@@ -4308,14 +3884,14 @@ body { transition: background-color 0.4s ease, color 0.4s ease; }
                             </div>
                         </div>
                         <div class="project-info">
-                            <span class="project-category">Prompt Engineering</span>
-                            <h3 class="project-title">Vaseline GH UGC</h3>
-                            <p class="project-description">Created user-generated content for Vaseline GH using AI-assisted prompt engineering and video editing to produce engaging skincare campaign material.</p>
+                            <span class="project-category" data-i18n="proj_vaseline_cat">Prompt Engineering</span>
+                            <h3 class="project-title" data-i18n="proj_vaseline_title">Vaseline GH UGC</h3>
+                            <p class="project-description" data-i18n="proj_vaseline_desc">Created user-generated content for Vaseline GH using AI-assisted prompt engineering and video editing to produce engaging skincare campaign material.</p>
                             <div class="project-tech">
                                 <span>Google Flow</span><span>ChatGPT</span><span>Claude</span><span>CapCut</span>
                             </div>
                             <a href="#" class="project-link">
-                                View Project
+                                <span data-i18n="view_project">View Project</span>
                                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg>
                             </a>
                         </div>
@@ -4384,14 +3960,14 @@ body { transition: background-color 0.4s ease, color 0.4s ease; }
                             </div>
                         </div>
                         <div class="project-info">
-                            <span class="project-category">Mobile App Development</span>
-                            <h3 class="project-title">ShopWave</h3>
-                            <p class="project-description">A modern cross-platform e-commerce app built with Flutter featuring product browsing, cart management, checkout, favorites, search, and local SQLite persistence.</p>
+                            <span class="project-category" data-i18n="proj_shopwave_cat">Mobile App Development</span>
+                            <h3 class="project-title" data-i18n="proj_shopwave_title">ShopWave</h3>
+                            <p class="project-description" data-i18n="proj_shopwave_desc">A modern cross-platform e-commerce app built with Flutter featuring product browsing, cart management, checkout, favorites, search, and local SQLite persistence.</p>
                             <div class="project-tech">
                                 <span>Flutter</span><span>Dart</span><span>SQFlite</span><span>Material Design</span>
                             </div>
                             <a href="assets/shopwave.apk" class="project-link" download>
-                                Download APK
+                                <span data-i18n="download_apk">Download APK</span>
                                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
                             </a>
                         </div>
@@ -4407,10 +3983,10 @@ body { transition: background-color 0.4s ease, color 0.4s ease; }
                         <span class="logo-bracket">&lt;</span>Alien<span class="logo-highlight">Dev</span><span class="logo-bracket">/&gt;</span>
                     </a>
                     <div class="footer-links">
-                        <a data-page="home" href="#" style="cursor:pointer">Home</a>
-                        <a data-page="skills" href="#" style="cursor:pointer">Skills</a>
-                        <a data-page="projects" href="#" style="cursor:pointer">Projects</a>
-                        <a data-page="contact" href="#" style="cursor:pointer">Contact</a>
+                        <a data-page="home" href="#" style="cursor:pointer" data-i18n="nav_home">Home</a>
+                        <a data-page="skills" href="#" style="cursor:pointer" data-i18n="nav_skills">Skills</a>
+                        <a data-page="projects" href="#" style="cursor:pointer" data-i18n="nav_projects">Projects</a>
+                        <a data-page="contact" href="#" style="cursor:pointer" data-i18n="nav_contact">Contact</a>
                     </div>
                     <div class="footer-social">
                         <a href="https://github.com/nuerteyhanson9-sys" target="_blank" rel="noopener noreferrer" aria-label="GitHub" class="social-link">
@@ -4425,7 +4001,7 @@ body { transition: background-color 0.4s ease, color 0.4s ease; }
                     </div>
                 </div>
                 <div class="footer-bottom">
-                    <p>&copy; 2026 Alien Developer. All rights reserved.</p>
+                    <p data-i18n="footer_copyright">&copy; 2026 Alien Developer. All rights reserved.</p>
                 </div>
             </div>
         </footer>
@@ -4437,8 +4013,8 @@ body { transition: background-color 0.4s ease, color 0.4s ease; }
             <div class="container">
                 <div class="resume-wrapper">
                     <div class="resume-header">
-                        <h1>Alien Developer</h1>
-                        <p>Multidisciplinary Technologist | Ghana 🇬🇭</p>
+                        <h1 data-i18n="resume_name">Alien Developer</h1>
+                        <p data-i18n="resume_subtitle">Multidisciplinary Technologist | Ghana 🇬🇭</p>
                         <p style="color:var(--text-muted);font-size:0.85rem;margin-top:4px">nuerteyhanson9@gmail.com · +233 509 120 845</p>
                     </div>
                     <div class="resume-section">
@@ -4487,9 +4063,9 @@ body { transition: background-color 0.4s ease, color 0.4s ease; }
                 <div class="glow glow-2"></div>
             </div>
             <div class="container">
-                <span class="section-tag">Get In Touch</span>
-                <h1 class="page-hero-title">Let's Work Together</h1>
-                <p class="page-hero-desc">Have a project in mind or just want to connect? I'd love to hear from you.</p>
+                <span class="section-tag" data-i18n="contact_tag">Get In Touch</span>
+                <h1 class="page-hero-title" data-i18n="contact_title">Let's Work Together</h1>
+                <p class="page-hero-desc" data-i18n="contact_desc">Have a project in mind or just want to connect? I'd love to hear from you.</p>
             </div>
         </section>
 
@@ -4503,7 +4079,7 @@ body { transition: background-color 0.4s ease, color 0.4s ease; }
                             </svg>
                         </div>
                         <div class="phone-cta-text">
-                            <span class="phone-cta-label">Call me directly</span>
+                            <span class="phone-cta-label" data-i18n="contact_call">Call me directly</span>
                             <span class="phone-cta-number">0509120845</span>
                         </div>
                         <svg class="phone-cta-arrow" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
@@ -4512,7 +4088,7 @@ body { transition: background-color 0.4s ease, color 0.4s ease; }
 
                 <div class="contact-grid">
                     <div class="contact-info">
-                        <h2 class="contact-info-title">Other Ways to Reach Me</h2>
+                        <h2 class="contact-info-title" data-i18n="contact_other_ways">Other Ways to Reach Me</h2>
                         <div class="contact-cards">
                             <div class="contact-card">
                                 <div class="contact-card-icon">
@@ -4521,7 +4097,7 @@ body { transition: background-color 0.4s ease, color 0.4s ease; }
                                         <polyline points="22,6 12,13 2,6"></polyline>
                                     </svg>
                                 </div>
-                                <h3>Email</h3>
+                                <h3 data-i18n="contact_email">Email</h3>
                                 <a href="mailto:nuerteyhanson9@gmail.com" class="contact-link">nuerteyhanson9@gmail.com</a>
                             </div>
                             <div class="contact-card">
@@ -4531,8 +4107,9 @@ body { transition: background-color 0.4s ease, color 0.4s ease; }
                                         <circle cx="12" cy="10" r="3"></circle>
                                     </svg>
                                 </div>
-                                <h3>Location</h3>
-                                <span class="contact-link">Ghana</span>
+                                <h3 data-i18n="contact_location">Location</h3>
+                                <span class="contact-link">Ghana (Remotely & On-Site)</span>
+                                <span class="contact-link-sub" data-i18n="contact_remote">Available for remote & on-site work</span>
                             </div>
                             <div class="contact-card">
                                 <div class="contact-card-icon">
@@ -4541,34 +4118,34 @@ body { transition: background-color 0.4s ease, color 0.4s ease; }
                                         <polyline points="12 6 12 12 16 14"></polyline>
                                     </svg>
                                 </div>
-                                <h3>Availability</h3>
-                                <span class="contact-link">Mon - Fri, 9AM - 6PM</span>
+                                <h3 data-i18n="contact_availability">Availability</h3>
+                                <span class="contact-link" data-i18n="contact_hours">24/7</span>
                             </div>
                         </div>
                     </div>
                     <div class="contact-form-wrapper">
-                        <h2 class="contact-form-title">Send a Message</h2>
+                        <h2 class="contact-form-title" data-i18n="contact_form_title">Send a Message</h2>
                         <form class="contact-form" id="contact-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
                             <div class="form-row">
                                 <div class="form-group">
-                                    <label for="name">Your Name</label>
-                                    <input type="text" id="name" name="name" placeholder="John Doe" required>
+                                    <label for="name" data-i18n="contact_label_name">Your Name</label>
+                                    <input type="text" id="name" name="name" placeholder="John Doe" required data-i18n-placeholder="contact_ph_name">
                                 </div>
                                 <div class="form-group">
-                                    <label for="email">Your Email</label>
-                                    <input type="email" id="email" name="email" placeholder="john@example.com" required>
+                                    <label for="email" data-i18n="contact_label_email">Your Email</label>
+                                    <input type="email" id="email" name="email" placeholder="john@example.com" required data-i18n-placeholder="contact_ph_email">
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label for="subject">Subject</label>
-                                <input type="text" id="subject" name="subject" placeholder="Project Inquiry">
+<label for="subject" data-i18n="contact_label_subject">Subject</label>
+                                    <input type="text" id="subject" name="subject" placeholder="Project Inquiry" data-i18n-placeholder="contact_ph_subject">
                             </div>
                             <div class="form-group">
-                                <label for="message">Message</label>
-                                <textarea id="message" name="message" rows="5" placeholder="Tell me about your project..." required></textarea>
+                                    <label for="message" data-i18n="contact_label_message">Message</label>
+                                    <textarea id="message" name="message" rows="5" placeholder="Tell me about your project..." required data-i18n-placeholder="contact_ph_message"></textarea>
                             </div>
                             <button type="submit" class="btn btn-primary btn-submit">
-                                <span>Send Message</span>
+                                <span data-i18n="contact_send">Send Message</span>
                                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
                             </button>
                             <div class="form-status" id="form-status"></div>
@@ -4585,10 +4162,10 @@ body { transition: background-color 0.4s ease, color 0.4s ease; }
                         <span class="logo-bracket">&lt;</span>Alien<span class="logo-highlight">Dev</span><span class="logo-bracket">/&gt;</span>
                     </a>
                     <div class="footer-links">
-                        <a data-page="home" href="#" style="cursor:pointer">Home</a>
-                        <a data-page="skills" href="#" style="cursor:pointer">Skills</a>
-                        <a data-page="projects" href="#" style="cursor:pointer">Projects</a>
-                        <a data-page="contact" href="#" style="cursor:pointer">Contact</a>
+                        <a data-page="home" href="#" style="cursor:pointer" data-i18n="nav_home">Home</a>
+                        <a data-page="skills" href="#" style="cursor:pointer" data-i18n="nav_skills">Skills</a>
+                        <a data-page="projects" href="#" style="cursor:pointer" data-i18n="nav_projects">Projects</a>
+                        <a data-page="contact" href="#" style="cursor:pointer" data-i18n="nav_contact">Contact</a>
                     </div>
                     <div class="footer-social">
                         <a href="https://github.com/nuerteyhanson9-sys" target="_blank" rel="noopener noreferrer" aria-label="GitHub" class="social-link">
@@ -4603,7 +4180,7 @@ body { transition: background-color 0.4s ease, color 0.4s ease; }
                     </div>
                 </div>
                 <div class="footer-bottom">
-                    <p>&copy; 2026 Alien Developer. All rights reserved.</p>
+                    <p data-i18n="footer_copyright">&copy; 2026 Alien Developer. All rights reserved.</p>
                 </div>
             </div>
         </footer>
@@ -4619,8 +4196,8 @@ document.addEventListener("DOMContentLoaded", () => {
   initSPA();
   initThemeToggle();
   initBackToTop();
-  initSoundToggle();
   initLangToggle();
+  initHomeFeatures();
   navigateTo("home");
 });
 
@@ -4637,7 +4214,14 @@ function initSPA() {
   });
 }
 
+const activeObservers = [];
+function disconnectObservers() {
+    activeObservers.forEach(obs => obs.disconnect());
+    activeObservers.length = 0;
+}
+
 function navigateTo(page) {
+  disconnectObservers();
   if (currentPage === page) { window.scrollTo(0, 0); return; }
 
   var transition = document.getElementById("page-transition");
@@ -4673,8 +4257,6 @@ function navigateTo(page) {
       initProjectCardAnimations();
     } else if (page === "contact") {
       initContactForm();
-    } else if (page === "resume") {
-      initScrollAnimations();
     }
 
     initScrollAnimations();
@@ -4737,18 +4319,23 @@ function initScrollProgress() {
   var progressBar = document.getElementById("scroll-progress");
   if (!progressBar) return;
 
+  let progressRAF = null;
   window.addEventListener("scroll", function() {
-    var scrollTop = window.scrollY;
-    var docHeight = document.documentElement.scrollHeight - window.innerHeight;
-    var scrollPercent = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
-    progressBar.style.width = scrollPercent + "%";
+    if (progressRAF) return;
+    progressRAF = requestAnimationFrame(function() {
+      var scrollTop = window.scrollY;
+      var docHeight = document.documentElement.scrollHeight - window.innerHeight;
+      var scrollPercent = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+      progressBar.style.width = scrollPercent + "%";
+      progressRAF = null;
+    });
   }, { passive: true });
 }
 function initStarField() {
   const containers = document.querySelectorAll(".stars");
   if (!containers.length) return;
 
-  const STAR_COUNT = 120;
+  const STAR_COUNT = window.innerWidth <= 768 ? 20 : 60;
 
   containers.forEach((container) => {
     if (container.children.length > 0) return;
@@ -4842,6 +4429,7 @@ function initCounterAnimation() {
     },
     { threshold: 0.5 }
   );
+  activeObservers.push(observer);
 
   counters.forEach((counter) => observer.observe(counter));
 }
@@ -4878,17 +4466,41 @@ function initGithubStatCounters() {
       }
     });
   }, { threshold: 0.5 });
+  activeObservers.push(observer);
   counters.forEach((c) => observer.observe(c));
+
+  fetchLiveGitHubStats();
+}
+
+function applyGitHubStat(el, value) {
+  if (!el || typeof value !== "number") return;
+  el.setAttribute("data-target", String(value));
+  if (el.textContent !== "0") el.textContent = String(value);
+}
+
+function fetchLiveGitHubStats() {
+  const user = "nuerteyhanson9-sys";
+  if (!window.fetch) return;
+  fetch("https://api.github.com/users/" + user)
+    .then((r) => r.ok ? r.json() : null)
+    .then((u) => {
+      if (u) applyGitHubStat(document.querySelector('.github-stat-number[data-stat="repos"]'), u.public_repos);
+    })
+    .catch(() => {});
+  fetch("https://api.github.com/users/" + user + "/repos?per_page=100")
+    .then((r) => r.ok ? r.json() : null)
+    .then((repos) => {
+      if (!Array.isArray(repos)) return;
+      const stars = repos.reduce((sum, r) => sum + (r.stargazers_count || 0), 0);
+      applyGitHubStat(document.querySelector('.github-stat-number[data-stat="stars"]'), stars);
+    })
+    .catch(() => {});
 }
 
 // ── Skill Level Bars ─────────────────────────────────────────────────────────
 function initSkillBars() {
   const bars = document.querySelectorAll(".level-fill[data-level]");
   if (!bars.length) return;
-
-  bars.forEach((bar) => {
-    bar.style.width = "0%";
-  });
 
   const observer = new IntersectionObserver(
     (entries) => {
@@ -4902,6 +4514,7 @@ function initSkillBars() {
     },
     { threshold: 0.3 }
   );
+  activeObservers.push(observer);
 
   bars.forEach((bar) => {
     bar.style.width = "0%";
@@ -4930,14 +4543,17 @@ function initSkillRowAnimations() {
     },
     { threshold: 0.1 }
   );
+  activeObservers.push(observer);
 
   rows.forEach((row) => observer.observe(row));
 }
 
 // ── Scroll-Triggered Fade-In Animations ──────────────────────────────────────
 function initScrollAnimations() {
-  const targets = document.querySelectorAll(
-    ".skill-row, .project-card, .about-brief-card, .contact-card, .contact-form-wrapper, .contact-info, .hero-content, .hero-visual, .testimonial-card, .github-stat-card"
+  const activePage = document.querySelector('.page-section[style*="display: block"], .page-section:not([style*="display: none"])');
+  if (!activePage) return;
+  const targets = activePage.querySelectorAll(
+    ".skill-row, .about-brief-card, .contact-card, .contact-form-wrapper, .contact-info, .hero-content, .hero-visual, .testimonial-card, .github-stat-card"
   );
   if (!targets.length) return;
 
@@ -4952,6 +4568,7 @@ function initScrollAnimations() {
     },
     { threshold: 0.1, rootMargin: "0px 0px -40px 0px" }
   );
+  activeObservers.push(observer);
 
   targets.forEach((el) => observer.observe(el));
 }
@@ -5017,20 +4634,20 @@ function initProjectCardAnimations() {
         }
       });
     },
-    { threshold: 0.05 }
+    { threshold: 0.15 }
   );
+  activeObservers.push(observer);
 
   cards.forEach((card) => observer.observe(card));
 }
 
-// Contact Form �"��"��"��"��"��"��"��"��"��"��"��"��"��"��"��"��"��"��"��"��"��"��"��"��"��"��"��"��"��"��"��"��"��"��"��"��"��"��"��"��"��"��"��"��"��"��"��"��"��"��"��"��"��"��"��"��"��"��"��"��"��"�
+// Contact Form
 function initContactForm() {
   const form = document.getElementById("contact-form");
-  const statusEl = document.getElementById("form-status");
   if (!form) return;
 
-  const newForm = form.cloneNode(true);
-  form.parentNode.replaceChild(newForm, form);
+  const newForm = form;
+  const statusEl = document.getElementById("form-status");
 
   newForm.addEventListener("submit", async (e) => {
     e.preventDefault();
@@ -5060,7 +4677,7 @@ function initContactForm() {
     }
 
     if (!valid) {
-      showFormStatus(document.getElementById("form-status"), "Please fill in all required fields correctly.", "error");
+      showFormStatus(newForm.querySelector("#form-status"), "Please fill in all required fields correctly.", "error");
       return;
     }
 
@@ -5071,22 +4688,29 @@ function initContactForm() {
     }
 
     try {
-      const formData = new FormData(newForm);
-      const response = await fetch(newForm.action, {
-        method: "POST",
-        body: formData,
-        headers: { Accept: "application/json" }
-      });
-
-      if (response.ok) {
-        showFormStatus(document.getElementById("form-status"), "Message sent successfully! I'll get back to you soon.", "success");
-        newForm.reset();
+      if (newForm.action.indexOf("YOUR_FORM_ID") !== -1) {
+        const subject = encodeURIComponent("Portfolio contact from " + name.value.trim());
+        const body = encodeURIComponent(message.value.trim() + "\n\n— " + name.value.trim() + " (" + email.value.trim() + ")");
+        window.location.href = "mailto:nuerteyhanson9@gmail.com?subject=" + subject + "&body=" + body;
+        showFormStatus(newForm.querySelector("#form-status"), "Opening your email app to send the message...", "success");
       } else {
-        const data = await response.json();
-        showFormStatus(document.getElementById("form-status"), data.errors ? data.errors.map(e => e.message).join(", ") : "Something went wrong. Please try again.", "error");
+        const formData = new FormData(newForm);
+        const response = await fetch(newForm.action, {
+          method: "POST",
+          body: formData,
+          headers: { Accept: "application/json" }
+        });
+
+        if (response.ok) {
+          showFormStatus(newForm.querySelector("#form-status"), "Message sent successfully! I'll get back to you soon.", "success");
+          newForm.reset();
+        } else {
+          const data = await response.json();
+          showFormStatus(newForm.querySelector("#form-status"), data.errors ? data.errors.map(e => e.message).join(", ") : "Something went wrong. Please try again.", "error");
+        }
       }
     } catch (err) {
-      showFormStatus(document.getElementById("form-status"), "Network error. Please check your connection and try again.", "error");
+      showFormStatus(newForm.querySelector("#form-status"), "Network error. Please check your connection and try again.", "error");
     }
 
     if (submitBtn) {
@@ -5149,27 +4773,7 @@ function initBackToTop() {
   btn.addEventListener("click", () => { window.scrollTo({ top: 0, behavior: "smooth" }); });
 }
 
-// ── Sound Toggle ────────────────────────────────────────────────────────────
-let ambientAudio = null;
-function initSoundToggle() {
-  const toggle = document.getElementById("sound-toggle");
-  if (!toggle) return;
-  toggle.addEventListener("click", () => {
-    toggle.classList.toggle("active");
-    if (toggle.classList.contains("active")) {
-      if (!ambientAudio) {
-        ambientAudio = new Audio("data:audio/wav;base64,UklGRiQAAABXQVZFZm10IBAAAAABAAEARKwAAIhYAQACABAAZGF0YQAAAAA=");
-        ambientAudio.loop = true;
-        ambientAudio.volume = 0.15;
-      }
-      ambientAudio.play().catch(function(){});
-      showToast("Ambient sound on");
-    } else {
-      if (ambientAudio) ambientAudio.pause();
-      showToast("Ambient sound off");
-    }
-  });
-}
+
 
 // ── Language Toggle (i18n) ─────────────────────────────────────────────────
 const i18n = {
@@ -5181,38 +4785,109 @@ const i18n = {
   it: { lang: "Italiano", resume_summary: "Riepilogo Professionale", resume_skills: "Competenze Tecniche", resume_projects: "Progetti in Evidenza", resume_edu: "Formazione", resume_print: "Stampa / Salva come PDF", github_title: "Profilo GitHub", gh_repos: "Repository", gh_stars: "Stelle Totali", gh_commits: "Commit", gh_contrib: "Contribuzioni", testimonials_tag: "Testimonianze", testimonials_title: "Cosa Dicono Le Persone", test1_text: "\"Alien Developer ha consegnato il nostro sito di inviti di matrimonio in anticipo. Il design era stupendo e gli ospiti hanno adorato l'esperienza interativa. Consigliatissimo!\"", test2_text: "\"I volantino di Chow Heaven erano vivaci e accattivanti. Ottima comprensione del branding e del marketing alimentare. Collaboreremo sicuramente di nuovo.\"", test3_text: "\"L'app ShopWave ha superato le nostre aspettative. Interfaccia fluida, prestazioni eccellenti e codice ben strutturato. Un vero talento multidisciplinare.\"" },
   nl: { lang: "Nederlands", resume_summary: "Professionele Samenvatting", resume_skills: "Technische Vaardigheden", resume_projects: "Uitgelichte Projecten", resume_edu: "Opleiding", resume_print: "Afdrukken / Opslaan als PDF", github_title: "GitHub-profiel", gh_repos: "Repository's", gh_stars: "Totaal Sterren", gh_commits: "Commits", gh_contrib: "Bijdragen", testimonials_tag: "Testimonials", testimonials_title: "Wat Mensen Zeggen", test1_text: "\"Alien Developer leverde onze trouwkaartsite voor de deadline op. Het ontwerp was schitterend en de gasten vonden de interactieve ervaring geweldig. Zeer aanbevolen!\"", test2_text: "\"De Chow Heaven-flyers waren levendig en opvallend. Uitstekend begrip van branding en foodmarketing. We werken zeker weer samen.\"", test3_text: "\"De ShopWave-app overtrof onze verwachtingen. Soepele UI, uitstekende prestaties en goed gestructureerde code. Een waar multidisciplinair talent.\"" },
   ru: { lang: "Русский", resume_summary: "Профессиональное Резюме", resume_skills: "Технические Навыки", resume_projects: "Избранные Проекты", resume_edu: "Образование", resume_print: "Печать / Сохранить как PDF", github_title: "Профиль GitHub", gh_repos: "Репозитории", gh_stars: "Всего Звёзд", gh_commits: "Коммиты", gh_contrib: "Вклад", testimonials_tag: "Отзывы", testimonials_title: "Что Говорят Люди", test1_text: "\"Alien Developer доставил наш сайт свадебных приглашений раньше срока. Дизайн был потрясающим, и гости оценили интерактивный опыт. Настоятельно рекомендую!\"", test2_text: "\"Флаеры Chow Heaven были яркими и привлекательными. Отличное понимание брендинга и маркетинга еды. Обязательно будем работать вместе снова.\"", test3_text: "\"Приложение ShopWave превзошло наши ожидания. Плавный интерфейс, отличная производительность и хорошо структурированный код. Настоящий мультидисциплинарный талант.\"" },
-  ar: { lang: "العربية", resume_summary: "الملخص المهني", resume_skills: "المهارات التقنية", resume_projects: "المشاريع المميزة", resume_edu: "التعليم", resume_print: "طباعة / حفظ كـ PDF", github_title: "ملف GitHub", gh_repos: "المستودعات", gh_stars: "إجمالي النجوم", gh_commits: "الالتزامات", gh_contrib: "المساهمات", testimonials_tag: "الشهادات", testimonials_title: "ماذا يقول الناس", test1_text: "\" delivering our wedding invitation site ahead of schedule. The design was stunning and guests loved the interactive experience. Highly recommend!\"", test2_text: "\"The Chow Heaven flyers were vibrant and eye-catching. Great understanding of branding and food marketing. Would definitely work together again.\"", test3_text: "\"The ShopWave app exceeded our expectations. Smooth UI, fast performance, and well-structured code. A true multidisciplinary talent.\"" },
+  ar: { lang: "العربية", resume_summary: "الملخص المهني", resume_skills: "المهارات التقنية", resume_projects: "المشاريع المميزة", resume_edu: "التعليم", resume_print: "طباعة / حفظ كـ PDF", github_title: "ملف GitHub", gh_repos: "المستودعات", gh_stars: "إجمالي النجوم", gh_commits: "الالتزامات", gh_contrib: "المساهمات", testimonials_tag: "الشهادات", testimonials_title: "ماذا يقول الناس", test1_text: "\"قدم Alien Developer موقع دعوات الزفاف الخاص بنا قبل الموعد المحدد. كان التصميم مذهلاً والضيوف استمتعوا بالتجربة التفاعلية. أنصح بشدة!\"", test2_text: "\"كانت منشورات Chow Heaven نابضة بالحياة وجذابة. فهم ممتاز للعلامة التجارية وتسويق الطعام. سنتعاون مرة أخرى بالتأكيد.\"", test3_text: "\"تجاوز تطبيق ShopWave توقعاتنا. واجهة مستخدم سلسة وأداء سريع وكود منظم بشكل جيد. موهبة حقيقية متعددة التخصصات.\"" },
   zh: { lang: "中文", resume_summary: "专业摘要", resume_skills: "技术技能", resume_projects: "精选项目", resume_edu: "教育背景", resume_print: "打印 / 保存为PDF", github_title: "GitHub 主页", gh_repos: "仓库", gh_stars: "总星数", gh_commits: "提交", gh_contrib: "贡献", testimonials_tag: "客户评价", testimonials_title: "大家怎么说", test1_text: "\"Alien Developer 提前交付了我们的婚礼邀请网站。设计令人惊叹，宾客们喜欢互动体验。强烈推荐！\"", test2_text: "\"Chow Heaven 的传单色彩鲜艳、引人注目。对品牌和食品营销有很好的理解。一定会再次合作。\"", test3_text: "\"ShopWave 应用超出了我们的期望。界面流畅、性能出色、代码结构良好。真正的多学科人才。\"" },
   ja: { lang: "日本語", resume_summary: "職務概要", resume_skills: "技術スキル", resume_projects: "主なプロジェクト", resume_edu: "学歴", resume_print: "印刷 / PDFとして保存", github_title: "GitHubプロフィール", gh_repos: "リポジトリ", gh_stars: "スター合計", gh_commits: "コミット", gh_contrib: "コントリビューション", testimonials_tag: "お客様の声", testimonials_title: "お客様の声", test1_text: "\"Alien Developerは結婚式招待サイトを期日前に納品しました。デザインは素晴らしく、ゲストはインタラクティブな体験を楽しみました。強くお勧めします！\"", test2_text: "\"Chow Heavenのチラシは鮮やかで目を引きます。ブランディングとフードマーケティングへの理解が深い。 Definitelyまた一緒に働きたいです。\"", test3_text: "\"ShopWaveアプリは期待を上回りました。スムーズなUI、高いパフォーマンス、構造化されたコード。真の多分野の才能です。\"" },
   ko: { lang: "한국어", resume_summary: "경력 요약", resume_skills: "기술 스킬", resume_projects: "주요 프로젝트", resume_edu: "학력", resume_print: "인쇄 / PDF로 저장", github_title: "GitHub 프로필", gh_repos: "저장소", gh_stars: "총 스타", gh_commits: "커밋", gh_contrib: "기여", testimonials_tag: "고객 후기", testimonials_title: "사람들의 평가", test1_text: "\"Alien Developer가 결혼식 초대 사이트를 일정보다 먼저 납품했습니다. 디자인이 놀라웠고 하객들이 인터랙티브한 경험을 좋아했습니다. 강력 추천합니다!\"", test2_text: "\"Chow Heaven 전단지는 생동감 있고 눈에 띄었습니다. 브랜딩과 음식 마케팅에 대한 이해도가 높았습니다. 꼭 다시 함께 일하고 싶습니다.\"", test3_text: "\"ShopWave 앱이 기대를 초과했습니다. 부드러운 UI, 뛰어난 성능, 잘 구성된 코드. 진정한 멀티디시플리너리 재능입니다.\"" },
   hi: { lang: "हिन्दी", resume_summary: "पेशेवर सारांश", resume_skills: "तकनीकी कौशल", resume_projects: "प्रमुख परियोजनाएँ", resume_edu: "शिक्षा", resume_print: "प्रिंट / PDF के रूप में सहेजें", github_title: "GitHub प्रोफ़ाइल", gh_repos: "रिपॉज़िटरी", gh_stars: "कुल सितारे", gh_commits: "कमिट्स", gh_contrib: "योगदान", testimonials_tag: "प्रशंसापत्र", testimonials_title: "लोग क्या कहते हैं", test1_text: "\"Alien Developer ने हमारी शादी के निमंत्रण साइट को समय से पहले डिलीवर किया। डिज़ाइन शानदार था और मेहमानों को इंटरैक्टिव अनुभव बहुत पसंद आया। अत्यधिक अनुशंसित!\"", test2_text: "\"Chow Heaven के फ़्लायर जीवंत और आकर्षक थे। ब्रांडिंग और फूड मार्केटिंग की बहुत अच्छी समझ। निश्चित रूप से फिर से काम करेंगे।\"", test3_text: "\"ShopWave ऐप ने हमारी अपेक्षाओं को पार कर दिया। सुचारू UI, तेज़ प्रदर्शन, और अच्छी तरह से संरचित कोड। सच्चा बहु-विषयक प्रतिभा।\"" },
   sw: { lang: "Kiswahili", resume_summary: "Muhtasari wa Kitaalamu", resume_skills: "Ujuzi wa Kiufundi", resume_projects: "Miradi Muhimu", resume_edu: "Elimu", resume_print: "Chapisha / Hifadhi kama PDF", github_title: "Wasifu wa GitHub", gh_repos: "Hifadhi", gh_stars: "Nyota Jumla", gh_commits: "Michango", gh_contrib: "Mchango", testimonials_tag: "Ushahidi", testimonials_title: "Watu Wanasema Nini", test1_text: "\"Alien Developer ilitoa tovuti ya mialiko ya ndoa kabla ya muda. Muundo ulikuwa wa ajabu na wageni walipenda uzoefu wa mwingiliano. Inapendekezwa sana!\"", test2_text: "\"Karata za Chow Heaven zilikuwa na rangi na zilivutia macho. Uelewa mkubwa wa ujenzi wa chapa na uuzaji wa chakula. Kwa hakika tutaanza kazi pamoja tena.\"", test3_text: "\"Programu ya ShopWave ilizidi matarajio yetu. UI laini, utendaji wa haraka, na msimbo ulioratibiwa vizuri. Talanta ya kweli ya multidisciplinary.\"" },
-  ha: { lang: "Hausa", resume_summary: "Taƙaitaccen Aiki", resume_skills: "Ilimin Fasaha", resume_projects: "Ayyuka Muhimmai", resume_edu: "Ilimi", resume_print: "Buga / Ajiye azaman PDF", github_title: "Bayanan GitHub", gh_repos: "Adana", gh_stars: "Stress Gabaɗaya", gh_commits: "Ayyuka", gh_contrib: "Gudanarwa", testimonials_tag: "Shawarwari", testimonials_title: "Abin Da Mutane Ke Cewa", test1_text: "\"Alien Developer ta bayar da gidan dogon aure kafin lokaci. Zane-zanen ya ban mamaki kuma masu shigar da bayanai sunjoyi mata. Ana ba da shawarar sosai!\"", test2_text: "\"Takardu na Chow Heaven sun yi haske kuma sun ji daɗi. Fahimta mai girma game da branding da tallace-tallacen abinci. Zamu sake aiki paki tare.\"", test3_text: "\"App  na ShopWave ya wuce tsammaninmu. UI mai sanyi, aiki mai sauri, da code mai tsari. Gwama na gaske na multidisciplinary.\"" },
-  yo: { lang: "Yorùbá", resume_summary: "Akópò Iṣẹ́", resume_skills: "Ọgbọ́n Iṣẹ́", resume_projects: "Iṣẹ́ Pàtàkì", resume_edu: "Ẹ̀kọ́", resume_print: "Tẹ́ / Fi sẹ́lẹ̀ sí PDF", github_title: "GitHub Profile", gh_repos: "Ibi Ìfi", gh_stars: "Ìràwọ̀ Kọ̀ọ̀kan", gh_commits: "Ìṣètò", gh_contrib: "Ìrántí", testimonials_tag: "Ìdájọ́", testimonials_title: "Ẹ̀yin Tí Àwọn Ẹ̀rọ̀ Ọ̀rọ̀", test1_text: "\"Alien Developer pèsè orílẹ̀-èdè ìbánisọ̀rọ̀ ẹbí wa nígbà tí ó kò tíì dé. Àwòrán dára púpọ̀ àti àwọn ènìyàn ní ìfẹ́ra fún rẹ̀. A gbà á múlẹ̀ púpọ̀!\"", test2_text: "\"Àwọn fláyà ti Chow Heaven jùn ṣe àti àwọn ènìyàn ní ìdí lé e. Ìmọ̀ tó dára nípa branding àti ìjà àṣà. A ó ṣiṣẹ́ pọ̀ mọ́ sí i.\"", test3_text: "\"App ShopWave kò gbà á ga àkíyèsí wa. UI tó nínú àti code tó dára. Òun ni ìmọ̀ tó pọ̀." },
-  zu: { lang: "isiZulu", resume_summary: "Isifinyezo Sobuchwepheshe", resume_skills: "Amakhono Obuchwepheshe", resume_projects: "Imisebenzi Ebalulekile", resume_edu: "Imfundo", resume_print: "Shicilela / Gcina njenge-PDF", github_title: "Iphrofayili ye-GitHub", gh_repos: "Amakhosizana", gh_stars: "Izinhlansi Eziphelele", gh_commits: "Izigcini", gh_contrib: "Isandulelo", testimonials_tag: "Izibonelelo", testimonials_title: "Abantu Bathini", test1_text: "\"Alien Developer inikeze iwebhusayithi yethu yokubiza isigubhu sishise ngaphambi kwesikhathi. Uhlelo luhle kakhulu futhi ababeki bethanda. Siyayincomisa kakhulu!\"", test2_text: "\"Amapheshana e-Chow Heaven abe nokukhanya futhi ajabulise amehlo. Ukuqonda okuhle nge branding nokuthengisa ukudla. Siyohlanganisa futhi.\"", test3_text: "\"I-app ye-ShopWave idlule okulindelekile. I-UI eshesha, ukusebenza okuhle, nekhodi ehlelekile. Ingqondo yokuvumelana.\"" },
-  am: { lang: "አማርኛ", resume_summary: "የሙያ ማጠቃለያ", resume_skills: "ቴክኒካል ችሎታዎች", resume_projects: "ምርጥ ፕሮጀክቶች", resume_edu: "ትምህርት", resume_print: "አትርግ / በ PDF ላይ አስቀምጥ", github_title: "GitHub መግለጫ", gh_repos: "መጠखት", gh_stars: "ጠቅላላ ኮከብ", gh_commits: "ኮሚቶች", gh_contrib: "አስተዋይ", testimonials_tag: "ማስተውያ", testimonials_title: "ሰዎች ምን ይላሉ", test1_text: "\"Alien Developer የጋብቻ ጋlicting ድር ጣቢያችን ከጊዜ በፊት አድርገዋል። ዲዛይኑ አስደናቂ ነበር እና እንግዶች የተግባር ተሞክሮውን ጠመጡ። በጣም እንመክራለን!\"", test2_text: "\"የ Chow Heaven ፎլ鏖ዎች ቀለማትም ነበሩ እና ዓይን ይዘኑ ነበር። በብራንዲንግ እና በምግብ ግብር መረዳት ግንባር። በእርግጥ እንደገና እንሠራለን።\"", test3_text: "\"ShopWave መተግበሪያ የጠበቃችንን ቀላል አደረገ። ለስለስ ቴክኒክ ፍጥነት እና በደንብ የተዋ𝗟ě code። እውነተኛ multidisciplinary ችሎታ።\"" },
+  ha: { lang: "Hausa", resume_summary: "Taƙaitaccen Aiki", resume_skills: "Ilimin Fasaha", resume_projects: "Ayyuka Muhimmai", resume_edu: "Ilimi", resume_print: "Buga / Ajiye azaman PDF", github_title: "Bayanan GitHub", gh_repos: "Adana", gh_stars: "Starsi Gabaɗaya", gh_commits: "Ayyuka", gh_contrib: "Gudanarwa", testimonials_tag: "Shawarwari", testimonials_title: "Abin Da Mutane Ke Cewa", test1_text: "\"Alien Developer ta bayar da gidan dogon aure kafin lokaci. Zane-zanen ya ban mamaki kuma masu shigar da bayanai sunjoyi mata. Ana ba da shawarar sosai!\"", test2_text: "\"Takardu na Chow Heaven sun yi haske kuma sun ji daɗi. Fahimta mai girma game da branding da tallace-tallacen abinci. Zamu sake aiki paki tare.\"", test3_text: "\"App  na ShopWave ya wuce tsammaninmu. UI mai sanyi, aiki mai sauri, da code mai tsari. Gwama na gaske na multidisciplinary.\"" },
+  yo: { lang: "Yorùbá", resume_summary: "Akópò Iṣẹ́", resume_skills: "Ọgbọ́n Iṣẹ́", resume_projects: "Iṣẹ́ Pàtàkì", resume_edu: "Ẹ̀kọ́", resume_print: "Tẹ́ / Fi sẹ́lẹ̀ sí PDF", github_title: "GitHub Profile", gh_repos: "Ibi Ìfi", gh_stars: "Ìràwọ̀ Kọ̀ọ̀kan", gh_commits: "Ìṣètò", gh_contrib: "Ìrántí", testimonials_tag: "Ìdájọ́", testimonials_title: "Ẹ̀yin Tí Àwọn Ẹ̀nìyàn ń Sọ", test1_text: "\"Alien Developer pèsè orílẹ̀-èdè ìbánisọ̀rọ̀ ẹbí wa nígbà tí ó kò tíì dé. Àwòrán dára púpọ̀ àti àwọn ènìyàn ní ìfẹ́ra fún rẹ̀. A gbà á múlẹ̀ púpọ̀!\"", test2_text: "\"Àwọn fláyà ti Chow Heaven jùn ṣe àti àwọn ènìyàn ní ìdí lé e. Ìmọ̀ tó dára nípa branding àti ìjà àṣà. A ó ṣiṣẹ́ pọ̀ mọ́ sí i.\"", test3_text: "\"App ShopWave kò gbà á ga àkíyèsí wa. UI tó nínú àti code tó dára. Òun ni ìmọ̀ tó pọ̀.\"" },
+  zu: { lang: "isiZulu", resume_summary: "Isifinyezo Sobuchwepheshe", resume_skills: "Amakhono Obuchwepheshe", resume_projects: "Imisebenzi Ebalulekile", resume_edu: "Imfundo", resume_print: "Shicilela / Gcina njenge-PDF", github_title: "Iphrofayili ye-GitHub", gh_repos: "Amakhosizana", gh_stars: "Izinhlansi Eziphelele", gh_commits: "Izigcini", gh_contrib: "Isandulelo", testimonials_tag: "Izibonelelo", testimonials_title: "Abantu Bathini", test1_text: "\"Alien Developer inikeze iwebhusayithi yethu yokubiza umshado ngaphambi kwesikhathi. Uhlelo luhle kakhulu futhi ababeki bethanda. Siyayincomisa kakhulu!\"", test2_text: "\"Amapheshana e-Chow Heaven abe nokukhanya futhi ajabulise amehlo. Ukuqonda okuhle nge branding nokuthengisa ukudla. Siyohlanganisa futhi.\"", test3_text: "\"I-app ye-ShopWave idlule okulindelekile. I-UI eshesha, ukusebenza okuhle, nekhodi ehlelekile. Ingqondo yokuvumelana.\"" },
+  am: { lang: "አማርኛ", resume_summary: "የሙያ ማጠቃለያ", resume_skills: "ቴክኒካል ችሎታዎች", resume_projects: "ምርጥ ፕሮጀክቶች", resume_edu: "ትምህርት", resume_print: "አትርግ / በ PDF ላይ አስቀምጥ", github_title: "GitHub መግለጫ", gh_repos: "ማከማቻ", gh_stars: "ጠቅላላ ኮከብ", gh_commits: "ኮሚቶች", gh_contrib: "አስተዋይ", testimonials_tag: "ማስተውያ", testimonials_title: "ሰዎች ምን ይላሉ", test1_text: "\"Alien Developer የጋብቻ ጋብቻ ድር ጣቢያችን ከጊዜ በፊት አድርገዋል። ዲዛይኑ አስደናቂ ነበር እና እንግዶች የተግባር ተሞክሮውን ጠመጡ። በጣም እንመክራለን!\"", test2_text: "\"የ Chow Heaven ታፎተዳና ቀለማትም ነበሩ እና ዓይን ይዘኑ ነበር። በብራንዲንግ እና በምግብ ግብር መረዳት ግንባር። በእርግጥ እንደገና እንሠራለን።\"", test3_text: "\"ShopWave መተግበሪያ የጠበቃችንን ቀላል አደረገ። ለስለስ ቴክኒክ ፍጥነት እና በደንብ የታተዀ code። እውነተኛ multidisciplinary ችሎታ።\"" },
   th: { lang: "ไทย", resume_summary: "สรุปวิชาชีพ", resume_skills: "ทักษะทางเทคนิค", resume_projects: "โครงการเด่น", resume_edu: "การศึกษา", resume_print: "พิมพ์ / บันทึกเป็น PDF", github_title: "โปรไฟล์ GitHub", gh_repos: "คลังเก็บ", gh_stars: "ดาวทั้งหมด", gh_commits: "คอมมิต", gh_contrib: "การมีส่วนร่วม", testimonials_tag: "คำรับรอง", testimonials_title: "ผู้คนพูดว่าอย่างไร", test1_text: "\"Alien Developer ส่งเว็บไซต์เชิญงานแต่งงานของเราก่อนกำหนด การออกแบบยอดเยี่ยมและแขกชอบประสบการณ์แบบอินเทอร์แอคทีฟ ขอแนะนำอย่างยิ่ง!\"", test2_text: "\"ใบปลิว Chow Heaven มีสีสันสดใสและดึงดูดสายตา เข้าใจ branding และการตลาดอาหารเป็นอย่างดี จะทำงานร่วมกันอีกครั้งแน่นอน\"", test3_text: "\"แอป ShopWave เกินความคาดหวังของเรา UI ลื่นไหล ประสิทธิภาพสูง และโค้ดมีโครงสร้างดี ความสามารถหลากหลายที่แท้จริง\"" },
   vi: { lang: "Tiếng Việt", resume_summary: "Tóm Tắt Chuyên Môn", resume_skills: "Kỹ Năng Kỹ Thuật", resume_projects: "Dự Án Nổi Bật", resume_edu: "Học Vấn", resume_print: "In / Lưu dưới dạng PDF", github_title: "Hồ Sơ GitHub", gh_repos: "Kho Lưu Trữ", gh_stars: "Tổng Sao", gh_commits: "Cam Kết", gh_contrib: "Đóng Góp", testimonials_tag: "Đánh Giá", testimonials_title: "Mọi Người Nói Gì", test1_text: "\"Alien Developer đã giao trang web cưới của chúng tôi trước hạn. Thiết kế tuyệt đẹp và khách mời thích trải nghiệm tương tác. Rất recommend!\"", test2_text: "\"Các tờ rơi Chow Heaven sặc sỡ và bắt mắt. Hiểu biết tuyệt vời về branding và tiếp thị thực phẩm. Chắc chắn sẽ hợp tác lại.\"", test3_text: "\"Ứng dụng ShopWave vượt quá mong đợi của chúng tôi. Giao diện mượt mà, hiệu suất cao và mã nguồn có cấu trúc tốt. Một tài năng đa ngành thực sự.\"" },
   tr: { lang: "Türkçe", resume_summary: "Profesyonel Özet", resume_skills: "Teknik Beceriler", resume_projects: "Öne Çıkan Projeler", resume_edu: "Eğitim", resume_print: "Yazdır / PDF olarak kaydet", github_title: "GitHub Profili", gh_repos: "Depolar", gh_stars: "Toplam Yıldız", gh_commits: "İşlemler", gh_contrib: "Katkılar", testimonials_tag: "Referanslar", testimonials_title: "İnsanlar Ne Diyor", test1_text: "\"Alien Developer düğün daveti sitemizi zamanından önce teslim etti. Tasarım muhteşemdi ve misafirler interaktif deneyimi sevdi. Kesinlikle tavsiye ederim!\"", test2_text: "\"Chow Heaven el ilanları canlı ve göz alıcıydı. Markalaşma ve gıda pazarlama konusunda harika bir anlayış. Kesinlikle tekrar çalışacağız.\"", test3_text: "\"ShopWave uygulaması beklentilerimizi aştı. Pürüzsüz arayüz, yüksek performans ve iyi yapılandırılmış kod. Gerçek bir multidisipliner yetenek.\"" },
   pl: { lang: "Polski", resume_summary: "Podsumowanie Zawodowe", resume_skills: "Umiejętności Techniczne", resume_projects: "Wybrane Projekty", resume_edu: "Wykształcenie", resume_print: "Drukuj / Zapisz jako PDF", github_title: "Profil GitHub", gh_repos: "Repozytoria", gh_stars: "Łączna Liczba Gwiazdek", gh_commits: "Commity", gh_contrib: "Wkłady", testimonials_tag: "Opinie", testimonials_title: "Co Ludzie Mówią", test1_text: "\"Alien Developer dostarczył naszą stronę zaproszeń ślubnych przed terminem. Projekt był oszałamiający, a goście uwielbiali interaktywne doświadczenie. Gorąco polecam!\"", test2_text: "\"Ulotki Chow Heaven były żywe i przyciągające wzrok. Świetne zrozumienie brandingu i marketingu spożywczego. Z pewnością będziemy współpracować ponownie.\"", test3_text: "\"Aplikacja ShopWave przekroczyła nasze oczekiwania. Płynny interfejs, wysoka wydajność i dobrze uporządkowany kod. Prawdziwy talent multidyscyplinarny.\"" },
   sv: { lang: "Svenska", resume_summary: "Yrkesmässig Sammanfattning", resume_skills: "Tekniska Färdigheter", resume_projects: "Utvalda Projekt", resume_edu: "Utbildning", resume_print: "Skriv ut / Spara som PDF", github_title: "GitHub-profil", gh_repos: "Förråd", gh_stars: "Totala Stjärnor", gh_commits: "Commits", gh_contrib: "Bidrag", testimonials_tag: "Omdömen", testimonials_title: "Vad Folk Säger", test1_text: "\"Alien Developer levererade vår bröllopsinbjudningswebbplats före tid. Designen var strålande och gästerna älskade den interaktiva upplevelsen. Rekommenderas starkt!\"", test2_text: "\"Chow Heaven flygbladen var livfulla och iögonfallande. Stor förståelse för varumärkesbyggande och livsmedelsmarknadsföring. Vi kommer definitivt att arbeta tillsammans igen.\"", test3_text: "\"ShopWave-appen överträffade våra förväntningar. Smidig användargränssnitt, hög prestanda och välstrukturerad kod. En sann multidisciplinär talang.\"" },
-  de: { lang: "Deutsch", resume_summary: "Berufliche Zusammenfassung", resume_skills: "Technische Fähigkeiten", resume_projects: "Hervorgehobene Projekte", resume_edu: "Bildung", resume_print: "Drucken / Als PDF speichern", github_title: "GitHub-Profil", gh_repos: "Repositories", gh_stars: "Gesamtsterne", gh_commits: "Commits", gh_contrib: "Beiträge", testimonials_tag: "Referenzen", testimonials_title: "Was Andere Sagen", test1_text: "\"Alien Developer hat unsere Hochzeits-Einladungswebsite vorzeitig geliefert. Das Design war atemberaubend und die Gäste liebten die interaktive Erfahrung. Sehr empfehlenswert!\"", test2_text: "\"Die Chow Heaven Flyer waren lebendig und auffällig. Großes Verständnis für Branding und Lebensmittelmarketing. Wir würden definitiv wieder zusammenarbeiten.\"", test3_text: "\"Die ShopWave-App hat unsere Erwartungen übertroffen. Flüssige Benutzeroberfläche, hohe Leistung und gut strukturierter Code. Ein wahrer multidisziplinärer Talent.\"" }
+  el: { lang: "Ελληνικά", resume_summary: "Επαγγελματική Σύνοψη", resume_skills: "Τεχνικές Δεξιότητες", resume_projects: "Ξεχωριστά Έργα", resume_edu: "Εκπαίδευση", resume_print: "Εκτύπωση / Αποθήκευση ως PDF", github_title: "Προφίλ GitHub", gh_repos: "Αποθετήρια", gh_stars: "Σύνολο Αστεριών", gh_commits: "Υποβολές", gh_contrib: "Συνεισφορές", testimonials_tag: "Μαρτυρίες", testimonials_title: "Τι Λένε οι Άνθρωποι", test1_text: "\"Alien Developer παρέδωσε τον ιστότοπο γάμου μας πρόωρα. Το σχέδιο ήταν εντυπωσιακό και οι καλεσμένοι αγάπησαν τη διαδραστική εμπειρία. Το συνιστούμε ανεπιφύλακτα!\"", test2_text: "\"Τα φυλλάδια Chow Heaven ήταν ζωντανά και ελκυστικά. Μεγάλη κατανόηση του branding και του μάρκετινγκ τροφίμων. Θα συνεργαστούμε ξανά σίγουρα.\"", test3_text: "\"Η εφαρμογή ShopWave ξεπέρασε τις προσδοκίες μας. Ομαλή διεπαφή, γρήγορη απόδοση και καλά δομημένος κώδικας. Πραγματικό πολυδιάστατο ταλέντο.\"" },
+  cs: { lang: "Čeština", resume_summary: "Profesní Shrnutí", resume_skills: "Technické Dovednosti", resume_projects: "Vyzdvihnuté Projekty", resume_edu: "Vzdělání", resume_print: "Tisknout / Uložit jako PDF", github_title: "Profil GitHub", gh_repos: "Repozitáře", gh_stars: "Celkové Hvězdy", gh_commits: "Commity", gh_contrib: "Příspěvky", testimonials_tag: "Reference", testimonials_title: "Co Říkají Lidé", test1_text: "\"Alien Developer dodali naši svatební webovou stránku předčasně. Design byl úchvatný a hosté milovali interaktivní zážitek. Vřele doporučuji!\"", test2_text: "\"Letáky Chow Heaven byly živé a poutavé. Skvělé pochopení brandingu a potravinářského marketingu. Určitě budeme znovu spolupracovat.\"", test3_text: "\"Aplikace ShopWave překonala naše očekávání. Plynulé UI, vysoký výkon a dobře strukturovaný kód. Opravdu multidisciplinární talent.\"" },
+  hu: { lang: "Magyar", resume_summary: "Szakmai Összefoglalás", resume_skills: "Műszaki Készségek", resume_projects: "Kiemelt Projektek", resume_edu: "Végzettség", resume_print: "Nyomtatás / Mentés PDF-ként", github_title: "GitHub Profil", gh_repos: "Tárolók", gh_stars: "Összes Csillag", gh_commits: "Commitok", gh_contrib: "Hozzájárulások", testimonials_tag: "Referenciák", testimonials_title: "Mit Mondanak az Emberek", test1_text: "\"Az Alien Developer a határidő előtt szállította le az esküvői meghívó weboldalunkat. Lenyűgöző volt a design és a vendégek imádták az interaktív élményt. Mindenképpen ajánlom!\"", test2_text: "\"A Chow Heaven szórólapok élénkek és szemet gyönyörködtetők voltak. Kiváló megértés a brandingről és az élelmiszermarketingről. Biztosan fogunk még együtt dolgozni.\"", test3_text: "\"A ShopWave alkalmazás felülmúlta az elvárásainkat. Sima UI, kiváló teljesítmény és jól strukturált kód. Valóban multidiszciplináris tehetség.\"" },
+  ro: { lang: "Română", resume_summary: "Rezumat Profesional", resume_skills: "Competențe Tehnice", resume_projects: "Proiecte Recomandate", resume_edu: "Educație", resume_print: "Tipărire / Salvare ca PDF", github_title: "Profil GitHub", gh_repos: "Depozite", gh_stars: "Total Stele", gh_commits: "Commit-uri", gh_contrib: "Contribuții", testimonials_tag: "Mărturii", testimonials_title: "Ce Spun Oamenii", test1_text: "\"Alien Developer a livrat site-ul nostru de invitații de nuntă înainte de termen. Designul a fost uluitor și oaspeții au iubit experiența interactivă. Recomand cu căldură!\"", test2_text: "\"Flyerele Chow Heaven au fost vibrante și atractive. O înțelegere excelentă a brandingului și marketingului alimentar. Cu siguranță vom colabora din nou.\"", test3_text: "\"Aplicația ShopWave a depășit așteptările noastre. Interfață fluidă, performanță excelentă și cod bine structurat. Un adevărat talent multidisciplinar.\"" },
+  uk: { lang: "Українська", resume_summary: "Професійне Резюме", resume_skills: "Технічні Навички", resume_projects: "Обрані Проєкти", resume_edu: "Освіта", resume_print: "Друк / Зберегти як PDF", github_title: "Профіль GitHub", gh_repos: "Репозиторії", gh_stars: "Загальна Кількість Зірок", gh_commits: "Коміти", gh_contrib: "Внесок", testimonials_tag: "Відгуки", testimonials_title: "Що Кажуть Люди", test1_text: "\"Alien Developer доставив наш сайт весільних запрошень достроково. Дизайн був вражаючим, і гості оцінили інтерактивний досвід. Настійно рекомендую!\"", test2_text: "\"Листівки Chow Heaven були яскравими та привабливими. Чудове розуміння брендингу та маркетингу їжі. Обов'язково працюватимемо разом знову.\"", test3_text: "\"Додаток ShopWave перевершив наші очікування. Плавний інтерфейс, висока продуктивність та добре структурований код. Справжній міждисциплінарний талант.\"" },
+  fi: { lang: "Suomi", resume_summary: "Ammattimuodostelma", resume_skills: "Tekniset Taidot", resume_projects: "Korostetut Projektit", resume_edu: "Koulutus", resume_print: "Tulosta / Tallenna PDF:nä", github_title: "GitHub-profiili", gh_repos: "Tietovarastot", gh_stars: "Tähteä Yhteensä", gh_commits: "Commitit", gh_contrib: "Panokset", testimonials_tag: "Lausunnot", testimonials_title: "Mitä Ihmiset Sanovat", test1_text: "\"Alien Developer toimitti hääkutsusivuston ennen aikaa. Suunnittelun oli huumattava ja vieraat pitivät interaktiivisesta kokemuksesta. Suosittelemme lämpimästi!\"", test2_text: "\"Chow Heaven -lentolehtiset olivat eläväisiä ja huomiota herättäviä. Erinomainen ymmärrys brändäyksestä ja elintarvikemarkkinoinnista. Tulemme varmasti tekemään yhteistyötä uudelleen.\"", test3_text: "\"ShopWave-sovellus ylitti odotuksemme. Sujuva käyttöliittymä, nopea suorituskyky ja hyvin rakennettu koodi. Todellinen monitieteinen lahjakkuus.\"" },
+  da: { lang: "Dansk", resume_summary: "Professionelt Resumé", resume_skills: "Tekniske Færdigheter", resume_projects: "Fremhævede Projekter", resume_edu: "Uddannelse", resume_print: "Udskriv / Gem som PDF", github_title: "GitHub-profil", gh_repos: "Depoter", gh_stars: "Samlede Stjerner", gh_commits: "Commits", gh_contrib: "Bidrag", testimonials_tag: "Anmeldelser", testimonials_title: "Hvad Folk Siger", test1_text: "\"Alien Developer leverede vores bryllupsinvitationsside før tid. Designet var betagende, og gæsterne elskede den interaktive oplevelse. Varmt anbefalet!\"", test2_text: "\"Chow Heaven-flyerne var levende og iøjnefallende. God forståelse af branding og madmarkedsføring. Vi vil helt sikkert samarbejde igen.\"", test3_text: "\"ShopWave-appen overgik vores forventninger. Flydende brugerflade, hurtig ydeevne og velstruktureret kode. Et virkeligt tværfagligt talent.\"" },
+  no: { lang: "Norsk", resume_summary: "Profesjonell Sammenfatning", resume_skills: "Tekniske Ferdigheter", resume_projects: "Fremhevede Prosjekter", resume_edu: "Utdanning", resume_print: "Skriv ut / Lagre som PDF", github_title: "GitHub-profil", gh_repos: "Depoter", gh_stars: "Totalt Stjerner", gh_commits: "Commits", gh_contrib: "Bidrag", testimonials_tag: "Anbefalinger", testimonials_title: "Hva Folk Sier", test1_text: "\"Alien Developer leverte bryllupsinvitasjonssiden vår før tiden. Designet var fantastisk, og gjestene elsket den interaktive opplevelsen. Sterkt anbefalt!\"", test2_text: "\"Chow Heaven-flyerne var levende og iøynefallende. God forståelse av branding og matmarkedsføring. Vi vil definitivt samarbeide igjen.\"", test3_text: "\"ShopWave-appen overgikk forventningene våre. Flytende grensesnitt, rask ytelse og godt strukturert kode. Et virkelig tverrfaglig talent.\"" },
+  ca: { lang: "Català", resume_summary: "Resum Professional", resume_skills: "Habilitats Tècniques", resume_projects: "Projectes Destacats", resume_edu: "Educació", resume_print: "Imprimir / Desar com a PDF", github_title: "Perfil de GitHub", gh_repos: "Repositoris", gh_stars: "Estrelles Totals", gh_commits: "Commits", gh_contrib: "Contribucions", testimonials_tag: "Testimonis", testimonials_title: "El Que La Gent Diu", test1_text: "\"Alien Developer va lliurar el nostre lloc d'invitacions de casament abans de temps. El disseny era impressionant i els convidats van gaudir de l'experiència interactiva. Molt recomanable!\"", test2_text: "\"Els fullets de Chow Heaven eren vius i cridaners. Gran comprensió del branding i el màrqueting alimentari. Segur que treballarem junts de nou.\"", test3_text: "\"L'aplicació ShopWave va superar les nostres expectatives. Interfície fluida, rendiment excel·lent i codi ben estructurat. Un veritable talent multidisciplinari.\"" },
+  hr: { lang: "Hrvatski", resume_summary: "Profesionalni Sažetak", resume_skills: "Tehničke Vještine", resume_projects: "Istaknuti Projekti", resume_edu: "Obrazovanje", resume_print: "Ispis / Spremi kao PDF", github_title: "GitHub Profil", gh_repos: "Spremišta", gh_stars: "Ukupno Zvjezdica", gh_commits: "Commits", gh_contrib: "Doprinosi", testimonials_tag: "Preporuke", testimonials_title: "Što Ljudi Kažu", test1_text: "\"Alien Developer je isporučio našu stranicu za vjenčanje prije roka. Dizajn je bio zapanjujući i gosti su voljeli interaktivno iskustvo. Toplo preporučujem!\"", test2_text: "\"Letci Chow Heaven bili su živopisni i privlačni. Odlično razumijevanje brendiranja i prehrambenog marketinga. Sigurno ćemo ponovno surađivati.\"", test3_text: "\"ShopWave aplikacija nadmašila je naša očekivanja. Glatko sučelje, brze performanse i dobro strukturiran kod. Pravi multidisciplinarni talent.\"" },
+  sr: { lang: "Српски", resume_summary: "Професионални Преглед", resume_skills: "Техничке Вештине", resume_projects: "Истакнути Пројекти", resume_edu: "Образовање", resume_print: "Штампај / Сачувај као PDF", github_title: "GitHub Профил", gh_repos: "Репозиторијуми", gh_stars: "Укупно Звезда", gh_commits: "Комити", gh_contrib: "Доприноси", testimonials_tag: "Препоруке", testimonials_title: "Шта Људи Кажу", test1_text: "\"Alien Developer је испоручио нашу страницу за венчање пре рока. Дизајн је био задивљујући и гости су волели интерактивно искуство. Топло препоручујем!\"", test2_text: "\"Леци Chow Heaven били су живописни и привлачни. Одлично разумевање брендинга и прехрамбеног маркетинга. Сигурно ћемо поново сарађивати.\"", test3_text: "\"ShopWave апликација надмашила је наша очекивања. Глатко интерфејс, брзе перформансе и добро структуриран код. Прави мултидисциплинарни талент.\"" },
+  bn: { lang: "বাংলা", resume_summary: "পেশাদার সারসংক্ষেপ", resume_skills: "প্রযুক্তিগত দক্ষতা", resume_projects: "বিশেষ প্রকল্প", resume_edu: "শিক্ষা", resume_print: "প্রিন্ট / PDF হিসাবে সংরক্ষণ", github_title: "GitHub প্রোফাইল", gh_repos: "রিপোজিটরি", gh_stars: "মোট তারা", gh_commits: "কমিট", gh_contrib: "অবদান", testimonials_tag: "প্রশংসাপত্র", testimonials_title: "মানুষ কী বলে", test1_text: "\"Alien Developer আমাদের বিবাহের আমন্ত্রণ সাইট নির্ধারিত সময়ের আগে সরবরাহ করেছে। ডিজাইন ছিল অসাধারণ এবং অতিথিরা ইন্টারেক্টিভ অভিজ্ঞতা উপভোগ করেছে। অত্যন্ত সুপারিশকর!\"", test2_text: "\"Chow Heaven এর ফ্লায়ারগুলো ছিল উজ্জ্বল এবং চোখে পড়ার মতো। ব্র্যান্ডিং এবং খাদ্য বিপণনের চমৎকার বোঝাপড়া। নিশ্চিতভাবেই আবার একসাথে কাজ করব।\"", test3_text: "\"ShopWave অ্যাপ আমাদের প্রত্যাশা অতিক্রম করেছে। মসৃণ UI, দ্রুত পারফরম্যান্স এবং সুশৃঙ্খল কোড। একজন সত্যিকারের বহু-ক্ষেত্রীয় প্রতিভা।\"" },
+  ta: { lang: "தமிழ்", resume_summary: "தொழில்முறை சுருக்கம்", resume_skills: "தொழில்நுட்ப திறன்கள்", resume_projects: "சிறப்பு திட்டங்கள்", resume_edu: "கல்வி", resume_print: "அச்சிடு / PDF ஆக சேமி", github_title: "GitHub சுயவிவரம்", gh_repos: "களஞ்சியங்கள்", gh_stars: "மொத்த நட்சத்திரங்கள்", gh_commits: "கமிட்கள்", gh_contrib: "பங்களிப்புகள்", testimonials_tag: "சான்றுகள்", testimonials_title: "மக்கள் என்ன சொல்கிறார்கள்", test1_text: "\"Alien Developer எங்கள் திருமண அழைப்பிதழ் தளத்தை நிர்ணயித்த காலத்திற்கு முன் வழங்கியது. வடிவமைப்பு அற்புதமாக இருந்தது மற்றும் விருந்தினர்கள் ஊடாடும் அனுபவத்தை விரும்பினார்கள். மிகவும் பரிந்துரைக்கிறேன்!\"", test2_text: "\"Chow Heaven இன் சுற்றறிக்கைகள் பிரகாசமாகவும் கவனம் ஈர்க்கும் வகையிலும் இருந்தன. பிராண்டிங் மற்றும் உணவு சந்தைப்படுத்தலில் சிறந்த புரிதல். நிச்சயமாக மீண்டும் இணைந்து பணியாற்றுவோம்.\"", test3_text: "\"ShopWave ஆப் எங்கள் எதிர்பார்ப்புகளை மீறியது. மென்மையான UI, வேகமான செயல்திறன் மற்றும் நன்கு கட்டமைக்கப்பட்ட குறியீடு. உண்மையான பல துறை திறமை.\"" },
+  te: { lang: "తెలుగు", resume_summary: "వృత్తిపరమైన సారాంశం", resume_skills: "సాంకేతిక నైపుణ్యాలు", resume_projects: "ప్రధాన ప్రాజెక్టులు", resume_edu: "విద్య", resume_print: "ముద్రించు / PDF గా సేవ్ చేయి", github_title: "GitHub ప్రొఫైల్", gh_repos: "రిపోజిటరీలు", gh_stars: "మొత్తం నక్షత్రాలు", gh_commits: "కమిట్‌లు", gh_contrib: "సహకారాలు", testimonials_tag: "సాక్ష్యాలు", testimonials_title: "ప్రజలు ఏమి అంటారు", test1_text: "\"Alien Developer మా వివాహ ఆహ్వాన వెబ్‌సైట్‌ను సమయానికి ముందు అందించింది. డిజైన్ అద్భుతంగా ఉంది మరియు అతిథులు ఇంటరాక్టివ్ అనుభవాన్ని ఇష్టపడ్డారు. బాగా సిఫార్సు చేస్తున్నాను!\"", test2_text: "\"Chow Heaven ఫ్లైయర్లు రంగురంగులుగా మరియు ఆకట్టుకునేలా ఉన్నాయి. బ్రాండింగ్ మరియు ఆహార మార్కెటింగ్‌లో గొప్ప అవగాహన. ఖచ్చితంగా మళ్ళీ కలిసి పనిచేస్తాము.\"", test3_text: "\"ShopWave యాప్ మా అంచనాలను మించింది. స్మూత్ UI, వేగవంతమైన పనితీరు మరియు బాగా నిర్మాణాత్మకమైన కోడ్. నిజమైన బహుళ-విభాగ ప్రతిభ.\"" },
+  ur: { lang: "اردو", resume_summary: "پیشہ ورانہ خلاصہ", resume_skills: "تکنیکی مہارتیں", resume_projects: "منتخب منصوبے", resume_edu: "تعلیم", resume_print: "پرنٹ / PDF کے طور پر محفوظ کریں", github_title: "GitHub پروفائل", gh_repos: "ریپوزٹریز", gh_stars: "کل ستارے", gh_commits: "کمیٹس", gh_contrib: "شراکتیں", testimonials_tag: "گواہیاں", testimonials_title: "لوگ کیا کہتے ہیں", test1_text: "\"Alien Developer نے ہماری شادی کی دعوت کی سائٹ مقررہ وقت سے پہلے فراہم کی۔ ڈیزائن شاندار تھا اور مہمانوں نے انٹرایکٹو تجربے کو پسند کیا۔ بشدت تجویز کرتا ہوں!\"", test2_text: "\"Chow Heaven کے فلائیر رنگین اور دلکش تھے۔ برانڈنگ اور کھانے کی مارکیٹنگ کی بہترین سمجھ۔ یقیناً دوبارہ مل کر کام کریں گے۔\"", test3_text: "\"ShopWave ایپ نے ہماری توقعات سے زیادہ بہتر عملکرد دکھائی۔ ہموار UI، تیز کارکردگی اور اچھی طرح سے ٹھہرا ہوا کوڈ۔ سچی کثیر شعبہی صلاحیت۔\"" },
+  ms: { lang: "Bahasa Melayu", resume_summary: "Ringkasan Profesional", resume_skills: "Kemahiran Teknikal", resume_projects: "Projek Utama", resume_edu: "Pendidikan", resume_print: "Cetak / Simpan sebagai PDF", github_title: "Profil GitHub", gh_repos: "Repositori", gh_stars: "Jumlah Bintang", gh_commits: "Commits", gh_contrib: "Sumbangan", testimonials_tag: "Testimoni", testimonials_title: "Apa Orang Kata", test1_text: "\"Alien Developer telah menghantar laman web jemputan perkahwinan kami sebelum jangka masa. Reka bentuknya sangat menarik dan tetamu menyukai pengalaman interaktif. Sangat disyorkan!\"", test2_text: "\"Brosur Chow Heaven begitu berwarna-warni dan menarik perhatian. Pemahaman yang hebat tentang branding dan pemasaran makanan. Pasti akan bekerjasama lagi.\"", test3_text: "\"Aplikasi ShopWave melebihi jangkaan kami. UI yang lancar, prestasi pantas dan kod yang tersusun rapi. Seorang yang benar-benar berbakat dalam pelbagai bidang.\"" },
+  tl: { lang: "Filipino", resume_summary: "Buod ng Propesyonal", resume_skills: "Mga Kasayahang Teknikal", resume_projects: "Mga Napiling Proyekto", resume_edu: "Edukasyon", resume_print: "I-print / I-save bilang PDF", github_title: "GitHub Profile", gh_repos: "Mga Repositori", gh_stars: "Kabuuang Bituin", gh_commits: "Mga Commits", gh_contrib: "Mga Kontribusyon", testimonials_tag: "Mga Patotoo", testimonials_title: "Ang Sinasabi ng mga Tao", test1_text: "\"Inihatid ng Alien Developer ang aming website para sa imbitasyon sa kasal bago ang takdang panahon. Ang disenyo ay nakamamangha at nagustuhan ng mga bisita ang interaktibong karanasan. Lubos kong inirerekomenda!\"", test2_text: "\"Ang mga flyers ng Chow Heaven ay makulay at nakakaakit. Mahusay ang pag-unawa sa branding at food marketing. Tiyak na magtatrabaho muli kami magkasama.\"", test3_text: "\"Ang ShopWave app ay lumampas sa aming mga inaasahan. Maayos na UI, mabilis na pagganap at maayos na istraktura ng code. Isang tunay na talentong multidisciplinary.\"" },
+  ne: { lang: "नेपाली", resume_summary: "व्यावसायिक सारांश", resume_skills: "प्राविधिक सीपहरू", resume_projects: "विशेष परियोजनाहरू", resume_edu: "शिक्षा", resume_print: "प्रिन्ट / PDF को रूपमा सेभ गर्नुहोस्", github_title: "GitHub प्रोफाइल", gh_repos: "रिपोजिटरीहरू", gh_stars: "कुल ताराहरू", gh_commits: "कमिटहरू", gh_contrib: "योगदानहरू", testimonials_tag: "प्रशंसापत्र", testimonials_title: "मानिसहरूले के भन्छन्", test1_text: "\"Alien Developer ले हाम्रो विवाह निम्तो साइटला समयभन्दा अगाडि डेलिभर गर्यो। डिजाइन अद्भुत थियो र अतिथिहरूले इन्टरएक्टिभ अनुभव मन पराए। अत्यधिक सिफारिस गर्छु!\"", test2_text: "\"Chow Heaven का फ्लायरहरू रङ्गीन र आँखा तान्ने थिए। ब्रान्डिङ र खाद्य बजारिङको उत्कृष्ट बुझाइ। निश्चित रूपमा फेरि एकैसाथ काम गर्नेछौं।\"", test3_text: "\"ShopWave एपले हाम्रो अपेक्षा भन्दा बढी काम गर्यो। सुधारिएको UI, छिटो प्रदर्शन र राम्रोसँग संरचित कोड। साँच्चिकै बहु-विषयक प्रतिभा।\"" },
+  km: { lang: "ភាសាខ្មែរ", resume_summary: "សង្ខេបវិជ្ជាជីវៈ", resume_skills: "ជំនាញបច្ចេកវិទ្យា", resume_projects: "គម្រោងសំខាន់ៗ", resume_edu: "ការអប់រំ", resume_print: "បោះពុម្ព / រក្សាទុកជា PDF", github_title: "ប្រវត្តិ GitHub", gh_repos: "ឃ្លាំង", gh_stars: "ផ្កាយសរុប", gh_commits: "ការបញ្ចូន", gh_contrib: "ការរួមចំណែក", testimonials_tag: "សម្តីអតិថិជន", testimonials_title: "មនុស្សនិយាយអ្វី", test1_text: "\"Alien Developer បានផ្តល់គេហទំព័រអញ្ជើញរៀបការរបស់យើងមុនពេលកំណត់។ ការរចនាមានភាពស្រស់ស្អាតនិងភ្ញៀវចូលចិត្តបទពិសោធន៍អន្តរកម្ម។ ខ្ញុំណែនាំយ៉ាងខ្លាំង!\"", test2_text: "\"សន្លឹកផ្សាយ Chow Heaven មានពណ៌ស្រស់ស្អាតនិងទាក់ទាញ។ ការយល់ដឹងល្អអំពីការបង្កើតម៉ាកនិងទីផ្សារម្ហូបអាហារ។ យើងនឹងធ្វើការជាមួយគ្នាម្តងទៀតជាក់ជាមិនខាន។\"", test3_text: "\"កម្មវិធី ShopWave បានលើសពីការរំពឹងទុករបស់យើង។ UI រលូន ដំណើរការលឿននិងកូដមានរចនាសម្ព័ន្ធល្អ។ ជំនាញពហុវិជ្ជាពិតប្រាកដ។\"" },
+  he: { lang: "עברית", resume_summary: "סיכום מקצועי", resume_skills: "כישורים טכניים", resume_projects: "פרויקטים מובילים", resume_edu: "השכלה", resume_print: "הדפסה / שמירה כ-PDF", github_title: "פרופיל GitHub", gh_repos: "מאגרים", gh_stars: "סך הכל כוכבים", gh_commits: "COMMITים", gh_contrib: "תרומות", testimonials_tag: "המלצות", testimonials_title: "מה אנשים אומרים", test1_text: "\"Alien Developer סיפק את אתר ההזמנות לחתונה שלנו לפני הזמן. העיצוב היה מדהים והאורחים אהבו את החוויה האינטראקטיבית. ממליץ בחום!\"", test2_text: "\"העלונים של Chow Heaven היו צבעוניים ומושכי עיניים. הבנה מצוינת של מיתוג ושיווק מזון. בהחלט נעבוד שוב יחד.\"", test3_text: "\"אפליקציית ShopWave עלתה על הציפיות שלנו. ממשק חלק, ביצועים מהירים וקוד מאורגן היטב. כישרון רב-תחומי אמיתי.\"" },
+  fa: { lang: "فارسی", resume_summary: "خلاصه حرفه‌ای", resume_skills: "مهارت‌های فنی", resume_projects: "پروژه‌های برگزیده", resume_edu: "تحصیلات", resume_print: "چاپ / ذخیره به صورت PDF", github_title: "پروفایل GitHub", gh_repos: "مخزن‌ها", gh_stars: "مجموع ستاره‌ها", gh_commits: "کامیت‌ها", gh_contrib: "مشارکت‌ها", testimonials_tag: "نظرات", testimonials_title: "مردم چه می‌گویند", test1_text: "\"Alien Developer سایت دعوت عروسی ما را زودتر از موعد تحویل داد. طراحی خیره‌کننده بود و مهمان‌ها تجربه تعاملی را دوست داشتند. به شدت توصیه می‌کنم!\"", test2_text: "\"تبلیغات Chow Heaven پرجنب‌وجوش و چشم‌نواز بودند. درک عالی از برندسازی و بازاریابی غذا. قطعاً دوباره با هم کار خواهیم کرد.\"", test3_text: "\"اپلیکیشن ShopWave از انتظارات ما فراتر رفت. رابط کاربری روان، عملکرد سریع و کد ساختاریافته. یک استعداد چند رشته‌ای واقعی.\"" },
+  ig: { lang: "Igbo", resume_summary: "Nchịkọta Ọrụ", resume_skills: "Nka Ntụnye", resume_projects: "Mgbalịshị Dị Mkpa", resume_edu: "Mmụta", resume_print: "Wepụta / Chekwaa dị ka PDF", github_title: "GitHub Profile", gh_repos: "Ụlọ Nchekwa", gh_stars: "Naanị Kpakpando Niile", gh_commits: "Commits", gh_contrib: "Nkwado", testimonials_tag: "Ntụaka", testimonials_title: "Kedu Chi Ndị Mmadụ Na-asị", test1_text: "\"Alien Developer nyere anyị n'ụzọ n'ụlọ agụụ nwụnye anyị tupu oge eji. Nka ahụ na-amasị anya ma ndị a na-asọmpi na-enwetọ aka mmalite. A na-akwa ndụ ya nke ọma!\"", test2_text: "\"Akwụkwọ mkpọsa Chow Heaven na-adọrọ mmasị ma na-adọrọ anya. Nkọwa dị ukwuu gbasara branding na ahịa nri. Anyị ga-asọphiọ ọzọ.\"", test3_text: "\"App ShopWave gafere ihe anyị chọrọ. UI dị mfe, ọrụ ngwa ngwa na code e dere nke ọma. Nka otu n'ime nke ezi uche.\"" },
+  so: { lang: "Soomaali", resume_summary: "Kooban Xirfadda", resume_skills: "Xirfadaha Farsamada", resume_projects: "Mashaariicda Muhiimka ah", resume_edu: "Waxbarasho", resume_print: "Daabac / Kaydi PDF ahaan", github_title: "Profile-ka GitHub", gh_repos: "Kaydyaal", gh_stars: "Wadarta Xiddigaha", gh_commits: "Commits", gh_contrib: "Kaalmooyin", testimonials_tag: "Marqaatiyada", testimonials_title: "Waxaa Dadka Sheegayaan", test1_text: "\"Alien Developer waxay noo dirtay bogsiga martisoorkayaga ka hor waqtiga. Naqshaddu waa cajiib ahayd waxaana ku farcanaa martida khibradda xiriirka. Waxaan ku talinayaa si xooggan!\"", test2_text: "\"Waraaqaha Chow Heaven waxay ahaayeen midab leh oo indhaha qabta. Faham fiican oo ku saabsan branding iyo suuqgeynta cuntooyinka. Waxaan xaqiijin doonaa inaan mar kale wada shaqeyno.\"", test3_text: "\"Barnaamijka ShopWave wuxuu ka baxsan yahay rajadayada. UI siman, waxqabad dhakhso leh iyo koodh la habey. Xirfad aan caadi ahayn oo badan-fan ah.\"" },
+  ti: { lang: "ትግርኛ", resume_summary: "ሙ翀ር ሞያ", resume_skills: "ቴክኒካዊ ችሎታ", resume_projects: "ምርጥ ፕሮጀክቶች", resume_edu: "ትምህርቲ", resume_print: "ኣትርግ / በ PDF ላይ ኣስቀምጥ", github_title: "GitHub መግለጫ", gh_repos: "ምዕቃን", gh_stars: "ጠቅላላ ኮከብ", gh_commits: "ኮሚቶች", gh_contrib: "ኣስተዋይ", testimonials_tag: "ማስተዋያ", testimonials_title: "ሰባት እንታይ ይብሉ", test1_text: "\"Alien Developer ዝግባ ጋብቻ ድር ጣቢያችን ከጊዜ በፊት ኣድርጎ lies። ዲዛይኑ አስደናቂ ነበር እና እንግዶች የተግባር ተሞክሮውን ጠመጡ። በጣም እንመክራለን!\"", test2_text: "\"የ Chow Heaven ፎቶኮቶች ቀለማትም ነበሩ እና ዓይን ይዘኑ ነበር። በብራንዲንግ እና በምግብ ገበር መረዳት ግንባር። በእርግጥ እንደገና እንሠራለን።\"", test3_text: "\"ShopWave መተግበሪያ የጠበቃችንን ቀላል አደረገ። ምላጭ ቴክኒክ ፍጥነት እና በደንብ የተሰራ code። እውነተኛ multidisciplinary ችሎታ.\"" },
+  ka: { lang: "ქართული", resume_summary: "პროფესიონალური შეჯამება", resume_skills: "ტექნიკური უნარები", resume_projects: "გამორჩეული პროექტები", resume_edu: "განათლება", resume_print: "ბეჭდვა / PDF-ად შენახვა", github_title: "GitHub პროფილი", gh_repos: "რეპოზიტორიები", gh_stars: "სულ ვარსკვლავები", gh_commits: "კომიტები", gh_contrib: "წვლილი", testimonials_tag: "მიმოხილვები", testimonials_title: "რას ამბობენ ადამიანები", test1_text: "\"Alien Developer ჩვენი ქორწილის მოსაწვევი საიტი ვადაზე ადრე მოგვაწოდა. დიზაინი განსაკუთრებული იყო და სტუმრებმა ინტერაქტიული გამოცდილება შეიყვარეს. ძალიან გირჩევთ!\"", test2_text: "\"Chow Heaven-ის ფლაიერები ფერადი და თვალისმომჭრელი იყო. ბრენდინგსა და საკვების მარკეტინგში შესანიშნავი გაგება აქვს. აუცილებლად კვლავ ვიმუშავებთ ერთად.\"", test3_text: "\"ShopWave აპლიკაციამ ჩვენ მოლოდინს გადააჭარბა. გლუვი UI, სწრაფი მუშაობა და კარგად სტრუქტურირებული კოდი. ნამდვილი მრავალდარგოვანი ნიჭი.\"" }
 };
 let currentLang = "en";
 const langKeys = Object.keys(i18n);
 function initLangToggle() {
-  const toggle = document.getElementById("lang-toggle");
-  if (!toggle) return;
-  toggle.textContent = "EN";
-  toggle.addEventListener("click", () => {
-    const idx = langKeys.indexOf(currentLang);
-    currentLang = langKeys[(idx + 1) % langKeys.length];
-    toggle.textContent = currentLang.toUpperCase();
+  const toggle = document.getElementById("lang-selector-btn");
+  const dropdown = document.getElementById("lang-dropdown");
+  const langCurrent = document.getElementById("lang-current");
+  if (!toggle || !dropdown || !langCurrent) return;
+  langCurrent.textContent = currentLang.toUpperCase();
+  const savedLang = localStorage.getItem("lang");
+  if (savedLang && i18n[savedLang]) currentLang = savedLang;
+  function applyLang(lang) {
+    currentLang = lang;
+    langCurrent.textContent = currentLang.toUpperCase();
+    localStorage.setItem("lang", currentLang);
     document.querySelectorAll("[data-i18n]").forEach((el) => {
       const key = el.getAttribute("data-i18n");
       if (i18n[currentLang][key]) el.textContent = i18n[currentLang][key];
     });
+    document.querySelectorAll(".lang-option").forEach((opt) => {
+      opt.classList.toggle("active", opt.dataset.lang === currentLang);
+    });
     showToast("Language: " + i18n[currentLang].lang);
+  }
+  applyLang(currentLang);
+  const searchInput = document.createElement("input");
+  searchInput.type = "text";
+  searchInput.className = "lang-search";
+  searchInput.placeholder = "Search languages...";
+  searchInput.addEventListener("input", () => {
+    const q = searchInput.value.toLowerCase();
+    dropdown.querySelectorAll(".lang-option").forEach((opt) => {
+      const text = opt.textContent.toLowerCase();
+      opt.style.display = text.includes(q) ? "" : "none";
+    });
+  });
+  dropdown.appendChild(searchInput);
+  langKeys.forEach((key) => {
+    const opt = document.createElement("div");
+    opt.className = "lang-option" + (key === currentLang ? " active" : "");
+    opt.dataset.lang = key;
+    opt.innerHTML = '<span class="lang-option-code">' + key.toUpperCase() + '</span> ' + i18n[key].lang;
+    opt.addEventListener("click", () => {
+      applyLang(key);
+      dropdown.classList.remove("open");
+      searchInput.value = "";
+      dropdown.querySelectorAll(".lang-option").forEach((o) => o.style.display = "");
+    });
+    dropdown.appendChild(opt);
+  });
+  toggle.addEventListener("click", (e) => {
+    e.stopPropagation();
+    dropdown.classList.toggle("open");
+    if (dropdown.classList.contains("open")) {
+      searchInput.value = "";
+      searchInput.focus();
+      dropdown.querySelectorAll(".lang-option").forEach((o) => o.style.display = "");
+    }
+  });
+  document.addEventListener("click", (e) => {
+    if (!dropdown.contains(e.target) && !toggle.contains(e.target)) {
+      dropdown.classList.remove("open");
+    }
   });
 }
 
@@ -5223,6 +4898,7 @@ function initAlienParallax() {
   if (!scene || !body) return;
 
   const MAX_TILT = 8;
+  const pupils = scene.querySelectorAll(".alien-pupil");
 
   scene.onmousemove = function(e) {
     const rect = scene.getBoundingClientRect();
@@ -5234,8 +4910,7 @@ function initAlienParallax() {
 
     body.style.transform = "perspective(600px) rotateX(" + rotateX + "deg) rotateY(" + rotateY + "deg)";
 
-    const pupils = scene.querySelectorAll(".alien-pupil");
-    pupils.forEach((pupil) => {
+    pupils.forEach(function(pupil) {
       pupil.style.transform = "translate(" + (x * 6) + "px, " + (y * 6) + "px)";
     });
   };
@@ -5243,13 +4918,12 @@ function initAlienParallax() {
   scene.onmouseleave = function() {
     body.style.transition = "transform 0.5s ease-out";
     body.style.transform = "perspective(600px) rotateX(0deg) rotateY(0deg)";
-    setTimeout(() => { body.style.transition = ""; }, 500);
+    setTimeout(function() { body.style.transition = ""; }, 500);
 
-    const pupils = scene.querySelectorAll(".alien-pupil");
-    pupils.forEach((pupil) => {
+    pupils.forEach(function(pupil) {
       pupil.style.transition = "transform 0.5s ease-out";
       pupil.style.transform = "translate(0, 0)";
-      setTimeout(() => { pupil.style.transition = ""; }, 500);
+      setTimeout(function() { pupil.style.transition = ""; }, 500);
     });
   };
 }
@@ -5292,9 +4966,9 @@ function initAlienParticles() {
     <script>
     (function() {
         const flyerImages = [
-            "assets/chow-heaven-flyer-1.png",
-            "assets/chow-heaven-flyer-2.png",
-            "assets/chow-heaven-flyer-3.png"
+            "assets/chow-heaven-flyer-1-opt.jpg",
+            "assets/chow-heaven-flyer-2-opt.jpg",
+            "assets/chow-heaven-flyer-3-opt.jpg"
         ];
         let currentIndex = 0;
 
@@ -5308,6 +4982,7 @@ function initAlienParticles() {
         function showImage(index) {
             currentIndex = index;
             img.src = flyerImages[currentIndex];
+            img.decoding = "async";
             counter.textContent = (currentIndex + 1) + " / " + flyerImages.length;
         }
 
@@ -5348,6 +5023,20 @@ function initAlienParticles() {
             if (e.key === "ArrowLeft") prevBtn.click();
             if (e.key === "ArrowRight") nextBtn.click();
         });
+
+        var touchStartX = 0;
+        var touchEndX = 0;
+        overlay.addEventListener("touchstart", function(e) {
+            touchStartX = e.changedTouches[0].screenX;
+        }, { passive: true });
+        overlay.addEventListener("touchend", function(e) {
+            touchEndX = e.changedTouches[0].screenX;
+            var delta = touchEndX - touchStartX;
+            if (Math.abs(delta) > 50) {
+                if (delta < 0) nextBtn.click();
+                else prevBtn.click();
+            }
+        }, { passive: true });
     })();
     </script>
 
@@ -5355,8 +5044,8 @@ function initAlienParticles() {
     <div class="lightbox-overlay" id="video-lightbox">
         <button class="lightbox-close" id="video-lightbox-close" aria-label="Close">&times;</button>
         <div class="lightbox-content">
-            <video id="video-lightbox-player" controls preload="metadata" style="max-width:90vw;max-height:85vh;border-radius:var(--radius-md);border:1px solid var(--border-color);box-shadow:0 8px 40px rgba(0,0,0,0.6);">
-                <source src="assets/vaseline-ugc.mp4" type="video/mp4">
+            <video id="video-lightbox-player" controls preload="none" playsinline style="max-width:90vw;max-height:85vh;border-radius:var(--radius-md);border:1px solid var(--border-color);box-shadow:0 8px 40px rgba(0,0,0,0.6);">
+                <source src="" type="video/mp4">
             </video>
         </div>
     </div>
@@ -5366,10 +5055,17 @@ function initAlienParticles() {
         var overlay = document.getElementById("video-lightbox");
         var video = document.getElementById("video-lightbox-player");
         var closeBtn = document.getElementById("video-lightbox-close");
+        var VIDEO_SRC = "assets/vaseline-ugc.mp4";
+        var videoLoaded = false;
 
         function openVideoLightbox() {
             overlay.classList.add("active");
             document.body.style.overflow = "hidden";
+            if (!videoLoaded) {
+                video.querySelector("source").src = VIDEO_SRC;
+                video.load();
+                videoLoaded = true;
+            }
             video.currentTime = 0;
             video.play().catch(function() {});
         }
@@ -5412,10 +5108,14 @@ function initAlienParticles() {
         <svg viewBox="0 0 24 24" fill="currentColor" width="28" height="28"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
     </a>
 
-    <!-- Sound Toggle -->
-    <button class="sound-toggle" id="sound-toggle" aria-label="Toggle ambient sound">
-        <svg class="sound-on-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"/></svg>
-        <svg class="sound-off-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><line x1="23" y1="9" x2="17" y2="15"/><line x1="17" y1="9" x2="23" y2="15"/></svg>
-    </button>
+
+    <!-- Floating Language Selector -->
+    <div class="lang-selector" id="lang-selector">
+        <button class="lang-selector-btn" id="lang-selector-btn" aria-label="Select language">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+            <span class="lang-current" id="lang-current">EN</span>
+        </button>
+        <div class="lang-dropdown" id="lang-dropdown"></div>
+    </div>
 </body>
 </html>
