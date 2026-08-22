@@ -4662,8 +4662,9 @@ function initSkillRowAnimations() {
 
 // ── Scroll-Triggered Fade-In Animations ──────────────────────────────────────
 function initScrollAnimations() {
-  const activePage = document.querySelector('.page-section[style*="display: block"], .page-section:not([style*="display: none"])');
-  if (!activePage) return;
+  const activePage = document.getElementById("page-" + currentPage)
+    || document.querySelector(".page-section:not([style*=\"display: none\"])");
+  if (!activePage || getComputedStyle(activePage).display === "none") return;
   const targets = activePage.querySelectorAll(
     ".skill-row, .about-brief-card, .contact-card, .contact-form-wrapper, .contact-info, .hero-content, .hero-visual, .testimonial-card, .github-stat-card"
   );
