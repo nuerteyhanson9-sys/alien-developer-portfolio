@@ -1325,19 +1325,7 @@ input, textarea, select, button {
     transition: transform 0.5s ease;
 }
 
-.project-preview img {
-    width: 100%;
-    height: 220px;
-    object-fit: cover;
-    border-radius: var(--radius-md);
-    display: block;
-    position: relative;
-    z-index: 1;
-    transition: transform 0.5s ease;
-}
-
-.project-card:hover .project-preview svg,
-.project-card:hover .project-preview img {
+.project-card:hover .project-preview svg {
     transform: scale(1.05);
 }
 
@@ -1357,6 +1345,10 @@ input, textarea, select, button {
 /* Chow Heaven Flyers - warm glow */
 .preview-chow-flyers .glow-blob { background: #f97316; width: 140px; height: 140px; top: 5%; right: 10%; }
 .preview-chow-flyers .glow-blob:nth-child(2) { background: #ef4444; width: 100px; height: 100px; bottom: 15%; left: 20%; }
+
+/* Abena Foods - warm glow */
+.preview-abena-foods .glow-blob { background: #f97316; width: 140px; height: 140px; top: 5%; right: 10%; }
+.preview-abena-foods .glow-blob:nth-child(2) { background: #ef4444; width: 100px; height: 100px; bottom: 15%; left: 20%; }
 
 /* Chow Heaven Website - warm restaurant glow */
 .preview-chow-website .glow-blob { background: #f59e0b; width: 130px; height: 130px; top: 10%; left: 15%; }
@@ -2956,6 +2948,9 @@ body { transition: background-color 0.4s ease, color 0.4s ease; }
     width: 220px;
     max-height: 480px;
     overflow-y: auto;
+    overscroll-behavior: contain;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: thin;
     background: var(--bg-card);
     border: 1px solid var(--border-color);
     border-radius: var(--radius-md);
@@ -3856,7 +3851,50 @@ body { transition: background-color 0.4s ease, color 0.4s ease; }
                     <div class="project-card" data-category="design">
                         <div class="project-image">
                             <div class="project-preview preview-abena-foods">
-                                <img src="assets/abena-foods-cover-opt.jpg" alt="Abena Foods flyer design" loading="lazy">
+                                <div class="glow-blob"></div>
+                                <div class="glow-blob"></div>
+                                <svg viewBox="0 0 240 220" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <!-- Bowl -->
+                                    <path d="M60,120 Q120,175 180,120" fill="url(#abenaGrad1)" opacity="0.25"/>
+                                    <ellipse cx="120" cy="120" rx="60" ry="14" stroke="url(#abenaGrad1)" stroke-width="2" fill="none" opacity="0.5"/>
+                                    <ellipse cx="120" cy="118" rx="48" ry="10" fill="url(#abenaGrad2)" opacity="0.2"/>
+                                    <!-- Bowl base -->
+                                    <rect x="105" y="152" width="30" height="8" rx="4" fill="url(#abenaGrad1)" opacity="0.35"/>
+                                    <!-- Food mound -->
+                                    <circle cx="100" cy="112" r="9" fill="#ef4444" opacity="0.35"/>
+                                    <circle cx="122" cy="108" r="10" fill="#f59e0b" opacity="0.4"/>
+                                    <circle cx="142" cy="113" r="8" fill="#fb923c" opacity="0.35"/>
+                                    <!-- Leaf garnish -->
+                                    <path d="M150,104 Q160,92 170,98 Q162,110 150,104 Z" fill="#f97316" opacity="0.45"/>
+                                    <!-- Steam -->
+                                    <path class="preview-steam" d="M105,95 Q108,85 105,75" stroke="white" stroke-width="1.5" fill="none" opacity="0.3"/>
+                                    <path class="preview-steam" d="M120,92 Q123,82 120,72" stroke="white" stroke-width="1.5" fill="none" opacity="0.25"/>
+                                    <path class="preview-steam" d="M135,95 Q138,85 135,75" stroke="white" stroke-width="1.5" fill="none" opacity="0.3"/>
+                                    <!-- Spoon -->
+                                    <line x1="52" y1="95" x2="52" y2="155" stroke="url(#abenaGrad2)" stroke-width="2" stroke-linecap="round" opacity="0.4"/>
+                                    <ellipse cx="52" cy="88" rx="7" ry="10" stroke="url(#abenaGrad2)" stroke-width="1.5" fill="none" opacity="0.4"/>
+                                    <!-- Decorative dots -->
+                                    <circle cx="42" cy="50" r="2" fill="#ef4444" opacity="0.5"/>
+                                    <circle cx="198" cy="45" r="2.5" fill="#f59e0b" opacity="0.4"/>
+                                    <circle cx="36" cy="180" r="1.5" fill="#f59e0b" opacity="0.4"/>
+                                    <circle cx="205" cy="185" r="2" fill="#ef4444" opacity="0.5"/>
+                                    <!-- Sparkles -->
+                                    <circle class="preview-sparkle" cx="62" cy="38" r="2" fill="#fbbf24" opacity="0.6"/>
+                                    <circle class="preview-sparkle" cx="178" cy="33" r="2" fill="#ef4444" opacity="0.5"/>
+                                    <!-- Text lines -->
+                                    <rect x="80" y="176" width="80" height="4" rx="2" fill="url(#abenaGrad1)" opacity="0.25"/>
+                                    <rect x="95" y="184" width="50" height="3" rx="1.5" fill="url(#abenaGrad2)" opacity="0.2"/>
+                                    <defs>
+                                        <linearGradient id="abenaGrad1" x1="0%" y1="0%" x2="100%" y2="100%">
+                                            <stop offset="0%" stop-color="#f97316"/>
+                                            <stop offset="100%" stop-color="#ef4444"/>
+                                        </linearGradient>
+                                        <linearGradient id="abenaGrad2" x1="0%" y1="0%" x2="100%" y2="100%">
+                                            <stop offset="0%" stop-color="#fbbf24"/>
+                                            <stop offset="100%" stop-color="#f97316"/>
+                                        </linearGradient>
+                                    </defs>
+                                </svg>
                             </div>
                         </div>
                         <div class="project-info">
@@ -5084,11 +5122,25 @@ function initLangToggle() {
     e.stopPropagation();
     dropdown.classList.toggle("open");
     if (dropdown.classList.contains("open")) {
+      const rect = toggle.getBoundingClientRect();
+      const spaceAbove = Math.max(180, Math.min(480, rect.top - 12));
+      dropdown.style.maxHeight = spaceAbove + "px";
       searchInput.value = "";
-      searchInput.focus();
+      if (window.matchMedia("(hover: hover) and (pointer: fine)").matches) {
+        searchInput.focus();
+      }
       dropdown.querySelectorAll(".lang-option").forEach((o) => o.style.display = "");
+      const activeOpt = dropdown.querySelector(".lang-option.active");
+      if (activeOpt) {
+        dropdown.scrollTop = Math.max(0, activeOpt.offsetTop - dropdown.clientHeight / 2 + activeOpt.offsetHeight / 2);
+      }
     }
   });
+  window.addEventListener("resize", () => {
+    if (!dropdown.classList.contains("open")) return;
+    const rect = toggle.getBoundingClientRect();
+    dropdown.style.maxHeight = Math.max(180, Math.min(480, rect.top - 12)) + "px";
+  }, { passive: true });
   document.addEventListener("click", (e) => {
     if (!dropdown.contains(e.target) && !toggle.contains(e.target)) {
       dropdown.classList.remove("open");
