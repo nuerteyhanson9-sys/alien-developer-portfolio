@@ -1325,7 +1325,19 @@ input, textarea, select, button {
     transition: transform 0.5s ease;
 }
 
-.project-card:hover .project-preview svg {
+.project-preview img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    border-radius: var(--radius-md);
+    display: block;
+    position: relative;
+    z-index: 1;
+    transition: transform 0.5s ease;
+}
+
+.project-card:hover .project-preview svg,
+.project-card:hover .project-preview img {
     transform: scale(1.05);
 }
 
@@ -3834,7 +3846,27 @@ body { transition: background-color 0.4s ease, color 0.4s ease; }
                             <div class="project-tech">
                                 <span>Photoshop</span><span>Ideogram</span>
                             </div>
-                            <a href="#" class="project-link">
+                            <a href="#" class="project-link" data-project="chow">
+                                <span data-i18n="view_project">View Project</span>
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="project-card" data-category="design">
+                        <div class="project-image">
+                            <div class="project-preview preview-abena-foods">
+                                <img src="assets/abena-foods-cover-opt.jpg" alt="Abena Foods flyer design" loading="lazy">
+                            </div>
+                        </div>
+                        <div class="project-info">
+                            <span class="project-category" data-i18n="proj_abena_cat">Graphic Design</span>
+                            <h3 class="project-title" data-i18n="proj_abena_title">Abena Foods</h3>
+                            <p class="project-description" data-i18n="proj_abena_desc">Designed premium promotional visuals for "Abena Foods" — a food branding project showcasing appetizing product presentation and modern flyer layout design.</p>
+                            <div class="project-tech">
+                                <span>Photoshop</span><span>Ideogram</span>
+                            </div>
+                            <a href="#" class="project-link" data-project="abena">
                                 <span data-i18n="view_project">View Project</span>
                                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg>
                             </a>
@@ -4729,7 +4761,9 @@ function preloadProjectMedia() {
   const media = [
     "assets/chow-heaven-flyer-1-opt.jpg",
     "assets/chow-heaven-flyer-2-opt.jpg",
-    "assets/chow-heaven-flyer-3-opt.jpg"
+    "assets/chow-heaven-flyer-3-opt.jpg",
+    "assets/abena-foods-cover-opt.jpg",
+    "assets/abena-foods-flyer-2-opt.jpg"
   ];
   setTimeout(function() {
     media.forEach(function(src) {
@@ -5136,11 +5170,18 @@ function initAlienParticles() {
 
     <script>
     (function() {
-        const flyerImages = [
-            "assets/chow-heaven-flyer-1-opt.jpg",
-            "assets/chow-heaven-flyer-2-opt.jpg",
-            "assets/chow-heaven-flyer-3-opt.jpg"
-        ];
+        const galleries = {
+            chow: [
+                "assets/chow-heaven-flyer-1-opt.jpg",
+                "assets/chow-heaven-flyer-2-opt.jpg",
+                "assets/chow-heaven-flyer-3-opt.jpg"
+            ],
+            abena: [
+                "assets/abena-foods-cover-opt.jpg",
+                "assets/abena-foods-flyer-2-opt.jpg"
+            ]
+        };
+        let currentGallery = galleries.chow;
         let currentIndex = 0;
 
         const overlay = document.getElementById("flyer-lightbox");
@@ -5152,12 +5193,13 @@ function initAlienParticles() {
 
         function showImage(index) {
             currentIndex = index;
-            img.src = flyerImages[currentIndex];
+            img.src = currentGallery[currentIndex];
             img.decoding = "async";
-            counter.textContent = (currentIndex + 1) + " / " + flyerImages.length;
+            counter.textContent = (currentIndex + 1) + " / " + currentGallery.length;
         }
 
-        function openLightbox() {
+        function openLightbox(galleryKey) {
+            currentGallery = galleries[galleryKey] || galleries.chow;
             showImage(0);
             overlay.classList.add("active");
             document.body.style.overflow = "hidden";
@@ -5171,7 +5213,7 @@ function initAlienParticles() {
         document.querySelectorAll(".project-card[data-category='design'] .project-link").forEach(function(link) {
             link.addEventListener("click", function(e) {
                 e.preventDefault();
-                openLightbox();
+                openLightbox(link.dataset.project);
             });
         });
 
@@ -5181,11 +5223,11 @@ function initAlienParticles() {
         });
 
         prevBtn.addEventListener("click", function() {
-            showImage((currentIndex - 1 + flyerImages.length) % flyerImages.length);
+            showImage((currentIndex - 1 + currentGallery.length) % currentGallery.length);
         });
 
         nextBtn.addEventListener("click", function() {
-            showImage((currentIndex + 1) % flyerImages.length);
+            showImage((currentIndex + 1) % currentGallery.length);
         });
 
         document.addEventListener("keydown", function(e) {
