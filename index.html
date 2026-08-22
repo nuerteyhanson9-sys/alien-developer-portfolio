@@ -4211,18 +4211,17 @@ document.addEventListener("DOMContentLoaded", () => {
     initPageLoad,
     initNavbar,
     initStarField,
-    initScrollAnimations,
     initScrollProgress,
     initSPA,
     initThemeToggle,
     initBackToTop,
     initLangToggle,
-    initHomeFeatures
+    initHomeFeatures,
+    initScrollAnimations
   ];
   inits.forEach(function(fn) {
     try { fn(); } catch (err) { console.error(fn.name + " failed:", err); }
   });
-  try { navigateTo("home"); } catch (err) { console.error("navigateTo failed:", err); }
 });
 
 // ── SPA Navigation ────────────────────────────────────────────────────────────
@@ -4245,8 +4244,8 @@ function disconnectObservers() {
 }
 
 function navigateTo(page) {
-  disconnectObservers();
   if (currentPage === page) { window.scrollTo(0, 0); return; }
+  disconnectObservers();
 
   var transition = document.getElementById("page-transition");
   if (transition) transition.classList.add("active");
