@@ -1,0 +1,2561 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Stay at BeKind | BeKind Hotel &amp; Suites, Takoradi</title>
+<meta name="description" content="Where Dreams Come True — your all-in-one Ghana travel experience. Beach, culture, adventure and relaxation come together at BeKind Hotel &amp; Suites, Takoradi." />
+<meta property="og:title" content="Stay at BeKind | Where Dreams Come True" />
+<meta property="og:description" content="Your all-in-one Ghana travel experience — beach, culture, adventure and relaxation in Takoradi." />
+<meta property="og:type" content="website" />
+<meta property="og:image" content="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" />
+<meta name="theme-color" content="#131110" />
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23b08a3c' d='M17 8C8 10 5.9 16.17 3.82 21.34l1.89.66.95-2.3c.48.17.98.3 1.34.3C19 20 22 3 22 3c-1 2-8 2.25-13 3.25S2 11.5 2 13.5s1.75 3.75 1.75 3.75C7 8 17 8 17 8Z'/%3E%3C/svg%3E" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="preconnect" href="https://images.unsplash.com" />
+<link rel="preconnect" href="https://commons.wikimedia.org" />
+<link rel="preconnect" href="https://upload.wikimedia.org" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400;1,500&amp;display=swap" rel="stylesheet" />
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+tailwind.config = {
+  theme: {
+    extend: {
+      colors: {
+        ivory: "#faf6ee",
+        sand: "#f2eadb",
+        linen: "#e8dec9",
+        charcoal: "#211e19",
+        ink: "#131110",
+        gold: "#b08a3c",
+        "gold-deep": "#8f6d2a",
+        "gold-light": "#d9bc7a",
+        accent: "#e9c46a",
+        palm: "#41564a",
+        ocean: "#2e5a66"
+      },
+      fontFamily: {
+        display: ['"Playfair Display"', "Georgia", "serif"],
+        sans: ["Manrope", "system-ui", "sans-serif"]
+      },
+      boxShadow: {
+        warm: "0 24px 60px -24px rgba(33,30,25,.28)",
+        card: "0 12px 40px -18px rgba(33,30,25,.22)"
+      }
+    }
+  }
+};
+</script>
+<style>
+html { scroll-behavior: smooth; }
+body { -webkit-font-smoothing: antialiased; }
+::selection { background: #e9c46a; color: #131110; }
+.container-x { margin-inline: auto; width: 100%; max-width: 75rem; padding-inline: 1.25rem; }
+@media (min-width: 640px) { .container-x { padding-inline: 2rem; } }
+@media (min-width: 1024px) { .container-x { padding-inline: 2.5rem; } }
+.eyebrow { font-size: 11px; font-weight: 700; letter-spacing: .24em; text-transform: uppercase; }
+.reveal { opacity: 0; transform: translateY(28px); transition: opacity .8s cubic-bezier(.22,1,.36,1), transform .8s cubic-bezier(.22,1,.36,1); }
+.reveal.is-visible { opacity: 1; transform: none; }
+@keyframes kb { from { transform: scale(1.12); } to { transform: scale(1); } }
+.kb { animation: kb 2.4s ease-out both; }
+@keyframes heroUp { from { opacity: 0; transform: translateY(32px); } to { opacity: 1; transform: none; } }
+.hero-item { opacity: 0; animation: heroUp 1s cubic-bezier(.22,1,.36,1) both; }
+.hero-fade { opacity: 0; animation: fadeIn .8s ease both; }
+@keyframes scrollDot { 0% { transform: translateY(0); opacity: 1; } 70% { transform: translateY(12px); opacity: 0; } 100% { transform: translateY(12px); opacity: 0; } }
+.animate-scroll-dot { animation: scrollDot 1.8s ease-in-out infinite; }
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+.menu-fade { animation: fadeIn .35s ease both; }
+@keyframes menuItem { from { opacity: 0; transform: translateY(22px); } to { opacity: 1; transform: none; } }
+.menu-item { animation: menuItem .55s cubic-bezier(.22,1,.36,1) both; }
+@keyframes pillIn { from { transform: scale(.85); opacity: .4; } to { transform: none; opacity: 1; } }
+.pill-in { animation: pillIn .35s cubic-bezier(.22,1,.36,1) both; }
+@keyframes swapIn { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: none; } }
+.anim-swap { animation: swapIn .55s cubic-bezier(.22,1,.36,1) both; }
+.anim-step { animation: swapIn .38s cubic-bezier(.22,1,.36,1) both; }
+@keyframes drawerItem { from { opacity: 0; transform: translateX(24px); } to { opacity: 1; transform: none; } }
+.drawer-item { animation: drawerItem .45s cubic-bezier(.22,1,.36,1) both; }
+@keyframes popIn { 0% { transform: scale(.5); opacity: 0; } 60% { transform: scale(1.08); opacity: 1; } 100% { transform: scale(1); } }
+.pop-in { animation: popIn .6s cubic-bezier(.22,1,.36,1) both; }
+@keyframes numPop { from { opacity: .4; transform: translateY(4px); } to { opacity: 1; transform: none; } }
+.num-pop { animation: numPop .3s ease both; }
+@keyframes floaty { 0%, 100% { transform: translateY(0) rotate(2deg); } 50% { transform: translateY(-10px) rotate(2deg); } }
+.floaty { animation: floaty 7s ease-in-out infinite; }
+input[type="date"] { cursor: pointer; }
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .reveal { opacity: 1 !important; transform: none !important; }
+  *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
+}
+</style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Hotel",
+  "name": "BeKind Hotel & Suites",
+  "description": "Boutique resort hotel in Takoradi, Ghana — beach, culture, adventure and relaxation in one stay.",
+  "url": "https://www.bekindhotelandsuites.com/",
+  "telephone": "+233509120845",
+  "email": "info@bekindhotelandsuites.com",
+  "priceRange": "GHS 850 - GHS 2300",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Ako Adjei Street",
+    "addressLocality": "Takoradi",
+    "addressRegion": "Western Region",
+    "addressCountry": "GH"
+  },
+  "amenityFeature": [
+    { "@type": "LocationFeatureSpecification", "name": "Free Wi-Fi" },
+    { "@type": "LocationFeatureSpecification", "name": "Restaurant & Bar" },
+    { "@type": "LocationFeatureSpecification", "name": "Outdoor Pool" },
+    { "@type": "LocationFeatureSpecification", "name": "Spa & Wellness" },
+    { "@type": "LocationFeatureSpecification", "name": "Airport Transfer" },
+    { "@type": "LocationFeatureSpecification", "name": "Curated Experiences" }
+  ]
+}
+</script>
+</head>
+<body class="bg-ivory font-sans text-charcoal">
+<div id="root"></div>
+<noscript><p style="padding:2rem;text-align:center;font-family:sans-serif">Please enable JavaScript to explore Stay at BeKind. Contact us anytime: info@bekindhotelandsuites.com · +233 50 912 0845</p></noscript>
+<script>
+(function () {
+  function showFallback(message) {
+    var root = document.getElementById("root");
+    if (!root || root.childNodes.length > 0 || document.getElementById("boot-fallback")) return;
+    var box = document.createElement("div");
+    box.id = "boot-fallback";
+    box.setAttribute("style", "max-width:34rem;margin:4rem auto;padding:1.75rem 2rem;background:#fff8ea;border:1px solid #b08a3c;border-radius:14px;font-family:sans-serif;color:#211e19;text-align:center");
+    box.innerHTML =
+      '<h1 style="font-size:1.15rem;margin:0 0 .6rem">The site could not fully load</h1>' +
+      '<p style="margin:.3rem 0;font-size:.95rem;line-height:1.55">' + message + "</p>" +
+      '<p style="margin:.9rem 0 0;font-size:.95rem">Reach us directly: <a href="tel:+233509120845" style="color:#8f6d2a">+233 50 912 0845</a> · <a href="mailto:info@bekindhotelandsuites.com" style="color:#8f6d2a">info@bekindhotelandsuites.com</a></p>';
+    document.body.insertBefore(box, document.body.firstChild);
+  }
+  window.__beKindBootFail = showFallback;
+  window.addEventListener("load", function () {
+    setTimeout(function () {
+      var root = document.getElementById("root");
+      if (!window.React || !window.ReactDOM || !window.Babel || !root || root.childNodes.length === 0) {
+        showFallback("This single-file site loads its design tools (React, Tailwind, fonts, photos) from the internet. Please check your connection — and if you use a content blocker or opened it from a synced/cloud folder, try saving it locally and refreshing.");
+      }
+    }, 7000);
+  });
+})();
+</script>
+<script crossorigin src="https://cdn.jsdelivr.net/npm/react@18.3.1/umd/react.production.min.js"></script>
+<script>window.React || document.write('<script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"><\/script>')</script>
+<script crossorigin src="https://cdn.jsdelivr.net/npm/react-dom@18.3.1/umd/react-dom.production.min.js"></script>
+<script>window.ReactDOM || document.write('<script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"><\/script>')</script>
+<script src="https://cdn.jsdelivr.net/npm/@babel/standalone@7.26.4/babel.min.js"></script>
+<script>window.Babel || document.write('<script src="https://unpkg.com/@babel/standalone/babel.min.js"><\/script>')</script>
+<script type="text/babel" data-presets="react">
+/** @jsxRuntime classic */
+const { useState, useEffect, useRef, useMemo } = React;
+
+const CONTACT = {
+  phoneDisplay: "+233 50 912 0845",
+  phoneHref: "tel:+233509120845",
+  whatsappHref: "https://wa.me/233509120845",
+  email: "info@bekindhotelandsuites.com",
+  mapsHref: "https://www.google.com/maps/search/?api=1&query=Ako+Adjei+Street,+Takoradi,+Ghana"
+};
+
+const NAV_LINKS = [
+  { label: "Home", href: "#home" },
+  { label: "Rooms", href: "#rooms" },
+  { label: "Activities", href: "#experiences" },
+  { label: "BeKind Tours", href: "#itinerary" },
+  { label: "Restaurant", href: "#dining", wideOnly: true },
+  { label: "First Time to Ghana", href: "#intro", wideOnly: true },
+  { label: "About BeKind Family", href: "#about", wideOnly: true }
+];
+
+const U = (id) => "https://images.unsplash.com/photo-" + id + "?auto=format&fit=crop&w=1600&q=80";
+const W = (file) => "https://commons.wikimedia.org/wiki/Special:FilePath/" + encodeURIComponent(file) + "?width=1400";
+
+const IMG = {
+  heroBeach: U("1507525428034-b723cf961d3e"),
+  walkway: U("1520250497591-112f2f40a3f4"),
+  pool: U("1571896349842-33c89424de2d"),
+  infinityPool: U("1445019980597-93fa8acb246c"),
+  oceanWaves: U("1505118380757-91f5f5632de0"),
+  sunsetBeach: U("1476673160081-cf065607f449"),
+  forestLight: U("1441974231531-c6227db76b6e"),
+  roomSuite: U("1611892440504-42a792e24d32"),
+  roomBright: U("1591088398332-8a7791972843"),
+  villaDeck: U("1582719508461-905c673771fd"),
+  chalet: U("1523805009345-7448845a9e53"),
+  boatTour: U("1544551763-46a013bb70d5"),
+  golf: U("1535131749006-b7f58c99034b"),
+  spaMassage: U("1544161515-4ab6ce6db874"),
+  spaStones: U("1600334129128-685c5582fd35"),
+  yoga: U("1545205597-3d9d02c29597"),
+  diningPlate: U("1414235077428-338989a2e8c0"),
+  breakfast: U("1533089860892-a7c6f0a88666"),
+  beachRelax: U("1506929562872-bb421503ef21"),
+  roomSeaview: U("1595576508898-0ad5c879a061"),
+  fortCapeCoast: W("Cape Coast Castle, Cape Coast, Ghana.JPG"),
+  fortElmina: W("Castle, Elmina (P1100186).jpg"),
+  kakumCanopy: W("Canopy walkway at Kakum National Park.jpg"),
+  fortOrange: W("Fort Orange 0010.jpg"),
+  kenteWeaving: W("Kente Weaving, 1970.jpg")
+};
+
+const DURATIONS = [
+  {
+    nights: 2,
+    tagline: "Quick taste of Ghana",
+    days: [
+      {
+        day: 1,
+        title: "Arrival",
+        image: IMG.walkway,
+        imageAlt: "Guest walking the lantern-lit resort walkway at dusk",
+        activities: [
+          { label: "Check-in & welcome drink", note: "Hibiscus cooler on the terrace" },
+          { label: "Pool & sunset terrace" },
+          { label: "Dinner at BeKind Restaurant", note: "Five-course coastal menu" }
+        ]
+      },
+      {
+        day: 2,
+        title: "Discover Takoradi",
+        image: IMG.boatTour,
+        imageAlt: "Traditional boat gliding across calm coastal water",
+        activities: [
+          { label: "Boat Tour", note: "45 min" },
+          { label: "Golf Park Tour", note: "2–3 hours" },
+          { label: "Lunch at Golf Park" },
+          { label: "Bonfire on the beach", note: "Live highlife by the fire" }
+        ]
+      },
+      {
+        day: 3,
+        title: "Departure",
+        image: IMG.spaMassage,
+        imageAlt: "Therapist giving a relaxing back massage in the spa",
+        activities: [
+          { label: "Body massage", note: "1 hour" },
+          { label: "Airport transfer", note: "Takoradi or Accra — arranged for you" },
+          { label: "Or extend your stay" }
+        ]
+      }
+    ]
+  },
+  {
+    nights: 4,
+    tagline: "Slow coastal days",
+    days: [
+      {
+        day: 1,
+        title: "Arrival & golden hour",
+        image: IMG.pool,
+        imageAlt: "Sun-warmed swimming pool framed by tropical palms",
+        activities: [
+          { label: "Check-in & welcome drink" },
+          { label: "Golden-hour swim" },
+          { label: "Dinner under the stars" }
+        ]
+      },
+      {
+        day: 2,
+        title: "Sea & city",
+        image: IMG.fortOrange,
+        imageAlt: "Historic Fort Orange watching over Sekondi harbour",
+        activities: [
+          { label: "Boat Tour", note: "45 min" },
+          { label: "Fort Orange visit", note: "1 hour" },
+          { label: "Market Circle wander with our host" },
+          { label: "Bonfire on the beach" }
+        ]
+      },
+      {
+        day: 3,
+        title: "Greens & grounds",
+        image: IMG.golf,
+        imageAlt: "Golfer mid-swing on a sunlit fairway",
+        activities: [
+          { label: "Golf Park Tour", note: "2–3 hours" },
+          { label: "Lunch at Golf Park" },
+          { label: "Cabana afternoon by the pool" },
+          { label: "Private terrace dinner" }
+        ]
+      },
+      {
+        day: 4,
+        title: "Crafted Ghana",
+        image: IMG.kenteWeaving,
+        imageAlt: "Artisan weaving strips of kente cloth on a traditional loom",
+        activities: [
+          { label: "Kente weaving morning", note: "2 hours" },
+          { label: "Cooking class at BeKind Restaurant", note: "Market to table" },
+          { label: "Sunset cocktails on the rooftop" }
+        ]
+      },
+      {
+        day: 5,
+        title: "Departure",
+        image: IMG.beachRelax,
+        imageAlt: "Quiet stretch of golden sand meeting gentle surf",
+        activities: [
+          { label: "Sunrise beach walk" },
+          { label: "Body massage", note: "1 hour" },
+          { label: "Airport transfer — or extend to six nights" }
+        ]
+      }
+    ]
+  },
+  {
+    nights: 6,
+    tagline: "The full Ghana story",
+    days: [
+      {
+        day: 1,
+        title: "Arrival",
+        image: IMG.infinityPool,
+        imageAlt: "Infinity pool merging with the horizon at dusk",
+        activities: [
+          { label: "Check-in & welcome drink" },
+          { label: "Pool & sunset terrace" },
+          { label: "Welcome dinner at BeKind Restaurant" }
+        ]
+      },
+      {
+        day: 2,
+        title: "Discover Takoradi",
+        image: IMG.boatTour,
+        imageAlt: "Traditional boat cutting through turquoise swell",
+        activities: [
+          { label: "Boat Tour", note: "45 min" },
+          { label: "Fort Orange visit", note: "1 hour" },
+          { label: "Market Circle food crawl" },
+          { label: "Bonfire on the beach" }
+        ]
+      },
+      {
+        day: 3,
+        title: "Castle Coast",
+        image: IMG.fortCapeCoast,
+        imageAlt: "Cape Coast Castle rising above the Atlantic shoreline",
+        activities: [
+          { label: "Cape Coast Castle guided visit", note: "Full-day trip" },
+          { label: "Elmina Castle & harbour lunch" },
+          { label: "Evening at leisure" }
+        ]
+      },
+      {
+        day: 4,
+        title: "Rainforest air",
+        image: IMG.kakumCanopy,
+        imageAlt: "Canopy walkway suspended above the Kakum rainforest",
+        activities: [
+          { label: "Kakum canopy walk", note: "Morning" },
+          { label: "Cocoa-farm village lunch" },
+          { label: "Restorative spa hour" }
+        ]
+      },
+      {
+        day: 5,
+        title: "Greens & fairways",
+        image: IMG.golf,
+        imageAlt: "Fairway rolling toward distant palms",
+        activities: [
+          { label: "Golf Park Tour", note: "2–3 hours" },
+          { label: "Lakeside lunch" },
+          { label: "Sundowners on the terrace" }
+        ]
+      },
+      {
+        day: 6,
+        title: "Slow Sunday",
+        image: IMG.yoga,
+        imageAlt: "Yoga at sunrise overlooking the sea",
+        activities: [
+          { label: "Yoga at sunrise" },
+          { label: "Pool cabana day" },
+          { label: "Candlelit dinner on the sand" }
+        ]
+      },
+      {
+        day: 7,
+        title: "Departure",
+        image: IMG.breakfast,
+        imageAlt: "Slow breakfast served with fresh tropical fruit",
+        activities: [
+          { label: "Leisurely breakfast" },
+          { label: "Late checkout & body massage", note: "1 hour" },
+          { label: "Airport transfer — already planning your return" }
+        ]
+      }
+    ]
+  }
+];
+
+const EXPERIENCE_CATEGORIES = [
+  {
+    id: "adventure",
+    name: "Adventure & Thrill",
+    description: "Adrenaline, sport, outdoors",
+    count: 8,
+    span: "sm:col-span-2 xl:col-span-2 xl:row-span-2",
+    image: IMG.oceanWaves,
+    imageAlt: "Waves breaking along Takoradi’s coastline",
+    activities: [
+      "Boat tour along the Gulf of Guinea",
+      "Jet-ski ride",
+      "Surf lesson at Busua (day trip)",
+      "Beach football & volleyball",
+      "Snorkelling at hidden coves",
+      "Sunset cruise with drinks",
+      "Fishing charter with local crews",
+      "Kayak the coastal mangroves"
+    ]
+  },
+  {
+    id: "culture",
+    name: "Culture & Heritage",
+    description: "History, forts, local life",
+    count: 8,
+    span: "",
+    image: IMG.fortElmina,
+    imageAlt: "Elmina Castle standing guard over the fishing harbour",
+    activities: [
+      "Fort Orange, Sekondi — footsteps away",
+      "Cape Coast Castle day trip",
+      "Elmina Castle & fishing harbour",
+      "Kakum canopy walkway",
+      "Kente weaving demonstration",
+      "Traditional drumming workshop",
+      "Highlife & azonto dance night",
+      "Guided Market Circle food crawl"
+    ]
+  },
+  {
+    id: "nature",
+    name: "Nature & Discovery",
+    description: "Parks, wildlife, landscapes",
+    count: 5,
+    span: "",
+    image: IMG.forestLight,
+    imageAlt: "Morning light falling through rainforest canopy",
+    activities: [
+      "Golf Park nature trail",
+      "Mangrove kayak expedition",
+      "Birdwatching at first light",
+      "Coconut-grove picnic",
+      "Waterfall & rainforest day trip"
+    ]
+  },
+  {
+    id: "relax",
+    name: "Relax & Wellness",
+    description: "Pool, spa, slow mornings",
+    count: 6,
+    span: "",
+    image: IMG.spaStones,
+    imageAlt: "Warm stones and frangipani arranged for a spa ritual",
+    activities: [
+      "Body massage — 60 minutes",
+      "Couples’ spa ritual",
+      "Sunrise yoga on the deck",
+      "Pool cabana day with coolers",
+      "Steam, scrub & glow treatment",
+      "Slow-mornings breakfast basket"
+    ]
+  },
+  {
+    id: "dining",
+    name: "Dining & Romance",
+    description: "Food, drinks, special evenings",
+    count: 11,
+    span: "",
+    image: IMG.diningPlate,
+    imageAlt: "Beautifully plated dish from the BeKind kitchen",
+    activities: [
+      "Chef’s tasting menu at BeKind Restaurant",
+      "Barefoot dinner on the sand",
+      "Bonfire grill night",
+      "Ghanaian high tea",
+      "Cocktail masterclass",
+      "Cooking class with our chef",
+      "Wine pairing evening",
+      "Rooftop sundowners",
+      "Private in-villa breakfast",
+      "Seafood barbecue feast",
+      "Anniversary cake & table styling"
+    ]
+  }
+];
+
+const ROOMS = [
+  {
+    id: "african-chalet",
+    name: "African Chalet",
+    size: "16 m²",
+    capacity: 2,
+    capacityLabel: "Up to 2 guests",
+    view: "Garden view",
+    amenities: ["Air conditioning", "Breakfast included", "Fast Wi-Fi"],
+    pricePerNight: 850,
+    image: IMG.chalet,
+    imageAlt: "Timber chalet nestled into the tropical garden"
+  },
+  {
+    id: "design-african-villa",
+    name: "Design African Villa",
+    size: "44 m²",
+    capacity: 2,
+    capacityLabel: "Up to 2 guests",
+    view: "Sea view",
+    amenities: ["Air conditioning", "Breakfast included", "Fast Wi-Fi", "Private terrace"],
+    pricePerNight: 1450,
+    image: IMG.roomSuite,
+    imageAlt: "Designer villa bedroom with king bed and soft linen",
+    badge: "Guest favourite"
+  },
+  {
+    id: "family-villa",
+    name: "Family Design African Villa",
+    size: "95 m²",
+    capacity: 4,
+    capacityLabel: "Up to 4 guests",
+    view: "Two bedrooms · Sea view",
+    amenities: ["Air conditioning", "Breakfast included", "Fast Wi-Fi", "Two bedrooms"],
+    pricePerNight: 2300,
+    image: IMG.villaDeck,
+    imageAlt: "Private villa deck overlooking the water at dusk",
+    badge: "Best for families"
+  },
+  {
+    id: "continental-ground",
+    name: "Continental Double/Twin — Ground Floor",
+    size: "31 m²",
+    capacity: 2,
+    capacityLabel: "Up to 2 guests",
+    view: "Garden view",
+    amenities: ["Air conditioning", "Breakfast included", "Fast Wi-Fi", "Step-free access"],
+    pricePerNight: 1100,
+    image: IMG.roomBright,
+    imageAlt: "Bright ground-floor room opening onto the garden"
+  },
+  {
+    id: "continental-top",
+    name: "Continental Double/Twin — Top Floor",
+    size: "31 m²",
+    capacity: 2,
+    capacityLabel: "Up to 2 guests",
+    view: "Sea view",
+    amenities: ["Air conditioning", "Breakfast included", "Fast Wi-Fi", "Sea-view balcony"],
+    pricePerNight: 1250,
+    image: IMG.roomSeaview,
+    imageAlt: "Top-floor room with a private balcony over the sea"
+  }
+];
+
+const TRIP_OPTIONS = [
+  { id: "boat", label: "Bay boat tour — 45 min", price: 250, group: "tour" },
+  { id: "fort-orange", label: "Fort Orange visit", price: 150, group: "tour" },
+  { id: "castle-trip", label: "Cape Coast & Elmina castles", price: 900, group: "tour" },
+  { id: "kakum", label: "Kakum canopy walkway", price: 750, group: "tour" },
+  { id: "golf-park", label: "Golf Park tour", price: 500, group: "tour" },
+  { id: "market-crawl", label: "Market Circle food crawl", price: 200, group: "tour" },
+  { id: "drumming", label: "Drumming workshop", price: 180, group: "tour" },
+  { id: "jet-ski", label: "Jet-ski ride", price: 400, group: "activity" },
+  { id: "surf", label: "Surf lesson at Busua", price: 350, group: "activity" },
+  { id: "kayak", label: "Mangrove kayak", price: 250, group: "activity" },
+  { id: "snorkel", label: "Snorkelling trip", price: 300, group: "activity" },
+  { id: "sunset-cruise", label: "Sunset cruise", price: 500, group: "activity" },
+  { id: "fishing", label: "Fishing charter", price: 600, group: "activity" },
+  { id: "tasting-menu", label: "Chef’s tasting menu", price: 450, group: "dining" },
+  { id: "beach-dinner", label: "Barefoot beach dinner", price: 600, group: "dining" },
+  { id: "bonfire-grill", label: "Bonfire grill night", price: 350, group: "dining" },
+  { id: "high-tea", label: "Ghanaian high tea", price: 220, group: "dining" },
+  { id: "cocktail-class", label: "Cocktail masterclass", price: 280, group: "dining" },
+  { id: "cooking-class", label: "Cooking class", price: 320, group: "dining" },
+  { id: "wine-evening", label: "Wine pairing evening", price: 380, group: "dining" },
+  { id: "massage", label: "Body massage — 60 min", price: 300, group: "wellness" },
+  { id: "couples-ritual", label: "Couples’ spa ritual", price: 550, group: "wellness" },
+  { id: "yoga", label: "Sunrise yoga", price: 120, group: "wellness" },
+  { id: "cabana", label: "Pool cabana day", price: 200, group: "wellness" },
+  { id: "steam-scrub", label: "Steam & scrub ritual", price: 350, group: "wellness" }
+];
+
+const TRANSFER_PRICE = 700;
+const GROUP_ORDER = ["tour", "activity", "dining", "wellness"];
+const GROUP_LABELS = { tour: "Tours", activity: "Activities", dining: "Dining", wellness: "Wellness" };
+
+const COUNTRIES = [
+  "Ghana", "Nigeria", "Côte d’Ivoire", "South Africa", "Kenya", "United Kingdom",
+  "United States", "Canada", "Germany", "Netherlands", "France", "Belgium",
+  "Switzerland", "Italy", "Spain", "Sweden", "Norway", "Denmark", "Poland",
+  "United Arab Emirates", "India", "China", "Japan", "Australia", "Brazil", "Other"
+];
+
+function cn() {
+  return Array.prototype.slice.call(arguments).filter(Boolean).join(" ");
+}
+function formatGHS(n) {
+  return "GH₵ " + Number(n || 0).toLocaleString("en-GH");
+}
+function todayISO() {
+  const d = new Date();
+  const m = String(d.getMonth() + 1).padStart(2, "0");
+  const day = String(d.getDate()).padStart(2, "0");
+  return d.getFullYear() + "-" + m + "-" + day;
+}
+function addDaysISO(iso, days) {
+  const parts = iso.split("-").map(Number);
+  const dt = new Date(parts[0], parts[1] - 1, parts[2]);
+  dt.setDate(dt.getDate() + days);
+  const mm = String(dt.getMonth() + 1).padStart(2, "0");
+  const dd = String(dt.getDate()).padStart(2, "0");
+  return dt.getFullYear() + "-" + mm + "-" + dd;
+}
+function nightsBetween(a, b) {
+  if (!a || !b) return null;
+  const ap = a.split("-").map(Number);
+  const bp = b.split("-").map(Number);
+  const ms = new Date(bp[0], bp[1] - 1, bp[2]) - new Date(ap[0], ap[1] - 1, ap[2]);
+  const n = Math.round(ms / 86400000);
+  return n > 0 ? n : null;
+}
+function formatDate(iso) {
+  if (!iso) return "";
+  const p = iso.split("-").map(Number);
+  return new Date(p[0], p[1] - 1, p[2]).toLocaleDateString("en-GB", { weekday: "short", day: "numeric", month: "short", year: "numeric" });
+}
+function useLockBody(active) {
+  useEffect(() => {
+    if (!active) return;
+    const prev = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    return () => { document.body.style.overflow = prev; };
+  }, [active]);
+}
+function useEscape(active, onEscape) {
+  useEffect(() => {
+    if (!active) return;
+    const handler = (e) => { if (e.key === "Escape") onEscape(); };
+    document.addEventListener("keydown", handler);
+    return () => document.removeEventListener("keydown", handler);
+  }, [active, onEscape]);
+}
+function trapTabKey(e, ref) {
+  if (e.key !== "Tab" || !ref.current) return;
+  const nodes = ref.current.querySelectorAll('a[href], button:not([disabled]), textarea, input:not([type="hidden"]), select, [tabindex]:not([tabindex="-1"])');
+  if (!nodes.length) return;
+  const first = nodes[0];
+  const last = nodes[nodes.length - 1];
+  if (e.shiftKey && document.activeElement === first) {
+    e.preventDefault();
+    last.focus();
+  } else if (!e.shiftKey && document.activeElement === last) {
+    e.preventDefault();
+    first.focus();
+  }
+}
+
+const ICON_PATHS = {
+  arrowRight: <React.Fragment><path d="M5 12h14" /><path d="m12 5 7 7-7 7" /></React.Fragment>,
+  arrowLeft: <React.Fragment><path d="M19 12H5" /><path d="m12 19-7-7 7-7" /></React.Fragment>,
+  arrowUpRight: <React.Fragment><path d="M7 7h10v10" /><path d="M7 17 17 7" /></React.Fragment>,
+  x: <React.Fragment><path d="M18 6 6 18" /><path d="m6 6 12 12" /></React.Fragment>,
+  check: <path d="M20 6 9 17l-5-5" />,
+  plus: <React.Fragment><path d="M12 5v14" /><path d="M5 12h14" /></React.Fragment>,
+  minus: <path d="M5 12h14" />,
+  calendar: <React.Fragment><rect width="18" height="18" x="3" y="4" rx="2" /><path d="M16 2v4" /><path d="M8 2v4" /><path d="M3 10h18" /></React.Fragment>,
+  users: <React.Fragment><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" /><circle cx="9" cy="7" r="4" /><path d="M22 21v-2a4 4 0 0 0-3-3.87" /><path d="M16 3.13a4 4 0 0 1 0 7.75" /></React.Fragment>,
+  ruler: <React.Fragment><path d="M21.3 8.7 8.7 21.3a1 1 0 0 1-1.4 0l-4.6-4.6a1 1 0 0 1 0-1.4L15.3 2.7a1 1 0 0 1 1.4 0l4.6 4.6a1 1 0 0 1 0 1.4Z" /><path d="m7.5 10.5 2 2" /><path d="m10.5 7.5 2 2" /><path d="m13.5 4.5 2 2" /></React.Fragment>,
+  eye: <React.Fragment><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7Z" /><circle cx="12" cy="12" r="3" /></React.Fragment>,
+  mapPin: <React.Fragment><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z" /><circle cx="12" cy="10" r="3" /></React.Fragment>,
+  phone: <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z" />,
+  mail: <React.Fragment><rect width="20" height="16" x="2" y="4" rx="2" /><path d="m22 7-10 5L2 7" /></React.Fragment>,
+  message: <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z" />,
+  map: <React.Fragment><path d="M9 3 3.6 5.3a1 1 0 0 0-.6.9v13.4a.5.5 0 0 0 .7.5L9 18l6 3 5.4-2.3a1 1 0 0 0 .6-.9V4.4a.5.5 0 0 0-.7-.5L15 6 9 3Z" /><path d="M9 3v15" /><path d="M15 6v15" /></React.Fragment>,
+  plane: <path d="M17.8 19.2 16 11l3.5-3.5C21 6 21.5 4 21 3c-1-.5-3 0-4.5 1.5L13 8 4.8 6.2c-.5-.1-.9.1-1.1.5l-.3.5c-.2.5-.1 1 .3 1.3L9 12l-2 3H4l-1 1 3 2 2 3 1-1v-3l3-2 3.5 5.3c.3.4.8.5 1.3.3l.5-.2c.4-.3.6-.7.5-1.2z" />,
+  loader: <path d="M21 12a9 9 0 1 1-6.2-8.56" />,
+  instagram: <React.Fragment><rect width="20" height="20" x="2" y="2" rx="5" ry="5" /><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" /><line x1="17.5" x2="17.51" y1="6.5" y2="6.5" /></React.Fragment>,
+  facebook: <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" />
+};
+
+function Icon({ name, className = "h-4 w-4" }) {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true" className={className}>
+      {ICON_PATHS[name]}
+    </svg>
+  );
+}
+
+function Img({ src, alt = "", className = "", eager = false }) {
+  return (
+    <img
+      src={src}
+      alt={alt}
+      loading={eager ? "eager" : "lazy"}
+      decoding="async"
+      className={"h-full w-full object-cover " + className}
+    />
+  );
+}
+
+function Reveal({ children, delay = 0, className = "" }) {
+  const ref = useRef(null);
+  const [vis, setVis] = useState(false);
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    if (!("IntersectionObserver" in window)) { setVis(true); return; }
+    const io = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setVis(true);
+            io.disconnect();
+          }
+        });
+      },
+      { rootMargin: "-64px" }
+    );
+    io.observe(el);
+    return () => io.disconnect();
+  }, []);
+  return (
+    <div ref={ref} style={{ transitionDelay: delay + "s" }} className={cn("reveal", vis && "is-visible", className)}>
+      {children}
+    </div>
+  );
+}
+
+const BUTTON_BASE = "inline-flex items-center justify-center gap-2 rounded-full font-bold uppercase tracking-[0.18em] transition-all duration-300 active:scale-[0.98] disabled:pointer-events-none disabled:opacity-60";
+const BUTTON_VARIANTS = {
+  gold: "bg-gold text-ink shadow-[0_14px_36px_-14px_rgba(176,138,60,0.65)] hover:bg-accent hover:shadow-[0_18px_44px_-16px_rgba(233,196,106,0.7)]",
+  outlineLight: "border border-ivory/40 bg-white/5 text-ivory backdrop-blur-sm hover:border-gold-light hover:text-gold-light",
+  outlineDark: "border border-charcoal/25 bg-transparent text-charcoal hover:border-gold hover:text-gold-deep"
+};
+const BUTTON_SIZES = { sm: "px-5 py-2.5 text-[10px]", md: "px-7 py-3 text-[11px]", lg: "px-8 py-4 text-xs" };
+
+function Button({ variant = "gold", size = "md", href, onClick, type = "button", disabled, className = "", children, ariaLabel }) {
+  const cls = cn(BUTTON_BASE, BUTTON_VARIANTS[variant], BUTTON_SIZES[size], className);
+  if (href) {
+    return (
+      <a href={href} onClick={onClick} aria-label={ariaLabel} className={cls}>
+        {children}
+      </a>
+    );
+  }
+  return (
+    <button type={type} onClick={onClick} disabled={disabled} aria-label={ariaLabel} className={cls}>
+      {children}
+    </button>
+  );
+}
+
+function Field({ id, label, error, hint, children, className = "" }) {
+  return (
+    <div className={className}>
+      <label htmlFor={id} className="mb-1.5 block text-[11px] font-bold uppercase tracking-[0.18em] text-charcoal/70">
+        {label}
+      </label>
+      {children}
+      {hint && !error && <p className="mt-1.5 text-xs text-charcoal/50">{hint}</p>}
+      {error && (
+        <p role="alert" className="mt-1.5 text-xs font-semibold text-red-600">
+          {error}
+        </p>
+      )}
+    </div>
+  );
+}
+
+function inputCls(error) {
+  return cn(
+    "w-full rounded-xl border bg-white px-4 py-3 text-sm text-charcoal outline-none transition placeholder:text-charcoal/35 focus:border-gold focus:ring-2 focus:ring-gold/25",
+    error ? "border-red-400" : "border-charcoal/15"
+  );
+}
+
+function SectionHeading({ eyebrow, title, copy, tone = "dark" }) {
+  return (
+    <Reveal className="mx-auto max-w-2xl text-center">
+      <p className={cn("eyebrow", tone === "light" ? "text-accent" : "text-gold-deep")}>{eyebrow}</p>
+      <h2 className={cn("mt-4 font-display text-4xl leading-[1.1] text-balance sm:text-5xl", tone === "light" ? "text-ivory" : "text-charcoal")}>
+        {title}
+      </h2>
+      {copy && (
+        <p className={cn("mt-5 text-base leading-relaxed", tone === "light" ? "text-ivory/70" : "text-charcoal/65")}>
+          {copy}
+        </p>
+      )}
+    </Reveal>
+  );
+}
+
+function Logo({ tone = "dark" }) {
+  return (
+    <span className={cn("inline-flex items-center gap-2.5", tone === "light" ? "text-ivory" : "text-charcoal")}>
+      <svg viewBox="0 0 24 24" className="h-9 w-9 shrink-0 text-gold" fill="currentColor" aria-hidden="true">
+        <path d="M17 8C8 10 5.9 16.17 3.82 21.34l1.89.66.95-2.3c.48.17.98.3 1.34.3C19 20 22 3 22 3c-1 2-8 2.25-13 3.25S2 11.5 2 13.5s1.75 3.75 1.75 3.75C7 8 17 8 17 8Z" />
+      </svg>
+      <span className="leading-none">
+        <span className="block font-display text-lg font-semibold tracking-wide">BeKind</span>
+        <span className="mt-1 block text-[9px] font-bold uppercase tracking-[0.32em] opacity-60">Hotel &amp; Suites</span>
+      </span>
+    </span>
+  );
+}
+
+function ModalShell({ open, onClose, onOverlayClick, labelledBy, variant = "center", maxClass = "max-w-md", z = "z-[70]", children }) {
+  const [render, setRender] = useState(open);
+  const [shown, setShown] = useState(false);
+  const panelRef = useRef(null);
+
+  useEffect(() => {
+    let t;
+    if (open) {
+      setRender(true);
+      const raf = requestAnimationFrame(() =>
+        requestAnimationFrame(() => setShown(true))
+      );
+      return () => cancelAnimationFrame(raf);
+    }
+    setShown(false);
+    t = setTimeout(() => setRender(false), 480);
+    return () => clearTimeout(t);
+  }, [open]);
+
+  useLockBody(open);
+  useEscape(open, onClose);
+
+  useEffect(() => {
+    if (open && render && panelRef.current) panelRef.current.focus();
+  }, [open, render]);
+
+  if (!render) return null;
+
+  const overlayCls = cn(
+    "absolute inset-0 bg-ink/60 backdrop-blur-sm transition-opacity duration-[420ms]",
+    shown ? "opacity-100" : "opacity-0"
+  );
+  const panelBase =
+    variant === "right"
+      ? "absolute right-0 top-0 flex h-full w-full flex-col bg-ivory shadow-2xl outline-none transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] "
+      : "relative flex max-h-[94svh] w-full flex-col overflow-hidden rounded-t-3xl bg-ivory shadow-2xl outline-none transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] sm:rounded-3xl ";
+  const panelState =
+    variant === "right"
+      ? shown ? "translate-x-0" : "translate-x-full"
+      : shown ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0";
+
+  return (
+    <div
+      className={cn("fixed inset-0", z, variant === "center" && "flex items-end justify-center overflow-y-auto sm:items-center sm:p-6")}
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby={labelledBy}
+      onKeyDown={(e) => trapTabKey(e, panelRef)}
+    >
+      <div className={overlayCls} onClick={onOverlayClick || onClose} />
+      <div
+        ref={panelRef}
+        tabIndex={-1}
+        className={cn(panelBase, panelState, maxClass)}
+      >
+        {children}
+      </div>
+    </div>
+  );
+}
+
+function DurationSelector({ value, onChange }) {
+  const OPTIONS = [2, 4, 6];
+  const tabRefs = useRef([]);
+  function handleKey(e, index) {
+    let next = null;
+    if (e.key === "ArrowRight") next = (index + 1) % OPTIONS.length;
+    else if (e.key === "ArrowLeft") next = (index - 1 + OPTIONS.length) % OPTIONS.length;
+    else if (e.key === "Home") next = 0;
+    else if (e.key === "End") next = OPTIONS.length - 1;
+    if (next !== null) {
+      e.preventDefault();
+      if (tabRefs.current[next]) tabRefs.current[next].focus();
+      onChange(OPTIONS[next]);
+    }
+  }
+  return (
+    <div role="tablist" aria-label="Choose your stay length" className="inline-flex rounded-full border border-charcoal/15 bg-white/70 p-1 shadow-sm backdrop-blur">
+      {OPTIONS.map((nights, index) => {
+        const active = value === nights;
+        return (
+          <button
+            key={nights}
+            ref={(el) => { tabRefs.current[index] = el; }}
+            type="button"
+            role="tab"
+            id={"duration-tab-" + nights}
+            aria-selected={active}
+            aria-controls="itinerary-panel"
+            tabIndex={active ? 0 : -1}
+            onClick={() => onChange(nights)}
+            onKeyDown={(e) => handleKey(e, index)}
+            className={cn(
+              "relative rounded-full px-5 py-2.5 text-[11px] font-bold uppercase tracking-[0.2em] transition-colors duration-300 sm:px-7 sm:text-xs",
+              active ? "text-ink" : "text-charcoal/55 hover:text-charcoal"
+            )}
+          >
+            {active && <span className="pill-in absolute inset-0 rounded-full bg-gold" />}
+            <span className="relative z-10">{nights} nights</span>
+          </button>
+        );
+      })}
+    </div>
+  );
+}
+
+function ExperienceIntro({ duration, onDurationChange }) {
+  return (
+    <section id="intro" className="relative scroll-mt-20 overflow-hidden bg-ivory py-24 sm:py-32">
+      <div aria-hidden="true" className="pointer-events-none absolute -right-28 -top-16 h-[420px] w-[420px] rounded-full border border-gold/15 bg-sand/60 blur-3xl" />
+      <div className="container-x relative grid items-center gap-14 lg:grid-cols-2 lg:gap-20">
+        <div>
+          <Reveal>
+            <p className="eyebrow text-gold-deep">The experience</p>
+            <h2 className="mt-4 font-display text-4xl leading-[1.12] text-balance text-charcoal sm:text-5xl xl:text-[3.4rem]">
+              What your stay at BeKind{" "}
+              <em className="italic text-gold-deep">might look like</em>
+            </h2>
+            <p className="mt-6 max-w-lg text-base leading-relaxed text-charcoal/65 sm:text-lg">
+              From a quick coastal escape to a longer Ghanaian adventure, shape
+              your experience around the things you love.
+            </p>
+            <p className="mt-6 max-w-lg border-l-2 border-gold pl-5 font-display text-lg italic leading-snug text-charcoal/75">
+              “Ghana is Africa for beginners.” We’re your guide — from touchdown
+              to take-off.
+            </p>
+          </Reveal>
+          <Reveal delay={0.15}>
+            <div className="mt-9">
+              <DurationSelector value={duration} onChange={onDurationChange} />
+            </div>
+            <p className="mt-4 text-xs uppercase tracking-[0.18em] text-charcoal/45">
+              Pick a pace — the itinerary adapts
+            </p>
+          </Reveal>
+        </div>
+
+        <div className="relative">
+          <Reveal delay={0.1}>
+            <div className="relative aspect-[5/6] overflow-hidden rounded-2xl shadow-warm">
+              <Img src={IMG.walkway} alt="Lantern-lit walkway winding through the BeKind grounds at dusk" />
+              <span className="absolute bottom-4 left-4 rounded-full bg-ivory/85 px-4 py-1.5 text-[10px] font-bold uppercase tracking-[0.22em] text-charcoal backdrop-blur">
+                The BeKind grounds
+              </span>
+            </div>
+          </Reveal>
+          <div className="floaty absolute -bottom-10 -right-3 hidden aspect-square w-48 overflow-hidden rounded-xl border-[6px] border-ivory shadow-warm sm:block lg:-right-8 lg:w-56">
+            <Img src={IMG.sunsetBeach} alt="The sun setting into the Atlantic behind silhouetted palms" />
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function ItineraryTimeline({ nights, onOpenPlanner }) {
+  const tier = DURATIONS.find((t) => t.nights === nights) || DURATIONS[0];
+  return (
+    <section id="itinerary" className="scroll-mt-20 bg-sand py-24 sm:py-32">
+      <div className="container-x">
+        <div key={"heading-" + tier.nights} className="anim-swap">
+          <p className="eyebrow text-gold-deep">Sample itinerary</p>
+          <h2 className="mt-4 font-display text-4xl leading-tight text-charcoal sm:text-5xl">
+            {tier.nights} nights at BeKind
+          </h2>
+          <p className="mt-3 font-display text-xl italic text-charcoal/60">{tier.tagline}</p>
+        </div>
+
+        <div
+          key={"days-" + tier.nights}
+          id="itinerary-panel"
+          role="tabpanel"
+          aria-labelledby={"duration-tab-" + tier.nights}
+          className="anim-swap relative mt-6 divide-y divide-charcoal/10"
+        >
+          <div aria-hidden="true" className="absolute bottom-4 left-[13px] top-4 w-px bg-gradient-to-b from-gold/60 via-gold/25 to-transparent md:hidden" />
+          {tier.days.map((day, idx) => (
+            <Reveal key={tier.nights + "-" + day.day} delay={idx * 0.06}>
+              <article className="relative py-10 pl-12 md:grid md:grid-cols-2 md:items-center md:gap-12 md:py-14 md:pl-0 lg:gap-20">
+                <span
+                  aria-hidden="true"
+                  className="absolute left-0 top-11 grid h-7 w-7 place-items-center rounded-full border border-gold bg-ivory font-sans text-[10px] font-bold text-gold-deep md:hidden"
+                >
+                  {day.day}
+                </span>
+
+                <div className={cn("group relative aspect-[16/11] overflow-hidden rounded-2xl shadow-warm", idx % 2 === 1 ? "md:order-2" : "md:order-1")}>
+                  <Img src={day.image} alt={day.imageAlt} className="transition-transform duration-[1400ms] ease-out group-hover:scale-[1.05]" />
+                  <span className="absolute left-4 top-4 rounded-full bg-ivory/90 px-3.5 py-1.5 text-[10px] font-bold uppercase tracking-[0.22em] text-charcoal shadow-sm backdrop-blur">
+                    Day {day.day}
+                  </span>
+                </div>
+
+                <div className={cn("mt-7 md:mt-0", idx % 2 === 1 ? "md:order-1" : "md:order-2")}>
+                  <h3 className="font-display text-2xl text-charcoal sm:text-3xl">{day.title}</h3>
+                  <ul className="mt-6 space-y-3.5">
+                    {day.activities.map((activity) => (
+                      <li key={activity.label} className="flex items-start gap-3.5">
+                        <span aria-hidden="true" className="mt-[7px] h-1.5 w-1.5 shrink-0 rounded-full bg-gold" />
+                        <div>
+                          <p className="text-[15px] font-medium leading-snug text-charcoal">{activity.label}</p>
+                          {activity.note && <p className="mt-0.5 text-sm text-charcoal/55">{activity.note}</p>}
+                        </div>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </article>
+            </Reveal>
+          ))}
+        </div>
+
+        <Reveal>
+          <div className="mt-8 flex flex-col items-start justify-between gap-6 rounded-2xl border border-charcoal/10 bg-ivory p-7 sm:flex-row sm:items-center sm:p-8">
+            <p className="max-w-md font-display text-lg italic leading-snug text-charcoal/70">
+              Every itinerary is fully flexible — shape it with us on arrival.
+            </p>
+            <Button variant="outlineDark" onClick={onOpenPlanner}>
+              Build this itinerary
+              <Icon name="map" />
+            </Button>
+          </div>
+        </Reveal>
+      </div>
+    </section>
+  );
+}
+
+function ExperienceCard({ category, onOpen }) {
+  return (
+    <button
+      type="button"
+      onClick={onOpen}
+      aria-label={category.name + " — explore " + category.count + " experiences"}
+      className="group relative block h-full w-full overflow-hidden rounded-2xl text-left shadow-card"
+    >
+      <div className="absolute inset-0">
+        <Img src={category.image} alt={category.imageAlt} className="transition-transform duration-[1600ms] ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-[1.07]" />
+      </div>
+      <div className="absolute inset-0 bg-gradient-to-t from-ink/90 via-ink/35 to-ink/5 transition-opacity duration-500" />
+      <div className="absolute inset-0 bg-ink/0 transition-colors duration-500 group-hover:bg-ink/15" />
+
+      <span className="absolute left-4 top-4 rounded-full border border-ivory/25 bg-ink/30 px-3.5 py-1.5 text-[10px] font-bold uppercase tracking-[0.18em] text-ivory backdrop-blur-sm">
+        {category.count} experiences
+      </span>
+
+      <div className="absolute inset-x-0 bottom-0 p-5 transition-transform duration-500 ease-out group-hover:-translate-y-2 sm:p-6">
+        <h3 className="font-display text-[1.55rem] leading-tight text-ivory sm:text-2xl xl:text-[1.8rem]">
+          {category.name}
+        </h3>
+        <p className="mt-1.5 text-xs text-ivory/70 sm:text-sm">{category.description}</p>
+        <div className="mt-4 flex items-center gap-3">
+          <span className="text-[10px] font-bold uppercase tracking-[0.22em] text-accent">Explore</span>
+          <span
+            aria-hidden="true"
+            className="grid h-9 w-9 place-items-center rounded-full border border-ivory/40 text-ivory transition-all duration-300 group-hover:border-gold group-hover:bg-gold group-hover:text-ink"
+          >
+            <Icon name="arrowRight" className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-0.5" />
+          </span>
+        </div>
+      </div>
+    </button>
+  );
+}
+
+function ExperienceCategoryGrid({ onOpenBooking, onOpenPlanner }) {
+  const [active, setActive] = useState(false);
+  const [drawerCat, setDrawerCat] = useState(null);
+
+  function openDrawer(cat) {
+    setDrawerCat(cat);
+    setActive(true);
+  }
+
+  return (
+    <section id="experiences" className="scroll-mt-20 bg-charcoal py-24 text-ivory sm:py-32">
+      <div className="container-x">
+        <SectionHeading
+          tone="light"
+          eyebrow="Experiences"
+          title="Everything you can experience"
+          copy="From adrenaline to total relaxation — discover what awaits."
+        />
+
+        <div className="mt-16 grid auto-rows-[230px] grid-cols-1 gap-4 sm:auto-rows-[250px] sm:grid-cols-2 sm:gap-5 xl:grid-cols-3">
+          {EXPERIENCE_CATEGORIES.map((category, i) => (
+            <Reveal key={category.id} delay={i * 0.06} className={category.span}>
+              <ExperienceCard category={category} onOpen={() => openDrawer(category)} />
+            </Reveal>
+          ))}
+
+          <Reveal delay={0.3} className="sm:col-span-2 xl:col-span-1">
+            <button
+              type="button"
+              onClick={onOpenPlanner}
+              className="group flex h-full w-full flex-col justify-between overflow-hidden rounded-2xl border border-ivory/15 bg-gradient-to-br from-ink to-charcoal p-7 text-left transition-colors hover:border-gold/50"
+            >
+              <div>
+                <p className="font-display text-6xl leading-none text-accent">38</p>
+                <p className="mt-2 text-sm uppercase tracking-[0.22em] text-ivory/60">curated moments</p>
+                <p className="mt-4 max-w-xs text-sm leading-relaxed text-ivory/70">
+                  Can’t choose? Tell us what you love and we’ll tailor your days around it.
+                </p>
+              </div>
+              <span className="mt-6 inline-flex items-center gap-2 text-[11px] font-bold uppercase tracking-[0.22em] text-accent">
+                Build yours
+                <Icon name="arrowRight" className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
+              </span>
+            </button>
+          </Reveal>
+        </div>
+      </div>
+
+      {drawerCat && (
+        <CategoryDrawer
+          category={drawerCat}
+          open={active}
+          onClose={() => setActive(false)}
+          onPlan={() => {
+            setActive(false);
+            onOpenBooking();
+          }}
+        />
+      )}
+    </section>
+  );
+}
+
+function CategoryDrawer({ category, open, onClose, onPlan }) {
+  return (
+    <ModalShell open={open} onClose={onClose} labelledBy="category-drawer-title" variant="right" maxClass="max-w-md" z="z-[70]">
+      <header className="flex items-start justify-between gap-4 border-b border-charcoal/10 p-6 sm:p-8">
+        <div>
+          <p className="eyebrow text-gold-deep">Experience</p>
+          <h3 id="category-drawer-title" className="mt-1.5 font-display text-3xl leading-tight text-charcoal">
+            {category.name}
+          </h3>
+          <p className="mt-2 text-sm leading-relaxed text-charcoal/65">{category.description}</p>
+          <span className="mt-4 inline-block rounded-full bg-linen px-3.5 py-1.5 text-[10px] font-bold uppercase tracking-[0.2em] text-gold-deep">
+            {category.count} experiences
+          </span>
+        </div>
+        <button
+          type="button"
+          onClick={onClose}
+          aria-label="Close experiences panel"
+          className="grid h-10 w-10 shrink-0 place-items-center rounded-full border border-charcoal/15 text-charcoal transition-colors hover:border-gold hover:text-gold-deep"
+        >
+          <Icon name="x" />
+        </button>
+      </header>
+
+      <div className="flex-1 overflow-y-auto px-6 py-6 sm:px-8">
+        <p className="mb-5 text-sm italic text-charcoal/55">
+          Curated by our experiences team — we’ll weave your favourites into your stay.
+        </p>
+        <ul className="space-y-2.5">
+          {category.activities.map((activity, i) => (
+            <li
+              key={activity}
+              style={{ animationDelay: 0.15 + i * 0.04 + "s" }}
+              className="drawer-item flex items-center justify-between gap-3 rounded-xl border border-charcoal/10 bg-white/70 px-4 py-3.5 text-sm font-medium text-charcoal transition-colors hover:border-gold/50 hover:bg-white"
+            >
+              <span>{activity}</span>
+              <Icon name="arrowUpRight" className="h-4 w-4 shrink-0 text-charcoal/30" />
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <footer className="border-t border-charcoal/10 p-6">
+        <Button size="lg" className="w-full" onClick={onPlan}>
+          Start planning your stay
+        </Button>
+      </footer>
+    </ModalShell>
+  );
+}
+
+function RoomCard({ room, onSelect }) {
+  return (
+    <article className="group flex h-full flex-col overflow-hidden rounded-2xl border border-charcoal/10 bg-white shadow-sm transition-shadow duration-500 hover:shadow-warm">
+      <div className="relative aspect-[4/3] overflow-hidden">
+        <Img src={room.image} alt={room.imageAlt} className="transition-transform duration-[1200ms] ease-out group-hover:scale-105" />
+        {room.badge && (
+          <span className="absolute left-4 top-4 rounded-full bg-gold px-3.5 py-1.5 text-[10px] font-bold uppercase tracking-[0.18em] text-ink shadow-sm">
+            {room.badge}
+          </span>
+        )}
+      </div>
+
+      <div className="flex flex-1 flex-col p-6">
+        <h3 className="font-display text-[1.3rem] leading-snug text-charcoal">{room.name}</h3>
+
+        <div className="mt-3 flex flex-wrap gap-x-4 gap-y-1.5 text-xs text-charcoal/60">
+          <span className="inline-flex items-center gap-1.5">
+            <Icon name="ruler" className="h-3.5 w-3.5 text-gold-deep" />
+            {room.size}
+          </span>
+          <span className="inline-flex items-center gap-1.5">
+            <Icon name="users" className="h-3.5 w-3.5 text-gold-deep" />
+            {room.capacityLabel}
+          </span>
+          <span className="inline-flex items-center gap-1.5">
+            <Icon name="eye" className="h-3.5 w-3.5 text-gold-deep" />
+            {room.view}
+          </span>
+        </div>
+
+        <ul className="mt-4 flex flex-wrap gap-2">
+          {room.amenities.map((amenity) => (
+            <li key={amenity} className="inline-flex items-center gap-1.5 rounded-full border border-charcoal/10 bg-ivory px-3 py-1 text-[11px] font-medium text-charcoal/70">
+              <Icon name="check" className="h-3 w-3 text-palm" />
+              {amenity}
+            </li>
+          ))}
+        </ul>
+
+        <div aria-hidden="true" className="grow" />
+
+        <div className="mt-6 flex items-end justify-between gap-4 border-t border-charcoal/10 pt-5">
+          <div>
+            <p className="text-[10px] uppercase tracking-[0.2em] text-charcoal/50">From</p>
+            <p className="mt-0.5 font-display text-2xl text-charcoal">
+              {formatGHS(room.pricePerNight)}
+              <span className="ml-1 font-sans text-xs font-medium text-charcoal/50">/ night</span>
+            </p>
+          </div>
+          <Button size="sm" onClick={onSelect}>
+            Select room
+          </Button>
+        </div>
+      </div>
+    </article>
+  );
+}
+
+function RoomSection({ onSelectRoom }) {
+  return (
+    <section id="rooms" className="scroll-mt-20 bg-ivory py-24 sm:py-32">
+      <div className="container-x">
+        <SectionHeading
+          eyebrow="Rooms & Villas"
+          title="Find your favourite corner of Ghana"
+          copy="From intimate garden chalets to a two-bedroom sea-view villa — every room layers handcrafted African texture with modern comfort."
+        />
+
+        <div className="mt-14 grid gap-6 sm:grid-cols-2 sm:gap-7 xl:grid-cols-3">
+          {ROOMS.map((room, i) => (
+            <Reveal key={room.id} delay={i * 0.07} className="h-full">
+              <RoomCard room={room} onSelect={() => onSelectRoom(room.id)} />
+            </Reveal>
+          ))}
+        </div>
+
+        <Reveal delay={0.15}>
+          <p className="mt-10 text-center text-sm text-charcoal/55">
+            Rates include breakfast. Airport pickup arranged on stays of three nights or more.
+          </p>
+        </Reveal>
+      </div>
+    </section>
+  );
+}
+
+function Stepper({ label, hint, value, min, max, onChange }) {
+  const btn = cn(
+    "grid h-8 w-8 place-items-center rounded-full border transition active:scale-95",
+    value <= min || value >= max
+      ? "border-charcoal/10 text-charcoal/25"
+      : "border-charcoal/25 text-charcoal hover:border-gold hover:text-gold-deep"
+  );
+  return (
+    <div className="flex items-center justify-between rounded-xl border border-charcoal/10 bg-white px-4 py-3.5">
+      <div>
+        <p className="text-sm font-semibold text-charcoal">{label}</p>
+        {hint && <p className="text-xs text-charcoal/50">{hint}</p>}
+      </div>
+      <div className="flex items-center gap-3">
+        <button type="button" aria-label={"Decrease " + label} disabled={value <= min} onClick={() => onChange(Math.max(min, value - 1))} className={btn}>
+          <Icon name="minus" className="h-3.5 w-3.5" />
+        </button>
+        <span aria-live="polite" className="w-6 text-center text-sm font-bold tabular-nums text-charcoal">
+          {value}
+        </span>
+        <button type="button" aria-label={"Increase " + label} disabled={value >= max} onClick={() => onChange(Math.min(max, value + 1))} className={btn}>
+          <Icon name="plus" className="h-3.5 w-3.5" />
+        </button>
+      </div>
+    </div>
+  );
+}
+
+function DateSelectorStep({ form, errors, onUpdate }) {
+  const today = todayISO();
+  const nights = nightsBetween(form.checkIn, form.checkOut);
+  return (
+    <div>
+      <div className="grid gap-4 sm:grid-cols-2">
+        <Field id="check-in" label="Check-in" error={errors.checkIn}>
+          <input
+            id="check-in"
+            type="date"
+            value={form.checkIn}
+            min={today}
+            onChange={(e) => {
+              const checkIn = e.target.value;
+              const invalidOut = form.checkOut && checkIn && form.checkOut <= checkIn;
+              onUpdate(invalidOut ? { checkIn: checkIn, checkOut: "" } : { checkIn: checkIn });
+            }}
+            className={inputCls(errors.checkIn)}
+          />
+        </Field>
+
+        <Field
+          id="check-out"
+          label="Check-out"
+          error={errors.checkOut}
+          hint={form.checkIn ? "Minimum " + addDaysISO(form.checkIn, 1) : undefined}
+        >
+          <input
+            id="check-out"
+            type="date"
+            value={form.checkOut}
+            min={form.checkIn ? addDaysISO(form.checkIn, 1) : addDaysISO(today, 1)}
+            onChange={(e) => onUpdate({ checkOut: e.target.value })}
+            className={inputCls(errors.checkOut)}
+          />
+        </Field>
+      </div>
+
+      <div className="mt-5 flex items-center gap-3 rounded-xl bg-linen/70 px-4 py-3.5 text-sm text-charcoal">
+        <Icon name="calendar" className="h-4 w-4 shrink-0 text-gold-deep" />
+        {nights ? (
+          <React.Fragment>
+            <span>
+              {nights} night{nights > 1 ? "s" : ""} at BeKind
+            </span>
+            {nights >= 4 && (
+              <span className="ml-auto rounded-full bg-gold/20 px-3 py-1 text-[11px] font-bold text-gold-deep">
+                Long-stay rates apply
+              </span>
+            )}
+          </React.Fragment>
+        ) : (
+          <span>Select your dates to see the length of your stay.</span>
+        )}
+      </div>
+
+      <p className="mt-3 text-xs text-charcoal/45">
+        Flexible dates? Mention it in special requests — we’ll find your best rate.
+      </p>
+    </div>
+  );
+}
+
+function GuestSelectorStep({ form, onUpdate }) {
+  const guests = form.adults + form.children;
+  return (
+    <div>
+      <div className="space-y-3">
+        <Stepper label="Adults" hint="Ages 13+" value={form.adults} min={1} max={10} onChange={(adults) => onUpdate({ adults })} />
+        <Stepper label="Children" hint="Ages 0–12" value={form.children} min={0} max={8} onChange={(children) => onUpdate({ children })} />
+        <Stepper label="Rooms" hint="Maximum 5 rooms online" value={form.rooms} min={1} max={5} onChange={(rooms) => onUpdate({ rooms })} />
+      </div>
+      <div className="mt-5 flex items-center gap-3 rounded-xl bg-linen/70 px-4 py-3.5 text-sm text-charcoal">
+        <Icon name="users" className="h-4 w-4 shrink-0 text-gold-deep" />
+        <span>
+          {guests} guest{guests === 1 ? "" : "s"} · {form.rooms} room{form.rooms > 1 ? "s" : ""}
+        </span>
+        {form.children > 0 && (
+          <span className="ml-auto text-xs text-charcoal/55">Cots &amp; kids’ menus available</span>
+        )}
+      </div>
+    </div>
+  );
+}
+
+function RoomPicker({ selectedId, guests, roomsCount, error, onSelect }) {
+  return (
+    <fieldset>
+      <legend className="sr-only">Choose your room</legend>
+      <div className="space-y-3">
+        {ROOMS.map((room) => {
+          const selected = room.id === selectedId;
+          return (
+            <label
+              key={room.id}
+              className={cn(
+                "flex cursor-pointer items-start gap-4 rounded-2xl border p-3.5 transition-all",
+                selected
+                  ? "border-gold bg-gold/[0.06] ring-1 ring-gold"
+                  : "border-charcoal/10 bg-white hover:border-charcoal/30"
+              )}
+            >
+              <input type="radio" name="booking-room" value={room.id} checked={selected} onChange={() => onSelect(room.id)} className="sr-only" />
+              <span className="relative h-20 w-24 shrink-0 overflow-hidden rounded-xl">
+                <Img src={room.image} alt="" />
+              </span>
+              <span className="min-w-0 flex-1">
+                <span className="block text-sm font-semibold leading-snug text-charcoal">{room.name}</span>
+                <span className="mt-1 block text-xs text-charcoal/55">
+                  {room.size} · {room.capacityLabel} · {room.view}
+                </span>
+                <span className="mt-1 block text-xs font-bold text-gold-deep">{formatGHS(room.pricePerNight)} / night</span>
+                {room.capacity >= guests && guests > 2 && (
+                  <span className="mt-1.5 inline-block rounded-full bg-palm/10 px-2.5 py-0.5 text-[10px] font-bold uppercase tracking-wider text-palm">
+                    Fits your party
+                  </span>
+                )}
+              </span>
+              <span
+                aria-hidden="true"
+                className={cn(
+                  "grid h-6 w-6 shrink-0 place-items-center rounded-full border transition-colors",
+                  selected ? "border-gold bg-gold text-ink" : "border-charcoal/20 text-transparent"
+                )}
+              >
+                <Icon name="check" className="h-3.5 w-3.5" />
+              </span>
+            </label>
+          );
+        })}
+      </div>
+      {error && (
+        <p role="alert" className="mt-3 text-xs font-semibold text-red-600">
+          {error}
+        </p>
+      )}
+      {!error && (
+        <p className="mt-3 text-xs text-charcoal/45">
+          Travelling as {guests} across {roomsCount} room{roomsCount > 1 ? "s" : ""} — we’ll match bed types on request.
+        </p>
+      )}
+    </fieldset>
+  );
+}
+
+function DetailsStep({ form, errors, onUpdate }) {
+  return (
+    <div className="grid gap-4 sm:grid-cols-2">
+      <Field id="bk-name" label="Full name" error={errors.fullName} className="sm:col-span-2">
+        <input
+          id="bk-name"
+          type="text"
+          autoComplete="name"
+          value={form.fullName}
+          onChange={(e) => onUpdate({ fullName: e.target.value })}
+          placeholder="Ama Mensah"
+          className={inputCls(errors.fullName)}
+        />
+      </Field>
+      <Field id="bk-email" label="Email" error={errors.email}>
+        <input
+          id="bk-email"
+          type="email"
+          autoComplete="email"
+          value={form.email}
+          onChange={(e) => onUpdate({ email: e.target.value })}
+          placeholder="you@example.com"
+          className={inputCls(errors.email)}
+        />
+      </Field>
+      <Field id="bk-phone" label="Phone / WhatsApp" error={errors.phone}>
+        <input
+          id="bk-phone"
+          type="tel"
+          autoComplete="tel"
+          value={form.phone}
+          onChange={(e) => onUpdate({ phone: e.target.value })}
+          placeholder="+233 50 000 0000"
+          className={inputCls(errors.phone)}
+        />
+      </Field>
+      <Field id="bk-country" label="Country" error={errors.country}>
+        <select id="bk-country" value={form.country} onChange={(e) => onUpdate({ country: e.target.value })} className={cn(inputCls(errors.country), "appearance-none")}>
+          <option value="" disabled>
+            Select your country
+          </option>
+          {COUNTRIES.map((c) => (
+            <option key={c} value={c}>
+              {c}
+            </option>
+          ))}
+        </select>
+      </Field>
+      <Field id="bk-notes" label="Special requests" hint="Anniversaries, dietary needs, flexible dates…" className="sm:col-span-2">
+        <textarea
+          id="bk-notes"
+          rows={4}
+          maxLength={600}
+          value={form.requests}
+          onChange={(e) => onUpdate({ requests: e.target.value })}
+          placeholder="Tell us how to make your stay special."
+          className={cn(inputCls(), "resize-none")}
+        />
+      </Field>
+    </div>
+  );
+}
+
+function EditButton({ onClick, label }) {
+  return (
+    <button
+      type="button"
+      onClick={onClick}
+      className="shrink-0 text-[10px] font-bold uppercase tracking-[0.18em] text-gold-deep underline decoration-gold/40 underline-offset-4 transition hover:text-charcoal"
+    >
+      Edit
+      <span className="sr-only"> {label}</span>
+    </button>
+  );
+}
+
+function ReviewStep({ form, nights, total, onJump }) {
+  const room = ROOMS.find((r) => r.id === form.roomId);
+  const rows = [
+    {
+      label: "Dates",
+      value: nights
+        ? formatDate(form.checkIn) + " → " + formatDate(form.checkOut) + " (" + nights + " night" + (nights > 1 ? "s" : "") + ")"
+        : "—",
+      step: 0
+    },
+    {
+      label: "Guests",
+      value:
+        form.adults + " adult" + (form.adults > 1 ? "s" : "") +
+        (form.children ? ", " + form.children + " child" + (form.children > 1 ? "ren" : "") : ""),
+      step: 1
+    },
+    { label: "Rooms", value: String(form.rooms), step: 1 }
+  ];
+  return (
+    <div>
+      <div className="divide-y divide-charcoal/10 rounded-2xl border border-charcoal/10 bg-white/70 px-5">
+        {room && (
+          <div className="flex items-center gap-4 py-4">
+            <span className="relative h-14 w-20 shrink-0 overflow-hidden rounded-lg">
+              <Img src={room.image} alt="" />
+            </span>
+            <div className="min-w-0 flex-1">
+              <p className="text-[10px] uppercase tracking-[0.2em] text-charcoal/50">Your room</p>
+              <p className="truncate text-sm font-semibold text-charcoal">{room.name}</p>
+              <p className="text-xs text-charcoal/55">{room.capacityLabel}</p>
+            </div>
+            <EditButton onClick={() => onJump(2)} label="Change room" />
+          </div>
+        )}
+        {rows.map((row) => (
+          <div key={row.label} className="flex items-center justify-between gap-4 py-3.5">
+            <div>
+              <p className="text-[10px] uppercase tracking-[0.2em] text-charcoal/50">{row.label}</p>
+              <p className="text-sm font-medium text-charcoal">{row.value}</p>
+            </div>
+            <EditButton onClick={() => onJump(row.step)} label={"Edit " + row.label.toLowerCase()} />
+          </div>
+        ))}
+        <div className="flex items-baseline justify-between gap-4 py-4">
+          <p className="text-[10px] uppercase tracking-[0.2em] text-charcoal/50">Estimated total</p>
+          <p className="font-display text-2xl text-gold-deep">{formatGHS(total)}</p>
+        </div>
+      </div>
+
+      {form.requests.trim() && (
+        <div className="mt-4 rounded-xl bg-linen/60 p-4 text-sm italic text-charcoal/70">“{form.requests.trim()}”</div>
+      )}
+
+      <p className="mt-4 text-xs leading-relaxed text-charcoal/50">
+        Breakfast and taxes included. No payment now — we hold your room and confirm by email within 24 hours.
+      </p>
+    </div>
+  );
+}
+
+function Confirmation({ reference, firstName, roomName, dates, guests, total, waHref, onDone }) {
+  useEffect(() => {
+    const el = document.getElementById("booking-done");
+    if (el) el.focus();
+  }, []);
+  return (
+    <div id="booking-done" tabIndex={-1} className="overflow-y-auto px-6 py-12 text-center outline-none sm:px-10">
+      <span className="pop-in mx-auto grid h-16 w-16 place-items-center rounded-full bg-gold/15 text-gold-deep">
+        <Icon name="check" className="h-8 w-8" />
+      </span>
+
+      <h3 className="mt-6 font-display text-3xl text-charcoal">Thank you{firstName ? ", " + firstName : ""}!</h3>
+      <p className="mx-auto mt-3 max-w-md text-sm leading-relaxed text-charcoal/60">
+        Your request is with our reservations team. We’ll confirm availability by email within 24 hours.
+      </p>
+
+      <dl className="mx-auto mt-8 grid max-w-md grid-cols-1 gap-x-8 gap-y-4 rounded-2xl border border-charcoal/10 bg-white/70 p-6 text-left text-sm sm:grid-cols-2">
+        <div>
+          <dt className="text-[10px] uppercase tracking-[0.2em] text-charcoal/50">Room</dt>
+          <dd className="mt-0.5 font-medium text-charcoal">{roomName}</dd>
+        </div>
+        <div>
+          <dt className="text-[10px] uppercase tracking-[0.2em] text-charcoal/50">Dates</dt>
+          <dd className="mt-0.5 font-medium text-charcoal">{dates}</dd>
+        </div>
+        <div>
+          <dt className="text-[10px] uppercase tracking-[0.2em] text-charcoal/50">Guests</dt>
+          <dd className="mt-0.5 font-medium text-charcoal">{guests}</dd>
+        </div>
+        <div>
+          <dt className="text-[10px] uppercase tracking-[0.2em] text-charcoal/50">Total</dt>
+          <dd className="mt-0.5 font-display text-xl text-gold-deep">{formatGHS(total)}</dd>
+        </div>
+        <div className="sm:col-span-2">
+          <dt className="text-[10px] uppercase tracking-[0.2em] text-charcoal/50">Reference</dt>
+          <dd className="mt-1 inline-block rounded-lg bg-linen px-3 py-1 font-mono text-xs font-bold tracking-wider text-charcoal">
+            {reference}
+          </dd>
+        </div>
+      </dl>
+
+      <div className="mx-auto mt-8 flex max-w-md flex-col justify-center gap-3 sm:flex-row">
+        <a
+          href={waHref}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-flex items-center justify-center gap-2 rounded-full bg-palm px-7 py-3.5 text-[11px] font-bold uppercase tracking-[0.16em] text-ivory shadow-[0_12px_32px_-14px_rgba(65,86,74,0.8)] transition-transform hover:brightness-110 active:scale-[0.98]"
+        >
+          <Icon name="message" />
+          Confirm on WhatsApp
+        </a>
+        <Button variant="outlineDark" size="lg" onClick={onDone}>
+          Done
+        </Button>
+      </div>
+    </div>
+  );
+}
+
+const STEP_LABELS = ["Dates", "Guests", "Room", "Details", "Review"];
+const STEP_TITLES = ["Choose your dates", "Who’s coming?", "Pick your room", "Your details", "Almost there"];
+
+function emptyForm(presetRoomId) {
+  return {
+    checkIn: "",
+    checkOut: "",
+    adults: 2,
+    children: 0,
+    rooms: 1,
+    roomId: presetRoomId || null,
+    fullName: "",
+    email: "",
+    phone: "",
+    country: "",
+    requests: ""
+  };
+}
+
+function BookingModal({ open, presetRoomId, onClose }) {
+  const [step, setStep] = useState(0);
+  const [form, setForm] = useState(emptyForm());
+  const [errors, setErrors] = useState({});
+  const [submitting, setSubmitting] = useState(false);
+  const [reference, setReference] = useState(null);
+
+  useEffect(() => {
+    if (open) {
+      setForm(emptyForm(presetRoomId));
+      setStep(0);
+      setErrors({});
+      setReference(null);
+      setSubmitting(false);
+    }
+  }, [open, presetRoomId]);
+
+  function update(patch) {
+    setForm((f) => Object.assign({}, f, patch));
+    setErrors((prev) => {
+      const next = Object.assign({}, prev);
+      Object.keys(patch).forEach((key) => delete next[key]);
+      return next;
+    });
+  }
+
+  function validate(target) {
+    const e = {};
+    if (target >= 0) {
+      if (!form.checkIn) e.checkIn = "Please choose a check-in date.";
+      else if (form.checkIn < todayISO()) e.checkIn = "Check-in can’t be in the past.";
+      if (!form.checkOut) e.checkOut = "Please choose a check-out date.";
+      else {
+        const n = nightsBetween(form.checkIn, form.checkOut);
+        if (n === null) e.checkOut = "Check-out must be after check-in.";
+        else if (n > 30) e.checkOut = "For stays longer than 30 nights, please contact us directly.";
+      }
+    }
+    if (target >= 2) {
+      const room = ROOMS.find((r) => r.id === form.roomId);
+      if (!room) e.roomId = "Choose a room to continue.";
+      else {
+        const guests = form.adults + form.children;
+        if (room.capacity * form.rooms < guests)
+          e.roomId = "Your party of " + guests + " needs more space — add another room or pick the Family Villa.";
+      }
+    }
+    if (target >= 3) {
+      if (!form.fullName.trim() || form.fullName.trim().length < 2) e.fullName = "Please enter your full name.";
+      if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(form.email.trim())) e.email = "Enter a valid email address.";
+      const digits = form.phone.replace(/\D/g, "");
+      if (digits.length < 8 || digits.length > 15) e.phone = "Enter a valid phone number.";
+      if (!form.country) e.country = "Please select your country.";
+    }
+    return e;
+  }
+
+  function goNext() {
+    const errs = validate(step);
+    setErrors(errs);
+    if (Object.keys(errs).length > 0) return;
+    if (step < STEP_LABELS.length - 1) {
+      setStep(step + 1);
+    } else {
+      setSubmitting(true);
+      window.setTimeout(() => {
+        setSubmitting(false);
+        setReference("BK-" + Math.random().toString(36).slice(2, 8).toUpperCase());
+      }, 900);
+    }
+  }
+
+  function goBack() {
+    setErrors({});
+    setStep(Math.max(0, step - 1));
+  }
+
+  function handleClose() {
+    if (!submitting) onClose();
+  }
+
+  const room = ROOMS.find((r) => r.id === form.roomId);
+  const nights = nightsBetween(form.checkIn, form.checkOut);
+  const guests = form.adults + form.children;
+  const total = room && nights ? room.pricePerNight * nights * form.rooms : 0;
+
+  const waMessage =
+    reference && room && nights
+      ? encodeURIComponent(
+          "Hello BeKind! I’d like to confirm booking " + reference + ".\n" +
+            room.name + "\n" +
+            formatDate(form.checkIn) + " → " + formatDate(form.checkOut) + " (" + nights + " night" + (nights > 1 ? "s" : "") + ")\n" +
+            guests + " guest(s), " + form.rooms + " room(s)\n" +
+            "Total estimate: " + formatGHS(total) + "\n" +
+            "Name: " + form.fullName
+        )
+      : "";
+
+  return (
+    <ModalShell
+      open={open}
+      onClose={handleClose}
+      onOverlayClick={handleClose}
+      labelledBy="booking-title"
+      variant="center"
+      maxClass="max-w-2xl"
+      z="z-[80]"
+    >
+      {!reference ? (
+        <React.Fragment>
+          <header className="border-b border-charcoal/10 px-6 pb-4 pt-6 sm:px-8">
+            <div className="flex items-start justify-between gap-4">
+              <div>
+                <p className="eyebrow text-gold-deep">Stay at BeKind</p>
+                <h3 id="booking-title" className="mt-1 font-display text-2xl text-charcoal sm:text-3xl">
+                  {STEP_TITLES[step]}
+                </h3>
+              </div>
+              <button
+                type="button"
+                onClick={handleClose}
+                aria-label="Close booking"
+                className="grid h-10 w-10 shrink-0 place-items-center rounded-full border border-charcoal/15 text-charcoal transition-colors hover:border-gold hover:text-gold-deep"
+              >
+                <Icon name="x" />
+              </button>
+            </div>
+
+            <div className="mt-5 flex gap-1.5" aria-hidden="true">
+              {STEP_LABELS.map((label, i) => (
+                <span key={label} className={cn("h-1 flex-1 rounded-full transition-colors duration-500", i <= step ? "bg-gold" : "bg-charcoal/10")} />
+              ))}
+            </div>
+            <p className="mt-2.5 text-[11px] font-bold uppercase tracking-[0.18em] text-charcoal/55">
+              Step {step + 1} of {STEP_LABELS.length} — {STEP_LABELS[step]}
+              {room && step !== 2 && (
+                <span className="normal-case tracking-normal text-charcoal/45"> · {room.name}</span>
+              )}
+            </p>
+          </header>
+
+          <div className="min-h-[320px] flex-1 overflow-y-auto px-6 py-6 sm:px-8">
+            <div key={step} className="anim-step">
+              {step === 0 && <DateSelectorStep form={form} errors={errors} onUpdate={update} />}
+              {step === 1 && <GuestSelectorStep form={form} onUpdate={update} />}
+              {step === 2 && (
+                <RoomPicker
+                  selectedId={form.roomId}
+                  guests={guests}
+                  roomsCount={form.rooms}
+                  error={errors.roomId}
+                  onSelect={(roomId) => update({ roomId })}
+                />
+              )}
+              {step === 3 && <DetailsStep form={form} errors={errors} onUpdate={update} />}
+              {step === 4 && (
+                <ReviewStep
+                  form={form}
+                  nights={nights || 0}
+                  total={total}
+                  onJump={(target) => {
+                    setErrors({});
+                    setStep(target);
+                  }}
+                />
+              )}
+            </div>
+          </div>
+
+          <footer className="border-t border-charcoal/10 px-6 py-5 sm:px-8">
+            <div className="flex items-center gap-3">
+              {step > 0 && (
+                <Button variant="outlineDark" onClick={goBack}>
+                  <Icon name="arrowLeft" />
+                  Back
+                </Button>
+              )}
+              <Button className="flex-1" onClick={goNext} disabled={submitting}>
+                {submitting ? (
+                  <React.Fragment>
+                    <Icon name="loader" className="h-4 w-4 animate-spin" />
+                    Sending…
+                  </React.Fragment>
+                ) : step === STEP_LABELS.length - 1 ? (
+                  "Confirm booking"
+                ) : (
+                  <React.Fragment>
+                    Continue
+                    <Icon name="arrowRight" />
+                  </React.Fragment>
+                )}
+              </Button>
+            </div>
+          </footer>
+        </React.Fragment>
+      ) : (
+        open && (
+          <Confirmation
+            reference={reference}
+            firstName={form.fullName.trim().split(" ")[0]}
+            roomName={room ? room.name : ""}
+            dates={
+              nights
+                ? formatDate(form.checkIn) + " → " + formatDate(form.checkOut) + " · " + nights + " night" + (nights > 1 ? "s" : "")
+                : ""
+            }
+            guests={
+              guests + " guest" + (guests === 1 ? "" : "s") + " · " + form.rooms + " room" + (form.rooms > 1 ? "s" : "")
+            }
+            total={total}
+            waHref={CONTACT.whatsappHref + "?text=" + waMessage}
+            onDone={onClose}
+          />
+        )
+      )}
+    </ModalShell>
+  );
+}
+
+function TripGroup({ group, selected, onToggle }) {
+  const options = TRIP_OPTIONS.filter((o) => o.group === group);
+  return (
+    <section>
+      <h4 className="mb-3 text-[11px] font-bold uppercase tracking-[0.22em] text-charcoal/50">{GROUP_LABELS[group]}</h4>
+      <div className="flex flex-wrap gap-2">
+        {options.map((option) => {
+          const on = selected.has(option.id);
+          return (
+            <button
+              key={option.id}
+              type="button"
+              aria-pressed={on}
+              onClick={() => onToggle(option.id)}
+              className={cn(
+                "rounded-full border px-3.5 py-2 text-xs font-semibold transition-all active:scale-95",
+                on
+                  ? "border-ink bg-ink text-ivory shadow-sm"
+                  : "border-charcoal/15 bg-white text-charcoal/75 hover:border-charcoal/40 hover:text-charcoal"
+              )}
+            >
+              {option.label}
+              <span className={cn("ml-1.5", on ? "text-accent" : "text-charcoal/40")}>{formatGHS(option.price)}</span>
+            </button>
+          );
+        })}
+      </div>
+    </section>
+  );
+}
+
+function TripBuilder({ open, onClose, onContinue }) {
+  const [nights, setNights] = useState(4);
+  const [roomId, setRoomId] = useState(ROOMS[1].id);
+  const [selected, setSelected] = useState(new Set());
+  const [transfer, setTransfer] = useState(false);
+
+  const room = ROOMS.find((r) => r.id === roomId) || ROOMS[0];
+
+  const summaryLines = useMemo(() => {
+    const lines = [
+      {
+        id: "stay",
+        label: nights + " night" + (nights > 1 ? "s" : "") + " · " + room.name,
+        amount: nights * room.pricePerNight
+      }
+    ];
+    selected.forEach((id) => {
+      const option = TRIP_OPTIONS.find((o) => o.id === id);
+      if (option)
+        lines.push({
+          id: id,
+          label: option.label,
+          amount: option.price,
+          onRemove: () =>
+            setSelected((prev) => {
+              const next = new Set(prev);
+              next.delete(id);
+              return next;
+            })
+        });
+    });
+    if (transfer)
+      lines.push({
+        id: "transfer",
+        label: "Airport transfer — return",
+        amount: TRANSFER_PRICE,
+        onRemove: () => setTransfer(false)
+      });
+    return lines;
+  }, [nights, room, selected, transfer]);
+
+  const total = summaryLines.reduce((sum, line) => sum + line.amount, 0);
+
+  function toggle(id) {
+    setSelected((prev) => {
+      const next = new Set(prev);
+      if (next.has(id)) next.delete(id);
+      else next.add(id);
+      return next;
+    });
+  }
+
+  function reset() {
+    setSelected(new Set());
+    setTransfer(false);
+  }
+
+  const waText = encodeURIComponent(
+    "Hello BeKind! Here’s my dream stay:\n• " + nights + " nights — " + room.name + "\n" +
+      summaryLines
+        .slice(1)
+        .map((l) => "• " + l.label)
+        .join("\n") +
+      (summaryLines.length > 1 ? "\n" : "") +
+      "\nEstimated total: " + formatGHS(total) + ". Please advise."
+  );
+
+  return (
+    <ModalShell open={open} onClose={onClose} labelledBy="trip-builder-title" variant="right" maxClass="max-w-[460px]" z="z-[70]">
+      <header className="flex items-start justify-between gap-4 border-b border-charcoal/10 p-6">
+        <div>
+          <p className="eyebrow text-gold-deep">Trip builder</p>
+          <h3 id="trip-builder-title" className="mt-1 font-display text-2xl text-charcoal sm:text-[1.7rem]">
+            Your Ghana experience
+          </h3>
+        </div>
+        <button
+          type="button"
+          onClick={onClose}
+          aria-label="Close trip builder"
+          className="grid h-10 w-10 shrink-0 place-items-center rounded-full border border-charcoal/15 text-charcoal transition-colors hover:border-gold hover:text-gold-deep"
+        >
+          <Icon name="x" />
+        </button>
+      </header>
+
+      <div className="flex-1 space-y-9 overflow-y-auto px-6 py-7">
+        <section>
+          <h4 className="mb-3 text-[11px] font-bold uppercase tracking-[0.22em] text-charcoal/50">Stay</h4>
+          <Stepper label="Nights at BeKind" value={nights} min={1} max={14} onChange={setNights} />
+          <div className="mt-3 space-y-2.5" role="radiogroup" aria-label="Choose accommodation">
+            {ROOMS.map((r) => {
+              const activeRoom = r.id === roomId;
+              return (
+                <label
+                  key={r.id}
+                  className={cn(
+                    "flex cursor-pointer items-center justify-between gap-3 rounded-xl border px-4 py-3 transition-all",
+                    activeRoom ? "border-gold bg-gold/[0.06]" : "border-charcoal/10 bg-white hover:border-charcoal/30"
+                  )}
+                >
+                  <span className="min-w-0 flex-1">
+                    <input type="radio" name="trip-room" checked={activeRoom} onChange={() => setRoomId(r.id)} className="sr-only" />
+                    <span className="block truncate text-sm font-semibold text-charcoal">{r.name}</span>
+                    <span className="text-xs text-charcoal/50">{formatGHS(r.pricePerNight)} / night</span>
+                  </span>
+                  <span
+                    aria-hidden="true"
+                    className={cn(
+                      "grid h-[22px] w-[22px] shrink-0 place-items-center rounded-full border transition-colors",
+                      activeRoom ? "border-gold bg-gold text-ink" : "border-charcoal/20 text-transparent"
+                    )}
+                  >
+                    <Icon name="check" className="h-3 w-3" />
+                  </span>
+                </label>
+              );
+            })}
+          </div>
+        </section>
+
+        {GROUP_ORDER.map((group) => (
+          <TripGroup key={group} group={group} selected={selected} onToggle={toggle} />
+        ))}
+
+        <section>
+          <h4 className="mb-3 text-[11px] font-bold uppercase tracking-[0.22em] text-charcoal/50">Logistics</h4>
+          <button
+            type="button"
+            aria-pressed={transfer}
+            onClick={() => setTransfer((v) => !v)}
+            className={cn(
+              "flex w-full items-center gap-3 rounded-xl border px-4 py-3.5 text-left transition-all",
+              transfer ? "border-gold bg-gold/[0.06]" : "border-charcoal/10 bg-white"
+            )}
+          >
+            <Icon name="plane" className={cn("h-4 w-4 shrink-0", transfer ? "text-gold-deep" : "text-charcoal/40")} />
+            <span className="flex-1">
+              <span className="block text-sm font-semibold text-charcoal">Airport transfer — return trip</span>
+              <span className="text-xs text-charcoal/50">Takoradi or Accra · {formatGHS(TRANSFER_PRICE)}</span>
+            </span>
+            <span aria-hidden="true" className={cn("relative h-6 w-11 shrink-0 rounded-full p-0.5 transition-colors", transfer ? "bg-gold" : "bg-charcoal/20")}>
+              <span className={cn("block h-5 w-5 rounded-full bg-white shadow transition-transform", transfer && "translate-x-5")} />
+            </span>
+          </button>
+        </section>
+
+        <section className="rounded-2xl border border-charcoal/10 bg-white p-5">
+          <div className="flex items-baseline justify-between">
+            <h4 className="text-[11px] font-bold uppercase tracking-[0.22em] text-charcoal/50">Trip summary</h4>
+            {(selected.size > 0 || transfer) && (
+              <button
+                type="button"
+                onClick={reset}
+                className="text-[11px] font-semibold uppercase tracking-wider text-charcoal/45 underline underline-offset-4 transition hover:text-charcoal"
+              >
+                Clear extras
+              </button>
+            )}
+          </div>
+          <ul className="mt-3 max-h-52 space-y-2 overflow-y-auto pr-1">
+            {summaryLines.map((line) => (
+              <li key={line.id} className="flex items-center justify-between gap-3 text-sm">
+                <span className="min-w-0 flex-1 truncate text-charcoal/75">{line.label}</span>
+                <span className="shrink-0 font-semibold tabular-nums text-charcoal">{formatGHS(line.amount)}</span>
+                {line.onRemove && (
+                  <button
+                    type="button"
+                    onClick={line.onRemove}
+                    aria-label={"Remove " + line.label}
+                    className="grid h-5 w-5 shrink-0 place-items-center rounded-full border border-charcoal/15 text-charcoal/40 transition hover:border-red-300 hover:text-red-500"
+                  >
+                    <Icon name="x" className="h-3 w-3" />
+                  </button>
+                )}
+              </li>
+            ))}
+          </ul>
+          <div className="mt-4 flex items-baseline justify-between gap-4 border-t border-charcoal/10 pt-4">
+            <span className="text-[11px] font-bold uppercase tracking-[0.2em] text-charcoal/50">Estimated total</span>
+            <span key={total} className="num-pop font-display text-2xl text-gold-deep">
+              {formatGHS(total)}
+            </span>
+          </div>
+          <p className="mt-2 text-[11px] italic text-charcoal/45">Indicative estimate — we’ll confirm your exact rate.</p>
+        </section>
+      </div>
+
+      <footer className="border-t border-charcoal/10 bg-white/60 px-6 py-5 backdrop-blur">
+        <div className="flex items-center gap-3">
+          <Button className="flex-1" onClick={() => onContinue(roomId)}>
+            Continue planning
+          </Button>
+          <a
+            href={CONTACT.whatsappHref + "?text=" + waText}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Send this plan to BeKind on WhatsApp"
+            className="grid h-12 w-12 shrink-0 place-items-center rounded-full border border-palm/40 text-palm transition-colors hover:bg-palm hover:text-ivory"
+          >
+            <Icon name="message" className="h-5 w-5" />
+          </a>
+        </div>
+      </footer>
+    </ModalShell>
+  );
+}
+
+function Navbar({ onOpenBooking, onOpenPlanner }) {
+  const [scrolled, setScrolled] = useState(false);
+  const [open, setOpen] = useState(false);
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 24);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+  useLockBody(open);
+
+  const solid = scrolled && !open;
+
+  const iconBtn = cn(
+    "hidden h-10 w-10 place-items-center rounded-full border transition-colors sm:grid",
+    solid
+      ? "border-charcoal/20 text-charcoal hover:border-gold hover:text-gold-deep"
+      : "border-ivory/30 text-ivory hover:border-gold-light hover:text-accent"
+  );
+
+  return (
+    <React.Fragment>
+      <header
+        className={cn(
+          "fixed inset-x-0 top-0 z-50 transition-all duration-500",
+          solid ? "bg-ivory/90 text-charcoal shadow-[0_1px_0_rgba(33,30,25,0.08)] backdrop-blur-md" : "bg-transparent text-ivory"
+        )}
+      >
+        <nav aria-label="Primary" className="container-x flex h-16 items-center justify-between gap-4 lg:h-20">
+          <a href="#home" aria-label="BeKind Hotel & Suites — back to top" onClick={() => setOpen(false)}>
+            <Logo tone={solid ? "dark" : "light"} />
+          </a>
+
+          <ul className="hidden items-center gap-6 lg:flex xl:gap-7">
+            {NAV_LINKS.map((link) => (
+              <li key={link.label} className={link.wideOnly ? "hidden xl:block" : undefined}>
+                <a
+                  href={link.href}
+                  className="relative block py-2 text-[11px] font-semibold uppercase tracking-[0.18em] opacity-80 transition-opacity after:absolute after:inset-x-0 after:-bottom-0.5 after:h-px after:origin-left after:scale-x-0 after:bg-current after:transition-transform after:duration-300 hover:opacity-100 hover:after:scale-x-100"
+                >
+                  {link.label}
+                </a>
+              </li>
+            ))}
+          </ul>
+
+          <div className="flex items-center gap-2 sm:gap-3">
+            <a href={CONTACT.whatsappHref} target="_blank" rel="noopener noreferrer" aria-label="Chat with BeKind on WhatsApp" className={iconBtn}>
+              <Icon name="message" />
+            </a>
+
+            <button type="button" onClick={onOpenPlanner} aria-label="Open trip planner" title="Trip planner" className={iconBtn}>
+              <Icon name="calendar" />
+            </button>
+
+            <a
+              href="#about"
+              className="hidden text-[11px] font-semibold uppercase tracking-[0.18em] opacity-80 transition-opacity hover:opacity-100 xl:block"
+            >
+              Contact
+            </a>
+
+            <Button
+              size="sm"
+              className="hidden md:inline-flex"
+              onClick={() => {
+                setOpen(false);
+                onOpenBooking();
+              }}
+            >
+              Stay in Ghana
+            </Button>
+
+            <button
+              type="button"
+              onClick={() => setOpen((v) => !v)}
+              aria-expanded={open}
+              aria-controls="mobile-menu"
+              aria-label={open ? "Close menu" : "Open menu"}
+              className="grid h-10 w-10 place-items-center rounded-full border lg:hidden"
+              style={{ borderColor: "currentColor", opacity: 0.9 }}
+            >
+              <span className="relative block h-3.5 w-5">
+                <span className={cn("absolute left-0 top-0 h-[1.5px] w-full bg-current transition-transform duration-300", open && "translate-y-[6px] rotate-45")} />
+                <span className={cn("absolute left-0 top-1/2 h-[1.5px] w-full -translate-y-1/2 bg-current transition-opacity duration-200", open && "opacity-0")} />
+                <span className={cn("absolute bottom-0 left-0 h-[1.5px] w-full bg-current transition-transform duration-300", open && "-translate-y-[6px] -rotate-45")} />
+              </span>
+            </button>
+          </div>
+        </nav>
+      </header>
+
+      {open && (
+        <div id="mobile-menu" className="menu-fade fixed inset-0 z-40 overflow-y-auto bg-ink pb-12 pt-24 text-ivory lg:hidden">
+          <nav aria-label="Mobile" className="container-x">
+            <ul className="border-t border-ivory/10">
+              {NAV_LINKS.map((link, i) => (
+                <li key={link.label} style={{ animationDelay: 0.15 + i * 0.055 + "s" }} className="menu-item">
+                  <a
+                    href={link.href}
+                    onClick={() => setOpen(false)}
+                    className="flex items-baseline justify-between border-b border-ivory/10 py-4 font-display text-3xl transition-colors hover:text-accent"
+                  >
+                    {link.label}
+                    <span className="text-xs tracking-[0.3em] text-gold/60">0{i + 1}</span>
+                  </a>
+                </li>
+              ))}
+            </ul>
+
+            <div style={{ animationDelay: "0.55s" }} className="menu-item mt-10 space-y-7">
+              <p className="font-display text-lg italic leading-snug text-ivory/60">
+                “Ghana is Africa for beginners.” We’re your guide.
+              </p>
+              <div className="space-y-2 text-sm text-ivory/70">
+                <a href={CONTACT.phoneHref} className="block transition-colors hover:text-accent">
+                  {CONTACT.phoneDisplay}
+                </a>
+                <a href={"mailto:" + CONTACT.email} className="block transition-colors hover:text-accent">
+                  {CONTACT.email}
+                </a>
+              </div>
+              <Button
+                size="lg"
+                className="w-full"
+                onClick={() => {
+                  setOpen(false);
+                  onOpenBooking();
+                }}
+              >
+                Stay in Ghana
+              </Button>
+            </div>
+          </nav>
+        </div>
+      )}
+    </React.Fragment>
+  );
+}
+
+function Hero({ onOpenBooking }) {
+  const bgRef = useRef(null);
+  const sectionRef = useRef(null);
+
+  useEffect(() => {
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    let raf = 0;
+    const onScroll = () => {
+      cancelAnimationFrame(raf);
+      raf = requestAnimationFrame(() => {
+        if (bgRef.current) {
+          const y = Math.min(window.scrollY * 0.35, 180);
+          bgRef.current.style.transform = "translateY(" + y + "px)";
+        }
+      });
+    };
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+      cancelAnimationFrame(raf);
+    };
+  }, []);
+
+  return (
+    <section ref={sectionRef} id="home" className="relative flex h-[92svh] max-h-[1000px] min-h-[600px] items-center justify-center overflow-hidden bg-ink">
+      <div ref={bgRef} className="absolute inset-[-3%]">
+        <div className="kb absolute inset-0">
+          <Img src={IMG.heroBeach} alt="Golden sand shoreline meeting turquoise ocean in Takoradi, Ghana" eager />
+        </div>
+      </div>
+
+      <div className="absolute inset-0 bg-gradient-to-b from-ink/55 via-ink/20 to-ink/85" />
+
+      <div className="container-x relative z-10 pb-16 text-center text-ivory">
+        <p style={{ animationDelay: "0.3s" }} className="hero-item eyebrow text-accent">
+          Stay at BeKind
+        </p>
+
+        <h1
+          style={{ animationDelay: "0.43s" }}
+          className="hero-item mx-auto mt-6 max-w-4xl font-display text-[clamp(2.9rem,8.5vw,6.5rem)] leading-[1.04] text-balance"
+        >
+          Where <em className="italic text-gold-light">Dreams</em> Come True
+        </h1>
+
+        <p style={{ animationDelay: "0.56s" }} className="hero-item mx-auto mt-7 max-w-2xl text-base leading-relaxed text-ivory/85 sm:text-lg">
+          Your all-in-one Ghana travel experience — where the beach, culture,
+          adventure and relaxation come together.
+        </p>
+
+        <div style={{ animationDelay: "0.69s" }} className="hero-item mt-10 flex flex-wrap items-center justify-center gap-4">
+          <Button size="lg" onClick={onOpenBooking}>
+            Plan Your Stay
+          </Button>
+          <Button variant="outlineLight" size="lg" href="#experiences">
+            Explore Experiences
+          </Button>
+        </div>
+      </div>
+
+      <a
+        href="#intro"
+        aria-label="Scroll down to explore your stay"
+        style={{ animationDelay: "1.6s" }}
+        className="hero-fade absolute bottom-7 left-1/2 z-10 -translate-x-1/2 p-2 text-ivory/80 transition-colors hover:text-accent"
+      >
+        <span className="flex h-11 w-7 items-start justify-center rounded-full border border-current p-1.5">
+          <span className="animate-scroll-dot block h-2 w-1 rounded-full bg-current" />
+        </span>
+      </a>
+    </section>
+  );
+}
+
+function CTASection({ onOpenBooking, onOpenPlanner }) {
+  return (
+    <section className="relative overflow-hidden bg-ink py-28 text-ivory sm:py-36">
+      <div className="absolute inset-0 opacity-30">
+        <Img src={IMG.sunsetBeach} alt="" />
+      </div>
+      <div className="absolute inset-0 bg-gradient-to-b from-ink via-ink/55 to-ink" />
+
+      <Reveal className="container-x relative z-10 mx-auto max-w-2xl text-center">
+        <p className="eyebrow text-accent">Ready when you are</p>
+        <h2 className="mt-4 font-display text-4xl leading-[1.08] text-balance sm:text-5xl lg:text-6xl">
+          Inspired? Let’s plan your dates.
+        </h2>
+        <p className="mt-6 text-base leading-relaxed text-ivory/75 sm:text-lg">
+          Choose your room and start building your Ghana experience — our team
+          shapes the rest around you.
+        </p>
+        <div className="mt-10 flex flex-wrap items-center justify-center gap-4">
+          <Button size="lg" onClick={onOpenBooking}>
+            Choose Your Room
+            <Icon name="arrowRight" />
+          </Button>
+          <Button variant="outlineLight" size="lg" href={"mailto:" + CONTACT.email + "?subject=" + encodeURIComponent("Stay enquiry — BeKind Hotel & Suites")}>
+            Contact BeKind
+          </Button>
+        </div>
+        <button
+          type="button"
+          onClick={onOpenPlanner}
+          className="mt-8 text-sm text-ivory/60 underline decoration-gold/50 underline-offset-4 transition hover:text-accent"
+        >
+          or build your trip experience-by-experience
+        </button>
+      </Reveal>
+    </section>
+  );
+}
+
+function Footer() {
+  const socials = [
+    { label: "Instagram (coming soon)", href: "#", icon: "instagram" },
+    { label: "Facebook (coming soon)", href: "#", icon: "facebook" },
+    { label: "Chat on WhatsApp", href: CONTACT.whatsappHref, icon: "message" }
+  ];
+
+  return (
+    <footer id="about" className="scroll-mt-20 bg-ink pb-28 pt-20 text-ivory/75 md:pb-10">
+      <h2 className="sr-only">BeKind Hotel &amp; Suites — contact and information</h2>
+
+      <div className="container-x grid gap-12 lg:grid-cols-12">
+        <div className="lg:col-span-5">
+          <Logo tone="light" />
+          <p className="mt-6 max-w-sm font-display text-2xl italic leading-snug text-ivory/85">
+            “Ghana is Africa for beginners.” We’re your guide.
+          </p>
+          <div className="mt-8 flex gap-3">
+            {socials.map((social) => (
+              <a
+                key={social.label}
+                href={social.href}
+                target={social.href.indexOf("http") === 0 ? "_blank" : undefined}
+                rel={social.href.indexOf("http") === 0 ? "noopener noreferrer" : undefined}
+                aria-label={social.label}
+                className="grid h-10 w-10 place-items-center rounded-full border border-ivory/20 text-ivory/70 transition-colors hover:border-gold hover:text-accent"
+              >
+                <Icon name={social.icon} />
+              </a>
+            ))}
+          </div>
+        </div>
+
+        <nav aria-label="Footer" className="lg:col-span-2">
+          <h3 className="text-[11px] font-bold uppercase tracking-[0.24em] text-ivory/45">Explore</h3>
+          <ul className="mt-5 space-y-3 text-sm">
+            {NAV_LINKS.map((link) => (
+              <li key={link.label}>
+                <a href={link.href} className="transition-colors hover:text-accent">
+                  {link.label}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </nav>
+
+        <div className="lg:col-span-3" id="contact">
+          <h3 className="text-[11px] font-bold uppercase tracking-[0.24em] text-ivory/45">Contact</h3>
+          <ul className="mt-5 space-y-3.5 text-sm">
+            <li className="flex gap-3">
+              <Icon name="mail" className="mt-0.5 h-4 w-4 shrink-0 text-gold" />
+              <a href={"mailto:" + CONTACT.email} className="break-all transition-colors hover:text-accent">
+                {CONTACT.email}
+              </a>
+            </li>
+            <li className="flex gap-3">
+              <Icon name="phone" className="mt-0.5 h-4 w-4 shrink-0 text-gold" />
+              <a href={CONTACT.phoneHref} className="transition-colors hover:text-accent">
+                +233 50 912 0845
+              </a>
+            </li>
+            <li className="flex gap-3">
+              <Icon name="message" className="mt-0.5 h-4 w-4 shrink-0 text-gold" />
+              <a href={CONTACT.whatsappHref} target="_blank" rel="noopener noreferrer" className="transition-colors hover:text-accent">
+                WhatsApp us anytime
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <div className="lg:col-span-2">
+          <h3 className="text-[11px] font-bold uppercase tracking-[0.24em] text-ivory/45">Visit</h3>
+          <address className="mt-5 flex gap-3 text-sm not-italic leading-relaxed">
+            <Icon name="mapPin" className="mt-0.5 h-4 w-4 shrink-0 text-gold" />
+            <span>
+              Ako Adjei Street
+              <br />
+              Takoradi, Western Region
+              <br />
+              Ghana
+            </span>
+          </address>
+          <p className="mt-4 pl-7 text-xs text-ivory/50">Front desk · 24/7</p>
+          <a
+            href={CONTACT.mapsHref}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="mt-4 inline-flex items-center gap-1.5 pl-7 text-[11px] font-bold uppercase tracking-[0.18em] text-accent transition-colors hover:text-gold-light"
+          >
+            Get directions
+            <Icon name="arrowUpRight" className="h-3.5 w-3.5" />
+          </a>
+        </div>
+      </div>
+
+      <div className="container-x mt-14 flex flex-col items-center justify-between gap-4 border-t border-ivory/10 pt-7 text-xs text-ivory/45 sm:flex-row">
+        <p>© 2026 BeKind Hotel &amp; Suites. All rights reserved.</p>
+        <nav aria-label="Legal" className="flex gap-6">
+          <a href="#about" className="transition-colors hover:text-accent">
+            Privacy
+          </a>
+          <a href="#about" className="transition-colors hover:text-accent">
+            Terms
+          </a>
+        </nav>
+      </div>
+    </footer>
+  );
+}
+
+function StickyMobileBar({ onOpenBooking, onOpenPlanner }) {
+  const [show, setShow] = useState(false);
+  useEffect(() => {
+    const onScroll = () => setShow(window.scrollY > 650);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+  return (
+    <div
+      className={cn(
+        "fixed inset-x-3 bottom-3 z-40 flex gap-2 rounded-2xl border border-charcoal/10 bg-ivory/95 p-2 shadow-warm backdrop-blur transition-all duration-500 lg:hidden",
+        show ? "translate-y-0 opacity-100" : "pointer-events-none translate-y-24 opacity-0"
+      )}
+    >
+      <Button className="flex-1" onClick={onOpenBooking}>
+        Book Your Stay
+      </Button>
+      <Button variant="outlineDark" onClick={onOpenPlanner}>
+        Trip Planner
+      </Button>
+    </div>
+  );
+}
+
+function App() {
+  const [duration, setDuration] = useState(2);
+  const [plannerOpen, setPlannerOpen] = useState(false);
+  const [bookingOpen, setBookingOpen] = useState(false);
+  const [presetRoomId, setPresetRoomId] = useState(null);
+
+  function openBooking(roomId) {
+    setPresetRoomId(roomId || null);
+    setBookingOpen(true);
+  }
+
+  return (
+    <React.Fragment>
+      <a
+        href="#main"
+        className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-[100] focus:rounded-full focus:bg-gold focus:px-5 focus:py-2.5 focus:text-xs focus:font-bold focus:uppercase focus:tracking-wider focus:text-ink"
+      >
+        Skip to content
+      </a>
+
+      <Navbar onOpenBooking={() => openBooking()} onOpenPlanner={() => setPlannerOpen(true)} />
+
+      <main id="main">
+        <Hero onOpenBooking={() => openBooking()} />
+        <ExperienceIntro duration={duration} onDurationChange={setDuration} />
+        <ItineraryTimeline nights={duration} onOpenPlanner={() => setPlannerOpen(true)} />
+        <ExperienceCategoryGrid onOpenBooking={() => openBooking()} onOpenPlanner={() => setPlannerOpen(true)} />
+        <RoomSection onSelectRoom={(roomId) => openBooking(roomId)} />
+        <CTASection onOpenBooking={() => openBooking()} onOpenPlanner={() => setPlannerOpen(true)} />
+      </main>
+
+      <Footer />
+
+      <StickyMobileBar onOpenBooking={() => openBooking()} onOpenPlanner={() => setPlannerOpen(true)} />
+
+      <TripBuilder
+        open={plannerOpen}
+        onClose={() => setPlannerOpen(false)}
+        onContinue={(roomId) => {
+          setPlannerOpen(false);
+          openBooking(roomId);
+        }}
+      />
+
+      <BookingModal open={bookingOpen} presetRoomId={presetRoomId} onClose={() => setBookingOpen(false)} />
+    </React.Fragment>
+  );
+}
+
+ReactDOM.createRoot(document.getElementById("root")).render(<App />);
+</script>
+</body>
+</html>
