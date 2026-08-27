@@ -1,0 +1,10 @@
+{
+  "name": "alien-developer-portfolio",
+  "version": "1.0.0",
+  "private": true,
+  "main": "index.html",
+  "scripts": {},
+  "dependencies": {
+    "resend": "^6.24.0"
+  }
+}
