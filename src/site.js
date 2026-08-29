@@ -5,9 +5,10 @@ export const LINKS = {
   linkedin: "https://www.linkedin.com/in/hanson-nuertey-633b053b6",
   contra: "https://contra.com/hanson-nuertey",
   whatsapp: "https://wa.me/233509120845?text=Hi%20Hanson!%20I%27d%20like%20to%20work%20with%20you.",
-  liveRepo: "https://github.com/nuerteyhanson9-sys/be-kind-hotel",
-  bekindLive: "https://bekind-hotel.vercel.app/",
-  chowLive: "https://chow-heaven.vercel.app/"
+  bekindLive: `${import.meta.env.BASE_URL}bekind/`,
+  chowLive: `${import.meta.env.BASE_URL}chow-heaven/`,
+  wedding: "https://nuerteyhanson9-sys.github.io/wedding-invitation/",
+  apk: `${import.meta.env.BASE_URL}assets/shopwave.apk`
 };
 
 // Backend endpoint for the contact form (JSON POST).

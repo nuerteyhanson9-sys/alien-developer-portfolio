@@ -2,6 +2,10 @@ import { useEffect, useRef, useState, useCallback } from "react";
 
 const SWIPE_THRESHOLD = 60;
 
+function isModalOpen() {
+  return document.body.classList.contains("lightbox-open");
+}
+
 /**
  * Swipe-based full-page navigation.
  * - Swipe left  -> next section
@@ -35,7 +39,7 @@ export default function useSwipeNavigation(sections = []) {
     }
 
     function onTouchEnd(e) {
-      if (lockRef.current) return;
+      if (lockRef.current || isModalOpen()) return;
       if (touchStartX.current === null || touchStartY.current === null) return;
 
       const dx = e.changedTouches[0].clientX - touchStartX.current;
@@ -56,6 +60,7 @@ export default function useSwipeNavigation(sections = []) {
     }
 
     function onKeyDown(e) {
+      if (isModalOpen()) return;
       if (e.key === "ArrowLeft") {
         e.preventDefault();
         goTo(index - 1);
