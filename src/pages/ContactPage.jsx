@@ -77,6 +77,7 @@ export default function ContactPage() {
             <option value="Website">Website</option>
             <option value="AI UGC">AI UGC</option>
             <option value="Design">Design</option>
+            <option value="Mobile App">Mobile App Dev</option>
           </select>
         </label>
 
