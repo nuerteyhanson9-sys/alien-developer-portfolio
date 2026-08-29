@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import usePageMeta from "../hooks/usePageMeta.js";
 import { LINKS } from "../site.js";
+import AlienAvatar from "../components/AlienAvatar.jsx";
 
 const preview = (name) => `${LINKS.base}previews/${name}.jpg`;
 
@@ -45,28 +46,36 @@ export default function HomePage() {
 
   return (
     <>
-      <section className="mx-auto flex min-h-screen w-full max-w-6xl flex-col items-center justify-center px-5 pb-16 pt-28 text-center md:px-10">
-        <p className="mb-6 text-xs font-medium uppercase tracking-[0.4em] text-violet-soft md:text-sm">
-          Accra, Ghana · Open to remote
-        </p>
+      <section className="mx-auto flex min-h-screen w-full max-w-6xl flex-col justify-center px-5 pb-16 pt-28 md:px-10">
+        <div className="grid items-center gap-10 lg:grid-cols-[minmax(0,1fr)_minmax(0,420px)]">
+          <div className="flex flex-col items-center text-center lg:items-start lg:text-left">
+            <p className="mb-6 text-xs font-medium uppercase tracking-[0.4em] text-violet-soft md:text-sm">
+              Accra, Ghana · Open to remote
+            </p>
 
-        <h1 className="mx-auto max-w-4xl text-4xl font-extrabold leading-tight md:text-6xl lg:text-7xl">
-          I Build <span className="text-violet-neon">AI Websites</span> &amp;{" "}
-          <span className="text-neon neon-glow">AI UGC Ads</span> That Sell
-        </h1>
+            <h1 className="mx-auto max-w-4xl text-4xl font-extrabold leading-tight md:text-6xl lg:text-7xl">
+              I Build <span className="text-violet-neon">AI Websites</span> &amp;{" "}
+              <span className="text-neon neon-glow">AI UGC Ads</span> That Sell
+            </h1>
 
-        <p className="mx-auto mt-6 max-w-2xl text-sm leading-relaxed text-white/60 md:text-base">
-          Web Dev + Prompt Engineering + Design — for startups &amp; brands. Based in Accra, open to
-          remote.
-        </p>
+            <p className="mx-auto mt-6 max-w-2xl text-sm leading-relaxed text-white/60 md:text-base">
+              Web Dev + Prompt Engineering + Design — for startups &amp; brands. Based in Accra, open to
+              remote.
+            </p>
 
-        <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
-          <Link to="/work" className="neon-btn">
-            View My Work
-          </Link>
-          <a href={LINKS.whatsapp} target="_blank" rel="noopener noreferrer" className="ghost-btn">
-            Chat on WhatsApp
-          </a>
+            <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row lg:justify-start">
+              <Link to="/work" className="neon-btn">
+                View My Work
+              </Link>
+              <a href={LINKS.whatsapp} target="_blank" rel="noopener noreferrer" className="ghost-btn">
+                Chat on WhatsApp
+              </a>
+            </div>
+          </div>
+
+          <div className="order-first flex justify-center lg:order-none">
+            <AlienAvatar />
+          </div>
         </div>
 
         <button

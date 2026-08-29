@@ -54,6 +54,57 @@
     background-color: #000000;
     color: #ffffff;
   }
+
+  .avatar-float {
+    animation: alien-float 7s ease-in-out infinite;
+  }
+
+  .glow-pulse {
+    animation: glow-pulse 3.2s ease-in-out infinite;
+  }
+
+  .glow-pulse-slow {
+    animation: glow-pulse 5s ease-in-out infinite;
+  }
+
+  .ring-spin {
+    animation: ring-spin 40s linear infinite;
+  }
+
+  @keyframes alien-float {
+    0%,
+    100% {
+      transform: translateY(0px);
+    }
+    50% {
+      transform: translateY(-14px);
+    }
+  }
+
+  @keyframes glow-pulse {
+    0%,
+    100% {
+      opacity: 0.3;
+    }
+    50% {
+      opacity: 0.95;
+    }
+  }
+
+  @keyframes ring-spin {
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .avatar-float,
+    .glow-pulse,
+    .glow-pulse-slow,
+    .ring-spin {
+      animation: none;
+    }
+  }
 }
 
 /* Starfield: white radial dots at ~20% opacity over pure black */
