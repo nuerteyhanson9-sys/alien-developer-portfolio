@@ -12,4 +12,4 @@ export const LINKS = {
 
 // Backend endpoint for the contact form (JSON POST).
 export const BACKEND_URL =
-  (import.meta.env.VITE_BACKEND_URL || "https://your-backend.onrender.com").replace(/\/$/, "");
+  (import.meta.env.VITE_BACKEND_URL || "https://alien-backend-iota.vercel.app").replace(/\/$/, "");
