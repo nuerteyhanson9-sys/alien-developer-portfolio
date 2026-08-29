@@ -1,0 +1,89 @@
+@import "tailwindcss";
+
+@theme {
+  --color-neon: #22c55e;
+  --color-neon-soft: #4ade80;
+  --color-violet-neon: #a855f7;
+  --color-violet-soft: #c084fc;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 5rem;
+    scrollbar-color: #22c55e #000000;
+  }
+
+  body {
+    background-color: #000000;
+    color: #ffffff;
+    font-family: var(--font-mono);
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+
+  ::selection {
+    background-color: rgba(34, 197, 94, 0.35);
+    color: #ffffff;
+  }
+}
+
+@layer components {
+  .glass-card {
+    @apply rounded-2xl border border-white/10 bg-white/5 backdrop-blur-xl;
+  }
+
+  .neon-glow {
+    text-shadow: 0 0 18px rgba(34, 197, 94, 0.55);
+  }
+
+  .section-shell {
+    @apply mx-auto flex min-h-screen w-full max-w-6xl flex-col justify-center scroll-mt-36 px-5 py-24 md:px-10;
+  }
+
+  .section-title {
+    @apply mb-10 text-2xl font-bold tracking-widest text-white md:text-3xl;
+  }
+
+  .neon-btn {
+    @apply rounded-xl border border-neon/60 bg-neon/10 px-6 py-3 font-semibold text-neon transition-all duration-300 hover:bg-neon hover:text-black hover:shadow-[0_0_24px_rgba(34,197,94,0.5)];
+  }
+
+  .ghost-btn {
+    @apply rounded-xl border border-white/20 bg-white/5 px-6 py-3 font-semibold text-white backdrop-blur transition-all duration-300 hover:border-violet-soft/60 hover:bg-violet-neon/10 hover:text-violet-soft hover:shadow-[0_0_24px_rgba(168,85,247,0.35)];
+  }
+
+  .field {
+    @apply w-full rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-sm text-white placeholder-white/30 outline-none backdrop-blur transition-colors focus:border-neon/70 focus:ring-2 focus:ring-neon/30;
+  }
+
+  select.field option {
+    background-color: #000000;
+    color: #ffffff;
+  }
+}
+
+/* Starfield: white radial dots at ~20% opacity over pure black */
+.starfield {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  background-color: #000000;
+  background-image:
+    radial-gradient(1px 1px at 8% 12%, rgba(255, 255, 255, 0.24), transparent),
+    radial-gradient(1px 1px at 22% 68%, rgba(255, 255, 255, 0.18), transparent),
+    radial-gradient(1.5px 1.5px at 34% 28%, rgba(255, 255, 255, 0.22), transparent),
+    radial-gradient(1px 1px at 46% 88%, rgba(255, 255, 255, 0.16), transparent),
+    radial-gradient(1.5px 1.5px at 58% 8%, rgba(255, 255, 255, 0.2), transparent),
+    radial-gradient(1px 1px at 68% 52%, rgba(255, 255, 255, 0.22), transparent),
+    radial-gradient(2px 2px at 78% 20%, rgba(255, 255, 255, 0.18), transparent),
+    radial-gradient(1px 1px at 88% 72%, rgba(255, 255, 255, 0.2), transparent),
+    radial-gradient(1.5px 1.5px at 12% 42%, rgba(255, 255, 255, 0.15), transparent),
+    radial-gradient(1px 1px at 52% 62%, rgba(255, 255, 255, 0.18), transparent),
+    radial-gradient(1px 1px at 92% 40%, rgba(255, 255, 255, 0.16), transparent),
+    radial-gradient(1.5px 1.5px at 4% 86%, rgba(255, 255, 255, 0.14), transparent),
+    radial-gradient(45rem 45rem at 82% -10%, rgba(168, 85, 247, 0.08), transparent),
+    radial-gradient(40rem 40rem at 8% 110%, rgba(34, 197, 94, 0.07), transparent);
+  pointer-events: none;
+}

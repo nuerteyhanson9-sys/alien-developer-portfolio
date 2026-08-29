@@ -1,0 +1,25 @@
+export const LINKS = {
+  base: import.meta.env.BASE_URL,
+  resume: `${import.meta.env.BASE_URL}resume.pdf`,
+  github: "https://github.com/nuerteyhanson9-sys",
+  linkedin: "https://www.linkedin.com/in/hanson-nuertey-633b053b6",
+  contra: "https://contra.com/hanson-nuertey",
+  whatsapp: "https://wa.me/233509120845?text=Hi%20Hanson!%20I%27d%20like%20to%20work%20with%20you.",
+  liveRepo: "https://github.com/nuerteyhanson9-sys/be-kind-hotel",
+  bekindLive: "https://bekind-hotel.vercel.app/",
+  chowLive: "https://chow-heaven.vercel.app/"
+};
+
+// Backend endpoint for the contact form (JSON POST).
+export const BACKEND_URL =
+  (import.meta.env.VITE_BACKEND_URL || "https://your-backend.onrender.com").replace(/\/$/, "");
+
+export const NAV_LINKS = [
+  { label: "Work", href: "#work" },
+  { label: "Services", href: "#services" },
+  { label: "Skills", href: "#skills" },
+  { label: "About", href: "#about" },
+  { label: "Contact", href: "#contact" }
+];
+
+export const SECTION_IDS = ["hero", "work", "services", "skills", "about", "contact"];

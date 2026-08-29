@@ -1,0 +1,55 @@
+%PDF-1.4
+1 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica >>
+endobj
+2 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica-Bold >>
+endobj
+3 0 obj
+<< /Type /Catalog >>
+endobj
+4 0 obj
+<< /Type /Pages /Kids ${obj.Kids} /Count ${obj.Count} >>
+endobj
+5 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font {F1:1,F2:2} >> /Contents 5 0 R >>
+endobj
+6 0 obj
+<< /Length 1464 >>
+stream
+BT /F2 20 Tf 72 770 Td (HANSON NUERTEY) Tj ET 0 0 Td
+BT /F1 10 Tf 72 738 Td (AI Developer | Web Developer | Prompt Engineer) Tj ET 0 0 Td
+BT /F1 10 Tf 72 714 Td (Graphic Designer | AI UGC Creator | Mobile App Developer) Tj ET 0 0 Td
+BT /F1 10 Tf 72 690 Td (Accra, Ghana | nuerteyhanson9@gmail.com) Tj ET 0 0 Td
+BT /F1 10 Tf 72 666 Td () Tj ET 0 0 Td
+BT /F2 13 Tf 72 642 Td (PROFILE) Tj ET 0 0 Td
+BT /F1 10 Tf 72 618 Td (Multidisciplinary developer and designer \(ALIEN.DEV\) building AI-powered websites,) Tj ET 0 0 Td
+BT /F1 10 Tf 72 594 Td (conversion-focused UGC ads and clean brand design for startups and brands. Open to remote.) Tj ET 0 0 Td
+BT /F1 10 Tf 72 570 Td () Tj ET 0 0 Td
+BT /F2 13 Tf 72 546 Td (SKILLS) Tj ET 0 0 Td
+BT /F1 10 Tf 72 522 Td (Web Development \(React, Tailwind CSS, Vite\), Python, Prompt Engineering,) Tj ET 0 0 Td
+BT /F1 10 Tf 72 498 Td (AI UGC Creation, Graphic Design \(Photoshop\), Mobile App Development) Tj ET 0 0 Td
+BT /F1 10 Tf 72 474 Td () Tj ET 0 0 Td
+BT /F2 13 Tf 72 450 Td (SELECTED PROJECTS) Tj ET 0 0 Td
+BT /F1 10 Tf 72 426 Td (- BeKind Hotel & Suites: full responsive booking-style website) Tj ET 0 0 Td
+BT /F1 10 Tf 72 402 Td (- Chow Heaven Restaurant: interactive website + flyer brand suite) Tj ET 0 0 Td
+BT /F1 10 Tf 72 378 Td (- Abena Foods: product flyer campaigns \(photoshop\)) Tj ET 0 0 Td
+BT /F1 10 Tf 72 354 Td (- AI UGC video ads: short-form promo clips) Tj ET 0 0 Td
+BT /F1 10 Tf 72 330 Td () Tj ET 0 0 Td
+
+endstream
+endobj
+xref
+0 7
+0000000000 65535 f 
+0000000009 00000 n 
+0000000079 00000 n 
+0000000154 00000 n 
+0000000190 00000 n 
+0000000262 00000 n 
+0000000384 00000 n 
+trailer
+<< /Size 7 /Root 1 0 R >>
+startxref
+1900
+%%EOF

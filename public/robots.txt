@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Allow: /assets/
+Disallow: /404.html
+
+Sitemap: https://nuerteyhanson9-sys.github.io/alien-developer-portfolio/sitemap.xml
