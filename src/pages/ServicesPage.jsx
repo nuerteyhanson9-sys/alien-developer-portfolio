@@ -1,3 +1,7 @@
+import { Link } from "react-router-dom";
+import usePageMeta from "../hooks/usePageMeta.js";
+import Page from "../components/Page.jsx";
+
 const plans = [
   {
     name: "Starter",
@@ -22,11 +26,18 @@ const plans = [
   }
 ];
 
-export default function Services() {
-  return (
-    <section id="services" className="section-shell pb-20">
-      <h2 className="section-title">SERVICES</h2>
+export default function ServicesPage() {
+  usePageMeta(
+    "Services — Hanson | Websites, UGC & Design",
+    "Pricing packages by Hanson Nuertey: Starter ($50) logo & flyers, Growth ($150) landing page with AI chatbot, Premium ($300) full website plus UGC."
+  );
 
+  return (
+    <Page
+      kicker="What I offer"
+      title="SERVICES"
+      subtitle="Simple, transparent packages. Pick a plan, tap Choose, and tell me about your project."
+    >
       <div className="grid grid-cols-1 items-center gap-6 md:grid-cols-3">
         {plans.map((plan) => (
           <article
@@ -67,8 +78,8 @@ export default function Services() {
               ))}
             </ul>
 
-            <a
-              href="#contact"
+            <Link
+              to="/contact"
               className={
                 plan.featured
                   ? "mt-8 rounded-xl bg-neon px-6 py-3 text-sm font-bold text-black transition-all duration-300 hover:bg-neon-soft hover:shadow-[0_0_24px_rgba(34,197,94,0.5)]"
@@ -76,10 +87,10 @@ export default function Services() {
               }
             >
               Choose
-            </a>
+            </Link>
           </article>
         ))}
       </div>
-    </section>
+    </Page>
   );
 }

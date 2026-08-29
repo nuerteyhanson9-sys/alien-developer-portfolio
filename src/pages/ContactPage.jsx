@@ -1,9 +1,15 @@
 import { useState } from "react";
+import usePageMeta from "../hooks/usePageMeta.js";
+import Page from "../components/Page.jsx";
 import { BACKEND_URL } from "../site.js";
 
 const initial = { name: "", email: "", service: "", message: "" };
 
-export default function Contact() {
+export default function ContactPage() {
+  usePageMeta(
+    "Contact — Hanson | AI Developer & Designer",
+    "Start a project with Hanson Nuertey. Send a message for websites, AI UGC or design work."
+  );
   const [form, setForm] = useState(initial);
   const [status, setStatus] = useState("idle"); // idle | sending | success | error
 
@@ -29,13 +35,12 @@ export default function Contact() {
   }
 
   return (
-    <section id="contact" className="section-shell pb-16">
-      <h2 className="section-title text-center">CONTACT</h2>
-
-      <form
-        onSubmit={handleSubmit}
-        className="glass-card mx-auto flex w-full max-w-2xl flex-col gap-5 p-8"
-      >
+    <Page
+      kicker="Get in touch"
+      title="CONTACT"
+      subtitle="Tell me about your project — websites, AI UGC or design. I reply fast."
+    >
+      <form onSubmit={handleSubmit} className="glass-card mx-auto flex w-full max-w-2xl flex-col gap-5 p-8">
         <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
           <label className="flex flex-col gap-2">
             <span className="text-xs uppercase tracking-widest text-white/50">Name</span>
@@ -87,31 +92,22 @@ export default function Contact() {
           />
         </label>
 
-        <button
-          type="submit"
-          disabled={status === "sending"}
-          className="neon-btn w-full disabled:cursor-not-allowed disabled:opacity-60"
-        >
+        <button type="submit" disabled={status === "sending"} className="neon-btn w-full disabled:cursor-not-allowed disabled:opacity-60">
           {status === "sending" ? "Sending…" : "Send Message 👽"}
         </button>
 
         {status === "success" && (
-          <p className="text-center text-sm text-neon">
-            Message sent. I&rsquo;ll get back to you soon.
-          </p>
+          <p className="text-center text-sm text-neon">Message sent. I&rsquo;ll get back to you soon.</p>
         )}
         {status === "error" && (
           <p className="text-center text-sm text-red-400">
             Something went wrong. Email me directly at{" "}
-            <a
-              href="mailto:nuerteyhanson9@gmail.com"
-              className="underline underline-offset-2 text-neon"
-            >
+            <a href="mailto:nuerteyhanson9@gmail.com" className="underline underline-offset-2 text-neon">
               nuerteyhanson9@gmail.com
             </a>
           </p>
         )}
       </form>
-    </section>
+    </Page>
   );
 }

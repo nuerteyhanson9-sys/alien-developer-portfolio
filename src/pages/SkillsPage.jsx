@@ -1,3 +1,6 @@
+import usePageMeta from "../hooks/usePageMeta.js";
+import Page from "../components/Page.jsx";
+
 const skills = [
   { label: "Web Dev", accent: "green", icon: "M8 6l-5 6 5 6M16 6l5 6-5 6M13 4l-2 16" },
   { label: "Python", accent: "purple", icon: "M12 2C7 2 5 5 5 8c0 2 1.2 3.5 3 4.5L6.6 14C5 15 4 16.8 4 19c0 3.5 3 4.5 8 4.5s8-1 8-4.5c0-2.2-1-4-2.5-5L15.4 12.5c1.8-1 3-2.5 3-4.5 0-3-2-6-6.4-6zM9 7.5a1 1 0 110 2 1 1 0 010-2zm6 0a1 1 0 110 2 1 1 0 010-2zM12 19c-3.5 0-5 .3-5.5 1 .5.7 2 1 5.5 1s5-.3 5.5-1c-.5-.7-2-1-5.5-1z" },
@@ -11,11 +14,18 @@ const accents = {
   purple: "border-violet-neon/40 text-violet-soft"
 };
 
-export default function Skills() {
-  return (
-    <section id="skills" className="section-shell pb-20">
-      <h2 className="section-title text-center">SKILLS</h2>
+export default function SkillsPage() {
+  usePageMeta(
+    "Skills — Hanson | AI Developer & Designer",
+    "The skills of Hanson Nuertey: web development, Python, prompt engineering, AI UGC creation and Photoshop."
+  );
 
+  return (
+    <Page
+      kicker="What I work with"
+      title="SKILLS"
+      subtitle="A focused stack — deep enough to ship products, wide enough to cover code, AI and design."
+    >
       <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-5">
         {skills.map((skill, i) => (
           <article
@@ -41,6 +51,6 @@ export default function Skills() {
           </article>
         ))}
       </div>
-    </section>
+    </Page>
   );
 }

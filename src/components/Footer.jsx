@@ -31,12 +31,13 @@ export default function Footer() {
           © 2026 <span className="text-neon">ALIEN.DEV</span> · Hanson Nuertey
         </p>
 
-        <a
-          href="#hero"
-          className="text-xs uppercase tracking-widest text-white/40 transition-colors hover:text-neon"
+        <button
+          type="button"
+          onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+          className="cursor-pointer text-xs uppercase tracking-widest text-white/40 transition-colors hover:text-neon"
         >
           Back to top ↑
-        </a>
+        </button>
       </div>
     </footer>
   );

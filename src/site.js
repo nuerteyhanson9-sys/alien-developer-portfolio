@@ -14,13 +14,3 @@ export const LINKS = {
 // Backend endpoint for the contact form (JSON POST).
 export const BACKEND_URL =
   (import.meta.env.VITE_BACKEND_URL || "https://your-backend.onrender.com").replace(/\/$/, "");
-
-export const NAV_LINKS = [
-  { label: "Work", href: "#work" },
-  { label: "Services", href: "#services" },
-  { label: "Skills", href: "#skills" },
-  { label: "About", href: "#about" },
-  { label: "Contact", href: "#contact" }
-];
-
-export const SECTION_IDS = ["hero", "work", "services", "skills", "about", "contact"];

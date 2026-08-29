@@ -1,6 +1,8 @@
 import { useRef, useState } from "react";
 import { LINKS } from "../site.js";
-import Lightbox from "./Lightbox.jsx";
+import usePageMeta from "../hooks/usePageMeta.js";
+import Page from "../components/Page.jsx";
+import Lightbox from "../components/Lightbox.jsx";
 import ugcVideo from "../../assets/vaseline-ugc-opt.mp4";
 import ugcPoster from "../../assets/vaseline-ugc-poster.jpg";
 import bekindF1 from "../../assets/be-kind-flyer-opt.jpg";
@@ -160,7 +162,10 @@ function FlyerCard({ index, title, cover, count, onOpen }) {
       <p className="mt-4 text-sm leading-relaxed text-white/70">
         Brand flyer set designed in Photoshop — social, print and menu-ready.
       </p>
-      <div className="mt-4 flex flex-wrap gap-2">{tag("Photoshop")}{tag("Branding")}</div>
+      <div className="mt-4 flex flex-wrap gap-2">
+        {tag("Photoshop")}
+        {tag("Branding")}
+      </div>
     </article>
   );
 }
@@ -178,7 +183,11 @@ function PhoneMock() {
   );
 }
 
-export default function Work() {
+export default function WorkPage() {
+  usePageMeta(
+    "Work — Hanson | AI Developer & Designer",
+    "Selected projects by Hanson Nuertey: BeKind Hotel, Chow Heaven, digital wedding invitation, ShopWave app, flyer sets and AI UGC ads."
+  );
   const [gallery, setGallery] = useState(null);
 
   const flyerBrands = [
@@ -211,20 +220,18 @@ export default function Work() {
   ];
 
   return (
-    <section id="work" className="section-shell pb-20">
-      <h2 className="section-title">
-        WORK <span className="text-neon">/</span> <span className="text-neon">03</span>
-      </h2>
-
+    <Page
+      kicker="Portfolio"
+      title="WORK"
+      subtitle="Selected projects across web development, AI UGC, design and mobile — hover a card, open a live site, or click a gallery."
+    >
       <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
         {/* Card 1 — Web Development (BeKind) */}
         <WebPreviewCard
           index={1}
           title="Web Development"
           img={preview("bekind")}
-          description={
-            "BeKind Hotel & Suites needed a modern booking-style site that turns mobile visitors into bookings. I rebuilt it responsive, fast and conversion-focused — a clean, premium online presence."
-          }
+          description="BeKind Hotel & Suites needed a modern booking-style site that turns mobile visitors into bookings. I rebuilt it responsive, fast and conversion-focused."
           tags={["React", "Tailwind CSS", "Responsive"]}
           liveHref={LINKS.bekindLive}
           liveLabel="Live Site"
@@ -265,9 +272,7 @@ export default function Work() {
           index={4}
           title="Chow Heaven"
           img={preview("chow-heaven")}
-          description={
-            "Full restaurant website for Chow Heaven — interactive menu, gallery and ordering flow with a warm, appetite-first design."
-          }
+          description="Full restaurant website for Chow Heaven — interactive menu, gallery and ordering flow with a warm, appetite-first design."
           tags={["HTML", "CSS", "JavaScript"]}
           liveHref={LINKS.chowLive}
           liveLabel="Live Site"
@@ -278,9 +283,7 @@ export default function Work() {
           index={5}
           title="Wedding Invitation"
           img={preview("wedding")}
-          description={
-            "A complete digital wedding invitation — hero, story, gallery, schedule and RSVP — designed to feel personal and elegant."
-          }
+          description="A complete digital wedding invitation — hero, story, gallery, schedule and RSVP — designed to feel personal and elegant."
           tags={["HTML", "CSS", "JavaScript", "Responsive"]}
           liveHref={LINKS.wedding}
           liveLabel="View Invite"
@@ -301,11 +304,7 @@ export default function Work() {
             {tag("APK")}
             {tag("UI Design")}
           </div>
-          <a
-            href={LINKS.apk}
-            download
-            className="neon-btn mt-5 w-full !py-2.5 text-center text-xs"
-          >
+          <a href={LINKS.apk} download className="neon-btn mt-5 w-full !py-2.5 text-center text-xs">
             Download APK ↓
           </a>
         </Card>
@@ -334,6 +333,6 @@ export default function Work() {
           }}
         />
       )}
-    </section>
+    </Page>
   );
 }
